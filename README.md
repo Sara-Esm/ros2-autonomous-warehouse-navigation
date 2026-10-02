@@ -111,12 +111,9 @@ warehouse_ws/
 │       ├── aruco_marker_2/     # Inventory station marker (ID 2)
 │       └── aruco_marker_3/     # Dispatch zone marker (ID 3)
 │
-├── warehouse_perception/       # Computer vision
-│   └── warehouse_perception/
-│       └── aruco_station_detector.py   # Real-time ArUco detection node
-│
-├── warehouse_mission/          # Mission definitions
-└── warehouse_docking/          # Docking behavior
+└── warehouse_perception/       # Computer vision
+    └── warehouse_perception/
+        └── aruco_station_detector.py   # Real-time ArUco detection node
 ```
 
 ---
