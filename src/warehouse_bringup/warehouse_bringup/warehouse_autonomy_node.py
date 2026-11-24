@@ -99,12 +99,22 @@ class WarehouseAutonomy(Node):
 
     def send_next_goal(self):
         if self.current_index >= len(self.waypoints):
-            self.get_logger().info('========================================')
-            self.get_logger().info('WAREHOUSE MISSION COMPLETE')
-            self.get_logger().info(f'Total mission steps: {len(self.waypoints)}')
-            self.get_logger().info(f'Successful tasks: {self.successful_tasks}')
-            self.get_logger().info(f'Failed tasks: {self.failed_tasks}')
-            self.get_logger().info('========================================')
+            log = self.get_logger()
+            log.info('========================================')
+
+            if (self.failed_tasks == 0 and
+                    self.successful_tasks == len(self.waypoints)):
+                log.info('WAREHOUSE MISSION COMPLETE: ALL TASKS SUCCEEDED')
+            else:
+                log.error(
+                    f'WAREHOUSE MISSION FINISHED WITH FAILURES: '
+                    f'{self.failed_tasks} of {len(self.waypoints)} failed'
+                )
+
+            log.info(f'Total mission steps: {len(self.waypoints)}')
+            log.info(f'Successful tasks: {self.successful_tasks}')
+            log.info(f'Failed tasks: {self.failed_tasks}')
+            log.info('========================================')
             return
 
         wp = self.waypoints[self.current_index]

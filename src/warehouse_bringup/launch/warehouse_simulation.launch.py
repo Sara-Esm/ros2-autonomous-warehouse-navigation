@@ -29,7 +29,7 @@ def generate_launch_description():
 
     gazebo_models = (
         '/usr/share/gazebo-11/models:'
-        + os.path.expanduser('~/projects/warehouse_ws/src/warehouse_gazebo/models:')
+        + (os.path.join(warehouse_gazebo_pkg, 'models') + ':')
         + '/opt/ros/humble/share/turtlebot3_gazebo/models'
     )
 
