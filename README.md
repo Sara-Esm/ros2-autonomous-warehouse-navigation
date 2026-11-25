@@ -27,6 +27,11 @@ a navigation abort after a 116-second wait before retrying. Two linked CI runs
 ([45570293516](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45570293516), [45579301270](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45579301270)) also verified all five
 visits. [Full trial log →](docs/trial_results.md)
 
+Five successful steps show that navigation completed and that each station's marker *identity* was
+confirmed. They do not show precise physical positioning. In a later diagnostic experiment, the robot
+stopped 0.18–0.50 m from the intended station positions while still passing every marker check
+([diagnostic report →](docs/diagnostics/REPORT.md)).
+
 *Simulation only. See [Limitations](#limitations).*
 
 ---
@@ -137,7 +142,12 @@ goal. On arrival it waits up to 15 s (simulation time) for the expected marker I
 detections received after arrival count. A failed marker check fails that task and the
 mission continues. An aborted navigation is retried once, after the supervisor sees the
 controller finish. A cancellation, or a failed retry, halts the mission. The markers are
-0.28 m DICT_5X5_50 tags on the warehouse walls, about 0.67–0.97 m in front of the goal poses.
+0.28 m DICT_5X5_50 tags standing about 0.3 m in front of the warehouse walls, 0.67–0.97 m in front of the goal poses.
+
+The station goals are approach poses about 0.67–0.97 m in front of the markers, not the marker positions.
+They were measured in Gazebo's *world* frame, but Nav2 executes them in the SLAM *map* frame. The diagnostic
+experiment found a relative rotation of about 2.05° and a translation between these frames. That explains
+most of the measured station positioning discrepancies (see below).
 
 ### System architecture
 
@@ -313,6 +323,38 @@ Earlier trials (01–08) record the baseline, a rejected headless experiment, an
 that led to the supervision work. Every trial, including unsuccessful and interrupted ones,
 is listed with notes in [`docs/trial_results.md`](docs/trial_results.md).
 
+### Station positioning (separate diagnostic experiment)
+
+These numbers come from one instrumented diagnostic mission on v1.0.1 (2026-11-25), not from the trials
+above. Ground truth is Gazebo's world pose of the robot at the moment the mission logged ARRIVED.
+
+| Station | Distance from intended position | Heading error | Marker verified |
+|---|---|---|---|
+| Home Charging Dock | 0.50 m | +9.6° | yes |
+| Loading Zone | 0.40 m | +9.5° | yes |
+| Inventory Scan Station | 0.18 m | +8.9° | yes |
+| Dispatch Zone | 0.32 m | −2.4° | yes |
+
+A single rigid map-to-world transform (2.05° rotation plus a translation), fitted only to map geometry,
+predicts these distances to within 0.03–0.11 m. The rigid transform explains most, not all, of the
+discrepancy. Residual errors remain:
+
+- systematic regional shifts of about 5 cm or less;
+- residual position error with a median of 8.8 cm, a 95th percentile of 19.5 cm and a maximum of 25.0 cm;
+- a worst regional median of 16.2 cm.
+
+In this diagnostic experiment:
+
+- Four station visits completed and passed ArUco identity verification.
+- The fifth visit was incomplete because Gazebo crashed. Instrumentation interference is suspected, not confirmed.
+- Motion after a successful final completion remains unresolved.
+- The BT client's runtime clock was inferred rather than directly verified.
+- Action-acknowledgement latency was not measured.
+
+These results are separate from the successful historical missions in the table above. Methods,
+measurements, limitations and an untested improvement backlog are in
+[`docs/diagnostics/REPORT.md`](docs/diagnostics/REPORT.md).
+
 ---
 
 ## Limitations
@@ -323,8 +365,10 @@ is listed with notes in [`docs/trial_results.md`](docs/trial_results.md).
    start poses.
 2. **No independent safety layer.** Stop verification reads the same odometry the
    controller uses. A real robot would need a safety-rated stop path.
-3. **Map quality.** Large parts of the saved occupancy grid are unknown, and NavFn may plan
-   through unknown space. Some obstacles are only partly visible to a 2D LiDAR.
+3. **Map and frames.** Large parts of the saved occupancy grid were never observed. With the
+   map's `free_thresh: 0.25` they load as free rather than unknown, and the map's outer wall is not closed.
+   The map frame is rotated about 2° relative to the Gazebo world frame in which the station goals were
+   written. Some obstacles are only partly visible to a 2D LiDAR.
 4. **Simulation performance.** The simulation runs at 0.31–0.74× real time on the
    development machine, and the controller logs warnings that it missed its desired control
    rate. The two GUI-free runs (Trials 05-06) were faster but much less reliable. They
@@ -335,14 +379,19 @@ is listed with notes in [`docs/trial_results.md`](docs/trial_results.md).
 6. **Fixed mission.** Waypoints are hard-coded and there is one robot. "Docking" is a
    navigation goal within 0.12 m / 0.15 rad plus a marker check, not precision docking.
 7. **Marker presence, not pose.** A station counts as verified when the expected marker ID
-   is detected after arrival. There is no marker pose estimation or camera calibration.
+   is detected after arrival. There is no marker pose estimation or camera calibration. With a
+   182° camera, verification passes even when the robot stops 0.5 m from the intended spot.
+8. **Completion is not tied to a stop check.** The success path reports mission completion
+   without checking that the robot is stationary. That check runs only after a halt.
 
 ## Next steps
 
-- **Raise Nav2's `default_server_timeout`.** `bt_navigator` gives each server 20 ms (the
-  Nav2 default) to acknowledge a goal. Every trial logs such timeouts (3–41 per run), and in
-  Trial 12 they caused the first abort. A larger value should remove them, but needs its own
-  validation trials.
+- **Size Nav2's `default_server_timeout` from measurements.** `bt_navigator` gives each server
+  20 ms (the Nav2 default) to acknowledge a goal. Every logged run has such timeouts (1–41 per
+  run). In Trial 12 they caused the first abort, and in the diagnostic run each one turned into a planner
+  or controller failure, including a Spin and a BackUp recovery. The acknowledgement latency
+  has not been measured, so a larger value is untested and may not remove all of them
+  ([analysis](docs/diagnostics/REPORT.md#4-action-acknowledgement-timeouts-and-recoveries)).
 - **Handle signals as a flag.** The signal handler currently raises an exception wherever
   the main thread is. If Ctrl+C or SIGTERM lands exactly as Nav2 accepts a goal, cleanup
   still cancels and exits 130, but reported `ROBOT STOP NOT VERIFIED` in 2 of about 17
@@ -353,6 +402,8 @@ is listed with notes in [`docs/trial_results.md`](docs/trial_results.md).
 ## Documentation
 
 - [`docs/trial_results.md`](docs/trial_results.md): every trial, its metrics and notes
+- [`docs/diagnostics/REPORT.md`](docs/diagnostics/REPORT.md): diagnostic investigation of v1.0.1
+  (map and frame alignment, localization, planning, control dynamics, ArUco, timing, completion)
 - [`docs/operation.md`](docs/operation.md): package layout, interfaces, parameters,
   stopping the mission, engineering challenges
 - [`docs/trial_baseline_protocol_v1.md`](docs/trial_baseline_protocol_v1.md): the original

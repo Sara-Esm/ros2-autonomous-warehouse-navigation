@@ -1,0 +1,77 @@
+/global_costmap/global_costmap:
+  ros__parameters:
+    /bond_disable_heartbeat_timeout: true
+    always_send_full_costmap: true
+    filters: []
+    footprint: '[]'
+    footprint_padding: 0.009999999776482582
+    global_frame: map
+    height: 5
+    inflation_layer:
+      cost_scaling_factor: 4.0
+      enabled: true
+      inflate_around_unknown: false
+      inflate_unknown: false
+      inflation_radius: 0.5
+      plugin: nav2_costmap_2d::InflationLayer
+    lethal_cost_threshold: 100
+    map_topic: /map
+    observation_sources: ''
+    obstacle_layer:
+      combination_method: 1
+      enabled: true
+      footprint_clearing_enabled: true
+      max_obstacle_height: 2.0
+      min_obstacle_height: 0.0
+      observation_sources: scan
+      plugin: nav2_costmap_2d::ObstacleLayer
+      scan:
+        clearing: true
+        data_type: LaserScan
+        expected_update_rate: 0.0
+        inf_is_valid: false
+        marking: true
+        max_obstacle_height: 2.0
+        min_obstacle_height: 0.0
+        observation_persistence: 0.0
+        obstacle_max_range: 2.5
+        obstacle_min_range: 0.0
+        raytrace_max_range: 3.0
+        raytrace_min_range: 0.0
+        sensor_frame: ''
+        topic: /scan
+    origin_x: 0.0
+    origin_y: 0.0
+    plugins:
+    - static_layer
+    - obstacle_layer
+    - inflation_layer
+    publish_frequency: 1.0
+    qos_overrides:
+      /clock:
+        subscription:
+          depth: 1
+          durability: volatile
+          history: keep_last
+          reliability: best_effort
+    resolution: 0.05
+    robot_base_frame: base_link
+    robot_radius: 0.14
+    rolling_window: false
+    static_layer:
+      enabled: true
+      footprint_clearing_enabled: false
+      map_subscribe_transient_local: true
+      map_topic: ''
+      plugin: nav2_costmap_2d::StaticLayer
+      subscribe_to_updates: false
+      transform_tolerance: 0.0
+    track_unknown_space: true
+    transform_tolerance: 0.3
+    trinary_costmap: true
+    unknown_cost_value: 255
+    update_frequency: 1.0
+    use_maximum: false
+    use_sim_time: true
+    width: 5
+

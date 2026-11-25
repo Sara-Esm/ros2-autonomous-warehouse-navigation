@@ -1,0 +1,59 @@
+[INFO] [1795647634.867699589] [warehouse_autonomy]: Warehouse autonomy workflow manager started.
+[INFO] [1795647634.875534091] [warehouse_autonomy]: Waiting for Nav2 action server...
+[WARN] [1795647634.990354858] [warehouse_autonomy]: Still waiting (STARTUP): navigate_to_pose action server not available; bt_navigator not ACTIVE (service unavailable)
+[INFO] [1795647637.184416809] [warehouse_autonomy]: Nav2 is ready. Starting warehouse mission in 10 seconds...
+[INFO] [1795647654.042912534] [warehouse_autonomy]: ----------------------------------------
+[INFO] [1795647654.044862302] [warehouse_autonomy]: MISSION STEP 1/5
+[INFO] [1795647654.047449313] [warehouse_autonomy]: Navigating to Home Charging Dock: x=-3.678, y=9.3, yaw=90.0 deg
+[INFO] [1795647654.080371112] [warehouse_autonomy]: Goal accepted by Nav2.
+[INFO] [1795647750.034078072] [warehouse_autonomy]: ARRIVED: Home Charging Dock
+[INFO] [1795647750.038714099] [warehouse_autonomy]: Looking for ArUco marker ID 0...
+[INFO] [1795647750.392275135] [warehouse_autonomy]: Correct marker detected: expected=0, detected=0
+[INFO] [1795647750.393551501] [warehouse_autonomy]: VISION VERIFIED: Home Charging Dock
+[INFO] [1795647750.397536809] [warehouse_autonomy]: TASK: Verify robot home dock and charging station
+[INFO] [1795647754.782725197] [warehouse_autonomy]: TASK COMPLETE: Home Charging Dock
+[INFO] [1795647757.983527236] [warehouse_autonomy]: ----------------------------------------
+[INFO] [1795647757.986768930] [warehouse_autonomy]: MISSION STEP 2/5
+[INFO] [1795647757.991302778] [warehouse_autonomy]: Navigating to Loading Zone: x=1.803, y=9.3, yaw=90.0 deg
+[INFO] [1795647757.998227085] [warehouse_autonomy]: Goal accepted by Nav2.
+[INFO] [1795647845.344435248] [warehouse_autonomy]: ARRIVED: Loading Zone
+[INFO] [1795647845.347055135] [warehouse_autonomy]: Looking for ArUco marker ID 1...
+[INFO] [1795647846.296932201] [warehouse_autonomy]: Correct marker detected: expected=1, detected=1
+[INFO] [1795647846.306991919] [warehouse_autonomy]: VISION VERIFIED: Loading Zone
+[INFO] [1795647846.308525123] [warehouse_autonomy]: TASK: Verify loading area
+[INFO] [1795647850.675324002] [warehouse_autonomy]: TASK COMPLETE: Loading Zone
+[INFO] [1795647854.182129574] [warehouse_autonomy]: ----------------------------------------
+[INFO] [1795647854.188082954] [warehouse_autonomy]: MISSION STEP 3/5
+[INFO] [1795647854.193313576] [warehouse_autonomy]: Navigating to Inventory Scan Station: x=1.801, y=-9.0, yaw=-90.0 deg
+[INFO] [1795647854.210906617] [warehouse_autonomy]: Goal accepted by Nav2.
+[INFO] [1795647992.554321601] [warehouse_autonomy]: ARRIVED: Inventory Scan Station
+[INFO] [1795647992.555809850] [warehouse_autonomy]: Looking for ArUco marker ID 2...
+[INFO] [1795647993.669593966] [warehouse_autonomy]: Correct marker detected: expected=2, detected=2
+[INFO] [1795647993.671013493] [warehouse_autonomy]: VISION VERIFIED: Inventory Scan Station
+[INFO] [1795647993.672773844] [warehouse_autonomy]: TASK: Verify shelf inventory using wall marker
+[INFO] [1795647997.986028900] [warehouse_autonomy]: TASK COMPLETE: Inventory Scan Station
+[INFO] [1795648001.102240530] [warehouse_autonomy]: ----------------------------------------
+[INFO] [1795648001.108417422] [warehouse_autonomy]: MISSION STEP 4/5
+[INFO] [1795648001.109909501] [warehouse_autonomy]: Navigating to Dispatch Zone: x=-3.63, y=-9.3, yaw=-90.0 deg
+[INFO] [1795648001.200269848] [warehouse_autonomy]: Goal accepted by Nav2.
+[INFO] [1795648046.391986702] [warehouse_autonomy]: ARRIVED: Dispatch Zone
+[INFO] [1795648046.393778944] [warehouse_autonomy]: Looking for ArUco marker ID 3...
+[INFO] [1795648048.660726503] [warehouse_autonomy]: Correct marker detected: expected=3, detected=3
+[INFO] [1795648048.662242226] [warehouse_autonomy]: VISION VERIFIED: Dispatch Zone
+[INFO] [1795648048.670992337] [warehouse_autonomy]: TASK: Verify dispatch area
+[INFO] [1795648052.951533080] [warehouse_autonomy]: TASK COMPLETE: Dispatch Zone
+[INFO] [1795648056.253763475] [warehouse_autonomy]: ----------------------------------------
+[INFO] [1795648056.274785305] [warehouse_autonomy]: MISSION STEP 5/5
+[INFO] [1795648056.277045807] [warehouse_autonomy]: Navigating to Return to Home Charging Dock: x=-3.678, y=9.3, yaw=90.0 deg
+[INFO] [1795648056.425271282] [warehouse_autonomy]: Goal accepted by Nav2.
+[ERROR] [1795648141.618160548] [warehouse_autonomy]: ========================================
+[ERROR] [1795648141.620166564] [warehouse_autonomy]: MISSION HALTED: Simulation clock stalled: /clock did not advance for 15 s (wall)
+[ERROR] [1795648141.621437575] [warehouse_autonomy]: Total mission steps: 5
+[ERROR] [1795648141.622622484] [warehouse_autonomy]: Successful tasks: 4
+[ERROR] [1795648141.624331398] [warehouse_autonomy]: Failed tasks: 1
+[ERROR] [1795648141.625916810] [warehouse_autonomy]: Unattempted tasks: 0
+[ERROR] [1795648141.627513423] [warehouse_autonomy]: ========================================
+[ERROR] [1795648141.629164836] [warehouse_autonomy]: No further mission goals will be sent.
+[WARN] [1795648141.630815750] [warehouse_autonomy]: A navigation goal may still be active; requesting cancel.
+[ERROR] [1795648156.680673847] [warehouse_autonomy]: ROBOT STOP NOT VERIFIED after 15 s: no recent odometry
+[ros2run]: Process exited with failure 2

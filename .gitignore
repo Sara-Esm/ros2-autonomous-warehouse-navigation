@@ -22,3 +22,6 @@ __pycache__/
 
 # Ignore ROS bag files
 *.bag
+
+# Raw diagnostic recordings (kept locally; compact results live in docs/diagnostics/)
+/diagnostics_20261125/

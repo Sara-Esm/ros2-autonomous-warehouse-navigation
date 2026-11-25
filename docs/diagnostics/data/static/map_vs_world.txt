@@ -1,0 +1,32 @@
+map: 318x439 px, res 0.05 m, origin (-7.56, -10.8), extent x[-7.56,8.34] y[-10.80,11.15]
+map cells: occupied 3772, free 135830, unknown 0 (0.0% unknown)
+GT LiDAR-height slice cells: 5957; GT body-band cells: 6194
+best rigid offset (map = R*world + t): dx=+0.15 m dy=+0.05 m dtheta=-2.25 deg; median residual 0.100 m mean 0.244 m
+  GT slice cells with a map obstacle within 0.05 m (no offset): 22.0%
+  GT slice cells with a map obstacle within 0.10 m (no offset): 31.0%
+  GT slice cells with a map obstacle within 0.20 m (no offset): 49.1%
+  GT slice cells with a map obstacle within 0.50 m (no offset): 78.4%
+  map occupied cells within 0.05 m of GT body geometry: 40.0%
+  map occupied cells within 0.10 m of GT body geometry: 54.3%
+  map occupied cells within 0.20 m of GT body geometry: 74.5%
+  map occupied cells within 0.50 m of GT body geometry: 99.2%
+phantom map obstacles (>0.25 m from any GT geometry): 606 cells
+GT body-band geometry cells that the map says are FREE: 5623 cells
+unknown cells bordering free space (holes/frontiers): 0
+station dock       (-3.678,+9.300) map cell value=free clearance to map obstacle=1.15 m, to GT geometry=1.00 m
+    marker at (-3.678,+9.970): offset from goal dx=-0.000 dy=+0.670 dist=0.670 m; bearing from goal heading=+0.0 deg
+    first GT obstacle straight ahead of goal: 0.975 m (marker plane at 0.670 m)
+    first map obstacle straight ahead of goal: 1.150 m (marker plane at 0.670 m)
+station loading    (+1.803,+9.300) map cell value=free clearance to map obstacle=0.46 m, to GT geometry=0.65 m
+    marker at (+1.803,+9.970): offset from goal dx=-0.000 dy=+0.670 dist=0.670 m; bearing from goal heading=+0.0 deg
+    first GT obstacle straight ahead of goal: 0.975 m (marker plane at 0.670 m)
+    first map obstacle straight ahead of goal: 1.050 m (marker plane at 0.670 m)
+station inventory  (+1.801,-9.000) map cell value=free clearance to map obstacle=0.75 m, to GT geometry=1.00 m
+    marker at (+1.801,-9.970): offset from goal dx=-0.000 dy=-0.970 dist=0.970 m; bearing from goal heading=-0.0 deg
+    first GT obstacle straight ahead of goal: 1.300 m (marker plane at 0.970 m)
+    first map obstacle straight ahead of goal: 1.300 m (marker plane at 0.970 m)
+station dispatch   (-3.630,-9.300) map cell value=free clearance to map obstacle=0.85 m, to GT geometry=1.00 m
+    marker at (-3.630,-9.970): offset from goal dx=+0.000 dy=-0.670 dist=0.670 m; bearing from goal heading=+0.0 deg
+    first GT obstacle straight ahead of goal: 0.975 m (marker plane at 0.670 m)
+    first map obstacle straight ahead of goal: 0.850 m (marker plane at 0.670 m)
+station spawn      (+0.000,+0.000) map cell value=free clearance to map obstacle=1.43 m, to GT geometry=1.43 m

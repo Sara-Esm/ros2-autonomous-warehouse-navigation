@@ -1,0 +1,162 @@
+# Topics recorded: {'/amcl_pose': 252, '/behavior_tree_log': 4392, '/camera/camera_info': 255, '/clock': 4242, '/cmd_vel': 9110, '/cmd_vel_nav': 4361, '/global_costmap/costmap': 317, '/local_costmap/costmap': 680, '/local_plan': 4353, '/map': 1, '/odom': 12476, '/plan': 408, '/rosout': 1049, '/scan': 2101, '/tf': 22822, '/tf_static': 1, '/warehouse/marker_detected': 255, '/warehouse/marker_id': 44}
+
+## 5. Synchronization and performance
+/clock: 4242 msgs over 644.4 s wall / 424.1 s sim -> mean RTF 0.658
+RTF per 10 s wall window: min 0.568 p10 0.597 median 0.665 max 0.736
+  rate /scan                          4.96 Hz sim,   3.26 Hz wall; wall gap p50 295 ms p99 492 ms max 777 ms
+  rate /odom                         29.42 Hz sim,  19.36 Hz wall; wall gap p50 48 ms p99 108 ms max 383 ms
+  rate /camera/camera_info            0.60 Hz sim,   0.40 Hz wall; wall gap p50 2486 ms p99 3662 ms max 4151 ms
+  rate /amcl_pose                     0.59 Hz sim,   0.39 Hz wall; wall gap p50 1791 ms p99 12176 ms max 173857 ms
+  rate /plan                          1.31 Hz sim,   0.84 Hz wall; wall gap p50 1046 ms p99 9022 ms max 22073 ms
+  rate /local_plan                   13.96 Hz sim,   8.94 Hz wall; wall gap p50 99 ms p99 182 ms max 10697 ms
+  rate /cmd_vel_nav                  13.98 Hz sim,   8.96 Hz wall; wall gap p50 100 ms p99 182 ms max 10623 ms
+  rate /cmd_vel                      29.21 Hz sim,  18.68 Hz wall; wall gap p50 50 ms p99 96 ms max 9322 ms
+  rate /warehouse/marker_detected     0.60 Hz sim,   0.40 Hz wall; wall gap p50 2490 ms p99 3683 ms max 4136 ms
+  rate /global_costmap/costmap        0.75 Hz sim,   0.49 Hz wall; wall gap p50 2000 ms p99 3010 ms max 3035 ms
+  rate /local_costmap/costmap         1.60 Hz sim,   1.06 Hz wall; wall gap p50 993 ms p99 1395 ms max 1599 ms
+  rate tf map->odom                   4.96 Hz sim,   3.26 Hz wall; wall gap p50 296 ms p99 520 ms max 783 ms
+  rate tf odom->base_footprint       29.42 Hz sim,  19.36 Hz wall; wall gap p50 48 ms p99 107 ms max 383 ms
+  stamp age at reception scan          : median      +0 ms p95     +12 ms  min     -28 ms (negative = future-dated)
+  stamp age at reception odom          : median      -1 ms p95     +11 ms  min     -40 ms (negative = future-dated)
+  stamp age at reception tf odom->base : median      -0 ms p95     +12 ms  min     -40 ms (negative = future-dated)
+  stamp age at reception tf map->odom  : median    -978 ms p95    -942 ms  min   -1023 ms (negative = future-dated)
+  stamp age at reception amcl_pose     : median     +49 ms p95    +104 ms  min      +1 ms (negative = future-dated)
+  stamp age at reception camera_info  : median   +1647 ms p95   +2006 ms
+  AMCL latency scan-received -> amcl_pose published (wall): median 73 ms p95 147 ms max 210 ms (n=251)
+CPU (top, 356 samples, 8 logical CPUs = 800%): total busy median 95% p90 98% ; load avg 1-min median 30.0 max 37.1
+    gzserver                     mean  263.3%  p90  370.6% (of one core)
+    gzclient                     mean  146.3%  p90  231.2% (of one core)
+    rviz2                        mean   80.1%  p90  106.7% (of one core)
+    component_conta              mean   70.9%  p90  100.0% (of one core)
+    gz                           mean   34.4%  p90   76.5% (of one core)
+    warehouse_auton              mean   23.0%  p90   50.0% (of one core)
+    ros2                         mean   20.3%  p90   31.2% (of one core)
+    aruco_station_d              mean    4.4%  p90   40.1% (of one core)
+    claude                       mean    3.5%  p90   29.8% (of one core)
+    top                          mean    2.5%  p90    6.7% (of one core)
+  memory used max 2476 MiB of 3917.7 ; swap used max 1 MiB
+Launch-log warning counts (during mission window / whole run):
+    bt_tick        3901 /   3901
+    ctrl_miss       176 /    176
+    plan_miss        74 /     74
+    ack_timeout      19 /     19
+    svc_timeout       3 /      3
+    no_valid          0 /      0
+    no_progress       0 /      0
+    fp_abort          1 /      1
+    spin              1 /      1
+    backup            1 /      1
+    wait              1 /      1
+    tf_err            0 /      0
+    tf_lookup         0 /      0
+    msg_filter        0 /      4
+    collision         0 /      0
+    qos               0 /      1
+  corr(RTF, controller misses per 10 s) = -0.02; corr(RTF, BT tick warnings) = +0.07
+
+## 1. Map and localization
+gz truth vs /odom (stationary samples n=55): |dxy| median 0.00 cm max 0.00 cm; dyaw median 0.000 deg -> /odom is Gazebo world ground truth
+  truth z range 0.043..0.043 m, |roll| max 0.88 deg, |pitch| max 0.84 deg
+AMCL (map frame) minus Gazebo truth (world frame) at identical sim stamps, n=252:
+  position error: median 0.236 m, p95 0.502 m, max 0.535 m
+  heading error: median |1.59| deg, p95 4.89 deg, max 6.33 deg
+  reported 1-sigma (sqrt cov): x median 0.271 m, yaw median 15.49 deg
+  true y in [-11, -6): n=  63 mean dx=-0.169 dy=+0.087 |e| median 0.224 m, dyaw mean -1.98 deg
+  true y in [ -6, -2): n=  32 mean dx=-0.052 dy=+0.023 |e| median 0.064 m, dyaw mean -0.06 deg
+  true y in [ -2, +2): n=  50 mean dx=+0.046 dy=+0.062 |e| median 0.054 m, dyaw mean -1.40 deg
+  true y in [ +2, +6): n=  31 mean dx=+0.329 dy=+0.101 |e| median 0.391 m, dyaw mean -2.74 deg
+  true y in [ +6,+11): n=  76 mean dx=+0.439 dy=+0.053 |e| median 0.470 m, dyaw mean -0.16 deg
+map->odom transform over run: x -0.299..+1.470 m, y -0.308..+0.268 m, yaw -5.77..+6.33 deg (identity if map == world)
+  map->odom step changes between consecutive AMCL updates: translation p95 6.3 cm max 87.7 cm; yaw p95 0.60 max 5.46 deg
+LiDAR endpoint fit (n=697 scans): median distance of scan endpoints to nearest obstacle:
+  scan @ AMCL/TF pose vs MAP     : median 0.0 cm, inliers(<10cm) 78%
+  scan @ TRUE pose     vs MAP     : median 10.0 cm, inliers(<10cm) 48%
+  scan @ TRUE pose     vs WORLD GT: median 0.0 cm, inliers(<10cm) 100%  (validates truth + GT raster)
+  true y in [-11, -6): AMCL-pose-vs-map inliers 92%  true-pose-vs-map inliers 41%
+  true y in [ -6, -2): AMCL-pose-vs-map inliers 68%  true-pose-vs-map inliers 65%
+  true y in [ -2, +2): AMCL-pose-vs-map inliers 78%  true-pose-vs-map inliers 71%
+  true y in [ +2, +6): AMCL-pose-vs-map inliers 61%  true-pose-vs-map inliers 21%
+  true y in [ +6,+11): AMCL-pose-vs-map inliers 78%  true-pose-vs-map inliers 19%
+
+## Action timeline (wall s relative to mission start; status 2=executing 4=succeeded 5=canceled 6=aborted)
+  follow_path            goals=   0 final statuses={}
+  compute_path_to_pose   goals=   0 final statuses={}
+  spin                   goals=   0 final statuses={}
+  backup                 goals=   0 final statuses={}
+  wait                   goals=   0 final statuses={}
+  drive_on_heading       goals=   0 final statuses={}
+  BT node status transitions (selected):
+    BackUp                             {'RUNNING': 1, 'SUCCESS': 1, 'IDLE': 1}
+    ClearGlobalCostmap-Context         {'SUCCESS': 12, 'IDLE': 13, 'RUNNING': 6, 'FAILURE': 1}
+    ClearGlobalCostmap-Subtree         {'SUCCESS': 2, 'IDLE': 2}
+    ClearLocalCostmap-Context          {'SUCCESS': 3, 'IDLE': 5, 'RUNNING': 2, 'FAILURE': 2}
+    ClearLocalCostmap-Subtree          {'SUCCESS': 2, 'IDLE': 2, 'RUNNING': 1}
+    ClearingActions                    {'RUNNING': 2, 'SUCCESS': 2, 'IDLE': 2}
+    ComputePathToPose                  {'RUNNING': 808, 'FAILURE': 14, 'IDLE': 808, 'SUCCESS': 794}
+    FollowPath                         {'RUNNING': 21, 'FAILURE': 9, 'IDLE': 19, 'SUCCESS': 8}
+    GoalUpdated                        {'FAILURE': 3181, 'IDLE': 3181}
+    NavigateRecovery                   {'RUNNING': 5, 'SUCCESS': 4, 'IDLE': 4}
+    NavigateWithReplanning             {'RUNNING': 9, 'FAILURE': 4, 'IDLE': 8, 'SUCCESS': 4}
+    RecoveryActions                    {'RUNNING': 4, 'SUCCESS': 4, 'IDLE': 4}
+    RecoveryFallback                   {'RUNNING': 4, 'SUCCESS': 4, 'IDLE': 4}
+    Spin                               {'RUNNING': 1, 'FAILURE': 1, 'IDLE': 1}
+    Wait                               {'RUNNING': 1, 'SUCCESS': 1, 'IDLE': 1}
+  BT FAILURE events: 3213; first 15: 25s ComputePathToPose; 25s FollowPath; 25s FollowPath; 25s FollowPath; 25s NavigateWithReplanning; 25s GoalUpdated; 32s ComputePathToPose; 85s ComputePathToPose; 94s ComputePathToPose; 99s FollowPath; 99s ClearLocalCostmap-Context; 99s FollowPath; 99s NavigateWithReplanning; 99s GoalUpdated; 99s GoalUpdated
+
+## 2/3. Planning and control per navigation goal
+
+### Goal 0: Home Charging Dock (final status arrived)
+  duration 96.0 s wall / 62.9 s sim; straight-line 10.00 m; first plan 11.40 m; executed (truth) 11.80 m -> executed/straight 1.18, executed/first-plan 1.04
+  plans received 74 (~1.18 per sim s); plan length min 0.14 max 11.40; successive-plan deviation p50 0.02 m p95 0.10 m max 0.21 m; switches >0.5 m: 0, >1.0 m: 0
+  mean speed (truth) 0.188 m/s sim; time rotating in place (cmd) 2%; cmd angular sign reversals 13 (12.4/min); true yaw-rate reversals 29
+  total rotation executed 459 deg (net heading change needed at goal ~90 deg)
+  cross-track error (AMCL pose to current plan): median 1.8 cm p95 7.6 cm max 14.0 cm
+
+### Goal 1: Loading Zone (final status arrived)
+  duration 87.4 s wall / 53.9 s sim; straight-line 5.94 m; first plan 8.96 m; executed (truth) 9.05 m -> executed/straight 1.52, executed/first-plan 1.01
+  plans received 76 (~1.41 per sim s); plan length min 0.11 max 8.96; successive-plan deviation p50 0.05 m p95 0.11 m max 0.17 m; switches >0.5 m: 0, >1.0 m: 0
+  mean speed (truth) 0.168 m/s sim; time rotating in place (cmd) 6%; cmd angular sign reversals 8 (8.9/min); true yaw-rate reversals 16
+  total rotation executed 519 deg (net heading change needed at goal ~10 deg)
+  cross-track error (AMCL pose to current plan): median 2.7 cm p95 7.6 cm max 17.6 cm
+
+### Goal 2: Inventory Scan Station (final status arrived)
+  duration 138.4 s wall / 93.1 s sim; straight-line 18.31 m; first plan 18.33 m; executed (truth) 18.58 m -> executed/straight 1.01, executed/first-plan 1.01
+  plans received 133 (~1.43 per sim s); plan length min 0.13 max 18.41; successive-plan deviation p50 0.01 m p95 0.05 m max 0.06 m; switches >0.5 m: 0, >1.0 m: 0
+  mean speed (truth) 0.200 m/s sim; time rotating in place (cmd) 1%; cmd angular sign reversals 20 (12.9/min); true yaw-rate reversals 40
+  total rotation executed 494 deg (net heading change needed at goal ~170 deg)
+  cross-track error (AMCL pose to current plan): median 1.7 cm p95 6.2 cm max 11.4 cm
+
+### Goal 3: Dispatch Zone (final status arrived)
+  duration 45.3 s wall / 31.1 s sim; straight-line 5.61 m; first plan 5.59 m; executed (truth) 5.52 m -> executed/straight 0.98, executed/first-plan 0.99
+  plans received 44 (~1.42 per sim s); plan length min 0.14 max 5.59; successive-plan deviation p50 0.05 m p95 0.11 m max 0.12 m; switches >0.5 m: 0, >1.0 m: 0
+  mean speed (truth) 0.178 m/s sim; time rotating in place (cmd) 9%; cmd angular sign reversals 7 (13.5/min); true yaw-rate reversals 17
+  total rotation executed 336 deg (net heading change needed at goal ~9 deg)
+  cross-track error (AMCL pose to current plan): median 1.9 cm p95 5.0 cm max 7.2 cm
+
+### Goal 4: Return to Home Charging Dock (final status halted)
+  duration 85.3 s wall / 47.0 s sim; straight-line 18.72 m; first plan 18.59 m; executed (truth) 9.43 m -> executed/straight 0.50, executed/first-plan 0.51
+  plans received 81 (~1.72 per sim s); plan length min 9.29 max 18.59; successive-plan deviation p50 0.00 m p95 0.05 m max 0.05 m; switches >0.5 m: 0, >1.0 m: 0
+  mean speed (truth) 0.201 m/s sim; time rotating in place (cmd) 2%; cmd angular sign reversals 5 (6.4/min); true yaw-rate reversals 7
+  total rotation executed 266 deg (net heading change needed at goal ~177 deg)
+  cross-track error (AMCL pose to current plan): median 1.5 cm p95 4.5 cm max 14.7 cm
+
+Plan poses beyond true inner wall faces: 0 of 129424
+cmd_vel_nav 4361 msgs, cmd_vel (smoother out) 9110 msgs; max |v| nav 0.220 out 0.220; max |w| nav 1.000 out 1.000
+  controller linear-velocity step between consecutive commands: p95 0.023 m/s max 0.208 m/s
+
+## 4. ArUco verification
+marker_detected msgs 255 (  0.60 Hz sim,   0.40 Hz wall; wall gap p50 2490 ms p99 3683 ms max 4136 ms); camera_info   0.60 Hz sim,   0.40 Hz wall; wall gap p50 2486 ms p99 3662 ms max 4151 ms
+  Home Charging Dock: arrival truth pose (-4.132,+9.080,+99.6 deg) vs goal (-3.678,9.3,90) -> true goal miss 0.505 m, yaw miss +9.6 deg; AMCL said (-3.597,+9.140)
+      true marker range 0.999 m, bearing from camera axis -36.6 deg; first sighting of ID 0 -19.8 s rel. arrival; first ID msg after arrival 0.27 s; confirm logged 0.36 s; detection rate in 3 s after arrival 100%; other IDs seen on approach []
+  Loading Zone: arrival truth pose (+1.399,+9.308,+99.5 deg) vs goal (1.803,9.3,90) -> true goal miss 0.404 m, yaw miss +9.5 deg; AMCL said (+1.884,+9.203)
+      true marker range 0.775 m, bearing from camera axis -40.9 deg; first sighting of ID 1 -21.4 s rel. arrival; first ID msg after arrival 0.88 s; confirm logged 0.95 s; detection rate in 3 s after arrival 100%; other IDs seen on approach [0]
+  Inventory Scan Station: arrival truth pose (+1.969,-8.948,-81.1 deg) vs goal (1.801,-9.0,-90) -> true goal miss 0.176 m, yaw miss +8.9 deg; AMCL said (+1.726,-8.904)
+      true marker range 1.036 m, bearing from camera axis -18.3 deg; first sighting of ID 2 -7.5 s rel. arrival; first ID msg after arrival 1.02 s; confirm logged 1.12 s; detection rate in 3 s after arrival 100%; other IDs seen on approach [1]
+  Dispatch Zone: arrival truth pose (-3.338,-9.420,-92.4 deg) vs goal (-3.63,-9.3,-90) -> true goal miss 0.315 m, yaw miss -2.4 deg; AMCL said (-3.520,-9.255)
+      true marker range 0.622 m, bearing from camera axis -25.5 deg; first sighting of ID 3 -7.6 s rel. arrival; first ID msg after arrival 2.24 s; confirm logged 2.27 s; detection rate in 3 s after arrival 100%; other IDs seen on approach [2]
+
+## 6. Mission completion
+  Home Charging Dock: ARRIVED->TASK COMPLETE truth displacement 0.0 mm, yaw change -0.00 deg, max |v| 0.0001
+  Loading Zone: ARRIVED->TASK COMPLETE truth displacement 0.0 mm, yaw change +0.08 deg, max |v| 0.0005
+  Inventory Scan Station: ARRIVED->TASK COMPLETE truth displacement 0.0 mm, yaw change +0.15 deg, max |v| 0.0009
+  Dispatch Zone: ARRIVED->TASK COMPLETE truth displacement 0.0 mm, yaw change -0.30 deg, max |v| 0.0008

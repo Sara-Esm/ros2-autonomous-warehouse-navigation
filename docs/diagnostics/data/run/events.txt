@@ -1,0 +1,80 @@
+BT events (wall s since mission start):
+     24.8  NavigateWithReplanning       IDLE->RUNNING
+     24.8  ComputePathToPose            RUNNING->FAILURE
+     25.4  FollowPath                   RUNNING->FAILURE
+     25.4  FollowPath                   RUNNING->FAILURE
+     25.4  FollowPath                   RUNNING->FAILURE
+     25.4  NavigateWithReplanning       RUNNING->FAILURE
+     25.4  NavigateWithReplanning       IDLE->RUNNING
+     31.7  ComputePathToPose            RUNNING->FAILURE
+     84.9  ComputePathToPose            RUNNING->FAILURE
+     84.9  ClearGlobalCostmap-Context   IDLE->RUNNING
+     93.6  ComputePathToPose            RUNNING->FAILURE
+     93.6  ClearGlobalCostmap-Context   IDLE->RUNNING
+     98.5  FollowPath                   RUNNING->FAILURE
+     98.5  ClearLocalCostmap-Context    IDLE->RUNNING
+     98.6  ClearLocalCostmap-Context    RUNNING->FAILURE
+     98.6  FollowPath                   RUNNING->FAILURE
+     98.6  NavigateWithReplanning       RUNNING->FAILURE
+     98.6  Spin                         IDLE->RUNNING
+    113.4  Spin                         RUNNING->FAILURE
+    113.4  Wait                         IDLE->RUNNING
+    120.5  NavigateWithReplanning       IDLE->RUNNING
+    128.7  NavigateWithReplanning       IDLE->RUNNING
+    129.8  ComputePathToPose            RUNNING->FAILURE
+    129.8  ClearGlobalCostmap-Context   IDLE->RUNNING
+    129.8  ClearGlobalCostmap-Context   RUNNING->FAILURE
+    129.8  ComputePathToPose            RUNNING->FAILURE
+    129.8  NavigateWithReplanning       RUNNING->FAILURE
+    129.8  BackUp                       IDLE->RUNNING
+    140.4  NavigateWithReplanning       IDLE->RUNNING
+    166.5  FollowPath                   RUNNING->FAILURE
+    171.6  ComputePathToPose            RUNNING->FAILURE
+    186.8  ComputePathToPose            RUNNING->FAILURE
+    186.8  ClearGlobalCostmap-Context   IDLE->RUNNING
+    188.4  ComputePathToPose            RUNNING->FAILURE
+    199.7  ComputePathToPose            RUNNING->FAILURE
+    199.7  ClearGlobalCostmap-Context   IDLE->RUNNING
+    224.9  NavigateWithReplanning       IDLE->RUNNING
+    271.8  ComputePathToPose            RUNNING->FAILURE
+    341.6  ComputePathToPose            RUNNING->FAILURE
+    347.5  FollowPath                   RUNNING->FAILURE
+    347.5  ClearLocalCostmap-Context    IDLE->RUNNING
+    347.5  ClearLocalCostmap-Context    RUNNING->FAILURE
+    347.5  FollowPath                   RUNNING->FAILURE
+    347.5  NavigateWithReplanning       RUNNING->FAILURE
+    347.5  NavigateWithReplanning       IDLE->RUNNING
+    350.5  ComputePathToPose            RUNNING->FAILURE
+    350.5  ClearGlobalCostmap-Context   IDLE->RUNNING
+    371.8  NavigateWithReplanning       IDLE->RUNNING
+    404.0  ComputePathToPose            RUNNING->FAILURE
+    427.0  NavigateWithReplanning       IDLE->RUNNING
+    466.7  FollowPath                   RUNNING->FAILURE
+map->odom jumps > 15 cm or > 2 deg:
+    101.2s  dxy  17.8 cm dyaw -1.36 deg  robot true (-3.49,+7.39); map->odom now (+0.02,-0.12,-3.2)
+    112.3s  dxy  18.8 cm dyaw +1.26 deg  robot true (-4.02,+8.75); map->odom now (+0.19,-0.01,-1.9)
+    139.4s  dxy  19.7 cm dyaw +1.21 deg  robot true (-4.22,+8.82); map->odom now (+0.30,+0.09,-1.2)
+    141.2s  dxy  30.0 cm dyaw -1.70 deg  robot true (-4.24,+8.79); map->odom now (+0.03,-0.04,-2.9)
+    159.8s  dxy  19.7 cm dyaw +1.25 deg  robot true (-2.75,+6.94); map->odom now (+0.40,+0.15,-0.5)
+    163.6s  dxy  19.1 cm dyaw -1.26 deg  robot true (-2.28,+6.73); map->odom now (+0.29,+0.11,-1.3)
+    165.8s  dxy  26.2 cm dyaw -1.86 deg  robot true (-2.07,+6.72); map->odom now (+0.05,+0.02,-3.2)
+    169.7s  dxy  20.9 cm dyaw +1.81 deg  robot true (-1.61,+6.86); map->odom now (+0.26,+0.06,-1.1)
+    176.3s  dxy  24.8 cm dyaw +2.08 deg  robot true (-0.69,+6.82); map->odom now (+0.43,+0.07,+0.7)
+    203.6s  dxy  18.3 cm dyaw -1.39 deg  robot true (+1.65,+8.66); map->odom now (+0.21,+0.02,-1.7)
+    225.6s  dxy  16.7 cm dyaw +1.08 deg  robot true (+1.40,+9.32); map->odom now (+0.32,-0.06,-0.9)
+    225.9s  dxy  17.3 cm dyaw +1.00 deg  robot true (+1.40,+9.32); map->odom now (+0.49,-0.10,+0.1)
+    226.7s  dxy  21.0 cm dyaw +1.33 deg  robot true (+1.41,+9.34); map->odom now (+0.70,-0.15,+1.4)
+    228.2s  dxy  87.7 cm dyaw +5.46 deg  robot true (+1.51,+9.35); map->odom now (+1.47,-0.31,+6.3)
+    235.3s  dxy  26.6 cm dyaw -1.65 deg  robot true (+1.64,+8.36); map->odom now (+1.16,-0.17,+4.6)
+    237.4s  dxy  27.4 cm dyaw -1.74 deg  robot true (+1.62,+8.10); map->odom now (+0.89,-0.10,+2.9)
+    239.4s  dxy  29.8 cm dyaw -1.87 deg  robot true (+1.61,+7.81); map->odom now (+0.60,-0.03,+1.0)
+    253.7s  dxy  17.3 cm dyaw -1.34 deg  robot true (+1.54,+5.71); map->odom now (+0.23,+0.18,-1.8)
+    255.4s  dxy  16.3 cm dyaw +1.69 deg  robot true (+1.54,+5.44); map->odom now (+0.39,+0.15,-0.2)
+    283.3s  dxy  12.3 cm dyaw +2.50 deg  robot true (+1.66,+1.56); map->odom now (-0.05,+0.00,-1.3)
+    396.3s  dxy  17.0 cm dyaw -1.07 deg  robot true (-1.19,-9.11); map->odom now (+0.09,+0.06,-1.9)
+    428.6s  dxy  15.9 cm dyaw +0.96 deg  robot true (-3.34,-9.42); map->odom now (+0.50,-0.11,-4.1)
+    429.0s  dxy  15.5 cm dyaw +0.93 deg  robot true (-3.34,-9.42); map->odom now (+0.36,-0.05,-3.2)
+    435.8s  dxy  15.5 cm dyaw -0.94 deg  robot true (-3.55,-8.67); map->odom now (+0.46,-0.10,-3.6)
+    441.3s  dxy  19.1 cm dyaw +1.23 deg  robot true (-3.56,-7.91); map->odom now (+0.15,+0.01,-1.5)
+    445.1s  dxy  21.7 cm dyaw +1.37 deg  robot true (-3.55,-7.40); map->odom now (-0.04,+0.09,-0.3)
+    459.6s  dxy  16.8 cm dyaw +1.34 deg  robot true (-3.51,-5.37); map->odom now (-0.17,+0.13,+1.1)

@@ -1,0 +1,15 @@
+/map_server:
+  ros__parameters:
+    /bond_disable_heartbeat_timeout: true
+    frame_id: map
+    qos_overrides:
+      /clock:
+        subscription:
+          depth: 1
+          durability: volatile
+          history: keep_last
+          reliability: best_effort
+    topic_name: map
+    use_sim_time: true
+    yaml_filename: /home/owl/projects/warehouse_ws/install/warehouse_bringup/share/warehouse_bringup/maps/warehouse_map.yaml
+
