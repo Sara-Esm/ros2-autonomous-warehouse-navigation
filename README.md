@@ -22,11 +22,12 @@ will not send a new goal while Nav2 is still moving the robot.
 - **Tested.** 50 automated tests, 33 of them running the real mission node against a mock
   Nav2. CI runs a full headless Gazebo mission on every pull request.
 
-**Results:** all 3 preserved runs with the current Nav2 configuration verified 5/5
-stations, including one where the supervisor recovered from a navigation abort.
-[Full trial log →](docs/trial_results.md)
+**Results:** Local Trials 10 and 12 each verified all five visits. Trial 12 recovered from
+a navigation abort after a 116-second wait before retrying. Two linked headless CI runs
+([45570293516](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45570293516), [45579301270](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45579301270)) also verified all five
+visits. [Full trial log →](docs/trial_results.md)
 
-*Simulation only, on one development machine. See [Limitations](#limitations).*
+*Simulation only. See [Limitations](#limitations).*
 
 ---
 
@@ -297,10 +298,14 @@ Counted from the saved logs by `scripts/trial_metrics.py`.
 | Trial 10 | Local, WSL2 | `3e8e1b7` (Nav2 tuning) | 5/5 | 0 / 0 | 0.67 |
 | Trial 12 | Local, WSL2, heavy load | `0998813` (supervised manager) | 5/5, exit 0 | 1 / 1 (recovered) | 0.31 |
 | [CI run 45570293516](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45570293516) | GitHub runner, headless | `847f31c` | 5/5, exit 0 | 0 / 0 | 0.84 |
+| [CI run 45579301270](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45579301270) | GitHub runner, headless | `d34a0de` | 5/5, exit 0 | - | - |
 
-All three use the same Nav2 parameter file. The CI run tested the current mission code;
-later commits on `main` change only tests and documentation. Its logs are kept in
-[`audit_logs/ci_run_45570293516/`](audit_logs/ci_run_45570293516/PROVENANCE.md).
+All four use the same Nav2 parameter file. Both CI runs tested the current mission code;
+`d34a0de` is the tree merged to `main`, and `847f31c` differs from it only in tests and
+documentation. The trial script exits with the mission's exit code, and 0 means all five
+tasks succeeded. The first CI run's logs are kept in
+[`audit_logs/ci_run_45570293516/`](audit_logs/ci_run_45570293516/PROVENANCE.md). The second
+run's logs are only in its GitHub artifact, so its abort and RTF columns are not filled in.
 
 Earlier trials (01–08) record the baseline, a rejected headless experiment, and the failure
 that led to the supervision work. Every trial, including unsuccessful and interrupted ones,
@@ -310,9 +315,10 @@ is listed with notes in [`docs/trial_results.md`](docs/trial_results.md).
 
 ## Limitations
 
-1. **Simulation only; reliability shown, not quantified.** Everything ran in Gazebo, on one
-   WSL2 machine and one GitHub runner. Three successful runs show the system works; they are
-   not a success rate. Nothing was tested across worlds or start poses.
+1. **Simulation only; reliability rate unmeasured.** Everything ran in Gazebo, on one WSL2
+   machine and GitHub-hosted runners. The runs above demonstrate completion under the tested
+   conditions; they do not measure a reliability rate. Nothing was tested across worlds or
+   start poses.
 2. **No independent safety layer.** Stop verification reads the same odometry the
    controller uses. A real robot would need a safety-rated stop path.
 3. **Map quality.** Large parts of the saved occupancy grid are unknown, and NavFn may plan
@@ -337,8 +343,6 @@ is listed with notes in [`docs/trial_results.md`](docs/trial_results.md).
   the main thread is. If Ctrl+C or SIGTERM lands exactly as Nav2 accepts a goal, cleanup
   still cancels and exits 130, but reported `ROBOT STOP NOT VERIFIED` in 2 of about 17
   deliberately timed runs. Setting a flag for the main loop to check would close that window.
-- **Record a new demo** of the current mission with the RViz plan, the detector window and
-  the exit code.
 
 ---
 

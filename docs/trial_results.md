@@ -29,8 +29,8 @@ control rate.
   "WAREHOUSE MISSION COMPLETE" with 0/5 tasks succeeded, which led to the honest-reporting fix in `3de4301`.
 - **07, 09** No logs, metadata or commits exist under these numbers in `audit_logs/` or the Git
   history, and why the numbers were skipped was not written down at the time. Unsuccessful attempts that
-  did produce logs are kept, for example `meta_trial03_failed_readiness_*.txt` (an attempt at Trial 03
-  where `bt_navigator` never became ACTIVE) and the interrupted Trial 11.
+  did produce logs are kept, for example the [Trial 03 readiness failure](../audit_logs/meta_trial03_failed_readiness_20261123_153649.txt)
+  and the interrupted Trial 11. The reason for skipping 07 and 09 is unknown.
 - **08** Outer `NavigateToPose` aborted once on the final return home after Dispatch succeeded (4/5). Afterwards Nav2's spin/backup/wait
   ran on for about 10 s and a `follow_path` goal stayed active for about 64 s. This motivated the readiness gate.
 - **10** First run of the tuned Nav2 configuration (`3e8e1b7`): 5/5, no navigation failures.
@@ -48,7 +48,10 @@ control rate.
 
 ## How to read the trials
 
-- Trials 02–04 are the original baseline: 15/15 tasks, plus 5/5 in pilot Trial 01, for 20/20.
+- Trials 02–04 are the original baseline: 15/15 station visits, plus 5/5 in pilot Trial 01, for 20/20.
+  This counts station visits in missions that started. It excludes a separate startup failure: an
+  earlier attempt at Trial 03 stopped before the mission because `bt_navigator` never became ACTIVE
+  ([`meta_trial03_failed_readiness_20261123_153649.txt`](../audit_logs/meta_trial03_failed_readiness_20261123_153649.txt)).
 - The old mission manager reported "WAREHOUSE MISSION COMPLETE" even when tasks had failed (Trial 05's
   log says so with 0/5 succeeded); `3de4301` fixed that.
 - Trials 05–06 tested running without the GUI to raise the real-time factor. RTF went up, but
@@ -79,6 +82,11 @@ always uses trial number 99.
 Same Nav2 parameter-file hash as Trials 10–12 (`869d998…`). All five markers were verified on
 the first attempt. The abort-and-retry path was **not** exercised. Non-zero exits from the
 detector, Gazebo, RViz and the Nav2 container appear only during teardown, after the mission summary.
+
+A second run, [45579301270](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45579301270)
+on `d34a0de` (the tree merged to `main`), also passed the Gazebo smoke step. The trial script exits with
+the mission's exit code, so a pass means exit 0 with all five tasks succeeded. Its logs exist only as the
+run's GitHub artifact (retained until 2027-02-23) and are not copied here, so no further metrics are claimed.
 
 ## Fault-injection runs (not mission trials)
 
