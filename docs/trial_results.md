@@ -38,8 +38,8 @@ not distinct failures.
   average 21 after about 2 h uptime), which explains the higher controller missed-rate count.
   Step 1's first attempt aborted: `bt_navigator` timed out waiting for `follow_path`, `spin` and `backup`
   goal acknowledgements (Nav2's default 20 ms `default_server_timeout`). The orphaned `follow_path`
-  goal kept driving and reached the dock. The mission manager's gate held the retry for about 99 s while it
-  reported `follow_path(1)` active and the robot moving. It then sent the retry, which succeeded immediately
+  goal kept driving and reached the dock. The mission manager's gate held the retry while it
+  reported `follow_path(1)` active and the robot moving (about 116 s from the abort to the retry, wall clock). It then sent the retry, which succeeded immediately
   from (-3.65, 9.20). Every other step succeeded on its first attempt.
 
 ## Fault-injection runs (not mission trials)

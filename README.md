@@ -17,6 +17,19 @@ WSL2. It is engineered and tested with care, but it is not a production or
 safety-certified autonomy stack. [Limitations](#limitations) lists what is and is not
 demonstrated.
 
+**Results at a glance** (all counted from the logs in [`audit_logs/`](audit_logs/); details in
+[Experimental results](#experimental-results)):
+
+- **Final validation (Trial 12, current code):** 5/5 stations reached and ArUco-verified, exit
+  code 0. Run at 0.31× real time under heavy CPU load. One Nav2 navigation abort was recovered by
+  the supervised retry, and no overlapping goal was sent.
+- **10 recorded trials** (01–06, 08, 10–12; numbers 07 and 09 were not used). 6 completed all
+  five stations (01–04, 10, 12). 3 did not: 05 and 06 were a rejected headless experiment, and
+  08 led to the supervision work. 1 (Trial 11) was interrupted externally and is not counted.
+- **Current Nav2 configuration:** 2 of 2 completed trials succeeded (10 and 12). That shows it
+  works, not a measured reliability rate.
+- **Automated tests:** 43 run, 0 failures (3 template copyright checks skipped), without Gazebo.
+
 ---
 
 ## Demonstration
@@ -35,10 +48,13 @@ Failed tasks: 0
 Unattempted tasks: 0
 ```
 
-The screenshot and video above predate the supervision work. A current demo video should
-show the RViz plan and costmaps during one full mission, the detector window confirming
-each marker, the terminal summary with the process exit code, and, as a second clip, one
-fault test (for example `pytest -k lifecycle`) to show the supervision behaviour.
+> **Note:** the screenshot and video above come from an earlier version of the project,
+> recorded before the supervised mission manager and the Nav2 tuning. The simulated world,
+> robot, stations and markers are the same; the mission logic and terminal output are not.
+> The summary above is from the current code (Trial 12). A replacement video should show
+> one full mission with the RViz plan and costmaps, the detector window confirming each
+> marker, and the terminal summary with the exit code. A second clip could show a supervision
+> test such as `pytest -k lifecycle`.
 
 ---
 
@@ -217,6 +233,8 @@ The mission manager now:
   sets an exit code: 0 all succeeded, 1 finished with failed tasks, 2 halted, 3 never
   started, 130 interrupted. After a halt, the node watches odometry and Nav2 status and
   prints `ROBOT STOP VERIFIED (odometry)` or `ROBOT STOP NOT VERIFIED` with the reason.
+  This is a software consistency check of reported odometry, not a guarantee that the
+  robot has physically stopped.
 
 These checks are passive observations from the same software stack. They are not an
 independent safety channel (see [Limitations](#limitations)).
@@ -304,14 +322,24 @@ controller missed-rate count is higher. At step 1 the outer `NavigateToPose` abo
 `bt_navigator` timed out waiting for its own servers to acknowledge goals. The orphaned
 `follow_path` goal kept driving the robot to the dock. The mission manager reported it
 (`Nav2 goals still active: follow_path(1); robot not stationary`) and held the retry for
-about 99 s until the controller finished. The retry then succeeded at once, and all
-remaining steps succeeded on the first attempt. This is the failure that the readiness
-gate was built for: the old manager would have sent an overlapping goal (Trial 08,
-fault-injection run).
+about 116 s (wall clock) until the controller finished and the robot stopped. Only then did it
+send the retry, which succeeded at once from within goal tolerance. All remaining steps
+succeeded on the first attempt. **No overlapping goal was sent.** This is the failure the
+readiness gate was built for. In Trial 08 the earlier manager moved to the next station
+while a `follow_path` goal was still active.
+
+**Three levels of failure.** Mission results count only the last of these:
+
+| Level | What it means | Trial 10 | Trial 12 |
+|---|---|---|---|
+| Nav2-internal `follow_path` abort | The controller gives up on one path; the behavior tree replans or runs a recovery itself | 2 | 5 |
+| Outer `NavigateToPose` abort | The behavior tree gives up; the mission manager sees a failure and may retry | 0 | 1 (retried) |
+| Mission task failure | A station is not reached or its marker is not confirmed | 0 | 0 |
 
 Trials 10 and 12 show that the current configuration *can* complete the mission, and
-that the supervisor recovers from a real Nav2 abort. They do not prove a reliability rate. Controller missed-rate warnings fell but
-remain, because the simulation runs at about 0.31–0.74× real time on this machine.
+that the supervisor recovers safely from a real Nav2 abort. They do not establish a
+reliability rate. Controller missed-rate warnings fell but remain, because the simulation
+runs at about 0.31–0.74× real time on this machine.
 
 ---
 
@@ -320,7 +348,7 @@ remain, because the simulation runs at about 0.31–0.74× real time on this mac
 | Challenge | Evidence | Resolution |
 |---|---|---|
 | Localization start-up race | A one-shot `/initialpose` published at t = 50 s could arrive before AMCL was active; logs show "Please set the initial pose" warnings and a readiness failure | AMCL `set_initial_pose` from parameters on activation; the trial runner checks AMCL ACTIVE, `/amcl_pose` and TF |
-| Simulation vs wall time | WSL2 runs at 0.63–0.88× real time, so wall-clock waits were too short in sim terms | Mission waits on the node clock (`use_sim_time`), watchdogs on the steady clock; tested at 0.5× and 2× |
+| Simulation vs wall time | WSL2 runs at 0.31–0.88× real time, so wall-clock waits were too short in sim terms | Mission waits on the node clock (`use_sim_time`), watchdogs on the steady clock; tested at 0.5× and 2× |
 | Blocking mission sequencing | Original node slept and nested `spin_once` inside callbacks | Single timer-driven state machine; callbacks never block |
 | Action-server behavior | Outer goal failure while follow_path/spin continued; goal response never arrived during a lifecycle restart | Readiness gate over all Nav2 action statuses and lifecycle state; numbered goals; cancel late or abandoned goals |
 | Navigation aborts | Robot routed into a gap ~0.1 m from obstacles near box stacks; "No valid trajectories" then abort | Correct footprint radius, wider inflation, looser goal tolerance; verified offline that all stations remain reachable |
@@ -333,8 +361,9 @@ remain, because the simulation runs at about 0.31–0.74× real time on this mac
 
 Ranked by importance:
 
-1. **Reliability is shown, not quantified.** A handful of successful GUI trials on one
-   machine. There is no statistically meaningful success rate, and no testing across
+1. **Simulation only; reliability shown, not quantified.** Everything was validated in
+   Gazebo on one WSL2 machine; nothing has run on a physical robot. A handful of successful
+   GUI trials is not a statistically meaningful success rate, and nothing was tested across
    machines, worlds, or start poses.
 2. **No independent safety layer.** Stop verification reads the same odometry the
    controller uses. Nothing limits velocity or stops the robot independently of Nav2. A
@@ -344,7 +373,7 @@ Ranked by importance:
    only partly visible to a 2D LiDAR.
 4. **Behavior-tree acknowledgement timeouts under load.** `bt_navigator` gives each Nav2
    server 20 ms (`default_server_timeout`, the Nav2 default) to acknowledge a goal. Every
-   trial logs such timeouts (5–17 per run), and in Trial 12 they caused the first goal to
+   trial logs such timeouts (3–41 per run), and in Trial 12 they caused the first goal to
    abort. The supervised retry recovered from it. Raising this timeout is the most likely
    next improvement, but it is untested and has not been changed.
 5. **Simulation performance.** The sim runs below real time on WSL2, and controller
@@ -353,10 +382,12 @@ Ranked by importance:
 6. **Fixed launch delays.** Nav2 starts at t = 40 s and the detector at t = 55 s by timer.
    The mission manager and trial runner wait on real readiness, but the launch itself is
    not event-driven.
-7. **Fixed mission.** Waypoints are hard-coded and there is one robot. Docking at the
-   charging station is a navigation goal plus marker check, not a docking controller.
-8. **Single-camera verification.** Marker presence only. There is no pose estimation from
-   the marker, and no camera calibration or TF for the camera.
+7. **Fixed mission.** Waypoints are hard-coded in the mission node and there is one robot.
+   "Docking" at the charging station is a navigation goal plus marker check within
+   0.12 m / 0.15 rad tolerance. It is not precision docking and there is no docking controller.
+8. **Marker presence, not pose.** A station counts as verified when the expected marker ID is
+   detected after arrival. There is no pose estimation from the marker, and no camera
+   calibration or TF for the camera.
 
 ---
 
@@ -415,6 +446,19 @@ ros2 launch turtlebot3_cartographer cartographer.launch.py use_sim_time:=true
 ros2 run turtlebot3_teleop teleop_keyboard
 ros2 run nav2_map_server map_saver_cli -f src/warehouse_bringup/maps/warehouse_map
 ```
+
+---
+
+## Credits and upstream dependencies
+
+- [ROS 2 Humble](https://docs.ros.org/en/humble/), [Nav2](https://docs.nav2.org/) (AMCL,
+  NavFn, DWB, behavior tree navigator, lifecycle manager) and
+  [Gazebo Classic 11](https://classic.gazebosim.org/) with `gazebo_ros_pkgs`.
+- [ROBOTIS TurtleBot3](https://github.com/ROBOTIS-GIT/turtlebot3), vendored in `src/turtlebot3`
+  (Apache 2.0). The `burger_cam` Nav2 parameters in it were tuned for this project.
+- [AWS RoboMaker Small Warehouse World](https://github.com/aws-robotics/aws-robomaker-small-warehouse-world)
+  (MIT-0): warehouse models and world.
+- [OpenCV](https://opencv.org/) ArUco module (`cv2.aruco`) and `cv_bridge` for marker detection.
 
 ---
 
