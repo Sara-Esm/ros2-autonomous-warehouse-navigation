@@ -47,7 +47,9 @@ class ArucoStationDetector(Node):
         super().__init__('aruco_station_detector')
 
         self.declare_parameter('image_topic', '/camera/image_raw')
-        self.declare_parameter('debug_window', True)
+        # Off by default so the node runs without a display; the graphical
+        # launch turns it on explicitly.
+        self.declare_parameter('debug_window', False)
 
         self.image_topic = self.get_parameter('image_topic').value
         self.debug_window = self.get_parameter('debug_window').value

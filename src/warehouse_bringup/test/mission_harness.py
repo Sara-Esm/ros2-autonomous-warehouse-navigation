@@ -63,6 +63,7 @@ FAST_PARAMS = {
     'cancel_timeout': 1.5,
     'clock_stall_timeout': 1.5,
     'halt_observe_timeout': 1.5,
+    'retry_evidence_grace': 0.5,
 }
 
 
@@ -138,17 +139,20 @@ class MockNav2(Node):
         self.lifecycle_id = (LifecycleState.PRIMARY_STATE_ACTIVE if lifecycle_active
                              else LifecycleState.PRIMARY_STATE_INACTIVE)
         self.follow_path_active = False
+        self.extra_active = set()
+        self.publish_odom = True
         self.successes = 0  # mission step = number of navigations completed so far
 
         self.marker_pub = self.create_publisher(Int32, '/warehouse/marker_id', 10)
         self.odom_pub = self.create_publisher(Odometry, '/odom', 10)
         self.fp_status_pub = self.create_publisher(
             GoalStatusArray, '/follow_path/_action/status', qos_profile_action_status_default)
-        self.other_status_pubs = [
-            self.create_publisher(GoalStatusArray, f'/{name}/_action/status',
-                                  qos_profile_action_status_default)
-            for name in ('compute_path_to_pose', 'spin', 'backup', 'wait', 'drive_on_heading')
-        ]
+        self.other_status_pubs = {
+            name: self.create_publisher(GoalStatusArray, f'/{name}/_action/status',
+                                        qos_profile_action_status_default)
+            for name in ('compute_path_to_pose', 'spin', 'backup', 'wait',
+                         'drive_on_heading', 'assisted_teleop')
+        }
         self.create_timer(0.05, self._publish_streams, callback_group=self.cb)
         self.create_service(GetState, '/bt_navigator/get_state', self._get_state,
                             callback_group=self.cb)
@@ -184,6 +188,14 @@ class MockNav2(Node):
         self.follow_path_active = active
         self.events.append((time.monotonic(), f'follow_path_active={active}'))
 
+    def set_action_active(self, action_name, active):
+        """Report an active goal on a monitored action other than follow_path."""
+        if active:
+            self.extra_active.add(action_name)
+        else:
+            self.extra_active.discard(action_name)
+        self.events.append((time.monotonic(), f'{action_name}_active={active}'))
+
     def set_moving(self, moving):
         self.moving = moving
         self.events.append((time.monotonic(), f'moving={moving}'))
@@ -207,15 +219,22 @@ class MockNav2(Node):
     def _publish_streams(self):
         if self.current_marker is not None:
             self.marker_pub.publish(Int32(data=self.current_marker))
-        odom = Odometry()
-        odom.header.stamp = self.get_clock().now().to_msg()
-        odom.twist.twist.linear.x = 0.2 if self.moving else 0.0
-        self.odom_pub.publish(odom)
+        if self.publish_odom:
+            odom = Odometry()
+            odom.header.stamp = self.get_clock().now().to_msg()
+            odom.twist.twist.linear.x = 0.2 if self.moving else 0.0
+            self.odom_pub.publish(odom)
         status = GoalStatusArray()
         if self.report_controller and (self.follow_path_active or self.executing_path):
             status.status_list.append(
                 GoalStatus(goal_info=GoalInfo(), status=GoalStatus.STATUS_EXECUTING))
         self.fp_status_pub.publish(status)
+        for name, pub in self.other_status_pubs.items():
+            extra = GoalStatusArray()
+            if name in self.extra_active:
+                extra.status_list.append(
+                    GoalStatus(goal_info=GoalInfo(), status=GoalStatus.STATUS_EXECUTING))
+            pub.publish(extra)
 
     def _get_state(self, request, response):
         response.current_state.id = self.lifecycle_id

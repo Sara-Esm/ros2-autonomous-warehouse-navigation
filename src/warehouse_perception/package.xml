@@ -2,7 +2,7 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>warehouse_perception</name>
-  <version>0.0.0</version>
+  <version>1.0.0</version>
   <description>ArUco (DICT_5X5_50) station-marker detector for the warehouse robot camera.</description>
   <maintainer email="zesmaeili85@gmail.com">owl</maintainer>
   <license>MIT</license>

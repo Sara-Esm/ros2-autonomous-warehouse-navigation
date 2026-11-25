@@ -18,7 +18,11 @@ Design
   goals are canceled.
 * A navigation that exceeds nav_timeout is canceled, and the mission halts.
   An aborted navigation is retried up to nav_retries times, and only via the
-  readiness gate.
+  readiness gate. The gate also requires that follow_path was observed active
+  during the failed attempt, so a retry is never sent while an orphaned
+  controller goal may still be driving. If no such activity is seen and every
+  monitored action reports idle, the gate stops waiting after
+  retry_evidence_grace and halts instead of holding until gate_timeout.
 * After a halt the node observes odometry and Nav2 action status for a short
   window and reports whether a stop was verified. This is passive monitoring
   only: the node never publishes velocity commands, and it is not a safety
@@ -76,7 +80,7 @@ NS = 1_000_000_000
 
 DEFAULT_MONITORED_ACTIONS = [
     'navigate_to_pose', 'follow_path', 'compute_path_to_pose',
-    'spin', 'backup', 'wait', 'drive_on_heading',
+    'spin', 'backup', 'wait', 'drive_on_heading', 'assisted_teleop',
 ]
 
 WAYPOINTS = [
@@ -134,6 +138,7 @@ class WarehouseAutonomy(Node):
         self.goal_response_timeout = p('goal_response_timeout', 20.0).value
         self.cancel_timeout = p('cancel_timeout', 10.0).value
         self.clock_stall_timeout = p('clock_stall_timeout', 15.0).value
+        self.retry_evidence_grace = p('retry_evidence_grace', 5.0).value
         self.halt_observe_timeout = p('halt_observe_timeout', 15.0).value
         self.odom_max_age = p('odom_max_age', 2.0).value
         # Supervision inputs.
@@ -171,6 +176,7 @@ class WarehouseAutonomy(Node):
 
         self.last_marker_id = None
         self.marker_confirmed = False
+        self.confirmed_marker_id = None
 
         # Goal bookkeeping: one goal at a time, identified by goal_seq.
         self.goal_seq = 0
@@ -253,6 +259,9 @@ class WarehouseAutonomy(Node):
     def marker_id_cb(self, msg):
         self.last_marker_id = msg.data
         if self.state == VERIFYING and msg.data == self.wp['marker_id']:
+            # Latch the confirming ID: later detections must not change what
+            # the success log reports.
+            self.confirmed_marker_id = msg.data
             self.marker_confirmed = True
 
     def odom_cb(self, msg):
@@ -393,14 +402,30 @@ class WarehouseAutonomy(Node):
             for name in self.monitored_actions
         }
 
-    def status_problems(self, publishers):
+    def publisher_problems(self, publishers):
+        """
+        List monitored status publishers that are missing or have changed.
+
+        Used by both the readiness gate and halt observation: it says nothing
+        about an earlier navigation attempt.
+        """
         reasons = []
         for name, identities in publishers.items():
             if len(identities) != 1:
                 reasons.append(f'expected one {name} status publisher, found {len(identities)}')
             elif self.attempt_publishers and identities != self.attempt_publishers.get(name):
                 reasons.append(f'{name} status publisher changed during mission')
-        if self.require_controller_evidence and not self.activity.saw_activity('follow_path'):
+        return reasons
+
+    def retry_evidence_missing(self):
+        """Report whether an abort retry still lacks observed controller activity."""
+        return (self.require_controller_evidence and
+                not self.activity.saw_activity('follow_path'))
+
+    def gate_problems(self, publishers):
+        """Readiness problems: publisher identity plus abort-retry evidence."""
+        reasons = self.publisher_problems(publishers)
+        if self.retry_evidence_missing():
             reasons.append('controller activity for this attempt was not observed')
         return reasons
 
@@ -413,7 +438,7 @@ class WarehouseAutonomy(Node):
         if not self.lifecycle_active(since_wall=self.state_entered_wall):
             unmet.append(f'{self.lifecycle_node} not confirmed ACTIVE ({self.lifecycle_label})')
         publishers = self.status_publishers()
-        unmet.extend(self.status_problems(publishers))
+        unmet.extend(self.gate_problems(publishers))
         active = self.activity.active_actions()
         if active or self.goal_active:
             names = dict(active)
@@ -433,6 +458,13 @@ class WarehouseAutonomy(Node):
         unmet = self.gate_unmet()
         if not unmet:
             self.send_goal()
+        elif (self.retry_evidence_missing() and self.activity.idle() and
+                self.wall_ns() - self.state_entered_wall >
+                self.retry_evidence_grace * NS):
+            self.halt(
+                'Controller activity was not observed within the retry evidence '
+                'grace period; retry withheld '
+                f'(waited {self.retry_evidence_grace:g} s wall): ' + '; '.join(unmet))
         elif self.wall_deadline_passed():
             self.halt(
                 f"Readiness check failed before navigating to {self.wp['name']} "
@@ -602,6 +634,7 @@ class WarehouseAutonomy(Node):
             return
         self.get_logger().info(f"Looking for ArUco marker ID {wp['marker_id']}...")
         self.marker_confirmed = False  # only detections after arrival count
+        self.confirmed_marker_id = None
         self.enter(VERIFYING)
         self.set_sim_deadline(self.verify_timeout)
 
@@ -610,7 +643,7 @@ class WarehouseAutonomy(Node):
         if self.marker_confirmed:
             self.get_logger().info(
                 f"Correct marker detected: expected={wp['marker_id']}, "
-                f'detected={self.last_marker_id}')
+                f'detected={self.confirmed_marker_id}')
             self.on_verified()
         elif self.sim_deadline_passed():
             self.get_logger().error(
@@ -700,7 +733,7 @@ class WarehouseAutonomy(Node):
         odom_fresh = self.motion.fresh(wall, self.odom_max_age)
         stopped = odom_fresh and self.motion.stationary_for_wall(wall, self.stop_hold)
         active = self.activity.active_actions()
-        missing = self.status_problems(self.status_publishers())
+        missing = self.publisher_problems(self.status_publishers())
         idle = not (active or missing or self.goal_active or self.goal_pending)
         if stopped and idle:
             self.stop_verified = True

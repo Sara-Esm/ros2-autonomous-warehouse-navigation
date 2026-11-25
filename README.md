@@ -19,11 +19,11 @@ odometry before sending each goal.
   a stalled `/clock` is detected instead of hiding a hung server.
 - **Clear reporting.** Every run ends with counts of succeeded, failed and unattempted
   tasks, and a distinct exit code.
-- **Tested.** CI reported 47 passes and 3 skips. Of the 50 cases, 33 exercise the real
+- **Tested.** 54 automated tests: 51 passed, 3 skipped. 37 of them exercise the real
   mission node against a mock Nav2. A separate CI job runs the full mission in Gazebo.
 
 **Results:** Local Trials 10 and 12 each verified all five visits. Trial 12 recovered from
-a navigation abort after a 116-second wait before retrying. Two linked headless CI runs
+a navigation abort after a 116-second wait before retrying. Two linked CI runs
 ([45570293516](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45570293516), [45579301270](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45579301270)) also verified all five
 visits. [Full trial log →](docs/trial_results.md)
 
@@ -194,7 +194,7 @@ stateDiagram-v2
   STARTUP --> NOT_STARTED: startup_timeout (wall), exit 3
   START_DELAY --> GATE
   GATE --> AWAIT_RESPONSE: Nav2 ACTIVE + idle, robot stationary
-  GATE --> HALT: gate_timeout (wall)
+  GATE --> HALT: gate_timeout (wall), or retry_evidence_grace with no controller activity
   AWAIT_RESPONSE --> NAVIGATING: accepted
   AWAIT_RESPONSE --> HALT: rejected / no response (wall)
   NAVIGATING --> VERIFYING: succeeded
@@ -260,10 +260,10 @@ then succeeded at once, every later station succeeded first time, and the missio
 
 ## Testing
 
-**Automated tests** (`colcon test`, no Gazebo): 50 tests, 0 failures, 3 skipped (ament
+**Automated tests** (`colcon test`, no Gazebo): 54 tests, 51 passed, 0 failures, 3 skipped (ament
 template copyright checks, which skip themselves because the files have no copyright header).
 
-- **33 mission-manager tests** run the real node against a scriptable mock Nav2 (action
+- **37 mission-manager tests** run the real node against a scriptable mock Nav2 (action
   server, lifecycle service, `follow_path` status, odometry, marker stream) and a fake
   `/clock`, each on its own DDS domain. They cover rejection, aborts with and without retry,
   wrong or missing markers, sim rates of 0.5× and 2×, Nav2 unavailable or inactive,
@@ -284,8 +284,9 @@ TF chain), a real-time-factor measurement, the mission, and saved logs, metadata
 metrics under `audit_logs/`.
 
 **CI** ([`.github/workflows/warehouse-humble.yml`](.github/workflows/warehouse-humble.yml))
-runs the test suite and then the same trial script headless under Xvfb on every pull request
-to `main`.
+runs the test suite and then the same trial script on every pull request to `main`, on an
+Xvfb virtual display with software rendering and the Gazebo client and RViz enabled. That is
+not the same as a GUI-free run: no client-free configuration has been validated on this code.
 
 ---
 
@@ -297,10 +298,11 @@ Counted from the saved logs by `scripts/trial_metrics.py`.
 |---|---|---|---|---|---|
 | Trial 10 | Local, WSL2 | `3e8e1b7` (Nav2 tuning) | 5/5 | 0 / 0 | 0.67 |
 | Trial 12 | Local, WSL2, heavy load | `0998813` (supervised manager) | 5/5, exit 0 | 1 / 1 (recovered) | 0.31 |
-| [CI run 45570293516](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45570293516) | GitHub runner, headless | `847f31c` | 5/5, exit 0 | 0 / 0 | 0.84 |
-| [CI run 45579301270](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45579301270) | GitHub runner, headless | `d34a0de` | 5/5, exit 0 | - | - |
+| [CI run 45570293516](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45570293516) | GitHub runner, Xvfb + software GL | `847f31c` | 5/5, exit 0 | 0 / 0 | 0.84 |
+| [CI run 45579301270](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45579301270) | GitHub runner, Xvfb + software GL | `d34a0de` | 5/5, exit 0 | - | - |
 
-All four use the same Nav2 parameter file. Both CI runs tested the current mission code;
+All four use the same Nav2 parameter file; for Trial 10 that is established from git
+history, since its metadata predates the runner's `nav2_params_sha256` field. Both CI runs tested the current mission code;
 `d34a0de` is the tree merged to `main`, and `847f31c` differs from it only in tests and
 documentation. The trial script exits with the mission's exit code, and 0 means all five
 tasks succeeded. The first CI run's logs are kept in
@@ -325,7 +327,9 @@ is listed with notes in [`docs/trial_results.md`](docs/trial_results.md).
    through unknown space. Some obstacles are only partly visible to a 2D LiDAR.
 4. **Simulation performance.** The simulation runs at 0.31–0.74× real time on the
    development machine, and the controller logs warnings that it missed its desired control
-   rate. Earlier headless runs were faster but less reliable, for reasons not yet understood.
+   rate. The two GUI-free runs (Trials 05-06) were faster but much less reliable. They
+   predate the Nav2 tuning, so that comparison is confounded and the cause is still unknown;
+   every run since has kept the Gazebo client enabled.
 5. **Fixed launch delays.** Nav2 starts at t = 40 s and the detector at t = 55 s by timer.
    The mission and trial runner wait on real readiness, but the launch is not event-driven.
 6. **Fixed mission.** Waypoints are hard-coded and there is one robot. "Docking" is a
