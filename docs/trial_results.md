@@ -4,7 +4,8 @@ Generated from the saved logs in `audit_logs/` with `scripts/trial_metrics.py --
 Every value is counted from the logs; `-` means the log or field does not exist. All trials
 ran on one WSL2 machine (8 cores, 3.8 GiB RAM) from a fresh simulation launch. RTF is the
 real-time factor measured just before the mission. Warning counts are raw log-line counts,
-not distinct failures.
+not distinct failures. "Ctrl rate missed" counts controller warnings that it missed its desired
+control rate.
 
 | Trial | Kind | GUI | Commit | Tasks OK | Failed | Nav failures | Retries | Step 1 to summary (wall s) | RTF | Ctrl rate missed | No valid traj | No progress | follow_path aborts | Plan failures | Spin+backup | Init-pose warnings |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -26,14 +27,17 @@ not distinct failures.
 - **05–06** Headless experiment (gzclient off). RTF rose to about 0.87 but navigation degraded badly
   (53 and 24 planner failures). Not adopted. Trial 05's old mission manager printed
   "WAREHOUSE MISSION COMPLETE" with 0/5 tasks succeeded, which led to the honest-reporting fix in `3de4301`.
-- **07, 09** Not recorded as trials (numbers skipped).
+- **07, 09** No logs, metadata or commits exist under these numbers in `audit_logs/` or the Git
+  history, and why the numbers were skipped was not written down at the time. Unsuccessful attempts that
+  did produce logs are kept, for example `meta_trial03_failed_readiness_*.txt` (an attempt at Trial 03
+  where `bt_navigator` never became ACTIVE) and the interrupted Trial 11.
 - **08** Outer `NavigateToPose` aborted once on the final return home after Dispatch succeeded (4/5). Afterwards Nav2's spin/backup/wait
   ran on for about 10 s and a `follow_path` goal stayed active for about 64 s. This motivated the readiness gate.
 - **10** First run of the tuned Nav2 configuration (`3e8e1b7`): 5/5, no navigation failures.
 - **11** **Interrupted, not a result.** Steps 1–3 arrived and were marker-verified (IDs 0, 1, 2) and step 4's goal
   was accepted. Then the runner was terminated externally (the controlling terminal session closed) at 19:45 MST.
   No exit code was recorded. Commits landed while it ran, so it is kept only as evidence.
-- **12** Last local Gazebo validation, on `0998813`, which is older than the current PR #3 code (supervised mission manager plus the Nav2 configuration of Trial 10,
+- **12** Last local Gazebo validation, on `0998813`, which is older than the current code on `main` (supervised mission manager plus the Nav2 configuration of Trial 10,
   identical parameter-file hash). **5/5, exit code 0.** RTF was 0.31, half that of the earlier trials (load
   average 21 after about 2 h uptime), alongside a higher controller missed-rate count.
   Step 1's first attempt aborted: `bt_navigator` timed out waiting for `follow_path`, `spin` and `backup`
@@ -41,6 +45,26 @@ not distinct failures.
   goal kept driving and reached the dock. The mission manager's gate held the retry while it
   reported `follow_path(1)` active and the robot moving (about 116 s from the abort to the retry, wall clock). It then sent the retry, which succeeded immediately
   from (-3.65, 9.20). Every other step succeeded on its first attempt.
+
+## How to read the trials
+
+- Trials 02–04 are the original baseline: 15/15 tasks, plus 5/5 in pilot Trial 01, for 20/20.
+- The old mission manager reported "WAREHOUSE MISSION COMPLETE" even when tasks had failed (Trial 05's
+  log says so with 0/5 succeeded); `3de4301` fixed that.
+- Trials 05–06 tested running without the GUI to raise the real-time factor. RTF went up, but
+  navigation became much less reliable, so the change was not kept.
+- Trials 10–12 use the current Nav2 configuration (identical parameter-file hash).
+- ArUco verification succeeded at every station the robot reached in every trial from 08 on. No trial
+  from 10 on logged an AMCL "Please set the initial pose" warning. The goal-response watchdog (present
+  from Trial 11 on) never fired in a trial.
+
+**Three levels of failure.** Mission results count only the last of these:
+
+| Level | What it means | Trial 10 | Trial 12 |
+|---|---|---|---|
+| Nav2-internal `follow_path` abort | The controller gives up on one path; the behavior tree replans or runs a recovery itself | 2 | 5 |
+| Outer `NavigateToPose` abort | The behavior tree gives up; the mission manager sees a failure and may retry | 0 | 1 (retried) |
+| Mission task failure | A station is not reached or its marker is not confirmed | 0 | 0 |
 
 ## CI Gazebo smoke run (current code)
 
@@ -50,7 +74,7 @@ always uses trial number 99.
 
 | Run | Code | Environment | Tasks OK | Nav failures / retries | Step 1 to summary (wall s) | RTF | Ctrl rate missed | follow_path aborts |
 |---|---|---|---|---|---|---|---|---|
-| [45570293516](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45570293516) | PR #3 head `847f31c` (tested as merge commit `b2037ca`, identical tree) | GitHub `ubuntu-22.04`, 4 cores, Xvfb, software GL | 5/5, exit 0 | 0 / 0 | 429 | 0.84 | 0 | 1 |
+| [45570293516](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45570293516) `847f31c` (tested as merge commit `b2037ca`, identical tree) | GitHub `ubuntu-22.04`, 4 cores, Xvfb, software GL | 5/5, exit 0 | 0 / 0 | 429 | 0.84 | 0 | 1 |
 
 Same Nav2 parameter-file hash as Trials 10–12 (`869d998…`). All five markers were verified on
 the first attempt. The abort-and-retry path was **not** exercised. Non-zero exits from the
