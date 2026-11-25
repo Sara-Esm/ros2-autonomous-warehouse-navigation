@@ -24,7 +24,7 @@ jobs:
       - name: Build warehouse packages
         run: |
           source /opt/ros/humble/setup.bash
-          colcon build --packages-select warehouse_bringup warehouse_gazebo warehouse_perception
+          colcon build --packages-up-to warehouse_bringup warehouse_gazebo warehouse_perception
       - name: Run mission, perception, marker and lint tests
         run: |
           source install/setup.bash
