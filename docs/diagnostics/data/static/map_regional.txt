@@ -1,0 +1,19 @@
+pgm value histogram: {0: 3772, 205: 83919, 254: 51911}
+  value 0: occ=1.000 -> OCCUPIED (map_server trinary, thresholds 0.65/0.25)
+  value 205: occ=0.196 -> FREE (map_server trinary, thresholds 0.65/0.25)
+  value 254: occ=0.004 -> FREE (map_server trinary, thresholds 0.65/0.25)
+
+Regional translation of map obstacles relative to true geometry (map - world):
+  y[-10.8, -6.0) west: n= 581 raw median dist=0.100 m | best shift dx=-0.10 dy=+0.20 -> 87% within 7.5 cm, median 0.050 m
+  y[-10.8, -6.0) east: n= 555 raw median dist=0.050 m | best shift dx=-0.20 dy=+0.05 -> 99% within 7.5 cm, median 0.050 m
+  y[ -6.0, -2.0) west: n= 252 raw median dist=0.050 m | best shift dx=+0.05 dy=+0.15 -> 87% within 7.5 cm, median 0.050 m
+  y[ -6.0, -2.0) east: n= 126 raw median dist=0.100 m | best shift dx=-0.10 dy=-0.05 -> 92% within 7.5 cm, median 0.050 m
+  y[ -2.0, +2.0) west: n= 168 raw median dist=0.200 m | best shift dx=+0.20 dy=+0.20 -> 97% within 7.5 cm, median 0.050 m
+  y[ -2.0, +2.0) east: n= 117 raw median dist=0.000 m | best shift dx=-0.05 dy=-0.05 -> 99% within 7.5 cm, median 0.000 m
+  y[ +2.0, +6.0) west: n= 295 raw median dist=0.250 m | best shift dx=+0.35 dy=+0.15 -> 88% within 7.5 cm, median 0.050 m
+  y[ +2.0, +6.0) east: n= 209 raw median dist=0.050 m | best shift dx=+0.35 dy=-0.05 -> 81% within 7.5 cm, median 0.050 m
+  y[ +6.0,+11.2) west: n= 629 raw median dist=0.150 m | best shift dx=+0.50 dy=+0.15 -> 91% within 7.5 cm, median 0.050 m
+  y[ +6.0,+11.2) east: n= 840 raw median dist=0.150 m | best shift dx=+0.40 dy=+0.00 -> 76% within 7.5 cm, median 0.050 m
+
+West wall in map: x = +0.0342*y -6.654  -> angle +1.96 deg; x at y=-9: -6.96, at y=+9: -6.35
+GT west wall inner face x (max x of wall cells per y band, excluding pilasters): -6.86

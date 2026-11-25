@@ -1,0 +1,23 @@
+A. Geometry-based rigid fit: world = R*map + t
+   theta +2.05 deg, t = (-0.142, -0.049) m
+   map-obstacle to true-geometry distance: identity mean 0.146 / within 10 cm 41%  ->  rigid-fit mean 0.045 / within 10 cm 84%
+   map y in [-11, -6): within 10 cm identity  49% rigid  86%; remaining local shift after rigid fit (+0.05,-0.00) m
+   map y in [ -6, -2): within 10 cm identity  58% rigid  79%; remaining local shift after rigid fit (+0.05,-0.00) m
+   map y in [ -2, +2): within 10 cm identity  44% rigid  60%; remaining local shift after rigid fit (-0.00,-0.00) m
+   map y in [ +2, +6): within 10 cm identity  30% rigid  88%; remaining local shift after rigid fit (-0.05,-0.00) m
+   map y in [ +6,+11): within 10 cm identity  32% rigid  87%; remaining local shift after rigid fit (-0.00,-0.00) m
+
+B. Pose-based rigid fit (truth = R*AMCL + t, all 252 AMCL updates)
+   theta +2.06 deg, t = (-0.121, -0.037) m
+   position error: raw median 0.236 p95 0.502 max 0.535 m -> after rigid fit median 0.088 p95 0.195 max 0.250 m
+   true y in [-11, -6): raw median 0.224 m, after rigid fit median 0.055 m (mean residual -0.01,-0.01)
+   true y in [ -6, -2): raw median 0.064 m, after rigid fit median 0.094 m (mean residual +0.03,+0.05)
+   true y in [ -2, +2): raw median 0.054 m, after rigid fit median 0.104 m (mean residual +0.08,+0.00)
+   true y in [ +2, +6): raw median 0.391 m, after rigid fit median 0.162 m (mean residual -0.06,-0.05)
+   true y in [ +6,+11): raw median 0.470 m, after rigid fit median 0.077 m (mean residual -0.03,+0.01)
+
+C. Station positioning: true stop vs intended goal, and the part a rigid frame offset explains
+   Home Charging Dock     miss 0.504 m | rigid model (geometry) predicts miss 0.508 m, residual 0.039 m | rigid model (poses) predicts 0.486 m, residual 0.045 m
+   Loading Zone           miss 0.404 m | rigid model (geometry) predicts miss 0.476 m, residual 0.072 m | rigid model (poses) predicts 0.458 m, residual 0.055 m
+   Inventory Scan Station miss 0.176 m | rigid model (geometry) predicts miss 0.180 m, residual 0.032 m | rigid model (poses) predicts 0.204 m, residual 0.038 m
+   Dispatch Zone          miss 0.316 m | rigid model (geometry) predicts miss 0.259 m, residual 0.113 m | rigid model (poses) predicts 0.269 m, residual 0.087 m

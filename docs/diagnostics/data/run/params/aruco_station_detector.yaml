@@ -1,0 +1,6 @@
+/aruco_station_detector:
+  ros__parameters:
+    debug_window: true
+    image_topic: /camera/image_raw
+    use_sim_time: true
+

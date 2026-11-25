@@ -1,0 +1,10 @@
+inflate 0.00 m: spawn component touches image border=True; cells beyond true outer walls in it: 22667 (x range -7.56..8.29, y range -10.80..11.10)
+   dock reachable: True
+   loading reachable: True
+   inventory reachable: True
+   dispatch reachable: True
+inflate 0.14 m: spawn component touches image border=True; cells beyond true outer walls in it: 21080 (x range -7.56..8.29, y range -10.80..11.10)
+   dock reachable: True
+   loading reachable: True
+   inventory reachable: True
+   dispatch reachable: True

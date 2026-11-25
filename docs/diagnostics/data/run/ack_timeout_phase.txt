@@ -1,0 +1,6 @@
+/usr/lib/python3/dist-packages/scipy/__init__.py:146: UserWarning: A NumPy version >=1.17.3 and <1.25.0 is required for this version of SciPy (detected version 1.26.4
+[INFO] [1795649820.374525284] [rosbag2_storage]: Opened database 'run/bag/bag_0.db3' for READ_ONLY.
+timeouts by action: {'follow_path': 6, 'compute_path_to_pose': 13}
+n = 19 ; phase as fraction of the /clock inter-arrival period: [0.08, 0.09, 0.21, 0.24, 0.26, 0.26, 0.3, 0.38, 0.41, 0.5, 0.61, 0.68, 0.68, 0.69, 0.75, 0.75, 0.78, 0.82, 0.91]
+fraction in first 15% of period: 0.11 (uniform: 0.15; sim-clock detection: ~1.0)
+KS test vs uniform: p = 0.852

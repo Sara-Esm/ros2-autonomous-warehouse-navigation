@@ -1,0 +1,5 @@
+Times are wall seconds relative to the ARRIVED log line (bag receipt times).
+last nonzero DWB cmd -0.05s, smoother -3.88s, true motion(>2mm/s,>0.005rad/s) -2.54s; marker confirm +0.36s; TASK COMPLETE +4.75s; max true |v| after 0.1 mm/s, |w| 0.000 rad/s
+last nonzero DWB cmd -0.07s, smoother -0.18s, true motion(>2mm/s,>0.005rad/s) +0.95s; marker confirm +0.95s; TASK COMPLETE +5.33s; max true |v| after 0.5 mm/s, |w| 0.072 rad/s
+last nonzero DWB cmd -0.09s, smoother -0.10s, true motion(>2mm/s,>0.005rad/s) +1.22s; marker confirm +1.12s; TASK COMPLETE +5.43s; max true |v| after 0.9 mm/s, |w| 0.096 rad/s
+last nonzero DWB cmd -0.23s, smoother -0.25s, true motion(>2mm/s,>0.005rad/s) +1.52s; marker confirm +2.27s; TASK COMPLETE +6.56s; max true |v| after 0.8 mm/s, |w| 0.332 rad/s

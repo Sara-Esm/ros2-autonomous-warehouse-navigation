@@ -1,0 +1,47 @@
+/behavior_server:
+  ros__parameters:
+    /bond_disable_heartbeat_timeout: true
+    assisted_teleop:
+      plugin: nav2_behaviors/AssistedTeleop
+    backup:
+      acceleration_limit: 0.0
+      deceleration_limit: 0.0
+      minimum_speed: 0.0
+      plugin: nav2_behaviors/BackUp
+    behavior_plugins:
+    - spin
+    - backup
+    - drive_on_heading
+    - assisted_teleop
+    - wait
+    cmd_vel_teleop: cmd_vel_teleop
+    costmap_topic: local_costmap/costmap_raw
+    cycle_frequency: 10.0
+    drive_on_heading:
+      acceleration_limit: 0.0
+      deceleration_limit: 0.0
+      minimum_speed: 0.0
+      plugin: nav2_behaviors/DriveOnHeading
+    footprint_topic: local_costmap/published_footprint
+    global_frame: odom
+    max_rotational_vel: 1.0
+    min_rotational_vel: 0.4
+    projection_time: 1.0
+    qos_overrides:
+      /clock:
+        subscription:
+          depth: 1
+          durability: volatile
+          history: keep_last
+          reliability: best_effort
+    robot_base_frame: base_link
+    rotational_acc_lim: 3.2
+    simulate_ahead_time: 2.0
+    simulation_time_step: 0.1
+    spin:
+      plugin: nav2_behaviors/Spin
+    transform_tolerance: 0.1
+    use_sim_time: true
+    wait:
+      plugin: nav2_behaviors/Wait
+

@@ -1,0 +1,21 @@
+/planner_server:
+  ros__parameters:
+    /bond_disable_heartbeat_timeout: true
+    GridBased:
+      allow_unknown: true
+      plugin: nav2_navfn_planner/NavfnPlanner
+      tolerance: 0.5
+      use_astar: false
+      use_final_approach_orientation: false
+    expected_planner_frequency: 20.0
+    planner_plugins:
+    - GridBased
+    qos_overrides:
+      /clock:
+        subscription:
+          depth: 1
+          durability: volatile
+          history: keep_last
+          reliability: best_effort
+    use_sim_time: true
+

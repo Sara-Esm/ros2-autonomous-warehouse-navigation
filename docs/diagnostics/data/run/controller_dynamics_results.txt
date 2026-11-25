@@ -1,0 +1,53 @@
+# Controller dynamics (offline, recorded data only)
+odom samples 12476; sim-stamp interval median 34.0 ms (p5 34.0, p95 34.0, max 34)
+/clock: 0.100 s sim per message, received every 145 ms wall (p95 220); command sim times are interpolated between /clock messages -> timing uncertainty of order +-0.05 s sim
+cmd_vel_nav 4361 msgs, median sim interval 64 ms; cmd_vel 9110 msgs, median sim interval 32 ms
+
+## 1. Achieved acceleration (Gazebo truth, Savitzky-Golay derivative, 0.30 s window, during navigation legs)
+  body linear a [m/s^2]                      p50  0.02  p95  0.10  p99  0.27  max  0.75   (limits: DWB 2.5, smoother 2.5)
+  body angular alpha [rad/s^2]               p50  0.13  p95  0.99  p99  2.10  max  5.76   (limits: DWB 3.2, smoother 3.2)
+  wheel rim accel max(|aL|,|aR|) [m/s^2]     p50  0.04  p95  0.15  p99  0.36  max  0.77   (limits: Gazebo plugin 1.0)
+  sensitivity: SG window 5 (0.17 s): wheel accel p99 0.50 max 1.17
+  sensitivity: SG window 15 (0.50 s): wheel accel p99 0.27 max 0.53
+  Speed-ups from rest (true v < 0.01 then > 0.15 within 1.5 s): rise time 0->0.9*v_final and mean accel
+    t=  155.7 s sim: 0 -> 0.222 m/s; 90% in 0.57 s -> mean 0.35 m/s^2 (body)
+    t=  230.2 s sim: 0 -> 0.206 m/s; 90% in 0.63 s -> mean 0.29 m/s^2 (body)
+    t=  230.6 s sim: 0 -> 0.220 m/s; 90% in 0.27 s -> mean 0.74 m/s^2 (body)
+    t=  382.2 s sim: 0 -> 0.197 m/s; 90% in 0.30 s -> mean 0.59 m/s^2 (body)
+    t=  420.6 s sim: 0 -> 0.205 m/s; 90% in 1.13 s -> mean 0.16 m/s^2 (body)
+
+## 2. Command chain: DWB -> velocity_smoother -> Gazebo (lag from cross-correlation, moving segments)
+  v: DWB -> smoother       lag    33 ms (corr 0.962)
+  v: smoother -> truth     lag    67 ms (corr 0.969)
+  v: DWB -> truth          lag   100 ms (corr 0.987)
+  w: DWB -> smoother       lag    67 ms (corr 0.880)
+  w: smoother -> truth     lag    67 ms (corr 0.931)
+  w: DWB -> truth          lag   133 ms (corr 0.903)
+  tracking error after removing lag: |v_true - v_DWB| p50 0.002 p95 0.017 m/s; |w_true - w_DWB| p50 0.019 p95 0.154 rad/s
+
+## 3. Feasibility of DWB commands under the wheel constraint
+  DWB assumes the commanded (v,w) is reachable within its sim_period (1/controller_frequency = 0.1 s)
+  from the current velocity, with acc_lim_x 2.5 and acc_lim_theta 3.2: a window of +-0.25 m/s and +-0.32 rad/s per cycle.
+  Under the wheel limit (1.0 m/s^2 at each rim) the reachable change in 0.1 s satisfies |dv| + |dw|*b/2 <= 0.10 m/s,
+  i.e. pure linear <= 0.10 m/s, pure angular <= 1.25 rad/s.
+  DWB commands during legs: 4361
+    required worst-wheel accel to reach command within 0.1 s > 0.5 m/s^2:   1.7% of commands
+    required worst-wheel accel to reach command within 0.1 s > 1.0 m/s^2:   0.3% of commands
+    required worst-wheel accel to reach command within 0.1 s > 2.0 m/s^2:   0.0% of commands
+    of the infeasible (>1.0) commands, dominated by the linear term: 87%
+  DWB step size between consecutive commands: |dv| p95 0.023 max 0.208 m/s; |dw| p95 0.103 max 1.000 rad/s
+  smoother output linear rate-of-change (sim time): p95 1.00 m/s^2 (its limit is 2.5 m/s^2 in WALL time = 3.8 m/s^2 in sim time at RTF 0.66)
+
+## 4. Association between actuator saturation and steering oscillation (2 s sim windows, |v| > 0.1 m/s)
+  windows: 126
+  Spearman(infeasible-command fraction, high-pass w std) = +0.29; vs true-w reversals = +0.19 (n=126)
+  Spearman(wheel-accel near-limit fraction, high-pass w std) = +0.25; vs true-w reversals = +0.19 (n=126)
+  high-pass w std: windows with above-median infeasible fraction 0.092 vs below 0.052 rad/s
+  Spearman(DWB command w reversals, true w reversals) = +0.64: the oscillation is already present in the DWB command stream
+  mean reversals per 2 s window: DWB command 0.8, true motion 2.0
+
+## 5. Origin of high-frequency yaw-rate content (moving segments, per leg then pooled)
+  DWB /cmd_vel_nav w     high-pass std 0.042 rad/s | band RMS 0.3-2 Hz 0.099, 2-5 Hz 0.042, 5-15 Hz 0.020
+  smoother /cmd_vel w    high-pass std 0.071 rad/s | band RMS 0.3-2 Hz 0.096, 2-5 Hz 0.044, 5-15 Hz 0.036
+  truth /odom w          high-pass std 0.067 rad/s | band RMS 0.3-2 Hz 0.097, 2-5 Hz 0.086, 5-15 Hz 0.029
+  (DWB publishes at ~15 Hz sim: its content above ~7 Hz is not observable; interpolation smooths its steps)

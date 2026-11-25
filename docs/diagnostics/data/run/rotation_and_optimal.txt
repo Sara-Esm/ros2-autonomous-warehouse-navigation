@@ -1,0 +1,13 @@
+Leg | executed rotation | minimum implied by first plan (start align + path bends + final align) | ratio | DWB heading jitter
+  0: executed   457 deg | minimum   296 deg (align 161 + bends 130 + final 5) | x1.54 | excess 161 deg
+  1: executed   516 deg | minimum   474 deg (align 167 + bends 291 + final 16) | x1.09 | excess 42 deg
+  2: executed   491 deg | minimum   214 deg (align 147 + bends 67 + final 0) | x2.29 | excess 277 deg
+  3: executed   333 deg | minimum   316 deg (align 99 + bends 134 + final 84) | x1.05 | excess 17 deg
+  4: executed   265 deg | minimum   180 deg (align 177 + bends 3 + final 0) | x1.47 | excess 84 deg
+
+Shortest collision-free path on TRUE geometry (0.19 m clearance), grid Dijkstra (overestimates ~3-5% vs any-angle):
+  spawn->Dock          straight 10.00 m, true-geometry shortest 11.02 m
+  Dock->Loading        straight  5.48 m, true-geometry shortest  7.02 m
+  Loading->Inventory   straight 18.30 m, true-geometry shortest 18.30 m
+  Inventory->Dispatch  straight  5.44 m, true-geometry shortest  5.52 m
+  Dispatch->Dock       straight 18.60 m, true-geometry shortest 18.62 m
