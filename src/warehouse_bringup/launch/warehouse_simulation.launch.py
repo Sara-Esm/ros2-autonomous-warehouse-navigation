@@ -22,9 +22,9 @@ def generate_launch_description():
 
     # Stable URDF for robot_state_publisher
     robot_urdf = os.path.join(
-    turtlebot3_description_pkg,
-    'urdf',
-    'turtlebot3_burger.urdf'
+        turtlebot3_description_pkg,
+        'urdf',
+        'turtlebot3_burger.urdf'
     )
 
     gazebo_models = (
