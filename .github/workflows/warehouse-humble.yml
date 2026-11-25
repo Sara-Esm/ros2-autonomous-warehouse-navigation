@@ -30,3 +30,41 @@ jobs:
           source install/setup.bash
           colcon test --packages-select warehouse_bringup warehouse_gazebo warehouse_perception --executor sequential
           colcon test-result --verbose
+
+  gazebo-smoke:
+    needs: warehouse-tests
+    runs-on: ubuntu-22.04
+    container: ros:humble-ros-base-jammy
+    timeout-minutes: 50
+    defaults:
+      run:
+        shell: bash
+    env:
+      LIBGL_ALWAYS_SOFTWARE: "1"
+      GAZEBO_MODEL_DATABASE_URI: ""
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Humble and Gazebo dependencies
+        run: |
+          apt-get update -q
+          apt-get install -y --no-install-recommends \
+            git procps xvfb xauth libgl1-mesa-dri python3-colcon-common-extensions \
+            python3-opencv ros-humble-cv-bridge ros-humble-gazebo-ros-pkgs \
+            ros-humble-turtlebot3-gazebo ros-humble-navigation2 ros-humble-nav2-bringup \
+            ros-humble-rviz2 ros-humble-xacro
+      - name: Build the runtime overlay
+        run: |
+          source /opt/ros/humble/setup.bash
+          colcon build --packages-select turtlebot3_description turtlebot3_navigation2 \
+            warehouse_gazebo warehouse_perception warehouse_bringup
+      - name: Run five-station mission on a virtual display
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          xvfb-run -a -s "-screen 0 1280x800x24" scripts/run_mission_trial.sh 99
+      - name: Preserve trial evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gazebo-smoke-logs
+          path: audit_logs/*trial99.*
+          if-no-files-found: ignore
