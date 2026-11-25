@@ -308,9 +308,20 @@ def test_halt_reports_unverified_stop_when_robot_keeps_moving(harness_factory):
 
 # ---------------------------------------------------- process exit codes
 
-def _run_process(h, extra_args=(), interrupt_when=None, timeout=40.0):
-    args = [sys.executable, '-m', 'warehouse_bringup.warehouse_autonomy_node', '--ros-args',
-            '-p', 'use_sim_time:=true']
+def _installed_executable():
+    """Return the console script that `ros2 run warehouse_bringup warehouse_autonomy` starts."""
+    from ament_index_python.packages import get_package_prefix
+    path = os.path.join(get_package_prefix('warehouse_bringup'),
+                        'lib', 'warehouse_bringup', 'warehouse_autonomy')
+    assert os.access(path, os.X_OK), f'installed mission executable not found: {path}'
+    return path
+
+
+def _run_process(h, extra_args=(), interrupt_when=None, timeout=40.0,
+                 command=None, interrupt_signal=signal.SIGINT):
+    if command is None:
+        command = [sys.executable, '-m', 'warehouse_bringup.warehouse_autonomy_node']
+    args = list(command) + ['--ros-args', '-p', 'use_sim_time:=true']
     for k, v in [('start_delay', 0.4), ('verify_timeout', 1.0), ('task_hold', 0.2),
                  ('inter_goal_pause', 0.2), ('retry_pause', 0.3), ('stop_hold', 0.2),
                  ('startup_timeout', 8.0), ('halt_observe_timeout', 1.5)]:
@@ -322,7 +333,7 @@ def _run_process(h, extra_args=(), interrupt_when=None, timeout=40.0):
     try:
         if interrupt_when is not None:
             assert h.wait_until(interrupt_when, 20.0)
-            proc.send_signal(signal.SIGINT)
+            proc.send_signal(interrupt_signal)
         out, _ = proc.communicate(timeout=timeout)
     finally:
         if proc.poll() is None:
@@ -373,6 +384,31 @@ def test_sigint_cancels_active_goal_and_exits_130(behavior, delay):
     assert code == wan.EXIT_INTERRUPTED, out
     assert cancel_seen, out
     assert 'ROBOT STOP VERIFIED' in out
+
+
+def test_sigterm_to_installed_executable_cancels_goal_and_exits_130():
+    # SIGTERM is sent directly to the installed mission process. `ros2 run` is
+    # deliberately not used: Humble's ros2 run does not forward signals sent to
+    # its own PID to the mission child (see README, "Stopping the mission").
+    # Signal once the goal is executing, as in the SIGINT test. A signal that lands at the
+    # exact moment of goal acceptance can leave cleanup unverified (README, same section).
+    h = _MockOnly(['no_result'])
+
+    def goal_executing_for_1s():
+        return bool(h.mock.goals) and time.monotonic() - h.mock.goals[0][0] >= 1.0
+
+    try:
+        code, out = _run_process(h, interrupt_when=goal_executing_for_1s,
+                                 command=[_installed_executable()],
+                                 interrupt_signal=signal.SIGTERM)
+        cancel_seen = h.wait_until(lambda: len(h.mock.cancel_requests) == 1, 3.0)
+    finally:
+        h.close()
+    assert code == wan.EXIT_INTERRUPTED, out
+    assert cancel_seen, out
+    assert 'MISSION HALTED: Mission interrupted' in out
+    assert 'ROBOT STOP VERIFIED' in out
+    assert len(h.mock.goals) == 1
 
 
 class _MockOnly(MissionHarness):

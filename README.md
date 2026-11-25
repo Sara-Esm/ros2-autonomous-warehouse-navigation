@@ -20,15 +20,24 @@ demonstrated.
 **Results at a glance** (all counted from the logs in [`audit_logs/`](audit_logs/); details in
 [Experimental results](#experimental-results)):
 
-- **Final validation (Trial 12, validation commit `0998813`):** 5/5 stations reached and ArUco-verified, exit
+- **CI validation of the current mission code (GitHub Actions run
+  [45570293516](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45570293516)
+  on PR #3 head `847f31c`; later commits change only tests and documentation):** the Gazebo smoke job completed the five-station mission with
+  5/5 stations ArUco-verified and exit code 0. It ran headless under Xvfb on a 4-core runner at
+  0.84× real time, with 0 navigation failures and 0 retries, so it did not exercise the
+  abort-and-retry path. Logs:
+  [`audit_logs/ci_run_45570293516/`](audit_logs/ci_run_45570293516/PROVENANCE.md).
+- **Last local Gazebo validation (Trial 12, commit `0998813`, older than the current code):** 5/5 stations reached and ArUco-verified, exit
   code 0. Run at 0.31× real time under heavy CPU load. One Nav2 navigation abort was recovered by
   the supervised retry, and no overlapping goal was sent.
 - **10 recorded trials** (01–06, 08, 10–12; numbers 07 and 09 were not used). 6 completed all
   five stations (01–04, 10, 12). 3 did not: 05 and 06 were a rejected headless experiment, and
   08 led to the supervision work. 1 (Trial 11) was interrupted externally and is not counted.
-- **Current Nav2 configuration:** 2 of 2 completed trials succeeded (10 and 12). That shows it
-  works, not a measured reliability rate.
-- **Automated tests:** 43 historical results on `0998813`: 40 passed, 3 template checks skipped, without Gazebo.
+- **Current Nav2 configuration:** all 3 completed runs with this parameter file succeeded:
+  Trials 10 and 12 locally, plus the CI run. That shows it works, not a measured reliability rate.
+- **Automated tests (current code):** 50 tests, 0 failures, 3 template copyright checks
+  skipped, without Gazebo. That is 39 in `warehouse_bringup`, 6 in `warehouse_perception` and
+  5 in `warehouse_gazebo`. The historical run on `0998813` had 43 tests.
 
 ---
 
@@ -143,8 +152,37 @@ stateDiagram-v2
   HALT_OBSERVE --> DONE: report stop verified / not verified, exit 2
 ```
 
-A clock-stall watchdog that halts the mission can fire from any active state. Ctrl+C or
-SIGTERM enters bounded goal cleanup before exiting with code 130.
+A clock-stall watchdog that halts the mission can fire from any active state.
+
+**Stopping the mission.** The mission process handles SIGINT and SIGTERM the same way:
+bounded goal cleanup (cancel any active or pending goal, observe the stop), then exit
+code 130. How the signal reaches it matters:
+
+- **Ctrl+C in the terminal running `ros2 run`** works. The terminal signals the whole
+  foreground process group, so the mission child receives SIGINT directly, and `ros2 run`
+  passes through exit code 130.
+- **A signal sent to the `ros2 run` PID** (for example `kill <pid>`) is *not* forwarded.
+  Humble's `ros2 run` starts the mission as a child process and does not relay signals,
+  so the mission keeps running and no cleanup happens.
+- **To stop it from a script or supervisor,** start the installed executable directly, so
+  the PID you hold is the mission process, and signal that PID:
+
+  ```bash
+  install/warehouse_bringup/lib/warehouse_bringup/warehouse_autonomy \
+    --ros-args -p use_sim_time:=true &
+  MISSION_PID=$!
+  kill -TERM "$MISSION_PID"     # bounded cleanup, then exit code 130
+  wait "$MISSION_PID"; echo "exit code: $?"
+  ```
+
+Tests cover SIGINT to the mission process (during an executing goal and during pending
+acceptance) and SIGTERM to the installed executable during an executing goal.
+
+Known limitation: the signal handler raises an exception wherever the main thread happens to be.
+A signal that lands at the exact moment Nav2 accepts a goal can interrupt that bookkeeping. In
+2 of about 17 such deliberately timed runs, cleanup still sent the cancel and exited with 130, but
+reported `ROBOT STOP NOT VERIFIED` instead of confirming the stop. Handling the signal as a flag
+checked by the main loop would remove this window. That change is not made yet.
 
 ---
 
@@ -273,9 +311,14 @@ independent safety channel (see [Limitations](#limitations)).
   generator pixel for pixel and decode to their station IDs.
 - `ament_flake8` and `ament_pep257` for all three packages.
 
-Historical full run (`colcon test` on `0998813`): **43 tests, 0 failures, 0 errors, 3 skipped**. The
-skips are the ament template copyright checks, which skip themselves because the files have no
-copyright header.
+Current full run (`colcon test --executor sequential` on the PR #3 branch): **50 tests,
+0 failures, 0 errors, 3 skipped**. That is 39 in `warehouse_bringup` (33 mission-manager, 3 tracker,
+3 lint), 6 in `warehouse_perception` and 5 in `warehouse_gazebo`. The skips are the ament template
+copyright checks, which skip themselves because the files have no copyright header. The same suite
+runs in GitHub Actions on every pull request
+([`.github/workflows/warehouse-humble.yml`](.github/workflows/warehouse-humble.yml)). For
+comparison, the historical run on `0998813` (the Trial 12 commit) had 43 tests, 0 failures and
+3 skipped.
 
 The mock tests verify mission logic and supervision only. They make no claim about
 physical motion or safety.
@@ -284,7 +327,9 @@ physical motion or safety.
 simulation, waits for `bt_navigator` and `amcl` to be ACTIVE, checks `/amcl_pose` and the
 `map → odom → base_footprint` TF chain, measures the real-time factor, runs the mission,
 and stores the launch log, mission log, metadata (commit, parameter-file hash, exit code)
-and a metrics summary under `audit_logs/`.
+and a metrics summary under `audit_logs/`. The CI workflow's `gazebo-smoke` job runs the same
+script headless under Xvfb after the unit tests pass. Its logs are uploaded as an artifact,
+and the run for the current code is preserved in `audit_logs/ci_run_45570293516/`.
 
 ---
 
