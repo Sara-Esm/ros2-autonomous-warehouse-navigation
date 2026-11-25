@@ -209,8 +209,10 @@ Wait ~60 seconds for all nodes to initialize.
 **Terminal 2 — Start autonomous mission:**
 ```bash
 source install/setup.bash
-ros2 run warehouse_bringup warehouse_autonomy
+ros2 run warehouse_bringup warehouse_autonomy --ros-args -p use_sim_time:=true
 ```
+
+The node exits by itself when the mission ends: exit code `0` = all tasks succeeded, `1` = finished with failed tasks, `2` = mission halted on a navigation failure.
 
 The robot will autonomously complete all 5 mission steps.
 
@@ -252,8 +254,8 @@ ros2 run nav2_map_server map_saver_cli -f ~/warehouse_ws/src/warehouse_bringup/m
 
 **Mission Orchestration** (`warehouse_autonomy_node.py`)
 - Uses `NavigateToPose` action client for non-blocking navigation
-- Callback-driven state machine advances through waypoints on goal completion
-- 15-second vision verification window at each station with graceful timeout handling
+- Timer-driven state machine; callbacks never block, all waits use the node (sim) clock
+- 15-second (sim time) vision verification window at each station with graceful timeout handling
 
 **ArUco Detection** (`aruco_station_detector.py`)
 - Subscribes to `/camera/image_raw`, publishes to `/warehouse/marker_detected` and `/warehouse/marker_id`
@@ -264,7 +266,7 @@ ros2 run nav2_map_server map_saver_cli -f ~/warehouse_ws/src/warehouse_bringup/m
 **Navigation Configuration**
 - `xy_goal_tolerance: 0.05m`, `yaw_goal_tolerance: 0.05 rad` for precise station stopping
 - `inflation_radius: 0.2m` tuned to allow close-wall navigation for marker inspection
-- Timed launch sequence: Gazebo (0s) → Nav2 (40s) → Initial pose (50s) → ArUco detector (55s)
+- Timed launch sequence: Gazebo (0s) → Nav2 (40s) → ArUco detector (55s); AMCL seeds its initial pose from `set_initial_pose` on activation
 
 ---
 
