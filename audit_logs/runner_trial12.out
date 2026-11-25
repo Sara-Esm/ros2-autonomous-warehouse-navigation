@@ -1,0 +1,84 @@
+[trial 12] Waiting for bt_navigator ACTIVE (up to 300 s)...
+[trial 12] Checking AMCL pose and TF...
+[trial 12] Measuring real-time factor (8 s)...
+[trial 12] Running mission; log: audit_logs/mission_trial12.log
+[INFO] [1795575407.147611505] [warehouse_autonomy]: Warehouse autonomy workflow manager started.
+[INFO] [1795575407.150407476] [warehouse_autonomy]: Waiting for Nav2 action server...
+[WARN] [1795575407.265002777] [warehouse_autonomy]: Still waiting (STARTUP): no /clock received; navigate_to_pose action server not available; bt_navigator not ACTIVE (service unavailable)
+[INFO] [1795575411.569817776] [warehouse_autonomy]: Nav2 is ready. Starting warehouse mission in 10 seconds...
+[INFO] [1795575430.757812411] [warehouse_autonomy]: ----------------------------------------
+[INFO] [1795575430.772682860] [warehouse_autonomy]: MISSION STEP 1/5
+[INFO] [1795575430.774404936] [warehouse_autonomy]: Navigating to Home Charging Dock: x=-3.678, y=9.3, yaw=90.0 deg
+[INFO] [1795575430.859094533] [warehouse_autonomy]: Goal accepted by Nav2.
+[ERROR] [1795575453.282293651] [warehouse_autonomy]: Navigation FAILED for Home Charging Dock (status: 6)
+[WARN] [1795575470.358368191] [warehouse_autonomy]: Still waiting (GATE): Nav2 goals still active: follow_path(1), spin(1); robot not stationary for 1 s
+[WARN] [1795575480.404655412] [warehouse_autonomy]: Still waiting (GATE): Nav2 goals still active: follow_path(1); robot not stationary for 1 s
+[WARN] [1795575490.494048704] [warehouse_autonomy]: Still waiting (GATE): Nav2 goals still active: follow_path(1); robot not stationary for 1 s
+[WARN] [1795575500.568799328] [warehouse_autonomy]: Still waiting (GATE): Nav2 goals still active: follow_path(1); robot not stationary for 1 s
+[WARN] [1795575510.663908891] [warehouse_autonomy]: Still waiting (GATE): Nav2 goals still active: follow_path(1); robot not stationary for 1 s
+[WARN] [1795575520.682715311] [warehouse_autonomy]: Still waiting (GATE): Nav2 goals still active: follow_path(1); robot not stationary for 1 s
+[WARN] [1795575530.772982461] [warehouse_autonomy]: Still waiting (GATE): Nav2 goals still active: follow_path(1); robot not stationary for 1 s
+[WARN] [1795575540.769657467] [warehouse_autonomy]: Still waiting (GATE): Nav2 goals still active: follow_path(1); robot not stationary for 1 s
+[WARN] [1795575550.864833682] [warehouse_autonomy]: Still waiting (GATE): Nav2 goals still active: follow_path(1); robot not stationary for 1 s
+[WARN] [1795575560.870053889] [warehouse_autonomy]: Still waiting (GATE): Nav2 goals still active: follow_path(1); robot not stationary for 1 s
+[WARN] [1795575569.366820554] [warehouse_autonomy]: RETRYING navigation to Home Charging Dock (attempt 2/2)
+[INFO] [1795575569.369340339] [warehouse_autonomy]: Navigating to Home Charging Dock: x=-3.678, y=9.3, yaw=90.0 deg
+[INFO] [1795575569.420676837] [warehouse_autonomy]: Goal accepted by Nav2.
+[INFO] [1795575569.565061989] [warehouse_autonomy]: ARRIVED: Home Charging Dock
+[INFO] [1795575569.567459374] [warehouse_autonomy]: Looking for ArUco marker ID 0...
+[INFO] [1795575573.583077678] [warehouse_autonomy]: Correct marker detected: expected=0, detected=0
+[INFO] [1795575573.585067010] [warehouse_autonomy]: VISION VERIFIED: Home Charging Dock
+[INFO] [1795575573.591245909] [warehouse_autonomy]: TASK: Verify robot home dock and charging station
+[INFO] [1795575580.158177930] [warehouse_autonomy]: TASK COMPLETE: Home Charging Dock
+[INFO] [1795575583.761235877] [warehouse_autonomy]: ----------------------------------------
+[INFO] [1795575583.766142071] [warehouse_autonomy]: MISSION STEP 2/5
+[INFO] [1795575583.782218251] [warehouse_autonomy]: Navigating to Loading Zone: x=1.803, y=9.3, yaw=90.0 deg
+[INFO] [1795575583.837424282] [warehouse_autonomy]: Goal accepted by Nav2.
+[INFO] [1795575700.173801123] [warehouse_autonomy]: ARRIVED: Loading Zone
+[INFO] [1795575700.175280060] [warehouse_autonomy]: Looking for ArUco marker ID 1...
+[INFO] [1795575702.569613243] [warehouse_autonomy]: Correct marker detected: expected=1, detected=1
+[INFO] [1795575702.578903230] [warehouse_autonomy]: VISION VERIFIED: Loading Zone
+[INFO] [1795575702.580098376] [warehouse_autonomy]: TASK: Verify loading area
+[INFO] [1795575706.857601647] [warehouse_autonomy]: TASK COMPLETE: Loading Zone
+[INFO] [1795575710.896859379] [warehouse_autonomy]: ----------------------------------------
+[INFO] [1795575710.898219493] [warehouse_autonomy]: MISSION STEP 3/5
+[INFO] [1795575710.916169537] [warehouse_autonomy]: Navigating to Inventory Scan Station: x=1.801, y=-9.0, yaw=-90.0 deg
+[INFO] [1795575710.937884450] [warehouse_autonomy]: Goal accepted by Nav2.
+[INFO] [1795575871.739469114] [warehouse_autonomy]: ARRIVED: Inventory Scan Station
+[INFO] [1795575871.741049033] [warehouse_autonomy]: Looking for ArUco marker ID 2...
+[INFO] [1795575873.286064814] [warehouse_autonomy]: Correct marker detected: expected=2, detected=2
+[INFO] [1795575873.290512636] [warehouse_autonomy]: VISION VERIFIED: Inventory Scan Station
+[INFO] [1795575873.293936293] [warehouse_autonomy]: TASK: Verify shelf inventory using wall marker
+[INFO] [1795575877.781569700] [warehouse_autonomy]: TASK COMPLETE: Inventory Scan Station
+[INFO] [1795575881.777474383] [warehouse_autonomy]: ----------------------------------------
+[INFO] [1795575881.782238551] [warehouse_autonomy]: MISSION STEP 4/5
+[INFO] [1795575881.784076973] [warehouse_autonomy]: Navigating to Dispatch Zone: x=-3.63, y=-9.3, yaw=-90.0 deg
+[INFO] [1795575881.839885083] [warehouse_autonomy]: Goal accepted by Nav2.
+[INFO] [1795575944.166804723] [warehouse_autonomy]: ARRIVED: Dispatch Zone
+[INFO] [1795575944.168502015] [warehouse_autonomy]: Looking for ArUco marker ID 3...
+[INFO] [1795575946.165551181] [warehouse_autonomy]: Correct marker detected: expected=3, detected=3
+[INFO] [1795575946.166772122] [warehouse_autonomy]: VISION VERIFIED: Dispatch Zone
+[INFO] [1795575946.167897075] [warehouse_autonomy]: TASK: Verify dispatch area
+[INFO] [1795575950.379516682] [warehouse_autonomy]: TASK COMPLETE: Dispatch Zone
+[INFO] [1795575953.779987624] [warehouse_autonomy]: ----------------------------------------
+[INFO] [1795575953.787452587] [warehouse_autonomy]: MISSION STEP 5/5
+[INFO] [1795575953.791568826] [warehouse_autonomy]: Navigating to Return to Home Charging Dock: x=-3.678, y=9.3, yaw=90.0 deg
+[INFO] [1795575953.901316819] [warehouse_autonomy]: Goal accepted by Nav2.
+[INFO] [1795576100.721594398] [warehouse_autonomy]: ARRIVED: Return to Home Charging Dock
+[INFO] [1795576100.738130428] [warehouse_autonomy]: Looking for ArUco marker ID 0...
+[INFO] [1795576101.061954538] [warehouse_autonomy]: Correct marker detected: expected=0, detected=0
+[INFO] [1795576101.067708511] [warehouse_autonomy]: VISION VERIFIED: Return to Home Charging Dock
+[INFO] [1795576101.069470103] [warehouse_autonomy]: TASK: Return robot to charging dock and close mission
+[INFO] [1795576105.268436924] [warehouse_autonomy]: TASK COMPLETE: Return to Home Charging Dock
+[INFO] [1795576108.170351643] [warehouse_autonomy]: ========================================
+[INFO] [1795576108.171774595] [warehouse_autonomy]: WAREHOUSE MISSION COMPLETE: ALL TASKS SUCCEEDED
+[INFO] [1795576108.172940484] [warehouse_autonomy]: Total mission steps: 5
+[INFO] [1795576108.190079470] [warehouse_autonomy]: Successful tasks: 5
+[INFO] [1795576108.191595016] [warehouse_autonomy]: Failed tasks: 0
+[INFO] [1795576108.192918065] [warehouse_autonomy]: Unattempted tasks: 0
+[INFO] [1795576108.196900228] [warehouse_autonomy]: ========================================
+Trial  Kind           GUI  Commit   Tasks OK  Failed  Nav failures  Retries  Mission s  RTF     Ctrl rate missed  No valid traj  No progress  follow_path aborts  Plan failures  Spin+backup  Init-pose warnings
+12     mission-trial  on   0998813  5         0       1             1        677        0.3125  724               0              3            5                   0              15           0                 
+[trial 12] Exit code 0. Files: audit_logs/launch_trial12.log audit_logs/mission_trial12.log audit_logs/meta_trial12.txt audit_logs/summary_trial12.txt
+[trial 12] Stopping simulation...
+runner exit: 0

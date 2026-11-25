@@ -1,0 +1,9 @@
+trial: 03
+kind: repeatability-baseline
+workspace: /home/owl/projects/warehouse_ws
+commit: 3674bf1d822b0daba77b575753a16b2fcdfde38b
+launch_log: audit_logs/launch_trial03.log
+mission_log: audit_logs/mission_baseline_trial03.log
+script_start_utc: 2026-11-23T22:07:26Z
+cpu_cores: 8
+ERROR: bt_navigator did not become ACTIVE.

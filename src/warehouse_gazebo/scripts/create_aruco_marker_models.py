@@ -1,8 +1,17 @@
+"""
+Scaffold Gazebo model folders for the station ArUco markers.
+
+Legacy helper. The committed models/aruco_marker_N/ were hand-tuned after this
+scaffold (white backing board, 0.28 m marker plane), so this script never
+overwrites an existing model folder; it only creates missing ones. Textures
+come from markers/generated_clean/ (DICT_5X5_50, see markers/generate_markers.py).
+"""
+
 import os
 import shutil
 
-base_dir = os.path.expanduser("~/projects/warehouse_ws/src/warehouse_gazebo")
-generated_dir = os.path.join(base_dir, "markers", "generated")
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+generated_dir = os.path.join(base_dir, "markers", "generated_clean")
 models_dir = os.path.join(base_dir, "models")
 
 markers = {
@@ -14,6 +23,9 @@ markers = {
 
 for marker_id, (model_name, image_name, description) in markers.items():
     model_path = os.path.join(models_dir, model_name)
+    if os.path.exists(model_path):
+        print(f"Skipping {model_name}: already exists (not overwritten)")
+        continue
     texture_path = os.path.join(model_path, "materials", "textures")
     script_path = os.path.join(model_path, "materials", "scripts")
 
@@ -84,4 +96,4 @@ for marker_id, (model_name, image_name, description) in markers.items():
 
     print(f"Created {model_name}: ID {marker_id} - {description}")
 
-print("All marker models created.")
+print("Done.")

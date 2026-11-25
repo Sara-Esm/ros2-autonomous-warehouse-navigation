@@ -1,6 +1,6 @@
 from launch_ros.actions import Node
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, TimerAction, ExecuteProcess
+from launch.actions import IncludeLaunchDescription, TimerAction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from ament_index_python.packages import get_package_share_directory
 import os
@@ -31,22 +31,6 @@ def generate_launch_description():
         ]
     )
 
-    auto_initial_pose = TimerAction(
-        period=50.0,
-        actions=[
-            ExecuteProcess(
-                cmd=[
-                    'ros2', 'topic', 'pub',
-                    '--once',
-                    '/initialpose',
-                    'geometry_msgs/msg/PoseWithCovarianceStamped',
-                    "{header: {frame_id: 'map'}, pose: {pose: {position: {x: 0.000076, y: -0.000005, z: 0.0}, orientation: {z: 0.0, w: 1.0}}, covariance: [0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0685]}}"
-                ],
-                output='screen'
-            )
-        ]
-    )
-
     aruco_detector = TimerAction(
         period=55.0,
         actions=[
@@ -54,6 +38,7 @@ def generate_launch_description():
                 package='warehouse_perception',
                 executable='aruco_station_detector',
                 name='aruco_station_detector',
+                parameters=[{'use_sim_time': True}],
                 output='screen'
             )
         ]
@@ -62,6 +47,5 @@ def generate_launch_description():
     return LaunchDescription([
         gazebo_and_robot,
         nav2_delayed,
-        auto_initial_pose,
         aruco_detector
     ])

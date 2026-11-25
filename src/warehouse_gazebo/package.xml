@@ -3,12 +3,21 @@
 <package format="3">
   <name>warehouse_gazebo</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>Gazebo Classic warehouse world, models and ArUco station markers for the warehouse robot.</description>
   <maintainer email="zesmaeili85@gmail.com">owl</maintainer>
-  <license>TODO: License declaration</license>
+  <license>MIT</license>
 
-  <depend>launch_ros</depend>
 
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>turtlebot3_description</exec_depend>
+  <exec_depend>turtlebot3_gazebo</exec_depend>
+
+  <test_depend>python3-opencv</test_depend>
+  <test_depend>python3-numpy</test_depend>
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>

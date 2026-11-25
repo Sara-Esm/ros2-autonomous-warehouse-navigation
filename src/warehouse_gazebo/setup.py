@@ -7,7 +7,10 @@ package_name = 'warehouse_gazebo'
 
 def collect_files(directory):
     data_files = []
-    for root, _, files in os.walk(directory):
+    for root, dirs, files in os.walk(directory):
+        # Never install bytecode caches (created when tests import scripts).
+        dirs[:] = [d for d in dirs if d != '__pycache__']
+        files = [f for f in files if not f.endswith('.pyc')]
         if files:
             install_dir = os.path.join('share', package_name, root)
             data_files.append((install_dir, [os.path.join(root, f) for f in files]))
