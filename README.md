@@ -298,14 +298,13 @@ Counted from the saved logs by `scripts/trial_metrics.py`.
 | Trial 10 | Local, WSL2 | `3e8e1b7` (Nav2 tuning) | 5/5 | 0 / 0 | 0.67 |
 | Trial 12 | Local, WSL2, heavy load | `0998813` (supervised manager) | 5/5, exit 0 | 1 / 1 (recovered) | 0.31 |
 | [CI run 45570293516](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45570293516) | GitHub runner, headless | `847f31c` | 5/5, exit 0 | 0 / 0 | 0.84 |
-| [CI run 45579301270](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45579301270) | GitHub runner, headless | `d34a0de` | 5/5, exit 0 | - | - |
+| [CI run 45579301270](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45579301270) | GitHub runner, headless | `d34a0de` | 5/5, exit 0 | 0 / 0 | 0.84 |
 
 All four use the same Nav2 parameter file. Both CI runs tested the current mission code;
 `d34a0de` is the tree merged to `main`, and `847f31c` differs from it only in tests and
 documentation. The trial script exits with the mission's exit code, and 0 means all five
-tasks succeeded. The first CI run's logs are kept in
-[`audit_logs/ci_run_45570293516/`](audit_logs/ci_run_45570293516/PROVENANCE.md). The second
-run's logs are only in its GitHub artifact, so its abort and RTF columns are not filled in.
+tasks succeeded. Both runs have archived logs and provenance in the repository.
+[Run 45570293516](audit_logs/ci_run_45570293516/PROVENANCE.md) · [Run 45579301270](audit_logs/ci_run_45579301270/PROVENANCE.md).
 
 Earlier trials (01–08) record the baseline, a rejected headless experiment, and the failure
 that led to the supervision work. Every trial, including unsuccessful and interrupted ones,
