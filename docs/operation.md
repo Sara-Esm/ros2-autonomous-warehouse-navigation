@@ -34,7 +34,7 @@ early bring-up files that the system launch does not use.
 | Interface | Type | Role |
 |---|---|---|
 | `navigate_to_pose` | `nav2_msgs/action/NavigateToPose` | Station goals, cancellation |
-| `/<server>/_action/status` | `action_msgs/msg/GoalStatusArray` | Is any Nav2 server (navigate_to_pose, follow_path, compute_path_to_pose, spin, backup, wait, drive_on_heading) still executing? |
+| `/<server>/_action/status` | `action_msgs/msg/GoalStatusArray` | Is any Nav2 server (navigate_to_pose, follow_path, compute_path_to_pose, spin, backup, wait, drive_on_heading, assisted_teleop) still executing? |
 | `/bt_navigator/get_state` | `lifecycle_msgs/srv/GetState` | Nav2 must be ACTIVE before each goal |
 | `/odom` | `nav_msgs/msg/Odometry` | Stationary before each goal; stop report after a halt |
 | `/warehouse/marker_id` | `std_msgs/msg/Int32` | Detected marker ID |
@@ -51,6 +51,7 @@ early bring-up files that the system launch does not use.
 | `startup_timeout` / `gate_timeout` | 180 / 120 s | wall |
 | `goal_response_timeout` / `cancel_timeout` | 20 / 10 s | wall |
 | `clock_stall_timeout` / `halt_observe_timeout` | 15 / 15 s | wall |
+| `retry_evidence_grace` | 5 s | wall |
 
 | Nav2 (`burger_cam.yaml`) | Value | Why |
 |---|---|---|

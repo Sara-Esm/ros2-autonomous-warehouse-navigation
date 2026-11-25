@@ -38,7 +38,7 @@ def generate_launch_description():
                 package='warehouse_perception',
                 executable='aruco_station_detector',
                 name='aruco_station_detector',
-                parameters=[{'use_sim_time': True}],
+                parameters=[{'use_sim_time': True, 'debug_window': True}],
                 output='screen'
             )
         ]

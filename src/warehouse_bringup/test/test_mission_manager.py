@@ -191,8 +191,38 @@ def test_retry_without_controller_observation_halts(harness_factory):
     m = h.run()
     assert len(h.mock.goals) == 1
     assert m.exit_code == wan.EXIT_HALTED
+    assert 'retry evidence grace period' in m.halt_reason
     assert 'controller activity' in m.halt_reason
-    assert m.stop_verified is False
+    # Withholding the retry says nothing about whether the robot stopped: the
+    # odometry is fresh and stationary and every monitored action is idle.
+    assert m.stop_verified is True
+
+
+def test_delayed_controller_activity_within_grace_allows_retry(harness_factory):
+    h = harness_factory(
+        mock_kwargs={'behaviors': ['abort'], 'report_controller': False},
+        params={'retry_evidence_grace': 3.0, 'gate_timeout': 9.0})
+    m = h.mission
+    assert h.wait_until(
+        lambda: m.state == wan.GATE and m.require_controller_evidence, 10.0)
+    # A late follow_path status shows the controller was in fact active.
+    h.mock.report_controller = True
+    h.mock.set_follow_path_active(True)
+    assert h.wait_until(lambda: m.activity.saw_activity('follow_path'), 3.0)
+    h.mock.set_follow_path_active(False)
+    assert h.wait_until(lambda: len(h.mock.goals) == 2, 10.0)
+    m = h.run()
+    assert m.exit_code == wan.EXIT_SUCCESS
+    assert_counts(m, 5, 0, 0)
+
+
+def test_assisted_teleop_activity_blocks_the_gate(harness_factory):
+    h = harness_factory(params={'gate_timeout': 1.0})
+    h.mock.set_action_active('assisted_teleop', True)
+    m = h.run()
+    assert m.exit_code == wan.EXIT_HALTED
+    assert 'assisted_teleop' in m.halt_reason
+    assert not h.mock.goals
 
 
 def test_cancel_rejection_leaves_stop_unverified(harness_factory):
@@ -303,6 +333,27 @@ def test_halt_reports_unverified_stop_when_robot_keeps_moving(harness_factory):
     assert h.wait_until(lambda: m.state == wan.HALT_OBSERVE, 10.0)
     h.mock.set_moving(True)
     m = h.run()
+    assert m.stop_verified is False
+
+
+def test_halt_with_active_controller_reports_unverified_stop(harness_factory):
+    h = harness_factory(mock_kwargs={'behaviors': ['abort']}, params={'nav_retries': 0})
+    m = h.mission
+    assert h.wait_until(lambda: m.state == wan.NAVIGATING, 10.0)
+    h.mock.set_follow_path_active(True)  # controller keeps a goal past the abort
+    m = h.run()
+    assert m.exit_code == wan.EXIT_HALTED
+    assert m.stop_verified is False
+
+
+def test_halt_without_odometry_reports_unverified_stop(harness_factory):
+    h = harness_factory(mock_kwargs={'behaviors': ['abort']},
+                        params={'nav_retries': 0, 'odom_max_age': 0.3})
+    m = h.mission
+    assert h.wait_until(lambda: m.state == wan.NAVIGATING, 10.0)
+    h.mock.publish_odom = False
+    m = h.run()
+    assert m.exit_code == wan.EXIT_HALTED
     assert m.stop_verified is False
 
 

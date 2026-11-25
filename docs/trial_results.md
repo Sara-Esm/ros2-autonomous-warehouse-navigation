@@ -56,7 +56,8 @@ control rate.
   log says so with 0/5 succeeded); `3de4301` fixed that.
 - Trials 05–06 tested running without the GUI to raise the real-time factor. RTF went up, but
   navigation became much less reliable, so the change was not kept.
-- Trials 10–12 use the current Nav2 configuration (identical parameter-file hash).
+- Trials 10–12 use the current Nav2 configuration (identical parameter-file hash; for
+  Trial 10 this comes from git history, not its metadata).
 - ArUco verification succeeded at every station the robot reached in every trial from 08 on. No trial
   from 10 on logged an AMCL "Please set the initial pose" warning. The goal-response watchdog (present
   from Trial 11 on) never fired in a trial.
@@ -72,14 +73,17 @@ control rate.
 ## CI Gazebo smoke run (current code)
 
 Stored unchanged in [`audit_logs/ci_run_45570293516/`](../audit_logs/ci_run_45570293516/PROVENANCE.md).
-It is not part of the numbered local trials above: different machine, headless, and the workflow
-always uses trial number 99.
+It is not part of the numbered local trials above: different machine, an Xvfb virtual display
+with software rendering (the Gazebo client and RViz still run), and the workflow always uses
+trial number 99.
 
 | Run | Code | Environment | Tasks OK | Nav failures / retries | Step 1 to summary (wall s) | RTF | Ctrl rate missed | follow_path aborts |
 |---|---|---|---|---|---|---|---|---|
-| [45570293516](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45570293516) `847f31c` (tested as merge commit `b2037ca`, identical tree) | GitHub `ubuntu-22.04`, 4 cores, Xvfb, software GL | 5/5, exit 0 | 0 / 0 | 429 | 0.84 | 0 | 1 |
+| [45570293516](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45570293516) | `847f31c` (tested as merge commit `b2037ca`, identical tree) | GitHub `ubuntu-22.04`, 4 cores, Xvfb, software GL | 5/5, exit 0 | 0 / 0 | 429 | 0.84 | 0 | 1 |
 
-Same Nav2 parameter-file hash as Trials 10–12 (`869d998…`). All five markers were verified on
+Same Nav2 parameter-file hash as Trials 10–12 (`869d998…`). Trials 11, 12 and this
+run record that hash in their metadata; for Trial 10 it is established from git history,
+because the runner did not yet write the field. All five markers were verified on
 the first attempt. The abort-and-retry path was **not** exercised. Non-zero exits from the
 detector, Gazebo, RViz and the Nav2 container appear only during teardown, after the mission summary.
 
