@@ -1,0 +1,1509 @@
+[INFO] [launch]: All log files can be found below /github/home/.ros/log/2026-11-25-08-52-12-883045-342d68cbef5f-8532
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [gazebo-1]: process started with pid [8550]
+[INFO] [robot_state_publisher-2]: process started with pid [8552]
+[robot_state_publisher-2] [INFO] [1795596733.114050166] [robot_state_publisher]: got segment base_footprint
+[robot_state_publisher-2] [INFO] [1795596733.114164791] [robot_state_publisher]: got segment base_link
+[robot_state_publisher-2] [INFO] [1795596733.114179830] [robot_state_publisher]: got segment base_scan
+[robot_state_publisher-2] [INFO] [1795596733.114190069] [robot_state_publisher]: got segment caster_back_link
+[robot_state_publisher-2] [INFO] [1795596733.114199847] [robot_state_publisher]: got segment imu_link
+[robot_state_publisher-2] [INFO] [1795596733.114208744] [robot_state_publisher]: got segment wheel_left_link
+[robot_state_publisher-2] [INFO] [1795596733.114217891] [robot_state_publisher]: got segment wheel_right_link
+[gazebo-1] Gazebo multi-robot simulator, version 11.10.2
+[gazebo-1] Copyright (C) 2012 Open Source Robotics Foundation.
+[gazebo-1] Released under the Apache 2 License.
+[gazebo-1] http://gazebosim.org
+[gazebo-1] 
+[gazebo-1] Gazebo multi-robot simulator, version 11.10.2
+[gazebo-1] Copyright (C) 2012 Open Source Robotics Foundation.
+[gazebo-1] Released under the Apache 2 License.
+[gazebo-1] http://gazebosim.org
+[gazebo-1] 
+[gazebo-1] [1;33m[Wrn] [gazebo_ros_init.cpp:178] [0m[1;33m
+[gazebo-1] #     # ####### ####### ###  #####  #######
+[gazebo-1] ##    # #     #    #     #  #     # #
+[gazebo-1] # #   # #     #    #     #  #       #
+[gazebo-1] #  #  # #     #    #     #  #       #####
+[gazebo-1] #   # # #     #    #     #  #       #
+[gazebo-1] #    ## #     #    #     #  #     # #
+[gazebo-1] #     # #######    #    ###  #####  #######
+[gazebo-1] 
+[gazebo-1] This version of Gazebo, now called Gazebo classic, reaches end-of-life
+[gazebo-1] in January 2025. Users are highly encouraged to migrate to the new Gazebo
+[gazebo-1] using our migration guides (https://gazebosim.org/docs/latest/gazebo_classic_migration?utm_source=gazebo_ros_pkgs&utm_medium=cli)
+[gazebo-1] 
+[gazebo-1] [0m[1;33m
+[gazebo-1] [0m[1;33m[0m[1;33m[0mHome directory not accessible: Permission denied
+[gazebo-1] ALSA lib confmisc.c:855:(parse_card) cannot find card '0'
+[gazebo-1] ALSA lib conf.c:5182:(_snd_config_evaluate) function snd_func_card_inum returned error: No such file or directory
+[gazebo-1] ALSA lib confmisc.c:422:(snd_func_concat) error evaluating strings
+[gazebo-1] ALSA lib conf.c:5182:(_snd_config_evaluate) function snd_func_concat returned error: No such file or directory
+[gazebo-1] ALSA lib confmisc.c:1334:(snd_func_refer) error evaluating name
+[gazebo-1] ALSA lib conf.c:5182:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
+[gazebo-1] ALSA lib conf.c:5705:(snd_config_expand) Evaluate error: No such file or directory
+[gazebo-1] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM default
+[gazebo-1] AL lib: (EE) ALCplaybackAlsa_open: Could not open playback device 'default': No such file or directory
+[gazebo-1] [1;32m[Msg] [0m[1;32mWaiting for master.[0m[1;32m
+[gazebo-1] [0m[1;32m[0m[1;32m[0m[1;32m[Msg] [0m[1;32mConnected to gazebo master @ [0m[1;32mhttp://127.0.0.1:11345[0m[1;32m
+[gazebo-1] [0m[1;32m[0m[1;32m[0m[1;32m[Msg] [0m[1;32mPublicized address: [0m[1;32m172.18.0.2[0m[1;32m
+[gazebo-1] [0m[1;32m[0m[1;32m[0m[1;32m[Msg] [0m[1;32mLoading world file [[0m[1;32m/__w/ros2-autonomous-warehouse-navigation/ros2-autonomous-warehouse-navigation/install/warehouse_gazebo/share/warehouse_gazebo/worlds/small_warehouse.world[0m[1;32m][0m[1;32m
+[gazebo-1] [1;31m[Err] [OpenAL.cc:84] [0m[1;31mUnable to open audio device[[0m[1;31mdefault[0m[1;31m]
+[gazebo-1]  Audio will be disabled.
+[gazebo-1] [0m[1;32m[0m[1;32m[0m[1;32m[Msg] [0m[1;32mWaiting for master.[0m[1;32m
+[gazebo-1] [0m[1;32m[0m[1;32m[0m[1;32m[Msg] [0m[1;32mConnected to gazebo master @ [0m[1;32mhttp://127.0.0.1:11345[0m[1;32m
+[gazebo-1] [0m[1;32m[0m[1;32m[0m[1;32m[Msg] [0m[1;32mPublicized address: [0m[1;32m172.18.0.2[0m[1;32m
+[gazebo-1] [0m[1;33m[Wrn] [GuiIface.cc:298] [0m[1;33mCouldn't locate specified .ini. Creating file at [0m[1;33m"/github/home/.gazebo/gui.ini"[0m[1;33m
+[gazebo-1] [0m[1;33m[0m[1;33m[0m[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
+[gazebo-1] [0m[1;33m[0m[1;33m[0m[1;33m[Wrn] [GuiIface.cc:120] [0m[1;33mQStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'[0m[1;33m
+[gazebo-1] [0m[1;33m[0m[1;33m[0m[1;31m[Err] [InsertModelWidget.cc:403] [0m[1;31mMissing [0m[1;31mmodel.config[0m[1;31m for model [0m[1;31m"/opt/ros/humble/share/turtlebot3_gazebo/models/turtlebot3_autorace_2020"[0m[1;31m
+[gazebo-1] [0m[1;33m[Wrn] [ModelDatabase.cc:212] [0m[1;33mUnable to connect to model database using [[0m[1;33m//database.config[0m[1;33m]. Only locally installed models will be available.
+[gazebo-1] [0m[1;33m[Wrn] [Event.cc:61] [0m[1;33mWarning: Deleting a connection right after creation. [0m[1;33mMake sure to save the ConnectionPtr from a Connect call
+[gazebo-1] [0m[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
+[gazebo-1] [0m[1;33m[0m[1;33m[0m[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
+[INFO] [spawn_entity.py-3]: process started with pid [8677]
+[spawn_entity.py-3] [INFO] [1795596739.572558494] [spawn_entity]: Spawn Entity started
+[spawn_entity.py-3] [INFO] [1795596739.573332697] [spawn_entity]: Loading entity XML from file /opt/ros/humble/share/turtlebot3_gazebo/models/turtlebot3_burger_cam/model.sdf
+[spawn_entity.py-3] [INFO] [1795596739.575602626] [spawn_entity]: Waiting for service /spawn_entity, timeout = 30
+[spawn_entity.py-3] [INFO] [1795596739.576605478] [spawn_entity]: Waiting for service /spawn_entity
+[spawn_entity.py-3] [INFO] [1795596740.337605633] [spawn_entity]: Calling service /spawn_entity
+[gazebo-1] [0m[1;33m[0m[1;33m[0m[INFO] [1795596740.546820638] [turtlebot3_imu]: <initial_orientation_as_reference> is unset, using default value of false to comply with REP 145 (world as orientation reference)
+[gazebo-1] Node::Advertise(): Error advertising topic [default/turtlebot3/camera_link/camera/image]. Did you forget to start the discovery service?
+[gazebo-1] [1;33m[Wrn] [msgs.cc:1842] [0m[1;33mConversion of sensor type[[0m[1;33mwideanglecamera[0m[1;33m] not supported.[0m[1;33m
+[spawn_entity.py-3] [INFO] [1795596740.699286700] [spawn_entity]: Spawn status: SpawnEntity: Successfully spawned entity [turtlebot3]
+[INFO] [spawn_entity.py-3]: process has finished cleanly [pid 8677]
+[gazebo-1] [0m[1;33m[0m[1;33m[0m[1;33m[Wrn] [msgs.cc:1842] [0m[1;33mConversion of sensor type[[0m[1;33mwideanglecamera[0m[1;33m] not supported.[0m[1;33m
+[gazebo-1] [0m[1;33m[0m[1;33m[0m[INFO] [1795596741.229849726] [camera_driver]: Publishing camera info to [/camera/camera_info]
+[gazebo-1] [INFO] [1795596741.332852908] [turtlebot3_diff_drive]: Wheel pair 1 separation set to [0.160000m]
+[gazebo-1] [INFO] [1795596741.332906949] [turtlebot3_diff_drive]: Wheel pair 1 diameter set to [0.066000m]
+[gazebo-1] [INFO] [1795596741.335538167] [turtlebot3_diff_drive]: Subscribed to [/cmd_vel]
+[gazebo-1] [INFO] [1795596741.338957042] [turtlebot3_diff_drive]: Advertise odometry on [/odom]
+[gazebo-1] [INFO] [1795596741.343489828] [turtlebot3_diff_drive]: Publishing odom transforms between [odom] and [base_footprint]
+[gazebo-1] [INFO] [1795596741.363426320] [turtlebot3_joint_state]: Going to publish joint [wheel_left_joint]
+[gazebo-1] [INFO] [1795596741.363483738] [turtlebot3_joint_state]: Going to publish joint [wheel_right_joint]
+[gazebo-1] [1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
+[gazebo-1] [0m[1;33m[0m[1;33m[0m[1;33m[Wrn] [ColladaLoader.cc:1928] [0m[1;33mTriangle input semantic: '[0m[1;33mCOLOR[0m[1;33m' is currently[0m[1;33m not supported[0m[1;33m
+[gazebo-1] [0m[1;33m[0m[1;33m[0m[1;33m[Wrn] [Publisher.cc:135] [0m[1;33mQueue limit reached for topic [0m[1;33m/gazebo/default/pose/local/info[0m[1;33m, deleting message. [0m[1;33mThis warning is printed only once.[0m[1;33m
+[INFO] [component_container_isolated-4]: process started with pid [8866]
+[INFO] [rviz2-5]: process started with pid [8868]
+[rviz2-5] QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'
+[component_container_isolated-4] [INFO] [1795596774.612627100] [nav2_container]: Load Library: /opt/ros/humble/lib/libcontroller_server_core.so
+[component_container_isolated-4] [INFO] [1795596774.637206233] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_controller::ControllerServer>
+[component_container_isolated-4] [INFO] [1795596774.637274482] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_controller::ControllerServer>
+[component_container_isolated-4] [INFO] [1795596774.684830562] [controller_server]: 
+[component_container_isolated-4] 	controller_server lifecycle node launched. 
+[component_container_isolated-4] 	Waiting on external lifecycle transitions to activate
+[component_container_isolated-4] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[component_container_isolated-4] [INFO] [1795596774.713767273] [controller_server]: Creating controller server
+[component_container_isolated-4] [INFO] [1795596774.746499035] [local_costmap.local_costmap]: 
+[component_container_isolated-4] 	local_costmap lifecycle node launched. 
+[component_container_isolated-4] 	Waiting on external lifecycle transitions to activate
+[component_container_isolated-4] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[component_container_isolated-4] [INFO] [1795596774.747467232] [local_costmap.local_costmap]: Creating Costmap
+[component_container_isolated-4] [INFO] [1795596774.748149152] [nav2_container]: Load Library: /opt/ros/humble/lib/libmap_server_core.so
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/controller_server' in container '/nav2_container'
+[component_container_isolated-4] [INFO] [1795596774.777009609] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_map_server::CostmapFilterInfoServer>
+[component_container_isolated-4] [INFO] [1795596774.777062368] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_map_server::MapSaver>
+[component_container_isolated-4] [INFO] [1795596774.777072277] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_map_server::MapServer>
+[component_container_isolated-4] [INFO] [1795596774.777081484] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_map_server::MapServer>
+[component_container_isolated-4] [INFO] [1795596774.811523025] [map_server]: 
+[component_container_isolated-4] 	map_server lifecycle node launched. 
+[component_container_isolated-4] 	Waiting on external lifecycle transitions to activate
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/map_server' in container '/nav2_container'
+[component_container_isolated-4] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[component_container_isolated-4] [INFO] [1795596774.812430859] [map_server]: Creating
+[component_container_isolated-4] [INFO] [1795596774.813231010] [nav2_container]: Load Library: /opt/ros/humble/lib/libsmoother_server_core.so
+[component_container_isolated-4] [INFO] [1795596774.819205031] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_smoother::SmootherServer>
+[component_container_isolated-4] [INFO] [1795596774.819271946] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_smoother::SmootherServer>
+[component_container_isolated-4] [INFO] [1795596774.843260178] [smoother_server]: 
+[component_container_isolated-4] 	smoother_server lifecycle node launched. 
+[component_container_isolated-4] 	Waiting on external lifecycle transitions to activate
+[component_container_isolated-4] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[component_container_isolated-4] [INFO] [1795596774.846139371] [smoother_server]: Creating smoother server
+[component_container_isolated-4] [INFO] [1795596774.848070115] [nav2_container]: Load Library: /opt/ros/humble/lib/libamcl_core.so
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/smoother_server' in container '/nav2_container'
+[component_container_isolated-4] [INFO] [1795596774.851137881] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_amcl::AmclNode>
+[component_container_isolated-4] [INFO] [1795596774.851165713] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_amcl::AmclNode>
+[component_container_isolated-4] [INFO] [1795596774.873159937] [amcl]: 
+[component_container_isolated-4] 	amcl lifecycle node launched. 
+[component_container_isolated-4] 	Waiting on external lifecycle transitions to activate
+[component_container_isolated-4] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[component_container_isolated-4] [INFO] [1795596774.873877152] [amcl]: Creating
+[component_container_isolated-4] [INFO] [1795596774.878000830] [nav2_container]: Load Library: /opt/ros/humble/lib/libplanner_server_core.so
+[component_container_isolated-4] [INFO] [1795596774.880751923] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_planner::PlannerServer>
+[component_container_isolated-4] [INFO] [1795596774.880782150] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_planner::PlannerServer>
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/amcl' in container '/nav2_container'
+[component_container_isolated-4] [INFO] [1795596774.898591159] [planner_server]: 
+[component_container_isolated-4] 	planner_server lifecycle node launched. 
+[component_container_isolated-4] 	Waiting on external lifecycle transitions to activate
+[component_container_isolated-4] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[component_container_isolated-4] [INFO] [1795596774.902595834] [planner_server]: Creating
+[component_container_isolated-4] [INFO] [1795596774.926626558] [global_costmap.global_costmap]: 
+[component_container_isolated-4] 	global_costmap lifecycle node launched. 
+[component_container_isolated-4] 	Waiting on external lifecycle transitions to activate
+[component_container_isolated-4] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[component_container_isolated-4] [INFO] [1795596774.927808507] [global_costmap.global_costmap]: Creating Costmap
+[component_container_isolated-4] [INFO] [1795596774.934875468] [nav2_container]: Load Library: /opt/ros/humble/lib/libnav2_lifecycle_manager_core.so
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/planner_server' in container '/nav2_container'
+[component_container_isolated-4] [INFO] [1795596774.937526432] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_lifecycle_manager::LifecycleManager>
+[component_container_isolated-4] [INFO] [1795596774.937556649] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_lifecycle_manager::LifecycleManager>
+[component_container_isolated-4] [INFO] [1795596774.953969969] [lifecycle_manager_localization]: Creating
+[component_container_isolated-4] [INFO] [1795596774.958567156] [nav2_container]: Load Library: /opt/ros/humble/lib/libbehavior_server_core.so
+[component_container_isolated-4] [INFO] [1795596774.958886145] [lifecycle_manager_localization]: [34m[1mCreating and initializing lifecycle service clients[0m[0m
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/lifecycle_manager_localization' in container '/nav2_container'
+[component_container_isolated-4] [INFO] [1795596774.964466998] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<behavior_server::BehaviorServer>
+[component_container_isolated-4] [INFO] [1795596774.964503075] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<behavior_server::BehaviorServer>
+[component_container_isolated-4] [INFO] [1795596774.976648509] [lifecycle_manager_localization]: [34m[1mStarting managed nodes bringup...[0m[0m
+[component_container_isolated-4] [INFO] [1795596774.976701178] [lifecycle_manager_localization]: [34m[1mConfiguring map_server[0m[0m
+[component_container_isolated-4] [INFO] [1795596774.977197166] [map_server]: Configuring
+[component_container_isolated-4] [INFO] [1795596774.977302945] [map_io]: Loading yaml file: /__w/ros2-autonomous-warehouse-navigation/ros2-autonomous-warehouse-navigation/install/warehouse_bringup/share/warehouse_bringup/maps/warehouse_map.yaml
+[component_container_isolated-4] [INFO] [1795596774.977650036] [map_io]: resolution: 0.05
+[component_container_isolated-4] [INFO] [1795596774.977685523] [map_io]: origin[0]: -7.56
+[component_container_isolated-4] [INFO] [1795596774.977695782] [map_io]: origin[1]: -10.8
+[component_container_isolated-4] [INFO] [1795596774.977704428] [map_io]: origin[2]: 0
+[component_container_isolated-4] [INFO] [1795596774.977713335] [map_io]: free_thresh: 0.25
+[component_container_isolated-4] [INFO] [1795596774.977721760] [map_io]: occupied_thresh: 0.65
+[component_container_isolated-4] [INFO] [1795596774.977731158] [map_io]: mode: trinary
+[component_container_isolated-4] [INFO] [1795596774.977739744] [map_io]: negate: 0
+[component_container_isolated-4] [INFO] [1795596774.978025891] [map_io]: Loading image_file: /__w/ros2-autonomous-warehouse-navigation/ros2-autonomous-warehouse-navigation/install/warehouse_bringup/share/warehouse_bringup/maps/warehouse_map.pgm
+[component_container_isolated-4] [INFO] [1795596774.998338799] [behavior_server]: 
+[component_container_isolated-4] 	behavior_server lifecycle node launched. 
+[component_container_isolated-4] 	Waiting on external lifecycle transitions to activate
+[component_container_isolated-4] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/behavior_server' in container '/nav2_container'
+[component_container_isolated-4] [INFO] [1795596775.009427828] [nav2_container]: Load Library: /opt/ros/humble/lib/libbt_navigator_core.so
+[component_container_isolated-4] [INFO] [1795596775.012034360] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_bt_navigator::BtNavigator>
+[component_container_isolated-4] [INFO] [1795596775.012428589] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_bt_navigator::BtNavigator>
+[component_container_isolated-4] [INFO] [1795596775.018948537] [map_io]: Read map /__w/ros2-autonomous-warehouse-navigation/ros2-autonomous-warehouse-navigation/install/warehouse_bringup/share/warehouse_bringup/maps/warehouse_map.pgm: 318 X 439 map @ 0.05 m/cell
+[component_container_isolated-4] [INFO] [1795596775.031661203] [lifecycle_manager_localization]: [34m[1mConfiguring amcl[0m[0m
+[component_container_isolated-4] [INFO] [1795596775.031856569] [amcl]: Configuring
+[component_container_isolated-4] [INFO] [1795596775.031954072] [amcl]: initTransforms
+[component_container_isolated-4] [INFO] [1795596775.035769252] [bt_navigator]: 
+[component_container_isolated-4] 	bt_navigator lifecycle node launched. 
+[component_container_isolated-4] 	Waiting on external lifecycle transitions to activate
+[component_container_isolated-4] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[component_container_isolated-4] [INFO] [1795596775.038879528] [bt_navigator]: Creating
+[component_container_isolated-4] [INFO] [1795596775.046013355] [amcl]: initPubSub
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/bt_navigator' in container '/nav2_container'
+[component_container_isolated-4] [INFO] [1795596775.048411155] [nav2_container]: Load Library: /opt/ros/humble/lib/libwaypoint_follower_core.so
+[component_container_isolated-4] [INFO] [1795596775.049101921] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_waypoint_follower::WaypointFollower>
+[component_container_isolated-4] [INFO] [1795596775.049121808] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_waypoint_follower::WaypointFollower>
+[component_container_isolated-4] [INFO] [1795596775.050732951] [amcl]: Subscribed to map topic.
+[component_container_isolated-4] [INFO] [1795596775.061136855] [lifecycle_manager_localization]: [34m[1mActivating map_server[0m[0m
+[component_container_isolated-4] [INFO] [1795596775.061316221] [map_server]: Activating
+[component_container_isolated-4] [INFO] [1795596775.061549669] [map_server]: Creating bond (map_server) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795596775.062146700] [amcl]: Received a 318 X 439 map @ 0.050 m/pix
+[component_container_isolated-4] [INFO] [1795596775.080597684] [waypoint_follower]: 
+[component_container_isolated-4] 	waypoint_follower lifecycle node launched. 
+[component_container_isolated-4] 	Waiting on external lifecycle transitions to activate
+[component_container_isolated-4] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[component_container_isolated-4] [INFO] [1795596775.081413865] [waypoint_follower]: Creating
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/waypoint_follower' in container '/nav2_container'
+[component_container_isolated-4] [INFO] [1795596775.086511140] [nav2_container]: Load Library: /opt/ros/humble/lib/libvelocity_smoother_core.so
+[component_container_isolated-4] [INFO] [1795596775.087445554] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_velocity_smoother::VelocitySmoother>
+[component_container_isolated-4] [INFO] [1795596775.087467796] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_velocity_smoother::VelocitySmoother>
+[component_container_isolated-4] [INFO] [1795596775.113381223] [velocity_smoother]: 
+[component_container_isolated-4] 	velocity_smoother lifecycle node launched. 
+[component_container_isolated-4] 	Waiting on external lifecycle transitions to activate
+[component_container_isolated-4] 	See https://design.ros2.org/articles/node_lifecycle.html for more information.
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/velocity_smoother' in container '/nav2_container'
+[component_container_isolated-4] [INFO] [1795596775.118472708] [nav2_container]: Found class: rclcpp_components::NodeFactoryTemplate<nav2_lifecycle_manager::LifecycleManager>
+[component_container_isolated-4] [INFO] [1795596775.118510007] [nav2_container]: Instantiate class: rclcpp_components::NodeFactoryTemplate<nav2_lifecycle_manager::LifecycleManager>
+[component_container_isolated-4] [INFO] [1795596775.133706615] [lifecycle_manager_navigation]: Creating
+[INFO] [launch_ros.actions.load_composable_nodes]: Loaded node '/lifecycle_manager_navigation' in container '/nav2_container'
+[component_container_isolated-4] [INFO] [1795596775.139984525] [lifecycle_manager_navigation]: [34m[1mCreating and initializing lifecycle service clients[0m[0m
+[rviz2-5] [INFO] [1795596775.142676491] [rviz2]: Stereo is NOT SUPPORTED
+[rviz2-5] [INFO] [1795596775.143166821] [rviz2]: OpenGl version: 4.5 (GLSL 4.5)
+[component_container_isolated-4] [INFO] [1795596775.173149435] [lifecycle_manager_navigation]: [34m[1mStarting managed nodes bringup...[0m[0m
+[component_container_isolated-4] [INFO] [1795596775.173204087] [lifecycle_manager_navigation]: [34m[1mConfiguring controller_server[0m[0m
+[component_container_isolated-4] [INFO] [1795596775.173379306] [controller_server]: Configuring controller interface
+[component_container_isolated-4] [INFO] [1795596775.173769248] [controller_server]: getting goal checker plugins..
+[component_container_isolated-4] [INFO] [1795596775.175427410] [controller_server]: Controller frequency set to 10.0000Hz
+[component_container_isolated-4] [INFO] [1795596775.175477724] [local_costmap.local_costmap]: Configuring
+[component_container_isolated-4] [INFO] [1795596775.179568343] [lifecycle_manager_localization]: Server map_server connected with bond.
+[component_container_isolated-4] [INFO] [1795596775.182108179] [lifecycle_manager_localization]: [34m[1mActivating amcl[0m[0m
+[component_container_isolated-4] [INFO] [1795596775.182729876] [amcl]: Activating
+[component_container_isolated-4] [INFO] [1795596775.182763118] [amcl]: initialPoseReceived
+[component_container_isolated-4] [INFO] [1795596775.182873225] [amcl]: Setting pose (35.100000): 0.000 0.000 0.000
+[component_container_isolated-4] [INFO] [1795596775.183643921] [amcl]: Creating bond (amcl) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795596775.192309309] [local_costmap.local_costmap]: Using plugin "obstacle_layer"
+[component_container_isolated-4] [INFO] [1795596775.207697255] [local_costmap.local_costmap]: Subscribed to Topics: scan
+[component_container_isolated-4] [INFO] [1795596775.220854996] [local_costmap.local_costmap]: Initialized plugin "obstacle_layer"
+[component_container_isolated-4] [INFO] [1795596775.220901944] [local_costmap.local_costmap]: Using plugin "inflation_layer"
+[component_container_isolated-4] [INFO] [1795596775.227914544] [local_costmap.local_costmap]: Initialized plugin "inflation_layer"
+[component_container_isolated-4] [INFO] [1795596775.248689308] [controller_server]: Created progress_checker : progress_checker of type nav2_controller::SimpleProgressChecker
+[component_container_isolated-4] [INFO] [1795596775.257476798] [controller_server]: Created goal checker : general_goal_checker of type nav2_controller::SimpleGoalChecker
+[component_container_isolated-4] [INFO] [1795596775.260892738] [controller_server]: Controller Server has general_goal_checker  goal checkers available.
+[component_container_isolated-4] [INFO] [1795596775.264934403] [controller_server]: Created controller : FollowPath of type dwb_core::DWBLocalPlanner
+[component_container_isolated-4] [INFO] [1795596775.280385938] [controller_server]: Setting transform_tolerance to 0.200000
+[component_container_isolated-4] [INFO] [1795596775.297929579] [lifecycle_manager_localization]: Server amcl connected with bond.
+[component_container_isolated-4] [INFO] [1795596775.297989432] [lifecycle_manager_localization]: [34m[1mManaged nodes are active[0m[0m
+[component_container_isolated-4] [INFO] [1795596775.298007656] [lifecycle_manager_localization]: [34m[1mCreating bond timer...[0m[0m
+[component_container_isolated-4] [INFO] [1795596775.317702444] [controller_server]: Using critic "RotateToGoal" (dwb_critics::RotateToGoalCritic)
+[component_container_isolated-4] [INFO] [1795596775.320785179] [controller_server]: Critic plugin initialized
+[component_container_isolated-4] [INFO] [1795596775.320902339] [controller_server]: Using critic "Oscillation" (dwb_critics::OscillationCritic)
+[component_container_isolated-4] [INFO] [1795596775.321203694] [controller_server]: Critic plugin initialized
+[component_container_isolated-4] [INFO] [1795596775.321338036] [controller_server]: Using critic "BaseObstacle" (dwb_critics::BaseObstacleCritic)
+[component_container_isolated-4] [INFO] [1795596775.321490182] [controller_server]: Critic plugin initialized
+[component_container_isolated-4] [INFO] [1795596775.321572256] [controller_server]: Using critic "GoalAlign" (dwb_critics::GoalAlignCritic)
+[component_container_isolated-4] [INFO] [1795596775.321852972] [controller_server]: Critic plugin initialized
+[component_container_isolated-4] [INFO] [1795596775.321950446] [controller_server]: Using critic "PathAlign" (dwb_critics::PathAlignCritic)
+[component_container_isolated-4] [INFO] [1795596775.322213990] [controller_server]: Critic plugin initialized
+[component_container_isolated-4] [INFO] [1795596775.326733952] [amcl]: createLaserObject
+[component_container_isolated-4] [INFO] [1795596775.329714114] [controller_server]: Using critic "PathDist" (dwb_critics::PathDistCritic)
+[component_container_isolated-4] [INFO] [1795596775.333426751] [controller_server]: Critic plugin initialized
+[component_container_isolated-4] [INFO] [1795596775.334351727] [controller_server]: Using critic "GoalDist" (dwb_critics::GoalDistCritic)
+[component_container_isolated-4] [INFO] [1795596775.335997074] [controller_server]: Critic plugin initialized
+[component_container_isolated-4] [INFO] [1795596775.336026950] [controller_server]: Controller Server has FollowPath  controllers available.
+[component_container_isolated-4] [INFO] [1795596775.354842318] [lifecycle_manager_navigation]: [34m[1mConfiguring smoother_server[0m[0m
+[component_container_isolated-4] [INFO] [1795596775.355163100] [smoother_server]: Configuring smoother server
+[component_container_isolated-4] [INFO] [1795596775.369135760] [smoother_server]: Created smoother : simple_smoother of type nav2_smoother::SimpleSmoother
+[component_container_isolated-4] [INFO] [1795596775.375230477] [smoother_server]: Smoother Server has simple_smoother  smoothers available.
+[component_container_isolated-4] [INFO] [1795596775.382934845] [lifecycle_manager_navigation]: [34m[1mConfiguring planner_server[0m[0m
+[component_container_isolated-4] [INFO] [1795596775.383074687] [planner_server]: Configuring
+[component_container_isolated-4] [INFO] [1795596775.383116195] [global_costmap.global_costmap]: Configuring
+[component_container_isolated-4] [INFO] [1795596775.395616262] [global_costmap.global_costmap]: Using plugin "static_layer"
+[component_container_isolated-4] [INFO] [1795596775.402457610] [global_costmap.global_costmap]: Subscribing to the map topic (/map) with transient local durability
+[component_container_isolated-4] [INFO] [1795596775.405268885] [global_costmap.global_costmap]: Initialized plugin "static_layer"
+[component_container_isolated-4] [INFO] [1795596775.405296768] [global_costmap.global_costmap]: Using plugin "obstacle_layer"
+[component_container_isolated-4] [INFO] [1795596775.409832429] [global_costmap.global_costmap]: Subscribed to Topics: scan
+[component_container_isolated-4] [INFO] [1795596775.423707096] [global_costmap.global_costmap]: Initialized plugin "obstacle_layer"
+[component_container_isolated-4] [INFO] [1795596775.423760165] [global_costmap.global_costmap]: Using plugin "inflation_layer"
+[rviz2-5] [INFO] [1795596775.430282290] [rviz2]: Stereo is NOT SUPPORTED
+[component_container_isolated-4] [INFO] [1795596775.430540078] [global_costmap.global_costmap]: Initialized plugin "inflation_layer"
+[component_container_isolated-4] [INFO] [1795596775.448428466] [planner_server]: Created global planner plugin GridBased of type nav2_navfn_planner/NavfnPlanner
+[component_container_isolated-4] [INFO] [1795596775.448481646] [planner_server]: Configuring plugin GridBased of type NavfnPlanner
+[component_container_isolated-4] [INFO] [1795596775.452530716] [global_costmap.global_costmap]: StaticLayer: Resizing costmap to 318 X 439 at 0.050000 m/pix
+[component_container_isolated-4] [INFO] [1795596775.454561705] [planner_server]: Planner Server has GridBased  planners available.
+[component_container_isolated-4] [INFO] [1795596775.478004447] [lifecycle_manager_navigation]: [34m[1mConfiguring behavior_server[0m[0m
+[component_container_isolated-4] [INFO] [1795596775.478171129] [behavior_server]: Configuring
+[component_container_isolated-4] [INFO] [1795596775.496667538] [behavior_server]: Creating behavior plugin spin of type nav2_behaviors/Spin
+[component_container_isolated-4] [INFO] [1795596775.498899277] [behavior_server]: Configuring spin
+[component_container_isolated-4] [INFO] [1795596775.519430404] [behavior_server]: Creating behavior plugin backup of type nav2_behaviors/BackUp
+[component_container_isolated-4] [INFO] [1795596775.520716157] [behavior_server]: Configuring backup
+[component_container_isolated-4] [INFO] [1795596775.532579120] [behavior_server]: Creating behavior plugin drive_on_heading of type nav2_behaviors/DriveOnHeading
+[component_container_isolated-4] [INFO] [1795596775.533575390] [behavior_server]: Configuring drive_on_heading
+[component_container_isolated-4] [INFO] [1795596775.541725662] [behavior_server]: Creating behavior plugin assisted_teleop of type nav2_behaviors/AssistedTeleop
+[component_container_isolated-4] [INFO] [1795596775.545753721] [behavior_server]: Configuring assisted_teleop
+[component_container_isolated-4] [INFO] [1795596775.577974113] [behavior_server]: Creating behavior plugin wait of type nav2_behaviors/Wait
+[component_container_isolated-4] [INFO] [1795596775.582782226] [behavior_server]: Configuring wait
+[component_container_isolated-4] [INFO] [1795596775.598014750] [lifecycle_manager_navigation]: [34m[1mConfiguring bt_navigator[0m[0m
+[component_container_isolated-4] [INFO] [1795596775.598206560] [bt_navigator]: Configuring
+[component_container_isolated-4] [WARN] [1795596775.710511801] [amcl]: New subscription discovered on topic '/particle_cloud', requesting incompatible QoS. No messages will be sent to it. Last incompatible policy: RELIABILITY_QOS_POLICY
+[component_container_isolated-4] [INFO] [1795596775.964950524] [lifecycle_manager_navigation]: [34m[1mConfiguring waypoint_follower[0m[0m
+[component_container_isolated-4] [INFO] [1795596775.965139008] [waypoint_follower]: Configuring
+[rviz2-5] [ERROR] [1795596775.983951415] [rviz2]: PluginlibFactory: The plugin for class 'nav2_rviz_plugins/Selector' failed to load. Error: According to the loaded plugin descriptions the class nav2_rviz_plugins/Selector with base class type rviz_common::Panel does not exist. Declared types are  nav2_rviz_plugins/Navigation 2 slam_toolbox::SlamToolboxPlugin
+[rviz2-5] [ERROR] [1795596775.986981591] [rviz2]: PluginlibFactory: The plugin for class 'nav2_rviz_plugins/Docking' failed to load. Error: According to the loaded plugin descriptions the class nav2_rviz_plugins/Docking with base class type rviz_common::Panel does not exist. Declared types are  nav2_rviz_plugins/Navigation 2 slam_toolbox::SlamToolboxPlugin
+[component_container_isolated-4] [INFO] [1795596776.002579095] [waypoint_follower]: Created waypoint_task_executor : wait_at_waypoint of type nav2_waypoint_follower::WaitAtWaypoint
+[component_container_isolated-4] [INFO] [1795596776.009334803] [lifecycle_manager_navigation]: [34m[1mConfiguring velocity_smoother[0m[0m
+[component_container_isolated-4] [INFO] [1795596776.009546250] [velocity_smoother]: Configuring velocity smoother
+[component_container_isolated-4] [INFO] [1795596776.033724511] [lifecycle_manager_navigation]: [34m[1mActivating controller_server[0m[0m
+[component_container_isolated-4] [INFO] [1795596776.034196176] [controller_server]: Activating
+[component_container_isolated-4] [INFO] [1795596776.034239187] [local_costmap.local_costmap]: Activating
+[component_container_isolated-4] [INFO] [1795596776.034286406] [local_costmap.local_costmap]: Checking transform
+[component_container_isolated-4] [INFO] [1795596776.034426969] [local_costmap.local_costmap]: start
+[component_container_isolated-4] [INFO] [1795596776.088484210] [controller_server]: Creating bond (controller_server) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795596776.204276936] [lifecycle_manager_navigation]: Server controller_server connected with bond.
+[component_container_isolated-4] [INFO] [1795596776.204331158] [lifecycle_manager_navigation]: [34m[1mActivating smoother_server[0m[0m
+[component_container_isolated-4] [INFO] [1795596776.204614439] [smoother_server]: Activating
+[component_container_isolated-4] [INFO] [1795596776.204655296] [smoother_server]: Creating bond (smoother_server) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795596776.224352832] [amcl]: Message Filter dropping message: frame 'base_scan' at time 35.011 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[component_container_isolated-4] [INFO] [1795596776.316392615] [lifecycle_manager_navigation]: Server smoother_server connected with bond.
+[component_container_isolated-4] [INFO] [1795596776.316447939] [lifecycle_manager_navigation]: [34m[1mActivating planner_server[0m[0m
+[component_container_isolated-4] [INFO] [1795596776.316721322] [planner_server]: Activating
+[component_container_isolated-4] [INFO] [1795596776.316769262] [global_costmap.global_costmap]: Activating
+[component_container_isolated-4] [INFO] [1795596776.316784280] [global_costmap.global_costmap]: Checking transform
+[component_container_isolated-4] [INFO] [1795596776.316818504] [global_costmap.global_costmap]: Timed out waiting for transform from base_link to map to become available, tf error: Lookup would require extrapolation into the past.  Requested time 36.078000 but the earliest data is at time 36.212000, when looking up transform from frame [base_link] to frame [map]
+[rviz2-5] [INFO] [1795596776.433157161] [rviz2]: Trying to create a map of size 318 x 439 using 1 swatches
+[rviz2-5] [ERROR] [1795596776.439625169] [rviz2]: Vertex Program:rviz/glsl120/indexed_8bit_image.vert Fragment Program:rviz/glsl120/indexed_8bit_image.frag GLSL link result : 
+[rviz2-5] active samplers with a different type refer to the same texture image unit
+[component_container_isolated-4] [INFO] [1795596776.816988692] [global_costmap.global_costmap]: start
+[rviz2-5] [INFO] [1795596777.737969734] [rviz2]: Trying to create a map of size 60 x 60 using 1 swatches
+[component_container_isolated-4] [INFO] [1795596777.871934710] [planner_server]: Activating plugin GridBased of type NavfnPlanner
+[component_container_isolated-4] [INFO] [1795596777.874051492] [planner_server]: Creating bond (planner_server) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795596777.979268684] [lifecycle_manager_navigation]: Server planner_server connected with bond.
+[component_container_isolated-4] [INFO] [1795596777.979323847] [lifecycle_manager_navigation]: [34m[1mActivating behavior_server[0m[0m
+[component_container_isolated-4] [INFO] [1795596777.980394098] [behavior_server]: Activating
+[component_container_isolated-4] [INFO] [1795596777.980419926] [behavior_server]: Activating spin
+[component_container_isolated-4] [INFO] [1795596777.980448660] [behavior_server]: Activating backup
+[component_container_isolated-4] [INFO] [1795596777.980464169] [behavior_server]: Activating drive_on_heading
+[component_container_isolated-4] [INFO] [1795596777.980478576] [behavior_server]: Activating assisted_teleop
+[component_container_isolated-4] [INFO] [1795596777.980491711] [behavior_server]: Activating wait
+[component_container_isolated-4] [INFO] [1795596777.980508643] [behavior_server]: Creating bond (behavior_server) to lifecycle manager.
+[rviz2-5] [INFO] [1795596778.059132070] [rviz2]: Trying to create a map of size 318 x 439 using 1 swatches
+[component_container_isolated-4] [INFO] [1795596778.103333265] [lifecycle_manager_navigation]: Server behavior_server connected with bond.
+[component_container_isolated-4] [INFO] [1795596778.103418495] [lifecycle_manager_navigation]: [34m[1mActivating bt_navigator[0m[0m
+[component_container_isolated-4] [INFO] [1795596778.103741501] [bt_navigator]: Activating
+[component_container_isolated-4] [INFO] [1795596778.363301528] [bt_navigator]: Creating bond (bt_navigator) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795596778.477272338] [lifecycle_manager_navigation]: Server bt_navigator connected with bond.
+[component_container_isolated-4] [INFO] [1795596778.477334796] [lifecycle_manager_navigation]: [34m[1mActivating waypoint_follower[0m[0m
+[component_container_isolated-4] [INFO] [1795596778.477848076] [waypoint_follower]: Activating
+[component_container_isolated-4] [INFO] [1795596778.477892550] [waypoint_follower]: Creating bond (waypoint_follower) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795596778.602333056] [lifecycle_manager_navigation]: Server waypoint_follower connected with bond.
+[component_container_isolated-4] [INFO] [1795596778.602387829] [lifecycle_manager_navigation]: [34m[1mActivating velocity_smoother[0m[0m
+[component_container_isolated-4] [INFO] [1795596778.602684960] [velocity_smoother]: Activating
+[component_container_isolated-4] [INFO] [1795596778.602747888] [velocity_smoother]: Creating bond (velocity_smoother) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795596778.720166488] [lifecycle_manager_navigation]: Server velocity_smoother connected with bond.
+[component_container_isolated-4] [INFO] [1795596778.720241078] [lifecycle_manager_navigation]: [34m[1mManaged nodes are active[0m[0m
+[component_container_isolated-4] [INFO] [1795596778.720272246] [lifecycle_manager_navigation]: [34m[1mCreating bond timer...[0m[0m
+[rviz2-5] [INFO] [1795596786.654571635] [rviz2]: Message Filter dropping message: frame 'odom' at time 35.772 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[rviz2-5] [INFO] [1795596786.654681071] [rviz2]: Message Filter dropping message: frame 'odom' at time 35.800 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[rviz2-5] [INFO] [1795596787.777863332] [rviz2]: Message Filter dropping message: frame 'base_scan' at time 35.824 for reason 'the timestamp on the message is earlier than all the data in the transform cache'
+[INFO] [aruco_station_detector-6]: process started with pid [9046]
+[aruco_station_detector-6] [INFO] [1795596789.830743133] [aruco_station_detector]: ArUco station detector started.
+[aruco_station_detector-6] [INFO] [1795596789.846731576] [aruco_station_detector]: Subscribing to image topic: /camera/image_raw
+[aruco_station_detector-6] [INFO] [1795596789.847476905] [aruco_station_detector]: Using dictionary: DICT_5X5_50 (OpenCV 4.5.4)
+[aruco_station_detector-6] [INFO] [1795596791.822034612] [aruco_station_detector]: No marker detected. Rejected candidates: 99
+[aruco_station_detector-6] [INFO] [1795596793.982497151] [aruco_station_detector]: No marker detected. Rejected candidates: 99
+[aruco_station_detector-6] [INFO] [1795596796.211604843] [aruco_station_detector]: No marker detected. Rejected candidates: 99
+[aruco_station_detector-6] [INFO] [1795596798.850012114] [aruco_station_detector]: No marker detected. Rejected candidates: 99
+[aruco_station_detector-6] [INFO] [1795596801.106385794] [aruco_station_detector]: No marker detected. Rejected candidates: 99
+[aruco_station_detector-6] [INFO] [1795596803.329694759] [aruco_station_detector]: No marker detected. Rejected candidates: 99
+[aruco_station_detector-6] [INFO] [1795596805.536286431] [aruco_station_detector]: No marker detected. Rejected candidates: 99
+[aruco_station_detector-6] [INFO] [1795596807.815823425] [aruco_station_detector]: No marker detected. Rejected candidates: 99
+[aruco_station_detector-6] [INFO] [1795596810.033425263] [aruco_station_detector]: No marker detected. Rejected candidates: 99
+[component_container_isolated-4] [INFO] [1795596811.712088115] [bt_navigator]: Begin navigating from current location (0.00, -0.00) to (-3.68, 9.30)
+[component_container_isolated-4] [INFO] [1795596811.755322647] [controller_server]: Received a goal, begin computing control effort.
+[component_container_isolated-4] [WARN] [1795596811.755395213] [controller_server]: No goal checker was specified in parameter 'current_goal_checker'. Server will use only plugin loaded general_goal_checker . This warning will appear once.
+[component_container_isolated-4] [WARN] [1795596812.135327946] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596812.324584776] [aruco_station_detector]: No marker detected. Rejected candidates: 99
+[component_container_isolated-4] [WARN] [1795596812.522439829] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596812.856827791] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596813.412443663] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596813.857079272] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596814.033524741] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596814.214756885] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596814.325636146] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596814.597741781] [aruco_station_detector]: No marker detected. Rejected candidates: 110
+[component_container_isolated-4] [INFO] [1795596814.955753351] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596815.353556578] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596815.489486297] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596815.958132757] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596816.465682377] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596816.646586736] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596816.923942940] [aruco_station_detector]: No marker detected. Rejected candidates: 46
+[component_container_isolated-4] [INFO] [1795596817.058484344] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596818.056511300] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596818.495021730] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596818.525458729] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596819.164483124] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596819.360972394] [aruco_station_detector]: No marker detected. Rejected candidates: 70
+[component_container_isolated-4] [INFO] [1795596820.158155656] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596821.172905419] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596821.259271550] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596821.739040363] [aruco_station_detector]: No marker detected. Rejected candidates: 83
+[component_container_isolated-4] [WARN] [1795596821.742749764] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596822.258779303] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596823.255792525] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.0000 Hz
+[component_container_isolated-4] [INFO] [1795596823.364604920] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596823.989592520] [aruco_station_detector]: No marker detected. Rejected candidates: 95
+[component_container_isolated-4] [INFO] [1795596824.360270644] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596824.479661472] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596824.622728588] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596824.862862072] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596825.360298320] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596826.437405089] [aruco_station_detector]: No marker detected. Rejected candidates: 84
+[component_container_isolated-4] [INFO] [1795596826.456274060] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596827.402310478] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596827.456407404] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596828.087416685] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596828.474178861] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596828.555982315] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596828.866555796] [aruco_station_detector]: No marker detected. Rejected candidates: 105
+[component_container_isolated-4] [INFO] [1795596829.561271293] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596830.558525087] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596831.477785970] [aruco_station_detector]: No marker detected. Rejected candidates: 93
+[component_container_isolated-4] [INFO] [1795596831.657277242] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596832.657958133] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596832.746463721] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596833.032440024] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596833.244577172] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596833.759286146] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596834.075441204] [aruco_station_detector]: No marker detected. Rejected candidates: 44
+[component_container_isolated-4] [INFO] [1795596834.755780799] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596835.729811905] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.0000 Hz
+[component_container_isolated-4] [INFO] [1795596835.756107700] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596835.993320488] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596836.592387481] [aruco_station_detector]: No marker detected. Rejected candidates: 39
+[component_container_isolated-4] [INFO] [1795596836.858314216] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596837.858821853] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596837.913445309] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596838.860267716] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596839.189137829] [aruco_station_detector]: No marker detected. Rejected candidates: 49
+[component_container_isolated-4] [WARN] [1795596839.874018308] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.0000 Hz
+[component_container_isolated-4] [INFO] [1795596839.961338882] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596840.232465742] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596840.824400879] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596840.912502094] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596840.958269524] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596841.871544701] [aruco_station_detector]: No marker detected. Rejected candidates: 40
+[component_container_isolated-4] [WARN] [1795596841.892952071] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596842.058280118] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596842.182445654] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596843.062276755] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596844.060224115] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596844.373313485] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596844.589986502] [aruco_station_detector]: No marker detected. Rejected candidates: 44
+[component_container_isolated-4] [WARN] [1795596844.745495317] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596844.756153547] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596845.162271297] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596846.093692197] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.0000 Hz
+[component_container_isolated-4] [INFO] [1795596846.159269717] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596847.158269983] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596847.245175760] [aruco_station_detector]: No marker detected. Rejected candidates: 98
+[component_container_isolated-4] [WARN] [1795596847.920045516] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596847.924954669] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596847.943031213] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596848.157273138] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596848.784445842] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596849.176279887] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596849.183315096] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.0000 Hz
+[component_container_isolated-4] [WARN] [1795596849.183487082] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596849.256272101] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596849.353417259] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596849.729001892] [aruco_station_detector]: No marker detected. Rejected candidates: 43
+[component_container_isolated-4] [WARN] [1795596850.025310645] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596850.255807852] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596851.243666487] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.0000 Hz
+[component_container_isolated-4] [INFO] [1795596851.355744672] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596852.355957550] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596852.418362991] [aruco_station_detector]: No marker detected. Rejected candidates: 47
+[component_container_isolated-4] [INFO] [1795596853.357149817] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596853.688502383] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596854.358504313] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596855.081033793] [aruco_station_detector]: No marker detected. Rejected candidates: 46
+[component_container_isolated-4] [INFO] [1795596855.357017283] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596855.518439639] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596855.825464305] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596855.976296886] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596856.460287953] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596857.457183625] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596857.670418657] [aruco_station_detector]: No marker detected. Rejected candidates: 44
+[component_container_isolated-4] [INFO] [1795596858.457279896] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596859.470640002] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596859.556269642] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596860.238647010] [aruco_station_detector]: No marker detected. Rejected candidates: 62
+[component_container_isolated-4] [WARN] [1795596860.532906897] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596860.563138429] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596861.557273998] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596862.557595048] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596862.637678917] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596862.852793305] [aruco_station_detector]: No marker detected. Rejected candidates: 39
+[component_container_isolated-4] [INFO] [1795596863.657763302] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596863.739146307] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596864.261587267] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596864.661312138] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596865.484690395] [aruco_station_detector]: No marker detected. Rejected candidates: 38
+[component_container_isolated-4] [INFO] [1795596865.657665128] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596866.660429330] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596866.668746708] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596866.778426713] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596867.644459712] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596867.757317436] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596867.942897671] [aruco_station_detector]: No marker detected. Rejected candidates: 49
+[component_container_isolated-4] [WARN] [1795596868.681409386] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596868.757519280] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596869.757309931] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596869.952504030] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596869.978427473] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596870.391079099] [aruco_station_detector]: No marker detected. Rejected candidates: 29
+[component_container_isolated-4] [INFO] [1795596870.760750056] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596871.468456985] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596871.758266957] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596872.063525134] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596872.086705809] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596872.088164476] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596872.838994575] [aruco_station_detector]: No marker detected. Rejected candidates: 43
+[component_container_isolated-4] [INFO] [1795596872.858270091] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596873.807836553] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596873.856304043] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596874.688750543] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596874.857274987] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596875.117835845] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596875.169366159] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596875.291179615] [aruco_station_detector]: No marker detected. Rejected candidates: 47
+[component_container_isolated-4] [INFO] [1795596875.859483893] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596876.278417638] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596876.750908884] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596876.959285607] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596877.501802297] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596877.519380388] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596877.759423107] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596877.765494833] [aruco_station_detector]: No marker detected. Rejected candidates: 42
+[component_container_isolated-4] [INFO] [1795596877.960269339] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596878.181779629] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596878.379341690] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596878.960263090] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596879.956269382] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596880.235577810] [aruco_station_detector]: No marker detected. Rejected candidates: 42
+[component_container_isolated-4] [WARN] [1795596880.340456783] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596880.829013167] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596881.059325702] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596881.320577580] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596882.061197158] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596882.601629628] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596882.699578722] [aruco_station_detector]: ArUco marker detected: ID=0
+[component_container_isolated-4] [INFO] [1795596883.056808992] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596883.291486957] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596884.087506270] [controller_server]: Reached the goal!
+[component_container_isolated-4] [INFO] [1795596884.088423051] [controller_server]: Received a goal, begin computing control effort.
+[component_container_isolated-4] [INFO] [1795596884.109923142] [controller_server]: Reached the goal!
+[component_container_isolated-4] [INFO] [1795596884.148708641] [bt_navigator]: Goal succeeded
+[aruco_station_detector-6] [INFO] [1795596885.053880810] [aruco_station_detector]: ArUco marker detected: ID=0
+[aruco_station_detector-6] [INFO] [1795596887.256161296] [aruco_station_detector]: ArUco marker detected: ID=0
+[aruco_station_detector-6] [INFO] [1795596889.487546340] [aruco_station_detector]: ArUco marker detected: ID=0
+[component_container_isolated-4] [INFO] [1795596891.290932189] [bt_navigator]: Begin navigating from current location (-3.62, 9.23) to (1.80, 9.30)
+[component_container_isolated-4] [INFO] [1795596891.311696207] [controller_server]: Received a goal, begin computing control effort.
+[aruco_station_detector-6] [INFO] [1795596891.797922288] [aruco_station_detector]: ArUco marker detected: ID=0
+[component_container_isolated-4] [WARN] [1795596892.037934067] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596892.042150012] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596892.083268758] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596892.333938542] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596892.412629694] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596893.104001253] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596893.413520685] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596894.087045765] [aruco_station_detector]: ArUco marker detected: ID=0
+[component_container_isolated-4] [WARN] [1795596894.136532139] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596894.414188675] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596895.413361072] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596895.832442183] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596896.358893058] [aruco_station_detector]: No marker detected. Rejected candidates: 49
+[component_container_isolated-4] [WARN] [1795596896.437314133] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596896.513650302] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596897.511958697] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596898.279403056] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596898.614070894] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596898.716472277] [aruco_station_detector]: No marker detected. Rejected candidates: 42
+[component_container_isolated-4] [WARN] [1795596898.737497840] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596899.397965553] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596899.614297270] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596900.617445817] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596901.057600516] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596901.191963078] [aruco_station_detector]: No marker detected. Rejected candidates: 33
+[component_container_isolated-4] [WARN] [1795596901.491075472] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596901.718757523] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596902.524005280] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596902.712190518] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596903.632721476] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596903.713557585] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596903.741921706] [aruco_station_detector]: No marker detected. Rejected candidates: 41
+[component_container_isolated-4] [INFO] [1795596904.726320380] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596905.713685265] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596906.287597695] [aruco_station_detector]: No marker detected. Rejected candidates: 37
+[component_container_isolated-4] [INFO] [1795596906.814272891] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596907.759490954] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596907.762416160] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596907.811963451] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596908.621553777] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596908.812271938] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596908.906675761] [aruco_station_detector]: No marker detected. Rejected candidates: 57
+[component_container_isolated-4] [INFO] [1795596909.912074715] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596910.913042354] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596911.393562889] [aruco_station_detector]: No marker detected. Rejected candidates: 39
+[component_container_isolated-4] [INFO] [1795596911.912089148] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596912.571295965] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596912.911960824] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596914.012509750] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596914.037343124] [aruco_station_detector]: No marker detected. Rejected candidates: 31
+[component_container_isolated-4] [WARN] [1795596914.225013651] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596914.274453371] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596915.013775937] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596916.016072958] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596916.166298056] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596916.176327130] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596916.331326997] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596916.485139404] [aruco_station_detector]: No marker detected. Rejected candidates: 55
+[component_container_isolated-4] [INFO] [1795596917.127051852] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596917.261601232] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596917.683695099] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596918.116087851] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596918.871122773] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596918.901233148] [aruco_station_detector]: No marker detected. Rejected candidates: 65
+[component_container_isolated-4] [INFO] [1795596919.112276769] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596919.438321788] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596920.081389938] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596920.113469424] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596920.641429681] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596921.213686567] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596921.383465916] [aruco_station_detector]: No marker detected. Rejected candidates: 59
+[component_container_isolated-4] [WARN] [1795596922.061440100] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596922.217472212] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596923.131927387] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596923.214597278] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596923.486735637] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596923.593444969] [aruco_station_detector]: No marker detected. Rejected candidates: 61
+[component_container_isolated-4] [INFO] [1795596924.212181541] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596924.463357116] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596925.315422922] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596925.600588860] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596925.938192501] [aruco_station_detector]: No marker detected. Rejected candidates: 82
+[component_container_isolated-4] [WARN] [1795596926.122416556] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596926.312622535] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596927.312304450] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596927.313272930] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596927.831342833] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596928.304850904] [aruco_station_detector]: No marker detected. Rejected candidates: 61
+[component_container_isolated-4] [INFO] [1795596928.326268371] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596928.812019181] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596929.132423029] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596929.421282507] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596929.743674121] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596930.411954543] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596930.600396259] [aruco_station_detector]: No marker detected. Rejected candidates: 45
+[component_container_isolated-4] [WARN] [1795596930.612540285] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596931.412591557] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596932.404478051] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.0000 Hz
+[component_container_isolated-4] [INFO] [1795596932.514780108] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596932.816061056] [aruco_station_detector]: ArUco marker detected: ID=1
+[component_container_isolated-4] [WARN] [1795596932.820856929] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596933.512500149] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596933.643321129] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596933.835398240] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596934.515192546] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596935.020657673] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596935.166994268] [aruco_station_detector]: No marker detected. Rejected candidates: 57
+[component_container_isolated-4] [INFO] [1795596935.514012520] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596936.312080691] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596936.612063944] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596936.863294651] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596937.404855474] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596937.613870128] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596937.826161135] [aruco_station_detector]: No marker detected. Rejected candidates: 51
+[component_container_isolated-4] [INFO] [1795596938.615269769] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596939.613794284] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596940.266161360] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596940.310813714] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596940.418427665] [aruco_station_detector]: ArUco marker detected: ID=1
+[component_container_isolated-4] [INFO] [1795596940.721267940] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596941.033180401] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596941.595323022] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596941.716272709] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596941.871604728] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596942.343307349] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596942.727310345] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596942.993534628] [aruco_station_detector]: ArUco marker detected: ID=1
+[component_container_isolated-4] [WARN] [1795596943.032316814] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596943.435127293] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596943.812104972] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596944.813406890] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596945.479982262] [aruco_station_detector]: No marker detected. Rejected candidates: 29
+[component_container_isolated-4] [WARN] [1795596945.548287169] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596945.751293902] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596945.811971409] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596946.309327844] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596946.648689053] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596946.813741444] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596947.768388230] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596947.915090886] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596947.986963710] [aruco_station_detector]: No marker detected. Rejected candidates: 37
+[component_container_isolated-4] [INFO] [1795596948.911937573] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596949.538464283] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596949.754364036] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596949.758809026] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596949.912134943] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596950.486146534] [aruco_station_detector]: ArUco marker detected: ID=1
+[component_container_isolated-4] [WARN] [1795596950.805660945] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596950.912123182] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596951.753612592] [controller_server]: Reached the goal!
+[component_container_isolated-4] [WARN] [1795596951.779839579] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596951.789742141] [bt_navigator]: Goal succeeded
+[aruco_station_detector-6] [INFO] [1795596953.058221847] [aruco_station_detector]: ArUco marker detected: ID=1
+[aruco_station_detector-6] [INFO] [1795596955.310863150] [aruco_station_detector]: ArUco marker detected: ID=1
+[aruco_station_detector-6] [INFO] [1795596957.559864878] [aruco_station_detector]: ArUco marker detected: ID=1
+[component_container_isolated-4] [INFO] [1795596958.989648175] [bt_navigator]: Begin navigating from current location (1.87, 9.20) to (1.80, -9.00)
+[component_container_isolated-4] [INFO] [1795596959.033340323] [controller_server]: Received a goal, begin computing control effort.
+[aruco_station_detector-6] [INFO] [1795596959.990581768] [aruco_station_detector]: ArUco marker detected: ID=1
+[component_container_isolated-4] [INFO] [1795596960.138320155] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596960.599785491] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596960.910424432] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596961.134909431] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596961.263579133] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596961.300075422] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596962.233798464] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596962.523124761] [aruco_station_detector]: ArUco marker detected: ID=1
+[component_container_isolated-4] [INFO] [1795596963.234921882] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596963.451617669] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596964.237432367] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596964.442754732] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596965.134333207] [aruco_station_detector]: No marker detected. Rejected candidates: 62
+[component_container_isolated-4] [WARN] [1795596965.261152466] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596965.333686125] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596966.312259523] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.0000 Hz
+[component_container_isolated-4] [INFO] [1795596966.336552041] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596966.611376045] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596966.630103315] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596967.435576091] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596967.590440144] [aruco_station_detector]: No marker detected. Rejected candidates: 94
+[component_container_isolated-4] [INFO] [1795596968.436498951] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596969.541351987] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596969.542789478] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795596970.133517909] [aruco_station_detector]: No marker detected. Rejected candidates: 45
+[component_container_isolated-4] [INFO] [1795596970.539292177] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596971.635070605] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596971.812952901] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596971.954149791] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596972.205497755] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596972.636284085] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596972.794209735] [aruco_station_detector]: No marker detected. Rejected candidates: 69
+[component_container_isolated-4] [WARN] [1795596973.654484988] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596973.733856570] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596973.765297014] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596974.345456550] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596974.738235500] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596975.472795387] [aruco_station_detector]: No marker detected. Rejected candidates: 97
+[component_container_isolated-4] [INFO] [1795596975.735840209] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596976.835269952] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596977.353427282] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596977.382970308] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596977.837277451] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596977.930178521] [aruco_station_detector]: No marker detected. Rejected candidates: 149
+[component_container_isolated-4] [INFO] [1795596978.933841334] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596979.745409172] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596979.938466202] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596979.939155767] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596980.232852592] [aruco_station_detector]: No marker detected. Rejected candidates: 54
+[component_container_isolated-4] [INFO] [1795596981.036277754] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596982.037290970] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596982.566864223] [aruco_station_detector]: No marker detected. Rejected candidates: 68
+[component_container_isolated-4] [INFO] [1795596983.133949779] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596983.935402983] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596984.135120692] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596985.041312057] [aruco_station_detector]: No marker detected. Rejected candidates: 71
+[component_container_isolated-4] [WARN] [1795596985.083808461] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596985.135600919] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596986.235798996] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596987.236504332] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596987.487287502] [aruco_station_detector]: No marker detected. Rejected candidates: 98
+[component_container_isolated-4] [INFO] [1795596988.339288653] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596989.333682860] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596989.909178725] [aruco_station_detector]: No marker detected. Rejected candidates: 150
+[component_container_isolated-4] [INFO] [1795596990.338406237] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596991.345889395] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.0000 Hz
+[component_container_isolated-4] [INFO] [1795596991.436276402] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596992.340786767] [aruco_station_detector]: No marker detected. Rejected candidates: 171
+[component_container_isolated-4] [WARN] [1795596992.401461727] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.0000 Hz
+[component_container_isolated-4] [INFO] [1795596992.437268754] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795596992.776748001] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596992.912135687] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795596992.938314471] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596993.538270938] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596994.539045690] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596995.005872750] [aruco_station_detector]: No marker detected. Rejected candidates: 139
+[component_container_isolated-4] [WARN] [1795596995.157472628] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795596995.642269533] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596996.633698696] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596997.380712457] [aruco_station_detector]: No marker detected. Rejected candidates: 161
+[component_container_isolated-4] [INFO] [1795596997.635268534] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596998.736500265] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795596999.740272346] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795596999.875725567] [aruco_station_detector]: No marker detected. Rejected candidates: 101
+[component_container_isolated-4] [WARN] [1795597000.722399696] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597000.747367204] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.0000 Hz
+[component_container_isolated-4] [WARN] [1795597000.749432922] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597000.833680543] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597001.749293936] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597001.839269360] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597002.389121031] [aruco_station_detector]: No marker detected. Rejected candidates: 88
+[component_container_isolated-4] [WARN] [1795597002.429330628] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597002.933685202] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597003.939278768] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597004.889683674] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597004.933686130] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597004.958465347] [aruco_station_detector]: No marker detected. Rejected candidates: 105
+[component_container_isolated-4] [WARN] [1795597005.373587694] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597005.409327400] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597006.033749763] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597006.978482451] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.0000 Hz
+[component_container_isolated-4] [INFO] [1795597007.034511790] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597007.411968938] [aruco_station_detector]: No marker detected. Rejected candidates: 122
+[component_container_isolated-4] [WARN] [1795597007.467820893] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597008.039270600] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597008.081260807] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597009.049823885] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597009.135169811] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597009.907292380] [aruco_station_detector]: No marker detected. Rejected candidates: 133
+[component_container_isolated-4] [INFO] [1795597010.135088096] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597010.678401076] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597011.234330258] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597011.688849278] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597012.238312581] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597012.532057059] [aruco_station_detector]: No marker detected. Rejected candidates: 98
+[component_container_isolated-4] [WARN] [1795597012.759869891] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597013.234589404] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597013.607523373] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597013.817413906] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597013.997897664] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597014.334441624] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597014.823063487] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597014.837879275] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597014.948649789] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597015.069216109] [aruco_station_detector]: No marker detected. Rejected candidates: 98
+[component_container_isolated-4] [INFO] [1795597015.334212923] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597016.193761451] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597016.339402801] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597016.938459952] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597017.436271136] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597017.629583947] [aruco_station_detector]: No marker detected. Rejected candidates: 104
+[component_container_isolated-4] [INFO] [1795597018.436311388] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597019.252295079] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597019.442272020] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597020.087515182] [aruco_station_detector]: No marker detected. Rejected candidates: 129
+[component_container_isolated-4] [WARN] [1795597020.460534484] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597020.537105968] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597021.139450922] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597021.158380588] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597021.368527860] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597021.534465778] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597022.195390412] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597022.199905656] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597022.536291529] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597022.549490257] [aruco_station_detector]: No marker detected. Rejected candidates: 102
+[component_container_isolated-4] [INFO] [1795597023.636276907] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597024.636545007] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597025.011230118] [aruco_station_detector]: No marker detected. Rejected candidates: 105
+[component_container_isolated-4] [WARN] [1795597025.288816955] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597025.633686831] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597025.848567674] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597026.736290717] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597026.788053796] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597027.188388609] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597027.461575755] [aruco_station_detector]: No marker detected. Rejected candidates: 134
+[component_container_isolated-4] [INFO] [1795597027.733687536] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597028.668812536] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597028.683923981] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597028.733810685] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597029.513547900] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597029.525410287] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597029.535566130] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597029.538373009] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597029.550390113] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597029.834333974] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597029.865033041] [aruco_station_detector]: No marker detected. Rejected candidates: 141
+[component_container_isolated-4] [INFO] [1795597030.835506947] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597031.833685222] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597032.335738781] [aruco_station_detector]: No marker detected. Rejected candidates: 93
+[component_container_isolated-4] [INFO] [1795597032.943269833] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597033.762316601] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597033.939494997] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597034.807321159] [aruco_station_detector]: No marker detected. Rejected candidates: 90
+[component_container_isolated-4] [WARN] [1795597034.910703804] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597034.934132352] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597035.441376261] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597036.034070928] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597037.035700969] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597037.313007734] [aruco_station_detector]: No marker detected. Rejected candidates: 92
+[component_container_isolated-4] [INFO] [1795597038.037520529] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597038.961649644] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597039.036275231] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597039.193401251] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597039.761469542] [aruco_station_detector]: No marker detected. Rejected candidates: 106
+[component_container_isolated-4] [INFO] [1795597040.143722592] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597041.135277955] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597042.092399107] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597042.133679849] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597042.307187620] [aruco_station_detector]: No marker detected. Rejected candidates: 69
+[component_container_isolated-4] [INFO] [1795597043.133848312] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597043.658662542] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597043.902001887] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597044.237443665] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597044.923756732] [aruco_station_detector]: No marker detected. Rejected candidates: 69
+[component_container_isolated-4] [INFO] [1795597045.233826303] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597045.995120810] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597046.004501841] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597046.234018059] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597046.765651270] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597047.103207152] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597047.233930987] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597047.669126720] [aruco_station_detector]: No marker detected. Rejected candidates: 82
+[component_container_isolated-4] [WARN] [1795597048.251848157] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597048.343293038] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597049.254055162] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597049.341001757] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597049.905780148] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597050.374636203] [aruco_station_detector]: No marker detected. Rejected candidates: 78
+[component_container_isolated-4] [WARN] [1795597050.424005921] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597050.439277413] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597050.555100761] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597051.438271898] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597051.585619323] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597052.391846721] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597052.443272558] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597053.039913686] [aruco_station_detector]: No marker detected. Rejected candidates: 124
+[component_container_isolated-4] [INFO] [1795597053.434991520] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597054.535922211] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597054.730478706] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597054.733394109] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597055.032476897] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597055.445998825] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.0000 Hz
+[component_container_isolated-4] [INFO] [1795597055.536281870] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597055.605759355] [aruco_station_detector]: No marker detected. Rejected candidates: 73
+[component_container_isolated-4] [INFO] [1795597056.537284423] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597056.875939263] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597057.541313373] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597058.034414836] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597058.052453719] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597058.242547911] [aruco_station_detector]: ArUco marker detected: ID=2
+[component_container_isolated-4] [INFO] [1795597058.636508072] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597058.663352384] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597059.638285563] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597059.762544567] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597060.637267140] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597060.739147438] [aruco_station_detector]: No marker detected. Rejected candidates: 79
+[component_container_isolated-4] [INFO] [1795597061.633697609] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597062.078476148] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597062.737199153] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597062.912924375] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597063.216429427] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597063.417873940] [aruco_station_detector]: No marker detected. Rejected candidates: 131
+[component_container_isolated-4] [WARN] [1795597063.432439979] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597063.736270091] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597064.014419865] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597064.042434440] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597064.738149974] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597065.252527824] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597065.735169824] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597066.021756896] [aruco_station_detector]: No marker detected. Rejected candidates: 67
+[component_container_isolated-4] [WARN] [1795597066.714373598] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597066.738318134] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597066.923475660] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597067.626202177] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597067.841892310] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597068.618566347] [aruco_station_detector]: ArUco marker detected: ID=2
+[component_container_isolated-4] [INFO] [1795597068.837339102] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597068.991689609] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597069.835270952] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597070.301887555] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597070.443464048] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597070.836296597] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597070.964210499] [controller_server]: Reached the goal!
+[component_container_isolated-4] [INFO] [1795597070.992867580] [bt_navigator]: Goal succeeded
+[aruco_station_detector-6] [INFO] [1795597071.261647473] [aruco_station_detector]: ArUco marker detected: ID=2
+[aruco_station_detector-6] [INFO] [1795597073.806447589] [aruco_station_detector]: ArUco marker detected: ID=2
+[aruco_station_detector-6] [INFO] [1795597076.114004800] [aruco_station_detector]: ArUco marker detected: ID=2
+[component_container_isolated-4] [INFO] [1795597078.009032847] [bt_navigator]: Begin navigating from current location (1.72, -8.95) to (-3.63, -9.30)
+[component_container_isolated-4] [INFO] [1795597078.031277725] [controller_server]: Received a goal, begin computing control effort.
+[aruco_station_detector-6] [INFO] [1795597078.563560159] [aruco_station_detector]: ArUco marker detected: ID=2
+[component_container_isolated-4] [INFO] [1795597079.132233261] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597079.939483243] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597080.132568439] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597081.138099604] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597081.165766682] [aruco_station_detector]: ArUco marker detected: ID=2
+[component_container_isolated-4] [WARN] [1795597081.439750046] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597082.062426260] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597082.133951056] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597083.140433496] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597083.232758541] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597083.261316297] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597083.462451176] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597083.690358368] [aruco_station_detector]: No marker detected. Rejected candidates: 42
+[component_container_isolated-4] [INFO] [1795597084.233318325] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597084.534397281] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597084.632439009] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597085.234270053] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597085.768316948] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597085.960394192] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597086.186805880] [aruco_station_detector]: No marker detected. Rejected candidates: 53
+[component_container_isolated-4] [INFO] [1795597086.235270721] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597086.850287499] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597087.331562863] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597088.166160797] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597088.334732240] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597088.720041847] [aruco_station_detector]: No marker detected. Rejected candidates: 57
+[component_container_isolated-4] [INFO] [1795597089.331569620] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597089.679924236] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597090.331897352] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597090.334691114] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597090.533178605] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597091.237524536] [aruco_station_detector]: No marker detected. Rejected candidates: 35
+[component_container_isolated-4] [INFO] [1795597091.441170130] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597092.433270751] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597093.532103490] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597093.639502803] [aruco_station_detector]: No marker detected. Rejected candidates: 64
+[component_container_isolated-4] [INFO] [1795597094.531712415] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597094.662664358] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597094.790431284] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597094.850466114] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597094.977296448] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597095.533468257] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597096.030809423] [aruco_station_detector]: No marker detected. Rejected candidates: 59
+[component_container_isolated-4] [WARN] [1795597096.073271035] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597096.354923970] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597096.540277089] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597096.940477143] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597097.472893508] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597097.533417536] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597097.632041556] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597098.421952283] [aruco_station_detector]: No marker detected. Rejected candidates: 71
+[component_container_isolated-4] [INFO] [1795597098.634796727] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597099.634707267] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597099.671551166] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597100.140563923] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597100.631632789] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597100.855033896] [aruco_station_detector]: No marker detected. Rejected candidates: 34
+[component_container_isolated-4] [WARN] [1795597101.039625962] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597101.355664855] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597101.731565449] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597102.450127185] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597102.630214209] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597102.733549318] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597103.269028446] [aruco_station_detector]: No marker detected. Rejected candidates: 45
+[component_container_isolated-4] [WARN] [1795597103.349734150] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597103.540456264] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597103.742971601] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597104.633468952] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597104.752618147] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597104.834309099] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597105.013848186] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597105.080510743] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597105.360472338] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597105.652335672] [aruco_station_detector]: No marker detected. Rejected candidates: 42
+[component_container_isolated-4] [INFO] [1795597105.836510319] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597106.839900560] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597107.050471282] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597107.439513479] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597107.700122140] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597107.832277160] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597108.300860258] [aruco_station_detector]: No marker detected. Rejected candidates: 41
+[component_container_isolated-4] [WARN] [1795597108.312455256] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597108.322420139] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597108.392128048] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597108.410421673] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597108.932353483] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597109.689660895] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597109.931963640] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597110.154747798] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597110.820081030] [aruco_station_detector]: ArUco marker detected: ID=3
+[component_container_isolated-4] [INFO] [1795597110.932969196] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597111.102407977] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597111.162435318] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597111.354820384] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597111.932275650] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597112.520440923] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597113.039750182] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597113.339394748] [aruco_station_detector]: ArUco marker detected: ID=3
+[component_container_isolated-4] [INFO] [1795597114.039997674] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597114.244983236] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597115.037284758] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597115.572503761] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597115.831664632] [aruco_station_detector]: ArUco marker detected: ID=3
+[component_container_isolated-4] [INFO] [1795597116.036190967] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597116.723706493] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597116.760472120] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597117.133304858] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597117.157501353] [controller_server]: Reached the goal!
+[component_container_isolated-4] [INFO] [1795597117.191025669] [bt_navigator]: Goal succeeded
+[aruco_station_detector-6] [INFO] [1795597118.335903321] [aruco_station_detector]: ArUco marker detected: ID=3
+[aruco_station_detector-6] [INFO] [1795597120.712707988] [aruco_station_detector]: ArUco marker detected: ID=3
+[aruco_station_detector-6] [INFO] [1795597123.097481104] [aruco_station_detector]: ArUco marker detected: ID=3
+[component_container_isolated-4] [INFO] [1795597124.615344664] [bt_navigator]: Begin navigating from current location (-3.55, -9.28) to (-3.68, 9.30)
+[component_container_isolated-4] [WARN] [1795597124.644338185] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.0000 Hz
+[component_container_isolated-4] [INFO] [1795597124.664283621] [controller_server]: Received a goal, begin computing control effort.
+[component_container_isolated-4] [WARN] [1795597124.937542979] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597125.098945487] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597125.135483814] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597125.481718542] [aruco_station_detector]: ArUco marker detected: ID=3
+[component_container_isolated-4] [WARN] [1795597125.665576719] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597125.766967706] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597126.275752896] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597126.764990736] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597127.370468541] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597127.867268164] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597127.867768977] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597128.067095206] [aruco_station_detector]: ArUco marker detected: ID=3
+[component_container_isolated-4] [WARN] [1795597128.135761165] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597128.265046721] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597128.268962984] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597128.298687453] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597128.479199692] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597128.866278816] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597129.701898946] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597129.882476400] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.0000 Hz
+[component_container_isolated-4] [INFO] [1795597129.966279036] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597130.361910249] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597130.385717090] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597130.531998281] [aruco_station_detector]: No marker detected. Rejected candidates: 42
+[component_container_isolated-4] [INFO] [1795597130.967341501] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597131.490595268] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597131.676456414] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597132.066396633] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597132.196438631] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597133.040173988] [aruco_station_detector]: No marker detected. Rejected candidates: 36
+[component_container_isolated-4] [INFO] [1795597133.067909683] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597134.065955520] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597134.566644048] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597135.102956263] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597135.164649715] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597135.723875617] [aruco_station_detector]: No marker detected. Rejected candidates: 33
+[component_container_isolated-4] [INFO] [1795597136.170271229] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597136.418288691] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597137.264838884] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597137.566445923] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597137.590434963] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597137.729359551] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597138.267150022] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597138.313696648] [aruco_station_detector]: No marker detected. Rejected candidates: 47
+[component_container_isolated-4] [WARN] [1795597138.639512390] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597138.709486189] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597139.112319462] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597139.247021689] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.0000 Hz
+[component_container_isolated-4] [WARN] [1795597139.247479699] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597139.250459404] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597139.269230851] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597139.402772630] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597140.092456739] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597140.209711121] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597140.270161549] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597140.368284413] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597140.859780303] [aruco_station_detector]: No marker detected. Rejected candidates: 60
+[component_container_isolated-4] [WARN] [1795597140.905224016] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597141.372377719] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597142.100934226] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597142.355092787] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.0000 Hz
+[component_container_isolated-4] [INFO] [1795597142.465703209] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597142.515783935] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597143.398144101] [aruco_station_detector]: No marker detected. Rejected candidates: 48
+[component_container_isolated-4] [INFO] [1795597143.470271700] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597143.510678223] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597143.659589579] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597143.933751795] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597144.566790790] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597144.782474822] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597145.409738087] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597145.520266169] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597145.569438052] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597145.601719592] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597145.832660351] [aruco_station_detector]: No marker detected. Rejected candidates: 55
+[component_container_isolated-4] [WARN] [1795597146.019460368] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597146.136620851] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597146.544442988] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597146.569413652] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597146.665195527] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597147.669279013] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597148.207406517] [aruco_station_detector]: No marker detected. Rejected candidates: 53
+[component_container_isolated-4] [INFO] [1795597148.666895671] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597149.090372272] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597149.767273236] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597150.773272021] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597150.884116606] [aruco_station_detector]: No marker detected. Rejected candidates: 66
+[component_container_isolated-4] [INFO] [1795597151.865587227] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597152.359689744] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597152.850632996] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597152.873275839] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597153.453611091] [aruco_station_detector]: No marker detected. Rejected candidates: 53
+[component_container_isolated-4] [INFO] [1795597153.964647967] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597154.392455668] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597154.965859347] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597156.066502972] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597156.168586729] [aruco_station_detector]: No marker detected. Rejected candidates: 52
+[component_container_isolated-4] [INFO] [1795597157.066278039] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597157.130454542] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597158.164852623] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597158.810530995] [aruco_station_detector]: No marker detected. Rejected candidates: 46
+[component_container_isolated-4] [WARN] [1795597158.882522397] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597159.169558389] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597160.126624804] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.0000 Hz
+[component_container_isolated-4] [INFO] [1795597160.178343243] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597160.211428616] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597160.320208228] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597160.579885145] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597161.272275082] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597161.536726993] [aruco_station_detector]: No marker detected. Rejected candidates: 60
+[component_container_isolated-4] [WARN] [1795597162.190174325] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597162.267618925] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597162.321595327] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597162.650205100] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597163.103017776] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597163.266893283] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597164.095102241] [aruco_station_detector]: No marker detected. Rejected candidates: 39
+[component_container_isolated-4] [INFO] [1795597164.364702302] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597164.510229086] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597164.543121954] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597164.850475798] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597165.290186175] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597165.339560341] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597165.367276723] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597166.369156236] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597166.753719262] [aruco_station_detector]: No marker detected. Rejected candidates: 61
+[component_container_isolated-4] [INFO] [1795597167.468272336] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597168.039451152] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597168.474612214] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597168.700481024] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597168.991388057] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597169.420975687] [aruco_station_detector]: No marker detected. Rejected candidates: 39
+[component_container_isolated-4] [INFO] [1795597169.464651922] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597169.491385220] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597169.659583382] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597169.841413490] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597170.094305369] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597170.188589080] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597170.476918934] [planner_server]: Planner loop missed its desired rate of 20.0000 Hz. Current loop rate is 10.0000 Hz
+[component_container_isolated-4] [INFO] [1795597170.567272312] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597171.099554645] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597171.544306409] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597171.573274165] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597171.972863958] [aruco_station_detector]: No marker detected. Rejected candidates: 53
+[component_container_isolated-4] [WARN] [1795597172.410340159] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597172.667282812] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597173.201476880] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597173.489925942] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597173.668272426] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597174.497995625] [aruco_station_detector]: No marker detected. Rejected candidates: 46
+[component_container_isolated-4] [WARN] [1795597174.604642665] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597174.660446643] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597174.766597073] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597175.764649082] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597175.801706083] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597176.586482758] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597176.764662339] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597176.803293187] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597177.140760099] [aruco_station_detector]: No marker detected. Rejected candidates: 50
+[component_container_isolated-4] [WARN] [1795597177.483453698] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597177.641746250] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597177.867330968] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597178.172427070] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597178.865539276] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597178.892405225] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597178.974480972] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597179.606895606] [aruco_station_detector]: No marker detected. Rejected candidates: 51
+[component_container_isolated-4] [INFO] [1795597179.868286334] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597180.806726490] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597180.975000171] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597181.637471428] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597181.966531872] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597182.228795536] [aruco_station_detector]: No marker detected. Rejected candidates: 41
+[component_container_isolated-4] [INFO] [1795597183.066276992] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597183.737458875] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597184.066159904] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597184.807657010] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597184.825558001] [aruco_station_detector]: No marker detected. Rejected candidates: 48
+[component_container_isolated-4] [INFO] [1795597185.069351308] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597186.078392497] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597186.168365538] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597187.168272986] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597187.397906123] [aruco_station_detector]: No marker detected. Rejected candidates: 44
+[component_container_isolated-4] [WARN] [1795597187.900828096] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597188.169492043] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597188.956748765] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597189.165997464] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597189.869299537] [aruco_station_detector]: No marker detected. Rejected candidates: 38
+[component_container_isolated-4] [INFO] [1795597190.267817397] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597190.487370522] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597191.265989138] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597191.637768297] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597191.683448190] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597192.267841235] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597192.512519159] [aruco_station_detector]: No marker detected. Rejected candidates: 37
+[component_container_isolated-4] [WARN] [1795597192.968929928] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597193.367014101] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597193.867802457] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597194.372538199] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597195.051024241] [aruco_station_detector]: No marker detected. Rejected candidates: 34
+[component_container_isolated-4] [INFO] [1795597195.365130180] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597196.388294929] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597196.466455686] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597196.568270225] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597196.584676347] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597197.465310169] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597197.594839571] [aruco_station_detector]: No marker detected. Rejected candidates: 52
+[component_container_isolated-4] [WARN] [1795597197.847426526] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597198.469449291] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597198.593556465] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597198.757749583] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597199.211292749] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597199.473332110] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597199.761410483] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597200.158350090] [aruco_station_detector]: No marker detected. Rejected candidates: 43
+[component_container_isolated-4] [INFO] [1795597200.565622528] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597200.630414527] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597201.569271808] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597201.582530611] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597202.655374053] [aruco_station_detector]: No marker detected. Rejected candidates: 37
+[component_container_isolated-4] [INFO] [1795597202.664653077] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597203.669325694] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597204.664652648] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597205.117418960] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597205.150107616] [aruco_station_detector]: No marker detected. Rejected candidates: 38
+[component_container_isolated-4] [WARN] [1795597205.582313289] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597205.659898508] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597205.669312357] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597206.489730364] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597206.681002667] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597206.769270513] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597206.777562157] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597207.101978483] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597207.506752518] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597207.769275053] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597207.770742390] [aruco_station_detector]: No marker detected. Rejected candidates: 45
+[component_container_isolated-4] [WARN] [1795597208.442463958] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597208.595206204] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597208.767269050] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597209.042434482] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597209.603788022] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597209.866629559] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597210.218966251] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597210.397333866] [aruco_station_detector]: No marker detected. Rejected candidates: 39
+[component_container_isolated-4] [WARN] [1795597210.784939037] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597210.864648454] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597211.263332153] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597211.303843117] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597211.586200918] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597211.692337557] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597211.868269294] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597212.392477300] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597212.866283302] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597213.012446127] [aruco_station_detector]: No marker detected. Rejected candidates: 47
+[component_container_isolated-4] [WARN] [1795597213.503322761] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597213.964641968] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597214.440489203] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597214.442885303] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597214.703425064] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597214.970536980] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597215.556462380] [aruco_station_detector]: No marker detected. Rejected candidates: 42
+[component_container_isolated-4] [INFO] [1795597215.970274557] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597217.070335295] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597217.282316648] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597218.064640363] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597218.179290131] [aruco_station_detector]: No marker detected. Rejected candidates: 36
+[component_container_isolated-4] [WARN] [1795597218.485483448] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597219.066539876] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597220.069395914] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597220.834963415] [aruco_station_detector]: No marker detected. Rejected candidates: 33
+[component_container_isolated-4] [INFO] [1795597221.073276098] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597221.403266141] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597221.865449447] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597222.073054331] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597222.166497336] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597222.682467010] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597223.170269216] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597223.331709413] [aruco_station_detector]: No marker detected. Rejected candidates: 39
+[component_container_isolated-4] [WARN] [1795597224.003405751] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597224.123022742] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597224.167275869] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597225.152739297] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597225.206477487] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597225.268317408] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597225.305534652] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597225.428009498] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[aruco_station_detector-6] [INFO] [1795597225.698035384] [aruco_station_detector]: ArUco marker detected: ID=0
+[component_container_isolated-4] [INFO] [1795597226.271702590] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597226.297263301] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597227.280446288] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597228.186183729] [aruco_station_detector]: No marker detected. Rejected candidates: 33
+[component_container_isolated-4] [WARN] [1795597228.237666251] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597228.264647709] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597228.493346116] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597228.642941799] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597229.273371784] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597230.365100144] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597230.510715252] [aruco_station_detector]: No marker detected. Rejected candidates: 36
+[component_container_isolated-4] [WARN] [1795597231.076889770] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597231.367282935] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [INFO] [1795597232.371271894] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597232.951004910] [aruco_station_detector]: ArUco marker detected: ID=0
+[component_container_isolated-4] [INFO] [1795597233.468271560] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597234.409274117] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597234.422238414] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597234.468069437] [controller_server]: Passing new path to controller.
+[aruco_station_detector-6] [INFO] [1795597235.301792590] [aruco_station_detector]: ArUco marker detected: ID=0
+[component_container_isolated-4] [INFO] [1795597235.469909114] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597235.647152040] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597235.860606726] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [WARN] [1795597236.458407875] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597236.473279075] [controller_server]: Passing new path to controller.
+[component_container_isolated-4] [WARN] [1795597236.989287334] [BehaviorTreeEngine]: Behavior Tree tick rate 100.00 was exceeded!
+[component_container_isolated-4] [INFO] [1795597237.014272672] [controller_server]: Reached the goal!
+[component_container_isolated-4] [INFO] [1795597237.046941913] [bt_navigator]: Goal succeeded
+[aruco_station_detector-6] [INFO] [1795597237.733478489] [aruco_station_detector]: ArUco marker detected: ID=0
+[aruco_station_detector-6] [INFO] [1795597239.935601292] [aruco_station_detector]: ArUco marker detected: ID=0
+[aruco_station_detector-6] [INFO] [1795597242.095017365] [aruco_station_detector]: ArUco marker detected: ID=0
+[aruco_station_detector-6] [INFO] [1795597244.363121142] [aruco_station_detector]: ArUco marker detected: ID=0
+[component_container_isolated-4] [INFO] [1795597244.436888555] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[component_container_isolated-4] [INFO] [1795597244.436982241] [lifecycle_manager_navigation]: Running Nav2 LifecycleManager rcl preshutdown (lifecycle_manager_navigation)
+[component_container_isolated-4] [INFO] [1795597244.437046071] [lifecycle_manager_navigation]: [34m[1mTerminating bond timer...[0m[0m
+[robot_state_publisher-2] [INFO] [1795597244.437578811] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[rviz2-5] [INFO] [1795597244.438392929] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[gazebo-1] [0m[1;33m[0m[1;33m[0m[1;33m[Wrn] [Event.cc:61] [0m[1;33mWarning: Deleting a connection right after creation. [0m[1;33mMake sure to save the ConnectionPtr from a Connect call
+[aruco_station_detector-6] Traceback (most recent call last):
+[aruco_station_detector-6]   File "/__w/ros2-autonomous-warehouse-navigation/ros2-autonomous-warehouse-navigation/install/warehouse_perception/lib/warehouse_perception/aruco_station_detector", line 33, in <module>
+[aruco_station_detector-6]     sys.exit(load_entry_point('warehouse-perception==0.0.0', 'console_scripts', 'aruco_station_detector')())
+[aruco_station_detector-6]   File "/__w/ros2-autonomous-warehouse-navigation/ros2-autonomous-warehouse-navigation/install/warehouse_perception/lib/python3.10/site-packages/warehouse_perception/aruco_station_detector.py", line 119, in main
+[aruco_station_detector-6]     rclpy.spin(node)
+[aruco_station_detector-6]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+[aruco_station_detector-6]     executor.spin_once()
+[aruco_station_detector-6]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 812, in spin_once
+[aruco_station_detector-6]     self._spin_once_impl(timeout_sec)
+[aruco_station_detector-6]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 801, in _spin_once_impl
+[aruco_station_detector-6]     handler, entity, node = self.wait_for_ready_callbacks(timeout_sec=timeout_sec)
+[aruco_station_detector-6]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 784, in wait_for_ready_callbacks
+[aruco_station_detector-6]     return next(self._cb_iter)
+[aruco_station_detector-6]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 685, in _wait_for_ready_callbacks
+[aruco_station_detector-6]     raise ExternalShutdownException()
+[aruco_station_detector-6] rclpy.executors.ExternalShutdownException
+[INFO] [robot_state_publisher-2]: process has finished cleanly [pid 8552]
+[component_container_isolated-4] [INFO] [1795597244.745317844] [waypoint_follower]: Running Nav2 LifecycleNode rcl preshutdown (waypoint_follower)
+[component_container_isolated-4] [INFO] [1795597244.745445604] [waypoint_follower]: Deactivating
+[component_container_isolated-4] [INFO] [1795597244.745470471] [waypoint_follower]: Destroying bond (waypoint_follower) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795597244.759356146] [waypoint_follower]: Cleaning up
+[component_container_isolated-4] [INFO] [1795597244.804349332] [waypoint_follower]: Destroying bond (waypoint_follower) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795597244.804395829] [behavior_server]: Running Nav2 LifecycleNode rcl preshutdown (behavior_server)
+[component_container_isolated-4] [INFO] [1795597244.804428581] [behavior_server]: Deactivating
+[component_container_isolated-4] [INFO] [1795597244.804455030] [behavior_server]: Destroying bond (behavior_server) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795597244.820324420] [behavior_server]: Cleaning up
+[ERROR] [aruco_station_detector-6]: process has died [pid 9046, exit code 1, cmd '/__w/ros2-autonomous-warehouse-navigation/ros2-autonomous-warehouse-navigation/install/warehouse_perception/lib/warehouse_perception/aruco_station_detector --ros-args -r __node:=aruco_station_detector --params-file /tmp/launch_params_zhw674ev'].
+[component_container_isolated-4] [INFO] [1795597244.895208682] [behavior_server]: Destroying bond (behavior_server) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795597244.898689005] [lifecycle_manager_localization]: Running Nav2 LifecycleManager rcl preshutdown (lifecycle_manager_localization)
+[component_container_isolated-4] [INFO] [1795597244.898750951] [lifecycle_manager_localization]: [34m[1mTerminating bond timer...[0m[0m
+[component_container_isolated-4] [INFO] [1795597244.942187268] [planner_server]: Running Nav2 LifecycleNode rcl preshutdown (planner_server)
+[component_container_isolated-4] [INFO] [1795597244.942314407] [planner_server]: Deactivating
+[component_container_isolated-4] [INFO] [1795597244.942362828] [global_costmap.global_costmap]: Deactivating
+[gazebo-1] [0m[1;33m[0m[1;31m[0m[1;33m[Wrn] [Publisher.cc:135] [0m[1;33mQueue limit reached for topic [0m[1;33m/gazebo/default/physics/contacts[0m[1;33m, deleting message. [0m[1;33mThis warning is printed only once.[0m[1;33m
+[component_container_isolated-4] [INFO] [1795597245.825432144] [planner_server]: Deactivating plugin GridBased of type NavfnPlanner
+[component_container_isolated-4] [INFO] [1795597245.825496575] [planner_server]: Destroying bond (planner_server) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795597245.835632472] [planner_server]: Cleaning up
+[component_container_isolated-4] [INFO] [1795597245.889856576] [global_costmap.global_costmap]: Cleaning up
+[component_container_isolated-4] [INFO] [1795597245.910503153] [planner_server]: Cleaning up plugin GridBased of type NavfnPlanner
+[component_container_isolated-4] [INFO] [1795597245.910716654] [planner_server]: Destroying plugin GridBased of type NavfnPlanner
+[component_container_isolated-4] [INFO] [1795597245.958386039] [planner_server]: Destroying bond (planner_server) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795597245.958441123] [amcl]: Running Nav2 LifecycleNode rcl preshutdown (amcl)
+[component_container_isolated-4] [INFO] [1795597245.958704387] [amcl]: Deactivating
+[component_container_isolated-4] [INFO] [1795597245.958734744] [amcl]: Destroying bond (amcl) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795597245.968890999] [amcl]: Cleaning up
+[component_container_isolated-4] [INFO] [1795597245.997398812] [amcl]: Destroying bond (amcl) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795597245.997444348] [smoother_server]: Running Nav2 LifecycleNode rcl preshutdown (smoother_server)
+[component_container_isolated-4] [INFO] [1795597245.998022733] [smoother_server]: Deactivating
+[component_container_isolated-4] [INFO] [1795597245.998049013] [smoother_server]: Destroying bond (smoother_server) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795597246.008420271] [smoother_server]: Cleaning up
+[component_container_isolated-4] [INFO] [1795597246.074900705] [smoother_server]: Destroying bond (smoother_server) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795597246.074945159] [map_server]: Running Nav2 LifecycleNode rcl preshutdown (map_server)
+[component_container_isolated-4] [INFO] [1795597246.074995293] [map_server]: Deactivating
+[component_container_isolated-4] [INFO] [1795597246.075021131] [map_server]: Destroying bond (map_server) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795597246.085312006] [map_server]: Cleaning up
+[component_container_isolated-4] [INFO] [1795597246.085388670] [map_server]: Destroying bond (map_server) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795597246.085406644] [velocity_smoother]: Running Nav2 LifecycleNode rcl preshutdown (velocity_smoother)
+[component_container_isolated-4] [INFO] [1795597246.085439255] [velocity_smoother]: Deactivating
+[component_container_isolated-4] [INFO] [1795597246.085466516] [velocity_smoother]: Destroying bond (velocity_smoother) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795597246.095634463] [velocity_smoother]: Cleaning up
+[component_container_isolated-4] [INFO] [1795597246.095677424] [velocity_smoother]: Destroying bond (velocity_smoother) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795597246.095690558] [bt_navigator]: Running Nav2 LifecycleNode rcl preshutdown (bt_navigator)
+[component_container_isolated-4] [INFO] [1795597246.095749128] [bt_navigator]: Deactivating
+[component_container_isolated-4] [INFO] [1795597246.095773985] [bt_navigator]: Destroying bond (bt_navigator) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795597246.105904692] [bt_navigator]: Cleaning up
+[component_container_isolated-4] [INFO] [1795597246.222454003] [bt_navigator]: Completed Cleaning up
+[component_container_isolated-4] [INFO] [1795597246.222526318] [bt_navigator]: Destroying bond (bt_navigator) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795597246.222571463] [controller_server]: Running Nav2 LifecycleNode rcl preshutdown (controller_server)
+[component_container_isolated-4] [INFO] [1795597246.222595088] [controller_server]: Deactivating
+[component_container_isolated-4] [INFO] [1795597246.222641444] [local_costmap.local_costmap]: Deactivating
+[component_container_isolated-4] [INFO] [1795597246.239500001] [controller_server]: Destroying bond (controller_server) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795597246.249680601] [controller_server]: Cleaning up
+[component_container_isolated-4] [INFO] [1795597246.250387929] [local_costmap.local_costmap]: Cleaning up
+[component_container_isolated-4] [INFO] [1795597246.270340233] [controller_server]: Destroying bond (controller_server) to lifecycle manager.
+[component_container_isolated-4] [INFO] [1795597246.315807151] [lifecycle_manager_navigation]: Destroying lifecycle_manager_navigation
+[component_container_isolated-4] [INFO] [1795597246.325472988] [velocity_smoother]: Destroying
+[component_container_isolated-4] [INFO] [1795597246.338701299] [waypoint_follower]: Destroying
+[component_container_isolated-4] [INFO] [1795597246.350195015] [bt_navigator]: Destroying
+[component_container_isolated-4] [INFO] [1795597246.361873888] [behavior_server]: Destroying
+[component_container_isolated-4] Magick: abort due to signal 11 (SIGSEGV) "Segmentation Fault"...
+[ERROR] [gazebo-1]: process has died [pid 8550, exit code 255, cmd 'gazebo --verbose /__w/ros2-autonomous-warehouse-navigation/ros2-autonomous-warehouse-navigation/install/warehouse_gazebo/share/warehouse_gazebo/worlds/small_warehouse.world -s libgazebo_ros_init.so -s libgazebo_ros_factory.so'].
+[gazebo-1] [0m[1;32m[0m[1;32m[0m[1;36m[0m[1;32m[0m[1;36m[0m[1;32m[0m
+[gazebo-1] [0m[1;33m[0m[1;33m[0m[1;33m[0m[1;31m[0m
+[ERROR] [rviz2-5]: process has died [pid 8868, exit code -11, cmd '/opt/ros/humble/lib/rviz2/rviz2 -d /__w/ros2-autonomous-warehouse-navigation/ros2-autonomous-warehouse-navigation/install/turtlebot3_navigation2/share/turtlebot3_navigation2/rviz/tb3_navigation2.rviz --ros-args -r __node:=rviz2 --params-file /tmp/launch_params__xgmp0kk'].
+[ERROR] [component_container_isolated-4]: process has died [pid 8866, exit code -6, cmd '/opt/ros/humble/lib/rclcpp_components/component_container_isolated --ros-args --log-level info --ros-args -r __node:=nav2_container --params-file /tmp/launch_params_0rx6jaew --params-file /tmp/launch_params_ttlpf2tu -r /tf:=tf -r /tf_static:=tf_static'].

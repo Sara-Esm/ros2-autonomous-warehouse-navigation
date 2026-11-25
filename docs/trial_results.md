@@ -71,22 +71,19 @@ control rate.
 
 ## CI Gazebo smoke run (current code)
 
-Stored unchanged in [`audit_logs/ci_run_45570293516/`](../audit_logs/ci_run_45570293516/PROVENANCE.md).
-It is not part of the numbered local trials above: different machine, headless, and the workflow
-always uses trial number 99.
+The two CI runs used the same Nav2 parameters as local Trials 10–12 (`869d998…`).
+Each started a fresh simulation on a four-core GitHub-hosted Ubuntu 22.04 runner with
+Xvfb and software rendering. CI uses trial number 99 each time, so each run's logs
+are stored under its GitHub run ID, separately from the numbered local trials.
 
-| Run | Code | Environment | Tasks OK | Nav failures / retries | Step 1 to summary (wall s) | RTF | Ctrl rate missed | follow_path aborts |
-|---|---|---|---|---|---|---|---|---|
-| [45570293516](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45570293516) `847f31c` (tested as merge commit `b2037ca`, identical tree) | GitHub `ubuntu-22.04`, 4 cores, Xvfb, software GL | 5/5, exit 0 | 0 / 0 | 429 | 0.84 | 0 | 1 |
+| Run | PR head (CI merge commit) | Visits verified | Nav failures / retries | Step 1 to summary (wall s) | Pre-mission RTF | Controller missed-rate warnings | Internal `follow_path` aborts |
+|---|---|---|---|---|---|---|---|
+| [45570293516](../audit_logs/ci_run_45570293516/PROVENANCE.md) | `847f31c` (`b2037ca`) | 5/5, exit 0 | 0 / 0 | 429 | 0.8351 | 0 | 1 |
+| [45579301270](../audit_logs/ci_run_45579301270/PROVENANCE.md) | `d34a0de` (`5365ca5`) | 5/5, exit 0 | 0 / 0 | 432 | 0.8370 | 0 | 0 |
 
-Same Nav2 parameter-file hash as Trials 10–12 (`869d998…`). All five markers were verified on
-the first attempt. The abort-and-retry path was **not** exercised. Non-zero exits from the
-detector, Gazebo, RViz and the Nav2 container appear only during teardown, after the mission summary.
-
-A second run, [45579301270](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45579301270)
-on `d34a0de` (the tree merged to `main`), also passed the Gazebo smoke step. The trial script exits with
-the mission's exit code, so a pass means exit 0 with all five tasks succeeded. Its logs exist only as the
-run's GitHub artifact (retained until 2027-02-23) and are not copied here, so no further metrics are claimed.
+Both runs verified every visit on the first mission attempt. Nav2 handled one internal
+controller abort in the first run. Neither run triggered a mission-level retry. Both
+launch logs also record non-zero process exits during teardown after the mission summary.
 
 ## Fault-injection runs (not mission trials)
 
