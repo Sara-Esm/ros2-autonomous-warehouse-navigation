@@ -7,6 +7,9 @@ durations are in simulation seconds.
 
 Process exit code: 0 = all tasks succeeded, 1 = finished with failed tasks,
 2 = mission halted, 130 = interrupted.
+
+A navigation failure is retried up to nav_retries times (after a short pause)
+before the mission halts.
 """
 
 import math
@@ -34,6 +37,7 @@ NAVIGATING = 'NAVIGATING'
 VERIFYING = 'VERIFYING'
 TASK_HOLD = 'TASK_HOLD'
 PAUSE = 'PAUSE'
+RETRY_PAUSE = 'RETRY_PAUSE'
 FINISHED = 'FINISHED'
 
 TICK_PERIOD_SEC = 0.1
@@ -55,6 +59,8 @@ class WarehouseAutonomy(Node):
         self.verify_timeout = self.declare_parameter('verify_timeout', 15.0).value
         self.task_hold = self.declare_parameter('task_hold', 3.0).value
         self.inter_goal_pause = self.declare_parameter('inter_goal_pause', 2.0).value
+        self.nav_retries = self.declare_parameter('nav_retries', 1).value
+        self.retry_pause = self.declare_parameter('retry_pause', 3.0).value
 
         self.navigator = ActionClient(self, NavigateToPose, 'navigate_to_pose')
 
@@ -108,6 +114,7 @@ class WarehouseAutonomy(Node):
         self.current_index = 0
         self.successful_tasks = 0
         self.failed_tasks = 0
+        self.nav_attempt = 0
 
         self.state = WAIT_SERVER
         self.deadline = None
@@ -183,6 +190,10 @@ class WarehouseAutonomy(Node):
                 self.current_index += 1
                 self.send_next_goal()
 
+        elif self.state == RETRY_PAUSE:
+            if self.deadline_passed():
+                self.send_goal(retry=True)
+
         # NAVIGATING and FINISHED advance from action callbacks only.
 
     # ------------------------------------------------------------- navigation
@@ -191,8 +202,11 @@ class WarehouseAutonomy(Node):
         if self.current_index >= len(self.waypoints):
             self.finish_mission()
             return
+        self.send_goal(retry=False)
 
+    def send_goal(self, retry):
         wp = self.waypoints[self.current_index]
+        self.nav_attempt = self.nav_attempt + 1 if retry else 1
 
         goal_msg = NavigateToPose.Goal()
         pose = PoseStamped()
@@ -210,8 +224,16 @@ class WarehouseAutonomy(Node):
 
         goal_msg.pose = pose
 
-        self.get_logger().info('----------------------------------------')
-        self.get_logger().info(f'MISSION STEP {self.current_index + 1}/{len(self.waypoints)}')
+        if retry:
+            self.get_logger().warn(
+                f"RETRYING navigation to {wp['name']} "
+                f'(attempt {self.nav_attempt}/{self.nav_retries + 1})'
+            )
+        else:
+            self.get_logger().info('----------------------------------------')
+            self.get_logger().info(
+                f'MISSION STEP {self.current_index + 1}/{len(self.waypoints)}'
+            )
         self.get_logger().info(
             f"Navigating to {wp['name']}: x={wp['x']}, y={wp['y']}, yaw={wp['yaw']} deg"
         )
@@ -252,9 +274,13 @@ class WarehouseAutonomy(Node):
             self.get_logger().error(
                 f"Navigation FAILED for {wp['name']} (status: {status})"
             )
+            if self.nav_attempt <= self.nav_retries:
+                self.state = RETRY_PAUSE
+                self.set_deadline(self.retry_pause)
+                return
             self.halt_mission(
                 f"Navigation aborted at {wp['name']} "
-                f'(status: {status})'
+                f'(status: {status}, attempts: {self.nav_attempt})'
             )
             return
 

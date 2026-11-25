@@ -264,8 +264,10 @@ ros2 run nav2_map_server map_saver_cli -f ~/warehouse_ws/src/warehouse_bringup/m
 - Real-time debug visualization window
 
 **Navigation Configuration**
-- `xy_goal_tolerance: 0.05m`, `yaw_goal_tolerance: 0.05 rad` for precise station stopping
-- `inflation_radius: 0.2m` tuned to allow close-wall navigation for marker inspection
+- `xy_goal_tolerance: 0.12 m`, `yaw_goal_tolerance: 0.15 rad`: tight enough for the wide-angle camera, loose enough to avoid goal oscillation under sim load
+- `robot_radius: 0.14 m` (TurtleBot3 Burger circumscribed radius) with `inflation_radius` 0.5 m global / 0.35 m local, so planned paths avoid gaps barely wider than the robot
+- Single 2D `obstacle_layer` per costmap (no duplicate voxel layer) to reduce controller CPU load
+- The mission retries a failed navigation once (`nav_retries`) before halting
 - Timed launch sequence: Gazebo (0s) → Nav2 (40s) → ArUco detector (55s); AMCL seeds its initial pose from `set_initial_pose` on activation
 
 ---
