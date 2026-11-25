@@ -33,7 +33,7 @@ not distinct failures.
 - **11** **Interrupted, not a result.** Steps 1–3 arrived and were marker-verified (IDs 0, 1, 2) and step 4's goal
   was accepted. Then the runner was terminated externally (the controlling terminal session closed) at 19:45 MST.
   No exit code was recorded. Commits landed while it ran, so it is kept only as evidence.
-- **12** Final validation on `0998813` (supervised mission manager plus the Nav2 configuration of Trial 10,
+- **12** Last local Gazebo validation, on `0998813`, which is older than the current PR #3 code (supervised mission manager plus the Nav2 configuration of Trial 10,
   identical parameter-file hash). **5/5, exit code 0.** RTF was 0.31, half that of the earlier trials (load
   average 21 after about 2 h uptime), alongside a higher controller missed-rate count.
   Step 1's first attempt aborted: `bt_navigator` timed out waiting for `follow_path`, `spin` and `backup`
@@ -41,6 +41,20 @@ not distinct failures.
   goal kept driving and reached the dock. The mission manager's gate held the retry while it
   reported `follow_path(1)` active and the robot moving (about 116 s from the abort to the retry, wall clock). It then sent the retry, which succeeded immediately
   from (-3.65, 9.20). Every other step succeeded on its first attempt.
+
+## CI Gazebo smoke run (current code)
+
+Stored unchanged in [`audit_logs/ci_run_45570293516/`](../audit_logs/ci_run_45570293516/PROVENANCE.md).
+It is not part of the numbered local trials above: different machine, headless, and the workflow
+always uses trial number 99.
+
+| Run | Code | Environment | Tasks OK | Nav failures / retries | Step 1 to summary (wall s) | RTF | Ctrl rate missed | follow_path aborts |
+|---|---|---|---|---|---|---|---|---|
+| [45570293516](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45570293516) | PR #3 head `847f31c` (tested as merge commit `b2037ca`, identical tree) | GitHub `ubuntu-22.04`, 4 cores, Xvfb, software GL | 5/5, exit 0 | 0 / 0 | 429 | 0.84 | 0 | 1 |
+
+Same Nav2 parameter-file hash as Trials 10–12 (`869d998…`). All five markers were verified on
+the first attempt. The abort-and-retry path was **not** exercised. Non-zero exits from the
+detector, Gazebo, RViz and the Nav2 container appear only during teardown, after the mission summary.
 
 ## Fault-injection runs (not mission trials)
 
