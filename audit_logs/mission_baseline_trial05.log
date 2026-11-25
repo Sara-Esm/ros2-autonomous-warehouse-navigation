@@ -1,0 +1,34 @@
+[INFO] [1795542852.185890736] [warehouse_autonomy]: Warehouse autonomy workflow manager started.
+[INFO] [1795542852.187216025] [warehouse_autonomy]: Waiting for Nav2 action server...
+[INFO] [1795542853.195416677] [warehouse_autonomy]: Nav2 is ready. Starting warehouse mission in 3 seconds...
+[INFO] [1795542863.210679571] [warehouse_autonomy]: ----------------------------------------
+[INFO] [1795542863.211599151] [warehouse_autonomy]: MISSION STEP 1/5
+[INFO] [1795542863.212434723] [warehouse_autonomy]: Navigating to Home Charging Dock: x=-3.678, y=9.3, yaw=90.0 deg
+[INFO] [1795542863.216535077] [warehouse_autonomy]: Goal accepted by Nav2.
+[ERROR] [1795543043.736975326] [warehouse_autonomy]: Navigation FAILED for Home Charging Dock (status: 6)
+[INFO] [1795543045.741802914] [warehouse_autonomy]: ----------------------------------------
+[INFO] [1795543045.743034696] [warehouse_autonomy]: MISSION STEP 2/5
+[INFO] [1795543045.744330172] [warehouse_autonomy]: Navigating to Loading Zone: x=1.803, y=9.3, yaw=90.0 deg
+[INFO] [1795543045.759806693] [warehouse_autonomy]: Goal accepted by Nav2.
+[ERROR] [1795543203.790355050] [warehouse_autonomy]: Navigation FAILED for Loading Zone (status: 6)
+[INFO] [1795543205.803842779] [warehouse_autonomy]: ----------------------------------------
+[INFO] [1795543205.805167045] [warehouse_autonomy]: MISSION STEP 3/5
+[INFO] [1795543205.806438277] [warehouse_autonomy]: Navigating to Inventory Scan Station: x=1.801, y=-9.0, yaw=-90.0 deg
+[INFO] [1795543205.812366954] [warehouse_autonomy]: Goal accepted by Nav2.
+[ERROR] [1795543231.801831322] [warehouse_autonomy]: Navigation FAILED for Inventory Scan Station (status: 6)
+[INFO] [1795543233.806449919] [warehouse_autonomy]: ----------------------------------------
+[INFO] [1795543233.808012086] [warehouse_autonomy]: MISSION STEP 4/5
+[INFO] [1795543233.809496050] [warehouse_autonomy]: Navigating to Dispatch Zone: x=-3.63, y=-9.3, yaw=-90.0 deg
+[INFO] [1795543233.821794879] [warehouse_autonomy]: Goal accepted by Nav2.
+[ERROR] [1795543259.783839119] [warehouse_autonomy]: Navigation FAILED for Dispatch Zone (status: 6)
+[INFO] [1795543261.786935119] [warehouse_autonomy]: ----------------------------------------
+[INFO] [1795543261.787932372] [warehouse_autonomy]: MISSION STEP 5/5
+[INFO] [1795543261.796100765] [warehouse_autonomy]: Navigating to Return to Home Charging Dock: x=-3.678, y=9.3, yaw=90.0 deg
+[INFO] [1795543261.808024022] [warehouse_autonomy]: Goal accepted by Nav2.
+[ERROR] [1795543287.794107970] [warehouse_autonomy]: Navigation FAILED for Return to Home Charging Dock (status: 6)
+[INFO] [1795543289.805437239] [warehouse_autonomy]: ========================================
+[INFO] [1795543289.806743298] [warehouse_autonomy]: WAREHOUSE MISSION COMPLETE
+[INFO] [1795543289.809947848] [warehouse_autonomy]: Total mission steps: 5
+[INFO] [1795543289.814773077] [warehouse_autonomy]: Successful tasks: 0
+[INFO] [1795543289.817083345] [warehouse_autonomy]: Failed tasks: 5
+[INFO] [1795543289.818664622] [warehouse_autonomy]: ========================================

@@ -1,0 +1,27 @@
+trial: 12
+kind: mission-trial
+gui: on
+workspace: /home/owl/projects/warehouse_ws
+commit: 09988130609500f753ca5992a1f1a092b2678189
+branch: feat/mission-supervision
+nav2_params_sha256: 869d998fba08f71366f5744c06fb148e40b0b95746471f064b06f8e44cee1c5c
+launch_log: audit_logs/launch_trial12.log
+mission_log: audit_logs/mission_trial12.log
+cpu_cores: 8
+launch_start_utc: 2026-11-25T02:54:58Z
+bt_navigator_active_after_launch_s: 69
+amcl_active: yes
+amcl_initial_pose: audit_logs/amcl_initial_trial12.txt
+amcl_set_initial_pose_logged: 1
+init_pose_warnings_before_mission: 0
+tf_map_to_base_footprint: ok x=0.000 y=-0.000
+rtf_pre_mission: 0.3125
+--- pre_mission_load ---
+ 19:56:39 up  1:59,  1 user,  load average: 21.17, 9.70, 8.98
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       2.1Gi       166Mi        85Mi       1.6Gi       1.6Gi
+Swap:          1.0Gi        18Mi       1.0Gi
+mission_start_utc: 2026-11-25T02:56:39Z
+mission_process_exit_code: 0
+mission_wall_seconds: 709
+mission_end_utc: 2026-11-25T03:08:28Z

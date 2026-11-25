@@ -1,0 +1,2 @@
+Trial  Kind           GUI  Commit   Tasks OK  Failed  Nav failures  Retries  Mission s  RTF     Ctrl rate missed  No valid traj  No progress  follow_path aborts  Plan failures  Spin+backup  Init-pose warnings
+12     mission-trial  on   0998813  5         0       1             1        677        0.3125  724               0              3            5                   0              15           0                 

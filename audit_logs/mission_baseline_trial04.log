@@ -1,0 +1,59 @@
+[INFO] [1795505403.118886165] [warehouse_autonomy]: Warehouse autonomy workflow manager started.
+[INFO] [1795505403.120016827] [warehouse_autonomy]: Waiting for Nav2 action server...
+[INFO] [1795505404.634533240] [warehouse_autonomy]: Nav2 is ready. Starting warehouse mission in 3 seconds...
+[INFO] [1795505414.656827542] [warehouse_autonomy]: ----------------------------------------
+[INFO] [1795505414.666364690] [warehouse_autonomy]: MISSION STEP 1/5
+[INFO] [1795505414.668651502] [warehouse_autonomy]: Navigating to Home Charging Dock: x=-3.678, y=9.3, yaw=90.0 deg
+[INFO] [1795505414.723614080] [warehouse_autonomy]: Goal accepted by Nav2.
+[INFO] [1795505519.192764760] [warehouse_autonomy]: ARRIVED: Home Charging Dock
+[INFO] [1795505519.205937808] [warehouse_autonomy]: Looking for ArUco marker ID 0...
+[INFO] [1795505520.439335617] [warehouse_autonomy]: Correct marker detected: expected=0, detected=0
+[INFO] [1795505520.440830808] [warehouse_autonomy]: VISION VERIFIED: Home Charging Dock
+[INFO] [1795505520.445158966] [warehouse_autonomy]: TASK: Verify robot home dock and charging station
+[INFO] [1795505523.448349630] [warehouse_autonomy]: TASK COMPLETE: Home Charging Dock
+[INFO] [1795505525.460118879] [warehouse_autonomy]: ----------------------------------------
+[INFO] [1795505525.461186849] [warehouse_autonomy]: MISSION STEP 2/5
+[INFO] [1795505525.462049028] [warehouse_autonomy]: Navigating to Loading Zone: x=1.803, y=9.3, yaw=90.0 deg
+[INFO] [1795505525.472360577] [warehouse_autonomy]: Goal accepted by Nav2.
+[INFO] [1795505589.649560185] [warehouse_autonomy]: ARRIVED: Loading Zone
+[INFO] [1795505589.653193197] [warehouse_autonomy]: Looking for ArUco marker ID 1...
+[INFO] [1795505591.540685954] [warehouse_autonomy]: Correct marker detected: expected=1, detected=1
+[INFO] [1795505591.541843514] [warehouse_autonomy]: VISION VERIFIED: Loading Zone
+[INFO] [1795505591.552391516] [warehouse_autonomy]: TASK: Verify loading area
+[INFO] [1795505594.563089019] [warehouse_autonomy]: TASK COMPLETE: Loading Zone
+[INFO] [1795505596.566967372] [warehouse_autonomy]: ----------------------------------------
+[INFO] [1795505596.603855802] [warehouse_autonomy]: MISSION STEP 3/5
+[INFO] [1795505596.605110927] [warehouse_autonomy]: Navigating to Inventory Scan Station: x=1.801, y=-9.0, yaw=-90.0 deg
+[INFO] [1795505596.642817651] [warehouse_autonomy]: Goal accepted by Nav2.
+[INFO] [1795505730.609147498] [warehouse_autonomy]: ARRIVED: Inventory Scan Station
+[INFO] [1795505730.620760561] [warehouse_autonomy]: Looking for ArUco marker ID 2...
+[INFO] [1795505730.781618377] [warehouse_autonomy]: Correct marker detected: expected=2, detected=2
+[INFO] [1795505730.794007750] [warehouse_autonomy]: VISION VERIFIED: Inventory Scan Station
+[INFO] [1795505730.795292525] [warehouse_autonomy]: TASK: Verify shelf inventory using wall marker
+[INFO] [1795505733.815643437] [warehouse_autonomy]: TASK COMPLETE: Inventory Scan Station
+[INFO] [1795505735.819911914] [warehouse_autonomy]: ----------------------------------------
+[INFO] [1795505735.821587651] [warehouse_autonomy]: MISSION STEP 4/5
+[INFO] [1795505735.823592102] [warehouse_autonomy]: Navigating to Dispatch Zone: x=-3.63, y=-9.3, yaw=-90.0 deg
+[INFO] [1795505735.850704011] [warehouse_autonomy]: Goal accepted by Nav2.
+[INFO] [1795505804.998518334] [warehouse_autonomy]: ARRIVED: Dispatch Zone
+[INFO] [1795505805.001905292] [warehouse_autonomy]: Looking for ArUco marker ID 3...
+[INFO] [1795505805.748189432] [warehouse_autonomy]: Correct marker detected: expected=3, detected=3
+[INFO] [1795505805.756908396] [warehouse_autonomy]: VISION VERIFIED: Dispatch Zone
+[INFO] [1795505805.769272346] [warehouse_autonomy]: TASK: Verify dispatch area
+[INFO] [1795505808.772858202] [warehouse_autonomy]: TASK COMPLETE: Dispatch Zone
+[INFO] [1795505810.780320420] [warehouse_autonomy]: ----------------------------------------
+[INFO] [1795505810.781903640] [warehouse_autonomy]: MISSION STEP 5/5
+[INFO] [1795505810.799130418] [warehouse_autonomy]: Navigating to Return to Home Charging Dock: x=-3.678, y=9.3, yaw=90.0 deg
+[INFO] [1795505810.828436834] [warehouse_autonomy]: Goal accepted by Nav2.
+[INFO] [1795505949.923886582] [warehouse_autonomy]: ARRIVED: Return to Home Charging Dock
+[INFO] [1795505949.930942859] [warehouse_autonomy]: Looking for ArUco marker ID 0...
+[INFO] [1795505949.991053653] [warehouse_autonomy]: Correct marker detected: expected=0, detected=0
+[INFO] [1795505949.992767110] [warehouse_autonomy]: VISION VERIFIED: Return to Home Charging Dock
+[INFO] [1795505949.999488988] [warehouse_autonomy]: TASK: Return robot to charging dock and close mission
+[INFO] [1795505953.001565781] [warehouse_autonomy]: TASK COMPLETE: Return to Home Charging Dock
+[INFO] [1795505955.004653089] [warehouse_autonomy]: ========================================
+[INFO] [1795505955.006222380] [warehouse_autonomy]: WAREHOUSE MISSION COMPLETE
+[INFO] [1795505955.010051656] [warehouse_autonomy]: Total mission steps: 5
+[INFO] [1795505955.011500217] [warehouse_autonomy]: Successful tasks: 5
+[INFO] [1795505955.016488302] [warehouse_autonomy]: Failed tasks: 0
+[INFO] [1795505955.022479390] [warehouse_autonomy]: ========================================

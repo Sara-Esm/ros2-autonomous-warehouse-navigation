@@ -1,0 +1,49 @@
+trial: 10
+kind: nav-tuning-validation
+workspace: /home/owl/projects/warehouse_ws
+commit: 3e8e1b76648ba6224bfda7fd8543e60da2dfeb6b
+launch_log: audit_logs/launch_trial10.log
+mission_log: audit_logs/mission_tuning_trial10.log
+script_start_utc: 2026-11-25T01:54:19Z
+cpu_cores: 8
+ready_utc: 2026-11-25T01:55:15Z
+ready_wait_wall_seconds: 56
+initial_amcl_pose: audit_logs/amcl_initial_trial10.txt
+--- initial_pose ---
+x: 5.421010862427522e-20
+y: 0.0
+z: 0.0
+---
+--- environment_snapshot ---
+ 18:55:15 up 58 min,  1 user,  load average: 12.62, 3.58, 1.27
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       2.0Gi       288Mi        84Mi       1.5Gi       1.6Gi
+Swap:          1.0Gi          0B       1.0Gi
+    PID COMMAND         %CPU %MEM
+   2905 gzserver         341 21.9
+   2906 gzclient         225 16.3
+   3276 rviz2           80.5  5.0
+   3274 component_conta 58.0  2.9
+   3424 aruco_station_d 35.8  3.4
+   2870 ros2             5.3  1.4
+    916 claude           5.0  9.9
+   3078 python3          4.4  1.6
+   2892 robot_state_pub  2.2  0.7
+   2890 gazebo           0.6  1.8
+    239 containerd       0.3  0.9
+clock_samples: 55
+rtf_pre_mission: 0.6749
+--- camera_rate_15s ---
+average rate: 0.615
+	min: 1.592s max: 1.658s std dev: 0.03301s window: 2
+average rate: 0.597
+	min: 1.592s max: 1.776s std dev: 0.07611s window: 3
+average rate: 0.584
+	min: 1.592s max: 1.822s std dev: 0.09159s window: 4
+average rate: 0.566
+	min: 1.592s max: 1.980s std dev: 0.13501s window: 5
+--- pre_mission_load ---
+ 18:55:40 up 58 min,  1 user,  load average: 17.19, 5.33, 1.91
+mission_start_utc: 2026-11-25T01:55:40Z
+mission_process_exit_code: 0
+script_end_utc: 2026-11-25T02:04:48Z

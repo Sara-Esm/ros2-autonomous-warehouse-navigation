@@ -1,0 +1,48 @@
+trial: 04
+kind: repeatability-baseline
+workspace: /home/owl/projects/warehouse_ws
+commit: 3674bf1d822b0daba77b575753a16b2fcdfde38b
+launch_log: audit_logs/launch_trial04.log
+mission_log: audit_logs/mission_baseline_trial04.log
+script_start_utc: 2026-11-24T07:29:19Z
+cpu_cores: 8
+ready_utc: 2026-11-24T07:29:35Z
+ready_wait_wall_seconds: 16
+initial_amcl_pose: audit_logs/amcl_initial_trial04.txt
+--- initial_pose ---
+x: -0.0012468720004415045
+y: 0.03549340846048281
+z: 0.0
+---
+--- environment_snapshot ---
+ 00:29:35 up  1:19,  1 user,  load average: 25.96, 9.53, 3.47
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       1.9Gi       552Mi        87Mi       1.4Gi       1.7Gi
+Swap:          1.0Gi          0B       1.0Gi
+    PID COMMAND         %CPU %MEM
+   1051 gzserver         350 22.7
+   1052 gzclient         207 17.0
+   1371 rviz2           88.6  5.1
+   1369 component_conta 53.5  2.9
+   1641 python3         11.0  1.6
+   1499 aruco_station_d  8.1  3.7
+   1033 ros2             2.7  1.4
+   1038 robot_state_pub  1.7  0.7
+   1036 gazebo           0.3  1.8
+    230 containerd       0.2  1.1
+   1600 bash             0.2  0.1
+clock_samples: 40
+rtf_pre_mission: 0.6538
+--- camera_rate_15s ---
+WARNING: topic [/camera/image_raw] does not appear to be published yet
+average rate: 0.448
+	min: 2.143s max: 2.320s std dev: 0.08841s window: 2
+average rate: 0.458
+	min: 2.094s max: 2.320s std dev: 0.09699s window: 3
+average rate: 0.445
+	min: 2.094s max: 2.437s std dev: 0.13745s window: 4
+--- pre_mission_load ---
+ 00:30:00 up  1:19,  1 user,  load average: 25.13, 10.67, 4.01
+mission_start_utc: 2026-11-24T07:30:00Z
+mission_process_exit_code: 0
+script_end_utc: 2026-11-24T07:41:41Z
