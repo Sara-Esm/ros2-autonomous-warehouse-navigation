@@ -19,7 +19,7 @@ odometry before sending each goal.
   a stalled `/clock` is detected instead of hiding a hung server.
 - **Clear reporting.** Every run ends with counts of succeeded, failed and unattempted
   tasks, and a distinct exit code.
-- **Tested.** CI reported 47 passes and 3 skips. Of the 50 cases, 33 exercise the real
+- **Tested.** 54 automated tests: 51 passed, 3 skipped. 37 of them exercise the real
   mission node against a mock Nav2. A separate CI job runs the full mission in Gazebo.
 
 **Results:** Local Trials 10 and 12 each verified all five visits. Trial 12 recovered from
@@ -260,10 +260,10 @@ then succeeded at once, every later station succeeded first time, and the missio
 
 ## Testing
 
-**Automated tests** (`colcon test`, no Gazebo): 50 tests, 0 failures, 3 skipped (ament
+**Automated tests** (`colcon test`, no Gazebo): 54 tests, 51 passed, 0 failures, 3 skipped (ament
 template copyright checks, which skip themselves because the files have no copyright header).
 
-- **33 mission-manager tests** run the real node against a scriptable mock Nav2 (action
+- **37 mission-manager tests** run the real node against a scriptable mock Nav2 (action
   server, lifecycle service, `follow_path` status, odometry, marker stream) and a fake
   `/clock`, each on its own DDS domain. They cover rejection, aborts with and without retry,
   wrong or missing markers, sim rates of 0.5× and 2×, Nav2 unavailable or inactive,

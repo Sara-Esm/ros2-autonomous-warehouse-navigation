@@ -403,7 +403,8 @@ class WarehouseAutonomy(Node):
         }
 
     def publisher_problems(self, publishers):
-        """List monitored status publishers that are missing or have changed.
+        """
+        List monitored status publishers that are missing or have changed.
 
         Used by both the readiness gate and halt observation: it says nothing
         about an earlier navigation attempt.
