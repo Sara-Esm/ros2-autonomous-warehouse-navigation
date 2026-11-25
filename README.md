@@ -8,19 +8,19 @@
 ![License](https://img.shields.io/badge/License-MIT-brightgreen)
 
 A simulated TurtleBot3 visits four warehouse stations, confirms each one by reading its
-ArUco marker, and returns to its charging dock. A mission manager supervises the run. It
-will not send a new goal while Nav2 is still moving the robot.
+ArUco marker, and returns to its charging dock. A mission manager checks Nav2 action status and recent
+odometry before sending each goal.
 
-- **Supervised retries.** A failed `NavigateToPose` does not mean Nav2 is idle. In one
-  trial, an orphaned `follow_path` goal kept driving the robot for about 64 s after the outer
-  goal aborted. The manager watches every Nav2 action server and the odometry, and retries
-  only after the controller has finished and the robot has stopped.
+- **Supervised retries.** A failed `NavigateToPose` does not mean Nav2 is idle. In Trial 08, a
+  `follow_path` controller goal stayed active for about 64 s after the outer goal aborted.
+  Before retrying, the manager waits for the observed controller goal to clear, checks the
+  configured actions for activity, and requires fresh odometry showing a stationary hold.
 - **Sim-time aware.** Mission timing runs on simulation time and watchdogs on wall time, so
   a stalled `/clock` is detected instead of hiding a hung server.
 - **Clear reporting.** Every run ends with counts of succeeded, failed and unattempted
   tasks, and a distinct exit code.
-- **Tested.** 50 automated tests, 33 of them running the real mission node against a mock
-  Nav2. CI runs a full headless Gazebo mission on every pull request.
+- **Tested.** CI reported 47 passes and 3 skips. Of the 50 cases, 33 exercise the real
+  mission node against a mock Nav2. A separate CI job runs the full mission in Gazebo.
 
 **Results:** Local Trials 10 and 12 each verified all five visits. Trial 12 recovered from
 a navigation abort after a 116-second wait before retrying. Two linked headless CI runs
@@ -173,7 +173,7 @@ flowchart LR
   DET["aruco_station_detector<br/>OpenCV ArUco"] -- "/warehouse/marker_id" --> MM
 
   MM["warehouse_autonomy<br/>mission manager"] -- "NavigateToPose goal / cancel" --> BT
-  BT -. "action status (all Nav2 servers)" .-> MM
+  BT -. "status of monitored actions" .-> MM
   BT -. "lifecycle get_state" .-> MM
   TB3 -. "/odom (stop check)" .-> MM
 ```
@@ -184,8 +184,8 @@ velocity commands.
 ### Mission state machine
 
 Each goal passes through a readiness gate, a bounded wait for Nav2's response, navigation
-and marker verification. Every failure path ends in a halt with a stop check, and every
-ending sets an exit code.
+and marker verification. A missed marker fails that visit and the mission continues.
+An exhausted navigation retry halts the mission and starts a stop check.
 
 ```mermaid
 stateDiagram-v2
@@ -217,8 +217,8 @@ A clock-stall watchdog can halt the mission from any active state.
 ### What the supervisor checks
 
 - **Before every goal:** action-server discovery, a fresh ACTIVE response from
-  `bt_navigator`, the identity of the monitored status publishers, no executing goal on any
-  Nav2 action server, and a stationary hold across odometry samples. Before retrying an
+  `bt_navigator`, the identity of the monitored status publishers, no active goal reported by
+  the monitored actions, and a stationary hold across odometry samples. Before retrying an
   abort, it also requires evidence that `follow_path` was active during this attempt and has
   since cleared.
 - **Every wait is bounded.** Mission waits run on simulation time. Communication watchdogs
@@ -244,8 +244,8 @@ time treated the abort as "Nav2 is idle". In a separate fault-injection run with
 controller deactivated, the same manager sent the next goal during Nav2's lifecycle restart
 and then waited forever for a response.
 
-**The fix** was the readiness gate and bounded waits described above: never send a goal
-while any Nav2 action server is still executing or the robot is still moving.
+**The fix** was to check readiness before each goal and bound the wait. Reported activity
+on a monitored action or fresh odometry showing motion keeps the gate closed.
 
 **Trial 12 tested it under stress.** The host was heavily loaded (load average 21) and the
 simulation ran at 0.31× real time. At step 1, `bt_navigator` timed out waiting for its own
