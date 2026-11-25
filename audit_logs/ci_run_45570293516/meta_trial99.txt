@@ -1,0 +1,27 @@
+trial: 99
+kind: mission-trial
+gui: on
+workspace: /__w/ros2-autonomous-warehouse-navigation/ros2-autonomous-warehouse-navigation
+commit: b2037ca1b83e79ea82b586c273c518e1727c79f1
+branch: 
+nav2_params_sha256: 869d998fba08f71366f5744c06fb148e40b0b95746471f064b06f8e44cee1c5c
+launch_log: audit_logs/launch_trial99.log
+mission_log: audit_logs/mission_trial99.log
+cpu_cores: 4
+launch_start_utc: 2026-11-25T07:48:05Z
+bt_navigator_active_after_launch_s: 46
+amcl_active: yes
+amcl_initial_pose: audit_logs/amcl_initial_trial99.txt
+amcl_set_initial_pose_logged: 1
+init_pose_warnings_before_mission: 0
+tf_map_to_base_footprint: ok x=0.000 y=-0.000
+rtf_pre_mission: 0.8351
+--- pre_mission_load ---
+ 07:49:08 up 2 min,  0 users,  load average: 8.40, 2.58, 0.92
+               total        used        free      shared  buff/cache   available
+Mem:            15Gi       2.0Gi       8.9Gi        63Mi       4.7Gi        13Gi
+Swap:          3.0Gi          0B       3.0Gi
+mission_start_utc: 2026-11-25T07:49:08Z
+mission_process_exit_code: 0
+mission_wall_seconds: 446
+mission_end_utc: 2026-11-25T07:56:34Z

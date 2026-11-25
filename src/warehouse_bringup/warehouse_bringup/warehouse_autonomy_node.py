@@ -73,7 +73,6 @@ FINISHED = 'FINISHED'
 
 TICK_PERIOD_SEC = 0.1
 NS = 1_000_000_000
-RETRYABLE_STATUSES = (GoalStatus.STATUS_ABORTED, GoalStatus.STATUS_CANCELED)
 
 DEFAULT_MONITORED_ACTIONS = [
     'navigate_to_pose', 'follow_path', 'compute_path_to_pose',
@@ -153,10 +152,11 @@ class WarehouseAutonomy(Node):
             GetState, f'/{self.lifecycle_node}/get_state')
 
         self.activity = ActionActivityTracker()
-        self.motion = MotionTracker(linear_tol, angular_tol)
+        self.motion = MotionTracker(linear_tol, angular_tol, self.odom_max_age)
 
         self.create_subscription(Int32, '/warehouse/marker_id', self.marker_id_cb, 10)
         self.create_subscription(Odometry, odom_topic, self.odom_cb, 10)
+        self.attempt_publishers = {}
         for action in self.monitored_actions:
             self.create_subscription(
                 GoalStatusArray, f'/{action}/_action/status',
@@ -176,6 +176,10 @@ class WarehouseAutonomy(Node):
         self.goal_seq = 0
         self.goal_handle = None
         self.goal_active = False
+        self.goal_pending = False
+        self.cancel_requested = False
+        self.require_controller_evidence = False
+        self.step_dispatched = False
         self.goals_sent = 0
 
         self.lifecycle_state = None
@@ -253,8 +257,13 @@ class WarehouseAutonomy(Node):
 
     def odom_cb(self, msg):
         twist = msg.twist.twist
+        stamp = msg.header.stamp
+        stamp_ns = stamp.sec * NS + stamp.nanosec
+        if stamp_ns <= 0 or abs(self.sim_now().nanoseconds - stamp_ns) > self.odom_max_age * NS:
+            self.motion.reset_hold()
+            return
         self.motion.update(twist.linear.x, twist.linear.y, twist.angular.z,
-                           self.sim_now().nanoseconds, self.wall_ns())
+                           stamp_ns, self.wall_ns())
 
     def poll_lifecycle(self):
         if not self.check_lifecycle:
@@ -327,6 +336,9 @@ class WarehouseAutonomy(Node):
             return False
         sim = self.sim_now().nanoseconds
         wall = self.wall_ns()
+        if self.last_sim_ns is not None and sim < self.last_sim_ns:
+            self.halt('Simulation clock moved backwards')
+            return True
         if sim != self.last_sim_ns or self.last_sim_change_wall is None:
             self.last_sim_ns = sim
             self.last_sim_change_wall = wall
@@ -374,6 +386,24 @@ class WarehouseAutonomy(Node):
         self.enter(GATE)
         self.set_wall_deadline(self.gate_timeout)
 
+    def status_publishers(self):
+        return {
+            name: tuple(sorted(bytes(info.endpoint_gid) for info in
+                               self.get_publishers_info_by_topic(f'/{name}/_action/status')))
+            for name in self.monitored_actions
+        }
+
+    def status_problems(self, publishers):
+        reasons = []
+        for name, identities in publishers.items():
+            if len(identities) != 1:
+                reasons.append(f'expected one {name} status publisher, found {len(identities)}')
+            elif self.attempt_publishers and identities != self.attempt_publishers.get(name):
+                reasons.append(f'{name} status publisher changed during mission')
+        if self.require_controller_evidence and not self.activity.saw_activity('follow_path'):
+            reasons.append('controller activity for this attempt was not observed')
+        return reasons
+
     def gate_unmet(self):
         """List the readiness conditions that are not yet satisfied."""
         unmet = []
@@ -382,6 +412,8 @@ class WarehouseAutonomy(Node):
             unmet.append('navigate_to_pose action server not available')
         if not self.lifecycle_active(since_wall=self.state_entered_wall):
             unmet.append(f'{self.lifecycle_node} not confirmed ACTIVE ({self.lifecycle_label})')
+        publishers = self.status_publishers()
+        unmet.extend(self.status_problems(publishers))
         active = self.activity.active_actions()
         if active or self.goal_active:
             names = dict(active)
@@ -393,6 +425,8 @@ class WarehouseAutonomy(Node):
             unmet.append('no recent odometry')
         elif not self.motion.stationary_for_sim(self.sim_now().nanoseconds, self.stop_hold):
             unmet.append(f'robot not stationary for {self.stop_hold:g} s')
+        if not unmet:
+            self.attempt_publishers = publishers
         return unmet
 
     def tick_gate(self):
@@ -437,11 +471,20 @@ class WarehouseAutonomy(Node):
 
         self.goal_seq += 1
         self.goals_sent += 1
+        self.goal_pending = True
+        self.step_dispatched = True
+        self.cancel_requested = False
+        self.activity.begin_attempt()
+        self.require_controller_evidence = False
         seq = self.goal_seq
         self.goal_handle = None
         self.enter(AWAIT_RESPONSE)
         self.set_wall_deadline(self.goal_response_timeout)
-        future = self.navigator.send_goal_async(goal_msg)
+        try:
+            future = self.navigator.send_goal_async(goal_msg)
+        except Exception as exc:
+            self.halt(f'Goal request error: {exc}')
+            return
         future.add_done_callback(lambda f: self.goal_response_callback(f, seq))
 
     def goal_response_callback(self, future, seq):
@@ -452,14 +495,12 @@ class WarehouseAutonomy(Node):
                 self.halt(f'Goal response error: {exc}')
             return
 
-        if seq != self.goal_seq or self.state != AWAIT_RESPONSE:
-            # The mission stopped waiting for this goal (timeout or halt).
+        if seq != self.goal_seq or self.state not in (AWAIT_RESPONSE, HALT_OBSERVE):
             if goal_handle.accepted:
-                self.get_logger().warn(
-                    f'Late acceptance of abandoned goal #{seq}; requesting cancel.')
                 goal_handle.cancel_goal_async()
             return
 
+        self.goal_pending = False
         if not goal_handle.accepted:
             self.halt('Goal rejected by Nav2')
             return
@@ -467,16 +508,31 @@ class WarehouseAutonomy(Node):
         self.get_logger().info('Goal accepted by Nav2.')
         self.goal_handle = goal_handle
         self.goal_active = True
-        self.enter(NAVIGATING)
-        self.set_sim_deadline(self.nav_timeout)
-        goal_handle.get_result_async().add_done_callback(
-            lambda f: self.goal_result_callback(f, seq))
+        if self.state == HALT_OBSERVE:
+            self.request_cancel()
+        else:
+            self.enter(NAVIGATING)
+            self.set_sim_deadline(self.nav_timeout)
+        try:
+            result = goal_handle.get_result_async()
+        except Exception as exc:
+            self.halt(f'Navigation result request failed: {exc}')
+            return
+        result.add_done_callback(lambda f: self.goal_result_callback(f, seq))
 
     def tick_await_response(self):
         if self.wall_deadline_passed():
             self.halt(
                 f'No goal response from Nav2 within {self.goal_response_timeout:g} s (wall); '
                 'goal state unknown')
+
+    def request_cancel(self):
+        if self.goal_active and self.goal_handle is not None and not self.cancel_requested:
+            self.cancel_requested = True
+            try:
+                self.goal_handle.cancel_goal_async()
+            except Exception as exc:
+                self.get_logger().error(f'Cancel request failed: {exc}')
 
     def tick_navigating(self):
         if self.sim_deadline_passed():
@@ -485,7 +541,7 @@ class WarehouseAutonomy(Node):
                 'requesting cancel.')
             self.enter(CANCELING)
             self.set_wall_deadline(self.cancel_timeout)
-            self.goal_handle.cancel_goal_async()
+            self.request_cancel()
 
     def tick_canceling(self):
         if self.wall_deadline_passed():
@@ -496,16 +552,20 @@ class WarehouseAutonomy(Node):
     def goal_result_callback(self, future, seq):
         if seq != self.goal_seq:
             return
-        self.goal_active = False
-        if self.state not in (NAVIGATING, CANCELING):
-            return  # mission already halted; the goal has now ended
-        wp = self.wp
         try:
             status = future.result().status
         except Exception as exc:
             self.halt(f'Navigation result error: {exc}')
             return
 
+        if status not in (GoalStatus.STATUS_SUCCEEDED, GoalStatus.STATUS_ABORTED,
+                          GoalStatus.STATUS_CANCELED):
+            self.halt(f'Navigation result has no terminal status: {status}')
+            return
+        self.goal_active = False
+        if self.state not in (NAVIGATING, CANCELING):
+            return
+        wp = self.wp
         if self.state == CANCELING:
             self.halt(
                 f"Navigation to {wp['name']} timed out after {self.nav_timeout:g} s "
@@ -513,13 +573,15 @@ class WarehouseAutonomy(Node):
             return
 
         if status != GoalStatus.STATUS_SUCCEEDED:
+            self.require_controller_evidence = status == GoalStatus.STATUS_ABORTED
             self.get_logger().error(f"Navigation FAILED for {wp['name']} (status: {status})")
-            if status in RETRYABLE_STATUSES and self.nav_attempt <= self.nav_retries:
+            if status == GoalStatus.STATUS_ABORTED and self.nav_attempt <= self.nav_retries:
+                self.motion.reset_hold()
                 self.enter(RETRY_PAUSE)
                 self.set_sim_deadline(self.retry_pause)
                 return
             self.halt(
-                f"Navigation aborted at {wp['name']} "
+                f"Navigation ended at {wp['name']} "
                 f'(status: {status}, attempts: {self.nav_attempt})')
             return
 
@@ -575,6 +637,7 @@ class WarehouseAutonomy(Node):
     def tick_pause(self):
         if self.sim_deadline_passed():
             self.current_index += 1
+            self.step_dispatched = False
             if self.current_index >= len(self.waypoints):
                 self.finish_mission()
             else:
@@ -614,16 +677,20 @@ class WarehouseAutonomy(Node):
     def halt(self, reason):
         if self.state in (HALT_OBSERVE, FINISHED):
             return
-        self.failed_tasks += 1
+        completed = self.successful_tasks + self.failed_tasks
+        if self.step_dispatched and completed == self.current_index:
+            self.failed_tasks += 1
         self.halt_reason = reason
         log = self.get_logger()
         log.error('========================================')
         log.error(f'MISSION HALTED: {reason}')
-        self.log_summary(log.error, len(self.waypoints) - self.current_index - 1)
+        remaining = len(self.waypoints) - self.successful_tasks - self.failed_tasks
+        self.log_summary(log.error, remaining)
         log.error('No further mission goals will be sent.')
         if self.goal_active and self.goal_handle is not None:
             log.warn('A navigation goal may still be active; requesting cancel.')
-            self.goal_handle.cancel_goal_async()
+            self.request_cancel()
+        self.motion.reset_hold()
         self.enter(HALT_OBSERVE)
         self.set_wall_deadline(self.halt_observe_timeout)
 
@@ -633,7 +700,8 @@ class WarehouseAutonomy(Node):
         odom_fresh = self.motion.fresh(wall, self.odom_max_age)
         stopped = odom_fresh and self.motion.stationary_for_wall(wall, self.stop_hold)
         active = self.activity.active_actions()
-        idle = not active and not self.goal_active
+        missing = self.status_problems(self.status_publishers())
+        idle = not (active or missing or self.goal_active or self.goal_pending)
         if stopped and idle:
             self.stop_verified = True
             self.get_logger().warn(
@@ -644,10 +712,13 @@ class WarehouseAutonomy(Node):
             if not odom_fresh:
                 reasons.append('no recent odometry')
             elif not stopped:
-                reasons.append('odometry shows motion')
-            if not idle:
-                reasons.append('Nav2 goals still active: ' + ', '.join(sorted(active)) +
-                               (' navigate_to_pose' if self.goal_active else ''))
+                reasons.append('stationary odometry hold incomplete')
+            if missing:
+                reasons.extend(missing)
+            if self.goal_pending or self.goal_active:
+                reasons.append("navigation goal outcome unresolved")
+            if active:
+                reasons.append('Nav2 goals still active: ' + ', '.join(sorted(active)))
             self.stop_verified = False
             self.get_logger().error(
                 f'ROBOT STOP NOT VERIFIED after {self.halt_observe_timeout:g} s: '
@@ -667,29 +738,11 @@ class WarehouseAutonomy(Node):
         super().destroy_node()
 
     def cancel_active_goal_blocking(self, timeout_sec):
-        """On interrupt: request cancel of an active goal and wait briefly for the reply."""
-        deadline = self.wall_ns() + int(timeout_sec * NS)
-        if self.state == AWAIT_RESPONSE:
-            # The goal may be accepted at any moment: wait for the response so
-            # an accepted goal is not left running.
-            self.get_logger().warn('Interrupted while a goal request is pending; '
-                                   'waiting for the response.')
-            while rclpy.ok() and self.state == AWAIT_RESPONSE and self.wall_ns() < deadline:
-                rclpy.spin_once(self, timeout_sec=TICK_PERIOD_SEC)
-            if self.state == AWAIT_RESPONSE:
-                self.get_logger().error(
-                    'Goal request still unresolved; the goal may become active.')
-                return
-        if not (self.goal_active and self.goal_handle is not None):
-            return
-        self.get_logger().warn('Interrupted with an active navigation goal; requesting cancel.')
-        future = self.goal_handle.cancel_goal_async()
-        while rclpy.ok() and not future.done() and self.wall_ns() < deadline:
+        """On interrupt: run the same bounded cleanup used after a halt."""
+        self.halt('Mission interrupted')
+        self.set_wall_deadline(timeout_sec)
+        while rclpy.ok() and not self.finished:
             rclpy.spin_once(self, timeout_sec=TICK_PERIOD_SEC)
-        if future.done() and future.result() is not None and future.result().goals_canceling:
-            self.get_logger().warn('Cancel accepted by Nav2.')
-        else:
-            self.get_logger().error('Cancel NOT confirmed; the goal may still be active.')
 
 
 def _raise_interrupt(signum, frame):

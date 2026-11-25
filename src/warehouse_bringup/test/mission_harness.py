@@ -117,8 +117,9 @@ class MockNav2(Node):
     """
 
     def __init__(self, behaviors=None, markers='correct', with_server=True,
-                 lifecycle_active=True, nav_duration=0.3):
-        super().__init__('mock_nav2')
+                 lifecycle_active=True, nav_duration=0.3, report_controller=True,
+                 accept_cancel=True):
+        super().__init__('mock_nav2', parameter_overrides=[Parameter('use_sim_time', value=True)])
         self.behaviors = list(behaviors or [])
         self.markers = markers
         self.nav_duration = nav_duration
@@ -131,6 +132,9 @@ class MockNav2(Node):
         self.release_event = threading.Event()
         self.current_marker = None
         self.moving = False
+        self.executing_path = False
+        self.report_controller = report_controller
+        self.accept_cancel = accept_cancel
         self.lifecycle_id = (LifecycleState.PRIMARY_STATE_ACTIVE if lifecycle_active
                              else LifecycleState.PRIMARY_STATE_INACTIVE)
         self.follow_path_active = False
@@ -140,6 +144,11 @@ class MockNav2(Node):
         self.odom_pub = self.create_publisher(Odometry, '/odom', 10)
         self.fp_status_pub = self.create_publisher(
             GoalStatusArray, '/follow_path/_action/status', qos_profile_action_status_default)
+        self.other_status_pubs = [
+            self.create_publisher(GoalStatusArray, f'/{name}/_action/status',
+                                  qos_profile_action_status_default)
+            for name in ('compute_path_to_pose', 'spin', 'backup', 'wait', 'drive_on_heading')
+        ]
         self.create_timer(0.05, self._publish_streams, callback_group=self.cb)
         self.create_service(GetState, '/bt_navigator/get_state', self._get_state,
                             callback_group=self.cb)
@@ -199,10 +208,11 @@ class MockNav2(Node):
         if self.current_marker is not None:
             self.marker_pub.publish(Int32(data=self.current_marker))
         odom = Odometry()
+        odom.header.stamp = self.get_clock().now().to_msg()
         odom.twist.twist.linear.x = 0.2 if self.moving else 0.0
         self.odom_pub.publish(odom)
         status = GoalStatusArray()
-        if self.follow_path_active:
+        if self.report_controller and (self.follow_path_active or self.executing_path):
             status.status_list.append(
                 GoalStatus(goal_info=GoalInfo(), status=GoalStatus.STATUS_EXECUTING))
         self.fp_status_pub.publish(status)
@@ -231,7 +241,7 @@ class MockNav2(Node):
 
     def _cancel_cb(self, goal_handle):
         self.cancel_requests.append(time.monotonic())
-        return CancelResponse.ACCEPT
+        return CancelResponse.ACCEPT if self.accept_cancel else CancelResponse.REJECT
 
     def _execute(self, goal_handle):
         with self.lock:
@@ -243,14 +253,19 @@ class MockNav2(Node):
 
         self.current_marker = correct if mode == 'before_arrival' else None
         self.moving = True
+        self.executing_path = True
         endless = behavior in ('no_result', 'late_accept', 'slow_accept')
         deadline = time.monotonic() + (30.0 if endless else self.nav_duration)
         while time.monotonic() < deadline:
             if goal_handle.is_cancel_requested:
                 self.moving = False
+                self.executing_path = False
                 goal_handle.canceled()
                 return NavigateToPose.Result()
+            if endless and self.release_event.is_set() and not self.accept_cancel:
+                break
             time.sleep(0.02)
+        self.executing_path = False
         self.moving = False
 
         if behavior == 'abort':
@@ -299,7 +314,8 @@ class MissionHarness:
         self.mock.release()
         if self.clock:
             self.clock.stop()
-        self.executor.shutdown(timeout_sec=2.0)
+        self.executor.shutdown()
+        self._thread.join(timeout=5.0)
         for node in (self.mission, self.mock) + ((self.clock.node,) if self.clock else ()):
             node.destroy_node()
         rclpy.shutdown()

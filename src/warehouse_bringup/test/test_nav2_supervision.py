@@ -29,9 +29,21 @@ def test_motion_tracker_requires_continuous_stillness():
     m.update(0.0, 0.0, 0.0, sim_ns=10 * S, wall_ns=100 * S)
     assert m.fresh(100 * S, 1.0)
     assert not m.stationary_for_sim(10 * S + S // 2, 1.0)
+    assert not m.stationary_for_sim(11 * S, 1.0)
+    m.update(0.0, 0.0, 0.0, sim_ns=11 * S, wall_ns=101 * S)
     assert m.stationary_for_sim(11 * S, 1.0)
     m.update(0.0, 0.0, 0.05, sim_ns=11 * S, wall_ns=101 * S)  # rotating
     assert not m.stationary_for_sim(12 * S, 1.0)
     m.update(0.005, 0.0, 0.0, sim_ns=12 * S, wall_ns=102 * S)  # below tolerance
+    m.update(0.0, 0.0, 0.0, sim_ns=13 * S, wall_ns=103 * S)
     assert m.stationary_for_wall(103 * S, 1.0)
     assert not m.fresh(105 * S, 1.0)
+
+
+def test_missing_or_invalid_samples_break_the_hold():
+    m = MotionTracker()
+    m.update(0, 0, 0, S, S)
+    m.update(0, 0, 0, 10 * S, 10 * S)
+    assert not m.stationary_for_sim(10 * S, 1)
+    m.update(float('nan'), 0, 0, 11 * S, 11 * S)
+    assert not m.stationary_for_wall(11 * S, 1)

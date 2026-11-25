@@ -1,0 +1,2 @@
+Trial  Kind           GUI  Commit   Tasks OK  Failed  Nav failures  Retries  Step 1 to summary (wall s)  RTF     Ctrl rate missed  No valid traj  No progress  follow_path aborts  Plan failures  Spin+backup  Init-pose warnings
+99     mission-trial  on   b2037ca  5         0       0             0        429                         0.8351  0                 0              0            1                   0              0            0                 

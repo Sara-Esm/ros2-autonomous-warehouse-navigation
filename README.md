@@ -8,8 +8,8 @@
 A simulated TurtleBot3 inspects a warehouse on its own. It localizes on a saved map with
 AMCL, navigates to four stations with Nav2, confirms that it reached each one by reading
 that station's ArUco marker with its camera, and returns to its charging dock. A
-supervising mission manager runs the five-step mission. It refuses to send a goal while
-Nav2 is still busy or the robot is still moving, bounds every wait, and reports
+supervising mission manager runs the five-step mission. It checks observed Nav2 action activity and stationary odometry before sending a goal,
+bounds mission waits, and reports
 exactly how many tasks succeeded, failed, or were never attempted.
 
 The project is a **simulation portfolio system**, built and debugged on Ubuntu 22.04 under
@@ -20,15 +20,24 @@ demonstrated.
 **Results at a glance** (all counted from the logs in [`audit_logs/`](audit_logs/); details in
 [Experimental results](#experimental-results)):
 
-- **Final validation (Trial 12, current code):** 5/5 stations reached and ArUco-verified, exit
+- **CI validation of the current mission code (GitHub Actions run
+  [45570293516](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45570293516)
+  on PR #3 head `847f31c`; later commits change only tests and documentation):** the Gazebo smoke job completed the five-station mission with
+  5/5 stations ArUco-verified and exit code 0. It ran headless under Xvfb on a 4-core runner at
+  0.84× real time, with 0 navigation failures and 0 retries, so it did not exercise the
+  abort-and-retry path. Logs:
+  [`audit_logs/ci_run_45570293516/`](audit_logs/ci_run_45570293516/PROVENANCE.md).
+- **Last local Gazebo validation (Trial 12, commit `0998813`, older than the current code):** 5/5 stations reached and ArUco-verified, exit
   code 0. Run at 0.31× real time under heavy CPU load. One Nav2 navigation abort was recovered by
   the supervised retry, and no overlapping goal was sent.
 - **10 recorded trials** (01–06, 08, 10–12; numbers 07 and 09 were not used). 6 completed all
   five stations (01–04, 10, 12). 3 did not: 05 and 06 were a rejected headless experiment, and
   08 led to the supervision work. 1 (Trial 11) was interrupted externally and is not counted.
-- **Current Nav2 configuration:** 2 of 2 completed trials succeeded (10 and 12). That shows it
-  works, not a measured reliability rate.
-- **Automated tests:** 43 run, 0 failures (3 template copyright checks skipped), without Gazebo.
+- **Current Nav2 configuration:** all 3 completed runs with this parameter file succeeded:
+  Trials 10 and 12 locally, plus the CI run. That shows it works, not a measured reliability rate.
+- **Automated tests (current code):** 50 tests, 0 failures, 3 template copyright checks
+  skipped, without Gazebo. That is 39 in `warehouse_bringup`, 6 in `warehouse_perception` and
+  5 in `warehouse_gazebo`. The historical run on `0998813` had 43 tests.
 
 ---
 
@@ -51,7 +60,7 @@ Unattempted tasks: 0
 > **Note:** the screenshot and video above come from an earlier version of the project,
 > recorded before the supervised mission manager and the Nav2 tuning. The simulated world,
 > robot, stations and markers are the same; the mission logic and terminal output are not.
-> The summary above is from the current code (Trial 12). A replacement video should show
+> The summary above is from Trial 12 at `0998813`. A replacement video should show
 > one full mission with the RViz plan and costmaps, the detector window confirming each
 > marker, and the terminal summary with the exit code. A second clip could show a supervision
 > test such as `pytest -k lifecycle`.
@@ -71,7 +80,7 @@ Unattempted tasks: 0
 The robot spawns at the origin. For each step the mission manager sends a `NavigateToPose`
 goal. On arrival it waits up to 15 s (simulation time) for the expected marker ID. Only
 detections received after arrival count. A failed marker check fails that task and the
-mission continues. A failed navigation is retried once; if the retry also fails, the
+mission continues. An aborted navigation can be retried once after the supervisor observes controller activity end. A cancellation halts the mission. If the retry fails, the
 mission halts. The markers are 0.28 m DICT_5X5_50 tags on the warehouse walls, about
 0.67–0.97 m in front of the goal poses.
 
@@ -143,8 +152,37 @@ stateDiagram-v2
   HALT_OBSERVE --> DONE: report stop verified / not verified, exit 2
 ```
 
-A clock-stall watchdog that halts the mission can fire from any active state. Ctrl+C or
-SIGTERM cancels an active or pending goal before exiting with code 130.
+A clock-stall watchdog that halts the mission can fire from any active state.
+
+**Stopping the mission.** The mission process handles SIGINT and SIGTERM the same way:
+bounded goal cleanup (cancel any active or pending goal, observe the stop), then exit
+code 130. How the signal reaches it matters:
+
+- **Ctrl+C in the terminal running `ros2 run`** works. The terminal signals the whole
+  foreground process group, so the mission child receives SIGINT directly, and `ros2 run`
+  passes through exit code 130.
+- **A signal sent to the `ros2 run` PID** (for example `kill <pid>`) is *not* forwarded.
+  Humble's `ros2 run` starts the mission as a child process and does not relay signals,
+  so the mission keeps running and no cleanup happens.
+- **To stop it from a script or supervisor,** start the installed executable directly, so
+  the PID you hold is the mission process, and signal that PID:
+
+  ```bash
+  install/warehouse_bringup/lib/warehouse_bringup/warehouse_autonomy \
+    --ros-args -p use_sim_time:=true &
+  MISSION_PID=$!
+  kill -TERM "$MISSION_PID"     # bounded cleanup, then exit code 130
+  wait "$MISSION_PID"; echo "exit code: $?"
+  ```
+
+Tests cover SIGINT to the mission process (during an executing goal and during pending
+acceptance) and SIGTERM to the installed executable during an executing goal.
+
+Known limitation: the signal handler raises an exception wherever the main thread happens to be.
+A signal that lands at the exact moment Nav2 accepts a goal can interrupt that bookkeeping. In
+2 of about 17 such deliberately timed runs, cleanup still sent the cancel and exited with 130, but
+reported `ROBOT STOP NOT VERIFIED` instead of confirming the stop. Handling the signal as a flag
+checked by the main loop would remove this window. That change is not made yet.
 
 ---
 
@@ -159,7 +197,7 @@ SIGTERM cancels an active or pending goal before exiting with code 130.
 | `  launch/warehouse_simulation_camera.launch.py` | Gazebo, robot_state_publisher, spawn `turtlebot3_burger_cam` at (0, 0) |
 | `  launch/warehouse_navigation.launch.py` | Nav2 with the warehouse map (`turtlebot3_navigation2`) |
 | `  maps/warehouse_map.{pgm,yaml}` | 318 × 439 cells at 0.05 m, origin (-7.56, -10.8) |
-| `  test/` | 27 mission-manager tests against a mock Nav2, 2 tracker unit tests, lint tests |
+| `  test/` | Mission-manager tests against a mock Nav2, 2 tracker unit tests, lint tests |
 | `src/warehouse_perception/` | `aruco_station_detector`: DICT_5X5_50, OpenCV 4.5.4 and ≥ 4.7 APIs |
 | `src/warehouse_gazebo/` | Warehouse world, AWS RoboMaker models, ArUco marker models and generator |
 | `src/turtlebot3/` | Vendored ROBOTIS TurtleBot3 packages; overrides apt. Holds the tuned Nav2 parameters |
@@ -218,17 +256,20 @@ restart and then waited forever for a goal response.
 
 The mission manager now:
 
-- **Gates every goal.** The NavigateToPose server must be discovered, `bt_navigator` must
-  report ACTIVE, every Nav2 action server must show no active goal, and odometry must show
-  the robot stationary for `stop_hold`. This applies to first attempts and retries, and
-  prevents overlapping goals.
+- **Gates every goal.** The manager checks action-server discovery, a fresh ACTIVE
+  response from `bt_navigator`, the identity of the monitored status publishers,
+  their last reported activity, and a stationary hold spanning odometry samples.
+  Before retrying an abort, it also requires evidence that `follow_path` was active
+  during this attempt and has since cleared. An early abort without this evidence
+  can halt at the gate. Unused behavior servers may never emit a status sample.
+  These event-driven observations cannot exclude an action starting between observations.
 - **Bounds every wait.** Mission timing runs on simulation time. Communication watchdogs
   run on the steady wall clock from a wall-clock timer, so a stalled `/clock` cannot hide
   an unresponsive server. A stalled `/clock` is itself detected and halts the mission.
-- **Cancels what it abandons.** Goals are numbered, and callbacks from older goals are
-  ignored. A goal accepted after the mission stopped waiting for it is cancelled. A
-  navigation that exceeds `nav_timeout` is cancelled and not retried. Interrupts cancel an
-  active goal, or one that is still pending acceptance.
+- **Tracks unresolved goals.** After a response timeout the process keeps spinning
+  during bounded halt observation. It requests cancellation for late acceptance,
+  awaits a terminal result and reports an unverified stop if the goal remains
+  unresolved at exit. The same cleanup applies on interrupt.
 - **Reports honestly.** Every ending prints successful / failed / unattempted counts and
   sets an exit code: 0 all succeeded, 1 finished with failed tasks, 2 halted, 3 never
   started, 130 interrupted. After a halt, the node watches odometry and Nav2 status and
@@ -245,7 +286,7 @@ independent safety channel (see [Limitations](#limitations)).
 
 **Automated tests** run without Gazebo (`colcon test`):
 
-- `warehouse_bringup/test/test_mission_manager.py`: 27 cases run the real mission node
+- `warehouse_bringup/test/test_mission_manager.py`: cases run the real mission node
   against a scriptable mock Nav2 (action server, lifecycle service, `follow_path` status,
   odometry, marker stream) and a fake `/clock`, each on its own DDS domain. They cover:
   - all goals succeed
@@ -270,9 +311,14 @@ independent safety channel (see [Limitations](#limitations)).
   generator pixel for pixel and decode to their station IDs.
 - `ament_flake8` and `ament_pep257` for all three packages.
 
-Latest full run (`colcon test` on `0998813`): **43 tests, 0 failures, 0 errors, 3 skipped**. The
-skips are the ament template copyright checks, which skip themselves because the files have no
-copyright header.
+Current full run (`colcon test --executor sequential` on the PR #3 branch): **50 tests,
+0 failures, 0 errors, 3 skipped**. That is 39 in `warehouse_bringup` (33 mission-manager, 3 tracker,
+3 lint), 6 in `warehouse_perception` and 5 in `warehouse_gazebo`. The skips are the ament template
+copyright checks, which skip themselves because the files have no copyright header. The same suite
+runs in GitHub Actions on every pull request
+([`.github/workflows/warehouse-humble.yml`](.github/workflows/warehouse-humble.yml)). For
+comparison, the historical run on `0998813` (the Trial 12 commit) had 43 tests, 0 failures and
+3 skipped.
 
 The mock tests verify mission logic and supervision only. They make no claim about
 physical motion or safety.
@@ -281,7 +327,9 @@ physical motion or safety.
 simulation, waits for `bt_navigator` and `amcl` to be ACTIVE, checks `/amcl_pose` and the
 `map → odom → base_footprint` TF chain, measures the real-time factor, runs the mission,
 and stores the launch log, mission log, metadata (commit, parameter-file hash, exit code)
-and a metrics summary under `audit_logs/`.
+and a metrics summary under `audit_logs/`. The CI workflow's `gazebo-smoke` job runs the same
+script headless under Xvfb after the unit tests pass. Its logs are uploaded as an artifact,
+and the run for the current code is preserved in `audit_logs/ci_run_45570293516/`.
 
 ---
 
@@ -292,7 +340,7 @@ All values below are counted from saved trial logs by `scripts/trial_metrics.py`
 Trials were run one at a time from a fresh launch. RTF is the real-time factor measured
 just before the mission.
 
-| Trial | Purpose | Commit | Tasks OK | Nav failures / retries | Mission (sim s) | RTF | Ctrl missed-rate warnings |
+| Trial | Purpose | Commit | Tasks OK | Nav failures / retries | Step 1 to summary (wall s) | RTF | Ctrl missed-rate warnings |
 |---|---|---|---|---|---|---|---|
 | 01 | Pilot | - | 5/5 | 0 / 0 | 497 | - | - |
 | 02–04 | Repeatability baseline | `3674bf1` | 15/15 | 0 / 0 | 540–597 | 0.65–0.74 | 80–204 |
@@ -316,17 +364,17 @@ activity described above. Trials 10–12 use the current Nav2 configuration (ide
 parameter-file hash). Trial 11 was cut off externally during step 4, when the controlling
 terminal session closed. It is kept as evidence, not counted.
 
-**Trial 12 is the final validation of the current code.** It ran under about twice the
-CPU pressure of the earlier trials (RTF 0.31, load average 21). That explains why the
-controller missed-rate count is higher. At step 1 the outer `NavigateToPose` aborted because
+**Trial 12 validated commit `0998813`.** Its pre-mission RTF was 0.31 and its
+one-minute load average was 21. The recorded load sample does not isolate the cause of
+the higher missed-rate count. At step 1 the outer `NavigateToPose` aborted because
 `bt_navigator` timed out waiting for its own servers to acknowledge goals. The orphaned
 `follow_path` goal kept driving the robot to the dock. The mission manager reported it
 (`Nav2 goals still active: follow_path(1); robot not stationary`) and held the retry for
 about 116 s (wall clock) until the controller finished and the robot stopped. Only then did it
 send the retry, which succeeded at once from within goal tolerance. All remaining steps
 succeeded on the first attempt. **No overlapping goal was sent.** This is the failure the
-readiness gate was built for. In Trial 08 the earlier manager moved to the next station
-while a `follow_path` goal was still active.
+readiness gate was built for. Trial 08 ended on the final return-home abort while lower-level activity continued.
+In the separate controller-deactivation experiment, the earlier manager sent another station goal.
 
 **Three levels of failure.** Mission results count only the last of these:
 
@@ -337,7 +385,7 @@ while a `follow_path` goal was still active.
 | Mission task failure | A station is not reached or its marker is not confirmed | 0 | 0 |
 
 Trials 10 and 12 show that the current configuration *can* complete the mission, and
-that the supervisor recovers safely from a real Nav2 abort. They do not establish a
+that the supervisor waited for observed controller completion before retrying in Trial 12. They do not establish a
 reliability rate. Controller missed-rate warnings fell but remain, because the simulation
 runs at about 0.31–0.74× real time on this machine.
 
@@ -426,7 +474,11 @@ colcon test-result --verbose
 export TURTLEBOT3_MODEL=burger_cam
 ros2 launch warehouse_bringup warehouse_robot_system_camera.launch.py
 
-# Terminal 2: the mission. It waits for Nav2 to be ready by itself, then exits with its status code.
+# Terminal 2
+cd ~/projects/warehouse_ws
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+# Run the mission. It waits for Nav2 to be ready by itself, then exits with its status code.
 ros2 run warehouse_bringup warehouse_autonomy --ros-args -p use_sim_time:=true
 echo "exit code: $?"
 ```
