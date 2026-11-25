@@ -10,6 +10,7 @@ def generate_launch_description():
 
     warehouse_gazebo_pkg = get_package_share_directory('warehouse_gazebo')
     turtlebot3_description_pkg = get_package_share_directory('turtlebot3_description')
+    turtlebot3_gazebo_pkg = get_package_share_directory('turtlebot3_gazebo')
 
     world_file = os.path.join(
         warehouse_gazebo_pkg,
@@ -18,7 +19,7 @@ def generate_launch_description():
     )
 
     # Camera-enabled TurtleBot3 model
-    robot_sdf = '/opt/ros/humble/share/turtlebot3_gazebo/models/turtlebot3_burger_cam/model.sdf'
+    robot_sdf = os.path.join(turtlebot3_gazebo_pkg, 'models', 'turtlebot3_burger_cam', 'model.sdf')
 
     # Stable URDF
     robot_urdf = os.path.join(
@@ -30,7 +31,7 @@ def generate_launch_description():
     gazebo_models = (
         '/usr/share/gazebo-11/models:'
         + (os.path.join(warehouse_gazebo_pkg, 'models') + ':')
-        + '/opt/ros/humble/share/turtlebot3_gazebo/models'
+        + os.path.join(turtlebot3_gazebo_pkg, 'models')
     )
 
     gazebo = ExecuteProcess(
