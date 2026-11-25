@@ -26,7 +26,7 @@ START_RE = re.compile(r'\[(\d+\.\d+)\].*MISSION STEP 1/5')
 COLUMNS = [
     ('trial', 'Trial'), ('kind', 'Kind'), ('gui', 'GUI'), ('commit', 'Commit'),
     ('tasks_ok', 'Tasks OK'), ('tasks_failed', 'Failed'), ('nav_failures', 'Nav failures'),
-    ('retries', 'Retries'), ('duration_s', 'Mission s'), ('rtf', 'RTF'),
+    ('retries', 'Retries'), ('duration_s', 'Step 1 to summary (wall s)'), ('rtf', 'RTF'),
     ('ctrl_missed', 'Ctrl rate missed'), ('no_valid_traj', 'No valid traj'),
     ('no_progress', 'No progress'), ('follow_path_aborts', 'follow_path aborts'),
     ('planner_fail', 'Plan failures'), ('recoveries', 'Spin+backup'),

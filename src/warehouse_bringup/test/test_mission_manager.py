@@ -150,15 +150,58 @@ def test_bt_navigator_inactive_at_startup_waits_for_active(harness_factory):
     assert m.exit_code == wan.EXIT_SUCCESS
 
 
-def test_goal_response_never_resolves_halts_and_cancels_late_acceptance(harness_factory):
-    h = harness_factory(mock_kwargs={'behaviors': ['late_accept']})
+@pytest.mark.parametrize('behavior,expect_cancel', [('slow_accept', True), ('no_response', False)])
+def test_process_goal_response_timeout(behavior, expect_cancel):
+    h = _MockOnly([behavior])
+    try:
+        code, out = _run_process(h, extra_args=('-p', 'goal_response_timeout:=0.1'))
+        assert code == wan.EXIT_HALTED, out
+        assert 'No goal response' in out
+        assert len(h.mock.goals) == 1
+        assert len(h.mock.cancel_requests) == int(expect_cancel)
+        if expect_cancel:
+            assert 'ROBOT STOP VERIFIED' in out
+        else:
+            assert 'ROBOT STOP NOT VERIFIED' in out
+            assert 'navigation goal outcome unresolved' in out
+    finally:
+        h.close()
+
+
+def test_external_cancellation_halts_without_retry(harness_factory):
+    h = harness_factory(mock_kwargs={'behaviors': ['no_result']})
+    assert h.wait_until(lambda: h.mission.state == wan.NAVIGATING, 10.0)
+    h.mission.goal_handle.cancel_goal_async()  # unsolicited cancellation at the server
     m = h.run()
     assert m.exit_code == wan.EXIT_HALTED
-    assert 'No goal response' in m.halt_reason
     assert_counts(m, 0, 1, 4)
-    h.mock.release()  # Nav2 finally accepts the abandoned goal
-    assert h.wait_until(lambda: len(h.mock.cancel_requests) == 1, 5.0)
     assert len(h.mock.goals) == 1
+
+
+def test_pause_halt_preserves_completed_task(harness_factory):
+    h = harness_factory(params={'inter_goal_pause': 30.0})
+    assert h.wait_until(lambda: h.mission.state == wan.PAUSE, 15.0)
+    h.clock.paused = True
+    m = h.run()
+    assert_counts(m, 1, 0, 4)
+
+
+def test_retry_without_controller_observation_halts(harness_factory):
+    h = harness_factory(mock_kwargs={'behaviors': ['abort'], 'report_controller': False})
+    m = h.run()
+    assert len(h.mock.goals) == 1
+    assert m.exit_code == wan.EXIT_HALTED
+    assert 'controller activity' in m.halt_reason
+    assert m.stop_verified is False
+
+
+def test_cancel_rejection_leaves_stop_unverified(harness_factory):
+    h = harness_factory(mock_kwargs={'behaviors': ['no_result'], 'accept_cancel': False},
+                        params={'nav_timeout': 1.0})
+    m = h.run()
+    assert m.exit_code == wan.EXIT_HALTED
+    assert m.stop_verified is False
+    assert len(h.mock.cancel_requests) == len(h.mock.goals) == 1
 
 
 def test_result_never_arrives_cancels_goal_and_halts(harness_factory):
@@ -276,10 +319,15 @@ def _run_process(h, extra_args=(), interrupt_when=None, timeout=40.0):
     env = dict(os.environ, ROS_DOMAIN_ID=str(h.domain_id))
     proc = subprocess.Popen(args, env=env, stdout=subprocess.PIPE,
                             stderr=subprocess.STDOUT, text=True)
-    if interrupt_when is not None:
-        assert h.wait_until(interrupt_when, 20.0)
-        proc.send_signal(signal.SIGINT)
-    out, _ = proc.communicate(timeout=timeout)
+    try:
+        if interrupt_when is not None:
+            assert h.wait_until(interrupt_when, 20.0)
+            proc.send_signal(signal.SIGINT)
+        out, _ = proc.communicate(timeout=timeout)
+    finally:
+        if proc.poll() is None:
+            proc.kill()
+            proc.communicate()
     return proc.returncode, out
 
 
@@ -324,7 +372,7 @@ def test_sigint_cancels_active_goal_and_exits_130(behavior, delay):
         h.close()
     assert code == wan.EXIT_INTERRUPTED, out
     assert cancel_seen, out
-    assert 'Cancel accepted' in out
+    assert 'ROBOT STOP VERIFIED' in out
 
 
 class _MockOnly(MissionHarness):
@@ -349,7 +397,8 @@ class _MockOnly(MissionHarness):
     def close(self):
         self.mock.release()
         self.clock.stop()
-        self.executor.shutdown(timeout_sec=2.0)
+        self.executor.shutdown()
+        self._thread.join(timeout=5.0)
         self.mock.destroy_node()
         self.clock.node.destroy_node()
         import rclpy

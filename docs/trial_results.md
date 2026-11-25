@@ -6,7 +6,7 @@ ran on one WSL2 machine (8 cores, 3.8 GiB RAM) from a fresh simulation launch. R
 real-time factor measured just before the mission. Warning counts are raw log-line counts,
 not distinct failures.
 
-| Trial | Kind | GUI | Commit | Tasks OK | Failed | Nav failures | Retries | Mission s | RTF | Ctrl rate missed | No valid traj | No progress | follow_path aborts | Plan failures | Spin+backup | Init-pose warnings |
+| Trial | Kind | GUI | Commit | Tasks OK | Failed | Nav failures | Retries | Step 1 to summary (wall s) | RTF | Ctrl rate missed | No valid traj | No progress | follow_path aborts | Plan failures | Spin+backup | Init-pose warnings |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 01 | pilot | on | - | 5 | 0 | 0 | 0 | 497 | - | - | - | - | - | - | - | - |
 | 02 | repeatability-baseline | on | 3674bf1 | 5 | 0 | 0 | 0 | 597 | 0.6986 | 204 | 24 | 1 | 6 | 0 | 6 | 3 |
@@ -27,7 +27,7 @@ not distinct failures.
   (53 and 24 planner failures). Not adopted. Trial 05's old mission manager printed
   "WAREHOUSE MISSION COMPLETE" with 0/5 tasks succeeded, which led to the honest-reporting fix in `3de4301`.
 - **07, 09** Not recorded as trials (numbers skipped).
-- **08** Outer `NavigateToPose` aborted once at the Dispatch Zone (4/5). Afterwards Nav2's spin/backup/wait
+- **08** Outer `NavigateToPose` aborted once on the final return home after Dispatch succeeded (4/5). Afterwards Nav2's spin/backup/wait
   ran on for about 10 s and a `follow_path` goal stayed active for about 64 s. This motivated the readiness gate.
 - **10** First run of the tuned Nav2 configuration (`3e8e1b7`): 5/5, no navigation failures.
 - **11** **Interrupted, not a result.** Steps 1–3 arrived and were marker-verified (IDs 0, 1, 2) and step 4's goal
@@ -35,7 +35,7 @@ not distinct failures.
   No exit code was recorded. Commits landed while it ran, so it is kept only as evidence.
 - **12** Final validation on `0998813` (supervised mission manager plus the Nav2 configuration of Trial 10,
   identical parameter-file hash). **5/5, exit code 0.** RTF was 0.31, half that of the earlier trials (load
-  average 21 after about 2 h uptime), which explains the higher controller missed-rate count.
+  average 21 after about 2 h uptime), alongside a higher controller missed-rate count.
   Step 1's first attempt aborted: `bt_navigator` timed out waiting for `follow_path`, `spin` and `backup`
   goal acknowledgements (Nav2's default 20 ms `default_server_timeout`). The orphaned `follow_path`
   goal kept driving and reached the dock. The mission manager's gate held the retry while it

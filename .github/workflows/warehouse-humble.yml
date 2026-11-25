@@ -1,0 +1,32 @@
+name: Warehouse ROS 2 Humble tests
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  warehouse-tests:
+    runs-on: ubuntu-22.04
+    container: ros:humble-ros-base-jammy
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install test dependencies
+        run: |
+          apt-get update -q
+          apt-get install -y --no-install-recommends python3-colcon-common-extensions python3-pytest python3-opencv ros-humble-nav2-msgs ros-humble-cv-bridge ros-humble-ament-copyright ros-humble-ament-flake8 ros-humble-ament-pep257
+      - name: Build warehouse packages
+        run: |
+          source /opt/ros/humble/setup.bash
+          colcon build --packages-select warehouse_bringup warehouse_gazebo warehouse_perception
+      - name: Run mission, perception, marker and lint tests
+        run: |
+          source install/setup.bash
+          colcon test --packages-select warehouse_bringup warehouse_gazebo warehouse_perception --executor sequential
+          colcon test-result --verbose
