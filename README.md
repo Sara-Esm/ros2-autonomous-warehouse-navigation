@@ -1,53 +1,45 @@
-# Autonomous Warehouse Inspection Robot (ROS 2 Humble, Nav2, ArUco)
+# Autonomous Warehouse Inspection Robot
+
+*ROS 2 Humble · Nav2 · Gazebo Classic 11 · OpenCV ArUco*
 
 ![ROS2](https://img.shields.io/badge/ROS2-Humble-blue)
 ![Gazebo](https://img.shields.io/badge/Gazebo-Classic_11-orange)
 ![Nav2](https://img.shields.io/badge/Nav2-AMCL_%7C_NavFn_%7C_DWB-green)
 ![License](https://img.shields.io/badge/License-MIT-brightgreen)
 
-A simulated TurtleBot3 inspects a warehouse on its own. It localizes on a saved map with
-AMCL, navigates to four stations with Nav2, confirms that it reached each one by reading
-that station's ArUco marker with its camera, and returns to its charging dock. A
-supervising mission manager runs the five-step mission. It checks observed Nav2 action activity and stationary odometry before sending a goal,
-bounds mission waits, and reports
-exactly how many tasks succeeded, failed, or were never attempted.
+A simulated TurtleBot3 visits four warehouse stations, confirms each one by reading its
+ArUco marker, and returns to its charging dock. A mission manager checks Nav2 action status and recent
+odometry before sending each goal.
 
-The project is a **simulation portfolio system**, built and debugged on Ubuntu 22.04 under
-WSL2. It is engineered and tested with care, but it is not a production or
-safety-certified autonomy stack. [Limitations](#limitations) lists what is and is not
-demonstrated.
+- **Supervised retries.** A failed `NavigateToPose` does not mean Nav2 is idle. In Trial 08, a
+  `follow_path` controller goal stayed active for about 64 s after the outer goal aborted.
+  Before retrying, the manager waits for the observed controller goal to clear, checks the
+  configured actions for activity, and requires fresh odometry showing a stationary hold.
+- **Sim-time aware.** Mission timing runs on simulation time and watchdogs on wall time, so
+  a stalled `/clock` is detected instead of hiding a hung server.
+- **Clear reporting.** Every run ends with counts of succeeded, failed and unattempted
+  tasks, and a distinct exit code.
+- **Tested.** CI reported 47 passes and 3 skips. Of the 50 cases, 33 exercise the real
+  mission node against a mock Nav2. A separate CI job runs the full mission in Gazebo.
 
-**Results at a glance** (all counted from the logs in [`audit_logs/`](audit_logs/); details in
-[Experimental results](#experimental-results)):
+**Results:** Local Trials 10 and 12 each verified all five visits. Trial 12 recovered from
+a navigation abort after a 116-second wait before retrying. Two linked headless CI runs
+([45570293516](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45570293516), [45579301270](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45579301270)) also verified all five
+visits. [Full trial log →](docs/trial_results.md)
 
-- **CI validation of the current mission code (GitHub Actions run
-  [45570293516](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45570293516)
-  on PR #3 head `847f31c`; later commits change only tests and documentation):** the Gazebo smoke job completed the five-station mission with
-  5/5 stations ArUco-verified and exit code 0. It ran headless under Xvfb on a 4-core runner at
-  0.84× real time, with 0 navigation failures and 0 retries, so it did not exercise the
-  abort-and-retry path. Logs:
-  [`audit_logs/ci_run_45570293516/`](audit_logs/ci_run_45570293516/PROVENANCE.md).
-- **Last local Gazebo validation (Trial 12, commit `0998813`, older than the current code):** 5/5 stations reached and ArUco-verified, exit
-  code 0. Run at 0.31× real time under heavy CPU load. One Nav2 navigation abort was recovered by
-  the supervised retry, and no overlapping goal was sent.
-- **10 recorded trials** (01–06, 08, 10–12; numbers 07 and 09 were not used). 6 completed all
-  five stations (01–04, 10, 12). 3 did not: 05 and 06 were a rejected headless experiment, and
-  08 led to the supervision work. 1 (Trial 11) was interrupted externally and is not counted.
-- **Current Nav2 configuration:** all 3 completed runs with this parameter file succeeded:
-  Trials 10 and 12 locally, plus the CI run. That shows it works, not a measured reliability rate.
-- **Automated tests (current code):** 50 tests, 0 failures, 3 template copyright checks
-  skipped, without Gazebo. That is 39 in `warehouse_bringup`, 6 in `warehouse_perception` and
-  5 in `warehouse_gazebo`. The historical run on `0998813` had 43 tests.
+*Simulation only. See [Limitations](#limitations).*
 
 ---
 
-## Demonstration
+## Demo
 
 <img width="1914" height="1030" alt="Gazebo warehouse, RViz with Nav2 costmaps and plan, and the ArUco detector window" src="https://github.com/user-attachments/assets/dab35b3e-c798-4f6f-ab84-d8b0b9bfa21b" />
 
 https://github.com/user-attachments/assets/dd67f2da-6fb0-4903-81f8-b93f97a8f34c
 
-Mission summary printed by the mission manager in the final validation run, Trial 12 (process exit code 0; see [results](#experimental-results)):
+The screenshot and video were recorded before the supervised mission manager and the Nav2
+tuning. The world, robot, stations and markers are the same. The current mission ends like
+this (Trial 12, exit code 0):
 
 ```
 WAREHOUSE MISSION COMPLETE: ALL TASKS SUCCEEDED
@@ -57,17 +49,80 @@ Failed tasks: 0
 Unattempted tasks: 0
 ```
 
-> **Note:** the screenshot and video above come from an earlier version of the project,
-> recorded before the supervised mission manager and the Nav2 tuning. The simulated world,
-> robot, stations and markers are the same; the mission logic and terminal output are not.
-> The summary above is from Trial 12 at `0998813`. A replacement video should show
-> one full mission with the RViz plan and costmaps, the detector window confirming each
-> marker, and the terminal summary with the exit code. A second clip could show a supervision
-> test such as `pytest -k lifecycle`.
+---
+
+## Quickstart
+
+Tested on Ubuntu 22.04 (WSL2) with ROS 2 Humble and Gazebo Classic 11.
+
+```bash
+# ROS 2 Humble desktop, then:
+sudo apt install ros-humble-navigation2 ros-humble-nav2-bringup ros-humble-gazebo-ros-pkgs \
+  ros-humble-turtlebot3-gazebo ros-humble-turtlebot3-msgs ros-humble-dynamixel-sdk \
+  ros-humble-xacro ros-humble-cv-bridge python3-opencv python3-pytest
+
+git clone https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation.git ~/projects/warehouse_ws
+cd ~/projects/warehouse_ws
+source /opt/ros/humble/setup.bash
+rosdep install --from-paths src --ignore-src -y   # optional: verifies dependencies
+colcon build
+```
+
+The vendored `src/turtlebot3` builds ROBOTIS's packages, including the real-robot driver
+(hence `dynamixel-sdk`).
+
+**Run the mission (two terminals):**
+
+```bash
+# Terminal 1: Gazebo + Nav2 + RViz + ArUco detector (Nav2 is up after about 60 s)
+cd ~/projects/warehouse_ws
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+export TURTLEBOT3_MODEL=burger_cam
+ros2 launch warehouse_bringup warehouse_robot_system_camera.launch.py
+
+# Terminal 2: the mission waits for Nav2 by itself, then exits with its status code
+cd ~/projects/warehouse_ws
+source /opt/ros/humble/setup.bash
+source install/setup.bash
+ros2 run warehouse_bringup warehouse_autonomy --ros-args -p use_sim_time:=true
+echo "exit code: $?"
+```
+
+Ctrl+C in Terminal 2 cancels the active goal and exits with code 130. To stop it from a
+script, see [Stopping the mission](docs/operation.md#stopping-the-mission).
+
+**Run the automated tests** (no Gazebo needed, about 3 minutes):
+
+```bash
+colcon test --packages-select warehouse_bringup warehouse_perception warehouse_gazebo
+colcon test-result --verbose
+```
+
+**Run a recorded trial** (starts and stops the simulation itself; the tracked tree must be clean):
+
+```bash
+scripts/run_mission_trial.sh 13          # next unused number; writes audit_logs/*_trial13.*
+scripts/trial_metrics.py --all           # compare with earlier trials
+```
+
+<details>
+<summary>Rebuild the map (optional; the map is included)</summary>
+
+Needs `ros-humble-cartographer-ros`.
+
+```bash
+ros2 launch warehouse_bringup warehouse_simulation_camera.launch.py
+ros2 launch turtlebot3_cartographer cartographer.launch.py use_sim_time:=true
+ros2 run turtlebot3_teleop teleop_keyboard
+ros2 run nav2_map_server map_saver_cli -f src/warehouse_bringup/maps/warehouse_map
+```
+
+</details>
 
 ---
 
-## What the robot does
+## How it works
 
 | Step | Station | Goal (map frame) | Verified by |
 |---|---|---|---|
@@ -78,15 +133,17 @@ Unattempted tasks: 0
 | 5 | Return to Home Charging Dock | (-3.68, 9.30), facing +y | ArUco ID 0 |
 
 The robot spawns at the origin. For each step the mission manager sends a `NavigateToPose`
-goal. On arrival it waits up to 15 s (simulation time) for the expected marker ID. Only
+goal. On arrival it waits up to 15 s (simulation time) for the expected marker ID, and only
 detections received after arrival count. A failed marker check fails that task and the
-mission continues. An aborted navigation can be retried once after the supervisor observes controller activity end. A cancellation halts the mission. If the retry fails, the
-mission halts. The markers are 0.28 m DICT_5X5_50 tags on the warehouse walls, about
-0.67–0.97 m in front of the goal poses.
+mission continues. An aborted navigation is retried once, after the supervisor sees the
+controller finish. A cancellation, or a failed retry, halts the mission. The markers are
+0.28 m DICT_5X5_50 tags on the warehouse walls, about 0.67–0.97 m in front of the goal poses.
 
----
+### System architecture
 
-## System architecture
+The diagram shows the data flow: Gazebo publishes LiDAR, odometry, camera images and the
+simulation clock; AMCL and Nav2 navigate from the LiDAR and the saved map; the ArUco detector
+publishes marker IDs; the mission manager sends goals and passively watches Nav2 and odometry.
 
 ```mermaid
 flowchart LR
@@ -116,16 +173,19 @@ flowchart LR
   DET["aruco_station_detector<br/>OpenCV ArUco"] -- "/warehouse/marker_id" --> MM
 
   MM["warehouse_autonomy<br/>mission manager"] -- "NavigateToPose goal / cancel" --> BT
-  BT -. "action status (all Nav2 servers)" .-> MM
+  BT -. "status of monitored actions" .-> MM
   BT -. "lifecycle get_state" .-> MM
   TB3 -. "/odom (stop check)" .-> MM
 ```
 
-The camera branch verifies stations; navigation itself uses only the LiDAR, the map and
-odometry. Dotted lines are the mission manager's **passive supervision** inputs. It never
-publishes velocity commands.
+Dotted lines are the mission manager's passive supervision inputs. It never publishes
+velocity commands.
 
 ### Mission state machine
+
+Each goal passes through a readiness gate, a bounded wait for Nav2's response, navigation
+and marker verification. A missed marker fails that visit and the mission continues.
+An exhausted navigation retry halts the mission and starts a stop check.
 
 ```mermaid
 stateDiagram-v2
@@ -152,354 +212,149 @@ stateDiagram-v2
   HALT_OBSERVE --> DONE: report stop verified / not verified, exit 2
 ```
 
-A clock-stall watchdog that halts the mission can fire from any active state.
+A clock-stall watchdog can halt the mission from any active state.
 
-**Stopping the mission.** The mission process handles SIGINT and SIGTERM the same way:
-bounded goal cleanup (cancel any active or pending goal, observe the stop), then exit
-code 130. How the signal reaches it matters:
+### What the supervisor checks
 
-- **Ctrl+C in the terminal running `ros2 run`** works. The terminal signals the whole
-  foreground process group, so the mission child receives SIGINT directly, and `ros2 run`
-  passes through exit code 130.
-- **A signal sent to the `ros2 run` PID** (for example `kill <pid>`) is *not* forwarded.
-  Humble's `ros2 run` starts the mission as a child process and does not relay signals,
-  so the mission keeps running and no cleanup happens.
-- **To stop it from a script or supervisor,** start the installed executable directly, so
-  the PID you hold is the mission process, and signal that PID:
+- **Before every goal:** action-server discovery, a fresh ACTIVE response from
+  `bt_navigator`, the identity of the monitored status publishers, no active goal reported by
+  the monitored actions, and a stationary hold across odometry samples. Before retrying an
+  abort, it also requires evidence that `follow_path` was active during this attempt and has
+  since cleared.
+- **Every wait is bounded.** Mission waits run on simulation time. Communication watchdogs
+  (goal response, cancel, `/clock` stall) run on a steady wall clock.
+- **Unresolved goals are tracked.** A late acceptance after a response timeout is
+  cancelled, and the manager waits a bounded time for its result. The same cleanup runs on
+  Ctrl+C or SIGTERM.
+- **Exit codes:** 0 all succeeded, 1 finished with failed tasks, 2 halted, 3 never started,
+  130 interrupted. After a halt the node prints `ROBOT STOP VERIFIED (odometry)` or
+  `ROBOT STOP NOT VERIFIED` with the reason.
 
-  ```bash
-  install/warehouse_bringup/lib/warehouse_bringup/warehouse_autonomy \
-    --ros-args -p use_sim_time:=true &
-  MISSION_PID=$!
-  kill -TERM "$MISSION_PID"     # bounded cleanup, then exit code 130
-  wait "$MISSION_PID"; echo "exit code: $?"
-  ```
-
-Tests cover SIGINT to the mission process (during an executing goal and during pending
-acceptance) and SIGTERM to the installed executable during an executing goal.
-
-Known limitation: the signal handler raises an exception wherever the main thread happens to be.
-A signal that lands at the exact moment Nav2 accepts a goal can interrupt that bookkeeping. In
-2 of about 17 such deliberately timed runs, cleanup still sent the cancel and exited with 130, but
-reported `ROBOT STOP NOT VERIFIED` instead of confirming the stop. Handling the signal as a flag
-checked by the main loop would remove this window. That change is not made yet.
+These are observations from the same software stack, not an independent safety channel.
+Interfaces, parameters and design notes are in [`docs/operation.md`](docs/operation.md).
 
 ---
 
-## Packages and key files
+## The story: from Trial 08 to Trial 12
 
-| Package / path | Purpose |
-|---|---|
-| `src/warehouse_bringup/` | Mission manager, launch files, saved map |
-| `  warehouse_bringup/warehouse_autonomy_node.py` | Mission state machine (`ros2 run warehouse_bringup warehouse_autonomy`) |
-| `  warehouse_bringup/nav2_supervision.py` | Passive helpers: Nav2 action-activity tracker, odometry stop tracker |
-| `  launch/warehouse_robot_system_camera.launch.py` | Full system: Gazebo, robot, Nav2 + RViz (t=40 s), detector (t=55 s) |
-| `  launch/warehouse_simulation_camera.launch.py` | Gazebo, robot_state_publisher, spawn `turtlebot3_burger_cam` at (0, 0) |
-| `  launch/warehouse_navigation.launch.py` | Nav2 with the warehouse map (`turtlebot3_navigation2`) |
-| `  maps/warehouse_map.{pgm,yaml}` | 318 × 439 cells at 0.05 m, origin (-7.56, -10.8) |
-| `  test/` | Mission-manager tests against a mock Nav2, 2 tracker unit tests, lint tests |
-| `src/warehouse_perception/` | `aruco_station_detector`: DICT_5X5_50, OpenCV 4.5.4 and ≥ 4.7 APIs |
-| `src/warehouse_gazebo/` | Warehouse world, AWS RoboMaker models, ArUco marker models and generator |
-| `src/turtlebot3/` | Vendored ROBOTIS TurtleBot3 packages; overrides apt. Holds the tuned Nav2 parameters |
-| `  turtlebot3_navigation2/param/humble/burger_cam.yaml` | AMCL, costmap, NavFn, DWB, behavior-server parameters used at runtime |
-| `scripts/run_mission_trial.sh` | Controlled end-to-end trial: fresh launch, readiness checks, mission, metrics |
-| `scripts/trial_metrics.py` | Counts comparable metrics from saved trial logs |
-| `docs/trial_results.md` | Metrics table and notes for every recorded trial |
-| `scripts/legacy/` | Earlier trial runners (Trials 02–10), kept so the historical logs stay reproducible |
-| `audit_logs/` | Raw launch, mission and metadata logs from every trial |
+**Trial 08 exposed the problem.** On the final return home, the outer `NavigateToPose`
+aborted. Nav2's spin, backup and wait behaviors kept running for about 10 s afterwards, and
+a `follow_path` controller goal stayed active for about 64 s. The mission manager of that
+time treated the abort as "Nav2 is idle". In a separate fault-injection run with the
+controller deactivated, the same manager sent the next goal during Nav2's lifecycle restart
+and then waited forever for a response.
 
-`src/aws-robomaker-small-warehouse-world/` is an upstream copy kept for reference; it is
-not built (`COLCON_IGNORE`). `warehouse_gazebo/launch/turtlebot3_*warehouse.launch.py` are
-early bring-up files that the system launch does not use.
+**The fix** was to check readiness before each goal and bound the wait. Reported activity
+on a monitored action or fresh odometry showing motion keeps the gate closed.
 
-### Interfaces used by the mission manager
-
-| Interface | Type | Role |
-|---|---|---|
-| `navigate_to_pose` | `nav2_msgs/action/NavigateToPose` | Station goals, cancellation |
-| `/<server>/_action/status` | `action_msgs/msg/GoalStatusArray` | Is any Nav2 server (navigate_to_pose, follow_path, compute_path_to_pose, spin, backup, wait, drive_on_heading) still executing? |
-| `/bt_navigator/get_state` | `lifecycle_msgs/srv/GetState` | Nav2 must be ACTIVE before each goal |
-| `/odom` | `nav_msgs/msg/Odometry` | Stationary before each goal; stop report after a halt |
-| `/warehouse/marker_id` | `std_msgs/msg/Int32` | Detected marker ID |
-| `/clock` | `rosgraph_msgs/msg/Clock` | Simulation time; stall detection |
-
-### Key parameters
-
-| Mission manager (ROS parameter) | Default | Clock |
-|---|---|---|
-| `verify_timeout` / `task_hold` / `inter_goal_pause` / `start_delay` | 15 / 3 / 2 / 10 s | sim |
-| `nav_retries` / `retry_pause` | 1 / 3 s | sim |
-| `nav_timeout` (per navigation attempt) | 300 s | sim |
-| `stop_hold` (stationary before a goal) | 1 s | sim |
-| `startup_timeout` / `gate_timeout` | 180 / 120 s | wall |
-| `goal_response_timeout` / `cancel_timeout` | 20 / 10 s | wall |
-| `clock_stall_timeout` / `halt_observe_timeout` | 15 / 15 s | wall |
-
-| Nav2 (`burger_cam.yaml`) | Value | Why |
-|---|---|---|
-| AMCL `set_initial_pose` | true, (0, 0, yaw 0) | Matches the Gazebo spawn; removes a startup race |
-| Goal tolerance xy / yaw | 0.12 m / 0.15 rad | 0.05 m caused goal oscillation under sim load; the wide-angle camera does not need a precise stop |
-| `robot_radius` | 0.14 m | Burger collision box + wheels ≈ 0.135 m circumscribed (was 0.10) |
-| Inflation radius (global / local) | 0.5 / 0.35 m | 0.2 m let NavFn route into gaps about 0.1 m wider than the robot |
-| Costmap layers | static, obstacle, inflation | The duplicate voxel layer re-processed the same 2D scan |
-
----
-
-## Failure handling and supervision
-
-The central lesson from the trial logs is that **a failed `NavigateToPose` does not mean
-Nav2 is idle or the robot is stopped**. In Trial 08, after the outer goal aborted, Nav2's
-spin, backup and wait behaviors kept running for about 10 s and a `follow_path` controller
-goal stayed active for about 64 s. In a fault-injection run with the controller
-deactivated, the previous mission manager sent the next goal during Nav2's lifecycle
-restart and then waited forever for a goal response.
-
-The mission manager now:
-
-- **Gates every goal.** The manager checks action-server discovery, a fresh ACTIVE
-  response from `bt_navigator`, the identity of the monitored status publishers,
-  their last reported activity, and a stationary hold spanning odometry samples.
-  Before retrying an abort, it also requires evidence that `follow_path` was active
-  during this attempt and has since cleared. An early abort without this evidence
-  can halt at the gate. Unused behavior servers may never emit a status sample.
-  These event-driven observations cannot exclude an action starting between observations.
-- **Bounds every wait.** Mission timing runs on simulation time. Communication watchdogs
-  run on the steady wall clock from a wall-clock timer, so a stalled `/clock` cannot hide
-  an unresponsive server. A stalled `/clock` is itself detected and halts the mission.
-- **Tracks unresolved goals.** After a response timeout the process keeps spinning
-  during bounded halt observation. It requests cancellation for late acceptance,
-  awaits a terminal result and reports an unverified stop if the goal remains
-  unresolved at exit. The same cleanup applies on interrupt.
-- **Reports honestly.** Every ending prints successful / failed / unattempted counts and
-  sets an exit code: 0 all succeeded, 1 finished with failed tasks, 2 halted, 3 never
-  started, 130 interrupted. After a halt, the node watches odometry and Nav2 status and
-  prints `ROBOT STOP VERIFIED (odometry)` or `ROBOT STOP NOT VERIFIED` with the reason.
-  This is a software consistency check of reported odometry, not a guarantee that the
-  robot has physically stopped.
-
-These checks are passive observations from the same software stack. They are not an
-independent safety channel (see [Limitations](#limitations)).
+**Trial 12 tested it under stress.** The host was heavily loaded (load average 21) and the
+simulation ran at 0.31× real time. At step 1, `bt_navigator` timed out waiting for its own
+servers to acknowledge goals, and the outer goal aborted. The orphaned `follow_path` goal
+kept driving the robot toward the dock. The gate reported
+`Nav2 goals still active: follow_path(1); robot not stationary` and held the retry for
+about 116 s (wall clock) until the controller finished and the robot stopped. The retry
+then succeeded at once, every later station succeeded first time, and the mission ended
+5/5 with exit code 0. **No overlapping goal was sent.**
 
 ---
 
 ## Testing
 
-**Automated tests** run without Gazebo (`colcon test`):
+**Automated tests** (`colcon test`, no Gazebo): 50 tests, 0 failures, 3 skipped (ament
+template copyright checks, which skip themselves because the files have no copyright header).
 
-- `warehouse_bringup/test/test_mission_manager.py`: cases run the real mission node
-  against a scriptable mock Nav2 (action server, lifecycle service, `follow_path` status,
-  odometry, marker stream) and a fake `/clock`, each on its own DDS domain. They cover:
-  - all goals succeed
-  - goal rejected; abort with and without a retry; failure after the retry limit, with
-    no extra waypoint sent
-  - wrong marker, no marker, marker seen only before arrival
-  - the verification window scaling with sim rate (0.5× and 2×)
-  - Nav2 unavailable at startup, permanently and temporarily
-  - `bt_navigator` inactive; lifecycle failure followed by recovery; lifecycle never
-    recovering
-  - goal response that never arrives, including a late acceptance that gets cancelled
-  - a result that never arrives (timeout, then cancel)
-  - a stalled `/clock`
-  - a retry held back while `follow_path` is still active, or while the robot is still
-    moving
-  - the verified and unverified stop reports
-  - process exit codes 0, 1, 2 and 130, including SIGINT during a pending goal acceptance
-- `test_nav2_supervision.py`: unit tests for the activity and motion trackers.
-- `warehouse_perception/test/test_detector.py`: detection of IDs 0–3 and rejection of a
-  DICT_4X4 marker. Passes with OpenCV 4.5.4 (apt) and 4.11 (pip).
-- `warehouse_gazebo/test/test_markers.py`: the committed marker textures match the
-  generator pixel for pixel and decode to their station IDs.
-- `ament_flake8` and `ament_pep257` for all three packages.
+- **33 mission-manager tests** run the real node against a scriptable mock Nav2 (action
+  server, lifecycle service, `follow_path` status, odometry, marker stream) and a fake
+  `/clock`, each on its own DDS domain. They cover rejection, aborts with and without retry,
+  wrong or missing markers, sim rates of 0.5× and 2×, Nav2 unavailable or inactive,
+  lifecycle failure and recovery, lost and late goal responses, result timeouts, a stalled
+  clock, retries held while `follow_path` is active or the robot is moving, stop reports,
+  and exit codes 0, 1, 2 and 130 (SIGINT, and SIGTERM to the installed executable).
+- **3 tracker unit tests** for the Nav2 activity and odometry motion trackers.
+- **Perception and assets:** detection of IDs 0–3 and rejection of a DICT_4X4 marker
+  (OpenCV 4.5.4 and 4.11); the committed marker textures match the generator pixel for
+  pixel.
+- **Lint:** `ament_flake8` and `ament_pep257` for all three packages.
 
-Current full run (`colcon test --executor sequential` on the PR #3 branch): **50 tests,
-0 failures, 0 errors, 3 skipped**. That is 39 in `warehouse_bringup` (33 mission-manager, 3 tracker,
-3 lint), 6 in `warehouse_perception` and 5 in `warehouse_gazebo`. The skips are the ament template
-copyright checks, which skip themselves because the files have no copyright header. The same suite
-runs in GitHub Actions on every pull request
-([`.github/workflows/warehouse-humble.yml`](.github/workflows/warehouse-humble.yml)). For
-comparison, the historical run on `0998813` (the Trial 12 commit) had 43 tests, 0 failures and
-3 skipped.
+The mock tests verify mission logic and supervision only, not physical motion.
 
-The mock tests verify mission logic and supervision only. They make no claim about
-physical motion or safety.
+**End-to-end trials** use `scripts/run_mission_trial.sh`: a fresh simulation, readiness
+checks (`bt_navigator` and `amcl` ACTIVE, `/amcl_pose`, the `map → odom → base_footprint`
+TF chain), a real-time-factor measurement, the mission, and saved logs, metadata and
+metrics under `audit_logs/`.
 
-**End-to-end trials** use `scripts/run_mission_trial.sh`. It starts a fresh GUI
-simulation, waits for `bt_navigator` and `amcl` to be ACTIVE, checks `/amcl_pose` and the
-`map → odom → base_footprint` TF chain, measures the real-time factor, runs the mission,
-and stores the launch log, mission log, metadata (commit, parameter-file hash, exit code)
-and a metrics summary under `audit_logs/`. The CI workflow's `gazebo-smoke` job runs the same
-script headless under Xvfb after the unit tests pass. Its logs are uploaded as an artifact,
-and the run for the current code is preserved in `audit_logs/ci_run_45570293516/`.
+**CI** ([`.github/workflows/warehouse-humble.yml`](.github/workflows/warehouse-humble.yml))
+runs the test suite and then the same trial script headless under Xvfb on every pull request
+to `main`.
 
 ---
 
-## Experimental results
+## Results
 
-All values below are counted from saved trial logs by `scripts/trial_metrics.py`
-([full table](docs/trial_results.md)). WSL2, 8 cores, Gazebo GUI on unless noted.
-Trials were run one at a time from a fresh launch. RTF is the real-time factor measured
-just before the mission.
+Counted from the saved logs by `scripts/trial_metrics.py`.
 
-| Trial | Purpose | Commit | Tasks OK | Nav failures / retries | Step 1 to summary (wall s) | RTF | Ctrl missed-rate warnings |
-|---|---|---|---|---|---|---|---|
-| 01 | Pilot | - | 5/5 | 0 / 0 | 497 | - | - |
-| 02–04 | Repeatability baseline | `3674bf1` | 15/15 | 0 / 0 | 540–597 | 0.65–0.74 | 80–204 |
-| 05–06 | Headless experiment | `00b70b6` | 3/10 | 7 / 0 | 427–525 | 0.87–0.88 | 7–16 |
-| 08 | Reliability hardening | `3de4301` | 4/5 | 1 / 0 | 503 | 0.63 | 122 |
-| 10 | Nav2 tuning | `3e8e1b7` | 5/5 | 0 / 0 | 524 | 0.67 | 75 |
-| 11 | Supervised manager | `dcce7f7` | interrupted after 3/3 | 0 / 0 | - | 0.68 | 119 |
-| **12** | **Final validation** | **`0998813`** | **5/5, exit 0** | **1 / 1 (recovered)** | **677** | **0.31** | **724** |
+| Run | Where | Code | Stations | Nav aborts / retries | Real-time factor |
+|---|---|---|---|---|---|
+| Trial 10 | Local, WSL2 | `3e8e1b7` (Nav2 tuning) | 5/5 | 0 / 0 | 0.67 |
+| Trial 12 | Local, WSL2, heavy load | `0998813` (supervised manager) | 5/5, exit 0 | 1 / 1 (recovered) | 0.31 |
+| [CI run 45570293516](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45570293516) | GitHub runner, headless | `847f31c` | 5/5, exit 0 | 0 / 0 | 0.84 |
+| [CI run 45579301270](https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation/actions/runs/45579301270) | GitHub runner, headless | `d34a0de` | 5/5, exit 0 | - | - |
 
-ArUco verification succeeded at every station the robot reached in every trial from 08 on.
-No trial from 10 on logged an AMCL "Please set the initial pose" warning. Earlier trials
-logged 2–3 each. The goal-response watchdog (present from Trial 11 on) never fired in a trial.
+All four use the same Nav2 parameter file. Both CI runs tested the current mission code;
+`d34a0de` is the tree merged to `main`, and `847f31c` differs from it only in tests and
+documentation. The trial script exits with the mission's exit code, and 0 means all five
+tasks succeeded. The first CI run's logs are kept in
+[`audit_logs/ci_run_45570293516/`](audit_logs/ci_run_45570293516/PROVENANCE.md). The second
+run's logs are only in its GitHub artifact, so its abort and RTF columns are not filled in.
 
-**How to read this.** Trials 02–04 are the original baseline: 15/15 tasks, plus 5/5 in
-pilot Trial 01, for 20/20. The old mission manager also reported "WAREHOUSE MISSION
-COMPLETE" when tasks had failed (Trial 05's log says so with 0/5 succeeded); `3de4301`
-fixed that. Trials 05–06 tested running without the GUI to raise the real-time factor.
-RTF went up (0.87–0.88), but navigation became much less reliable, so that change was
-not kept. Trial 08 (4/5) showed the outer-goal failure and the lingering lower-level
-activity described above. Trials 10–12 use the current Nav2 configuration (identical
-parameter-file hash). Trial 11 was cut off externally during step 4, when the controlling
-terminal session closed. It is kept as evidence, not counted.
-
-**Trial 12 validated commit `0998813`.** Its pre-mission RTF was 0.31 and its
-one-minute load average was 21. The recorded load sample does not isolate the cause of
-the higher missed-rate count. At step 1 the outer `NavigateToPose` aborted because
-`bt_navigator` timed out waiting for its own servers to acknowledge goals. The orphaned
-`follow_path` goal kept driving the robot to the dock. The mission manager reported it
-(`Nav2 goals still active: follow_path(1); robot not stationary`) and held the retry for
-about 116 s (wall clock) until the controller finished and the robot stopped. Only then did it
-send the retry, which succeeded at once from within goal tolerance. All remaining steps
-succeeded on the first attempt. **No overlapping goal was sent.** This is the failure the
-readiness gate was built for. Trial 08 ended on the final return-home abort while lower-level activity continued.
-In the separate controller-deactivation experiment, the earlier manager sent another station goal.
-
-**Three levels of failure.** Mission results count only the last of these:
-
-| Level | What it means | Trial 10 | Trial 12 |
-|---|---|---|---|
-| Nav2-internal `follow_path` abort | The controller gives up on one path; the behavior tree replans or runs a recovery itself | 2 | 5 |
-| Outer `NavigateToPose` abort | The behavior tree gives up; the mission manager sees a failure and may retry | 0 | 1 (retried) |
-| Mission task failure | A station is not reached or its marker is not confirmed | 0 | 0 |
-
-Trials 10 and 12 show that the current configuration *can* complete the mission, and
-that the supervisor waited for observed controller completion before retrying in Trial 12. They do not establish a
-reliability rate. Controller missed-rate warnings fell but remain, because the simulation
-runs at about 0.31–0.74× real time on this machine.
-
----
-
-## Engineering challenges and solutions
-
-| Challenge | Evidence | Resolution |
-|---|---|---|
-| Localization start-up race | A one-shot `/initialpose` published at t = 50 s could arrive before AMCL was active; logs show "Please set the initial pose" warnings and a readiness failure | AMCL `set_initial_pose` from parameters on activation; the trial runner checks AMCL ACTIVE, `/amcl_pose` and TF |
-| Simulation vs wall time | WSL2 runs at 0.31–0.88× real time, so wall-clock waits were too short in sim terms | Mission waits on the node clock (`use_sim_time`), watchdogs on the steady clock; tested at 0.5× and 2× |
-| Blocking mission sequencing | Original node slept and nested `spin_once` inside callbacks | Single timer-driven state machine; callbacks never block |
-| Action-server behavior | Outer goal failure while follow_path/spin continued; goal response never arrived during a lifecycle restart | Readiness gate over all Nav2 action statuses and lifecycle state; numbered goals; cancel late or abandoned goals |
-| Navigation aborts | Robot routed into a gap ~0.1 m from obstacles near box stacks; "No valid trajectories" then abort | Correct footprint radius, wider inflation, looser goal tolerance; verified offline that all stations remain reachable |
-| CPU limits | 75–724 controller missed-rate warnings per trial, depending on host load | Removed the duplicate voxel layer and DWB debug publishing; remaining warnings documented |
-| Asset consistency | Marker generator produced DICT_4X4 while the world and detector use DICT_5X5 | Generator reproduces the committed textures exactly, plus a regression test |
+Earlier trials (01–08) record the baseline, a rejected headless experiment, and the failure
+that led to the supervision work. Every trial, including unsuccessful and interrupted ones,
+is listed with notes in [`docs/trial_results.md`](docs/trial_results.md).
 
 ---
 
 ## Limitations
 
-Ranked by importance:
-
-1. **Simulation only; reliability shown, not quantified.** Everything was validated in
-   Gazebo on one WSL2 machine; nothing has run on a physical robot. A handful of successful
-   GUI trials is not a statistically meaningful success rate, and nothing was tested across
-   machines, worlds, or start poses.
+1. **Simulation only; reliability rate unmeasured.** Everything ran in Gazebo, on one WSL2
+   machine and GitHub-hosted runners. The runs above demonstrate completion under the tested
+   conditions; they do not measure a reliability rate. Nothing was tested across worlds or
+   start poses.
 2. **No independent safety layer.** Stop verification reads the same odometry the
-   controller uses. Nothing limits velocity or stops the robot independently of Nav2. A
-   real robot would need a safety-rated stop path.
-3. **Map quality.** Large parts of the saved occupancy grid are unknown and NavFn is
-   allowed to plan through unknown space. Some obstacles (shelf boards, box stacks) are
-   only partly visible to a 2D LiDAR.
-4. **Behavior-tree acknowledgement timeouts under load.** `bt_navigator` gives each Nav2
-   server 20 ms (`default_server_timeout`, the Nav2 default) to acknowledge a goal. Every
-   trial logs such timeouts (3–41 per run), and in Trial 12 they caused the first goal to
-   abort. The supervised retry recovered from it. Raising this timeout is the most likely
-   next improvement, but it is untested and has not been changed.
-5. **Simulation performance.** The sim runs below real time on WSL2, and controller
-   missed-rate warnings persist. Headless runs were faster but less reliable, and that
-   is not yet understood.
-6. **Fixed launch delays.** Nav2 starts at t = 40 s and the detector at t = 55 s by timer.
-   The mission manager and trial runner wait on real readiness, but the launch itself is
-   not event-driven.
-7. **Fixed mission.** Waypoints are hard-coded in the mission node and there is one robot.
-   "Docking" at the charging station is a navigation goal plus marker check within
-   0.12 m / 0.15 rad tolerance. It is not precision docking and there is no docking controller.
-8. **Marker presence, not pose.** A station counts as verified when the expected marker ID is
-   detected after arrival. There is no pose estimation from the marker, and no camera
-   calibration or TF for the camera.
+   controller uses. A real robot would need a safety-rated stop path.
+3. **Map quality.** Large parts of the saved occupancy grid are unknown, and NavFn may plan
+   through unknown space. Some obstacles are only partly visible to a 2D LiDAR.
+4. **Simulation performance.** The simulation runs at 0.31–0.74× real time on the
+   development machine, and the controller logs warnings that it missed its desired control
+   rate. Earlier headless runs were faster but less reliable, for reasons not yet understood.
+5. **Fixed launch delays.** Nav2 starts at t = 40 s and the detector at t = 55 s by timer.
+   The mission and trial runner wait on real readiness, but the launch is not event-driven.
+6. **Fixed mission.** Waypoints are hard-coded and there is one robot. "Docking" is a
+   navigation goal within 0.12 m / 0.15 rad plus a marker check, not precision docking.
+7. **Marker presence, not pose.** A station counts as verified when the expected marker ID
+   is detected after arrival. There is no marker pose estimation or camera calibration.
+
+## Next steps
+
+- **Raise Nav2's `default_server_timeout`.** `bt_navigator` gives each server 20 ms (the
+  Nav2 default) to acknowledge a goal. Every trial logs such timeouts (3–41 per run), and in
+  Trial 12 they caused the first abort. A larger value should remove them, but needs its own
+  validation trials.
+- **Handle signals as a flag.** The signal handler currently raises an exception wherever
+  the main thread is. If Ctrl+C or SIGTERM lands exactly as Nav2 accepts a goal, cleanup
+  still cancels and exits 130, but reported `ROBOT STOP NOT VERIFIED` in 2 of about 17
+  deliberately timed runs. Setting a flag for the main loop to check would close that window.
 
 ---
 
-## Reproducing the project
+## Documentation
 
-Tested on Ubuntu 22.04 (WSL2) with ROS 2 Humble and Gazebo Classic 11.
-
-```bash
-# ROS 2 Humble desktop, then:
-sudo apt install ros-humble-navigation2 ros-humble-nav2-bringup ros-humble-gazebo-ros-pkgs \
-  ros-humble-turtlebot3-gazebo ros-humble-turtlebot3-msgs ros-humble-dynamixel-sdk \
-  ros-humble-xacro ros-humble-cv-bridge python3-opencv python3-pytest
-
-git clone https://github.com/Sara-Esm/ros2-autonomous-warehouse-navigation.git ~/projects/warehouse_ws
-cd ~/projects/warehouse_ws
-source /opt/ros/humble/setup.bash
-rosdep install --from-paths src --ignore-src -y   # optional: verifies dependencies
-colcon build
-source install/setup.bash
-```
-
-The vendored `src/turtlebot3` builds ROBOTIS's packages, including the real-robot driver
-(hence `dynamixel-sdk`). Remapping additionally needs `ros-humble-cartographer-ros`.
-
-**Run the automated tests** (no Gazebo needed, about 3 minutes):
-
-```bash
-colcon test --packages-select warehouse_bringup warehouse_perception warehouse_gazebo
-colcon test-result --verbose
-```
-
-**Run the mission (two terminals):**
-
-```bash
-# Terminal 1: Gazebo + Nav2 + RViz + ArUco detector (Nav2 is up after about 60 s)
-export TURTLEBOT3_MODEL=burger_cam
-ros2 launch warehouse_bringup warehouse_robot_system_camera.launch.py
-
-# Terminal 2
-cd ~/projects/warehouse_ws
-source /opt/ros/humble/setup.bash
-source install/setup.bash
-# Run the mission. It waits for Nav2 to be ready by itself, then exits with its status code.
-ros2 run warehouse_bringup warehouse_autonomy --ros-args -p use_sim_time:=true
-echo "exit code: $?"
-```
-
-**Run a recorded trial** (starts and stops the simulation itself; tracked tree must be clean):
-
-```bash
-scripts/run_mission_trial.sh 13          # next unused number; writes audit_logs/*_trial13.*
-scripts/trial_metrics.py --all           # compare with earlier trials
-```
-
-**Rebuild the map** (optional; the map is included):
-
-```bash
-ros2 launch warehouse_bringup warehouse_simulation_camera.launch.py
-ros2 launch turtlebot3_cartographer cartographer.launch.py use_sim_time:=true
-ros2 run turtlebot3_teleop teleop_keyboard
-ros2 run nav2_map_server map_saver_cli -f src/warehouse_bringup/maps/warehouse_map
-```
-
----
+- [`docs/trial_results.md`](docs/trial_results.md): every trial, its metrics and notes
+- [`docs/operation.md`](docs/operation.md): package layout, interfaces, parameters,
+  stopping the mission, engineering challenges
+- [`docs/trial_baseline_protocol_v1.md`](docs/trial_baseline_protocol_v1.md): the original
+  repeatability protocol
+- [`audit_logs/`](audit_logs/): raw launch, mission and metadata logs;
+  [`scripts/legacy/`](scripts/legacy/): earlier trial runners
 
 ## Credits and upstream dependencies
 
@@ -511,8 +366,6 @@ ros2 run nav2_map_server map_saver_cli -f src/warehouse_bringup/maps/warehouse_m
 - [AWS RoboMaker Small Warehouse World](https://github.com/aws-robotics/aws-robomaker-small-warehouse-world)
   (MIT-0): warehouse models and world.
 - [OpenCV](https://opencv.org/) ArUco module (`cv2.aruco`) and `cv_bridge` for marker detection.
-
----
 
 ## Author
 
