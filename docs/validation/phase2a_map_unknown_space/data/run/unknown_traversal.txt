@@ -1,0 +1,13 @@
+# Phase 2a (free_thresh 0.01, allow_unknown true): unknown-space traversal, clearance, leg timing (diagnostics_phase2/run)
+live global costmap recorded: yes, 329 messages
+| Leg | Wall s | Sim s | First plan m | First plan on static-unknown | Mean over plans (static) | Mean over plans (live) | Executed m | Executed on static-unknown (m / sim s) | Executed on live-unknown (m) | Min clearance true geometry | p5 | Min clearance map | Ack timeouts |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Home Charging Dock | 88.7 | 57.5 | 11.44 | 1.58 m (14%) | 4% | 2% | 11.42 | 4.53 / 21.7 | 2.02 | 0.29 | 0.40 | 0.35 | 5 |
+| Loading Zone | 65.9 | 44.2 | 8.66 | 0.00 m (0%) | 0% | 0% | 8.74 | 0.00 / 0.0 | 0.00 | 0.46 | 0.50 | 0.46 | 1 |
+| Inventory Scan Station | 149.1 | 101.1 | 18.44 | 2.51 m (12%) | 7% | 3% | 19.52 | 6.18 / 29.5 | 1.31 | 0.50 | 0.57 | 0.50 | 2 |
+| Dispatch Zone | 52.8 | 34.8 | 5.68 | 0.00 m (0%) | 0% | 0% | 5.71 | 0.00 / 0.0 | 0.00 | 0.35 | 0.40 | 0.43 | 2 |
+| Return to Home Charging Dock | 173.0 | 120.1 | 25.06 | 1.62 m (6%) | 4% | 4% | 24.74 | 5.10 / 24.1 | 1.82 | 0.28 | 0.44 | 0.33 | 5 |
+| **Total** | 529.5 | 357.7 | 69.29 | 5.71 m | | | 70.13 | 15.81 / 75.3 | 5.14 | | | | 15 |
+
+ack timeouts: 15 in launch log, 15 during the mission (1.50 per wall minute, 2.52 per sim minute of navigation)
+executed share on static-unknown cells: 22.5% of 70.1 m

@@ -1,0 +1,19 @@
+map 318x439 @ 0.05 m; spawn in map frame (+0.144,+0.044); index convention floor() as Nav2 worldToMap
+  v1.0.1 load (free_thresh 0.25): occupied 3772, free 135830, unknown 0
+  Phase 2a load (free_thresh 0.01): occupied 3772, free 51911, unknown 83919
+
+## Strict policy (allow_unknown=false), static map only
+  spawn           cell (222,154) free, clearance 1.52 m: region 10
+  home_dock       cell (33,87) free, clearance 1.00 m: region 1
+  loading_zone    cell (37,196) free, clearance 0.65 m: region 1
+  inventory_scan  cell (403,183) free, clearance 0.95 m: region 10
+  dispatch_zone   cell (405,74) free, clearance 1.00 m: region 10
+  region 1: 38.2 m^2, contains ['home_dock', 'loading_zone'], touches map border: False
+  region 10: 69.3 m^2, contains ['spawn', 'inventory_scan', 'dispatch_zone'], touches map border: False
+  minimum unobserved cells separating region 10 (spawn side) from region 1 (north stations): 1 at map cell centers [(-2.335, 1.325)]
+  shortest route through known traversable space (grid Dijkstra; nan = no route):
+    spawn                   nan m
+    dock->loading          6.92 m
+    loading->inventory      nan m
+    inventory->dispatch    5.62 m
+    dispatch->dock          nan m

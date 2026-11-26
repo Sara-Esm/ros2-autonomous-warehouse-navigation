@@ -1,0 +1,10 @@
+map map_ft0.01.yaml; NavFn allow_unknown=false; global costmap track_unknown_space=True; plugins=['static_layer', 'obstacle_layer', 'inflation_layer']; synthetic scan=spawn
+loaded /map values: -1: 83919, 0: 51911, 100: 3772
+synthetic scan: 88 of 360 beams hit true geometry within 3.5 m
+global costmap: unknown(-1) 77508, lethal(100) 3810, inscribed(99) 11482, free(0) 26856
+  spawn           -> home_dock      : NO PLAN (status 6)
+  home_dock       -> loading_zone   : plan   8.71 m, 347 poses, on loaded-unknown cells: 0, on never-observed (PGM 205) cells: 0 (0%)
+  loading_zone    -> inventory_scan : NO PLAN (status 6)
+  inventory_scan  -> dispatch_zone  : plan   5.79 m, 206 poses, on loaded-unknown cells: 0, on never-observed (PGM 205) cells: 0 (0%)
+  dispatch_zone   -> home_dock      : NO PLAN (status 6)
+  spawn           -> inventory_scan : plan   9.95 m, 368 poses, on loaded-unknown cells: 1, on never-observed (PGM 205) cells: 1 (0%)

@@ -1,0 +1,9 @@
+map map_ft0.01.yaml; NavFn allow_unknown=true; global costmap track_unknown_space=True; plugins=['static_layer', 'obstacle_layer', 'inflation_layer']; synthetic scan=none
+loaded /map values: -1: 83919, 0: 51911, 100: 3772
+global costmap: unknown(-1) 77581, lethal(100) 3772, inscribed(99) 11394, free(0) 26930
+  spawn           -> home_dock      : plan  11.41 m, 455 poses, on loaded-unknown cells: 35, on never-observed (PGM 205) cells: 35 (8%)
+  home_dock       -> loading_zone   : plan   8.71 m, 347 poses, on loaded-unknown cells: 0, on never-observed (PGM 205) cells: 0 (0%)
+  loading_zone    -> inventory_scan : plan  18.56 m, 724 poses, on loaded-unknown cells: 83, on never-observed (PGM 205) cells: 83 (11%)
+  inventory_scan  -> dispatch_zone  : plan   5.76 m, 228 poses, on loaded-unknown cells: 0, on never-observed (PGM 205) cells: 0 (0%)
+  dispatch_zone   -> home_dock      : plan  24.91 m, 995 poses, on loaded-unknown cells: 33, on never-observed (PGM 205) cells: 33 (3%)
+  spawn           -> inventory_scan : plan   9.97 m, 397 poses, on loaded-unknown cells: 1, on never-observed (PGM 205) cells: 1 (0%)

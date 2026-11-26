@@ -1,0 +1,12 @@
+NOTE: line 1 (real LiDAR returns at spawn, read directly from the v1.0.1 bag) is valid.
+Lines 2-3 were computed with round() cell indexing before the Nav2-convention fix and are superseded by reachability_nav2.txt (same conclusions).
+---
+1) real LiDAR at spawn (first 20 scans of the v1.0.1 bag): finite returns per scan 83-83 of 360 (synthetic scan: 88); range_max 3.5
+2) region containing home_dock: 38.2 m^2; touches map border (exterior): False
+2) region containing inventory_scan: 69.3 m^2; touches map border (exterior): False
+3) shortest route through KNOWN traversable space only (grid Dijkstra, 0.14 m clearance):
+   spawn->dock          as mapped:    nan m | if the one gap cell at map (-2.36,+1.30) were observed:  11.68 m | v1.0.1 NavFn plan 11.50 m
+   dock->loading        as mapped:   6.94 m | if the one gap cell at map (-2.36,+1.30) were observed:   6.94 m | v1.0.1 NavFn plan 8.71 m
+   loading->inventory   as mapped:    nan m | if the one gap cell at map (-2.36,+1.30) were observed:  24.25 m | v1.0.1 NavFn plan 18.33 m
+   inventory->dispatch  as mapped:   5.62 m | if the one gap cell at map (-2.36,+1.30) were observed:   5.62 m | v1.0.1 NavFn plan 5.70 m
+   dispatch->dock       as mapped:    nan m | if the one gap cell at map (-2.36,+1.30) were observed:  25.18 m | v1.0.1 NavFn plan 18.61 m

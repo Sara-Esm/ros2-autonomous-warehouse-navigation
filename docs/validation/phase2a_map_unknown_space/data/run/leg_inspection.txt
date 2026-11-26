@@ -1,0 +1,9 @@
+## Home Charging Dock: 83 plans; first 11.44 m; route changes > 0.5 m between consecutive plans: []
+   min clearance to true geometry 0.29 m at world (-2.61,+1.00), 27.2 s into the leg; time with clearance < 0.35 m: 1.9 s wall
+   Phase 1 same leg: min clearance 0.65 m at world (-3.11,+1.76)
+## Inventory Scan Station: 136 plans; first 18.44 m; route changes > 0.5 m between consecutive plans: [(30.3, 2.52), (51.9, 1.49)]
+   min clearance to true geometry 0.50 m at world (+1.59,+9.00), 5.8 s into the leg; time with clearance < 0.35 m: 0.0 s wall
+   Phase 1 same leg: min clearance 0.50 m at world (+1.59,+9.07)
+## Return to Home Charging Dock: 163 plans; first 25.06 m; route changes > 0.5 m between consecutive plans: []
+   min clearance to true geometry 0.28 m at world (-2.66,+1.05), 111.2 s into the leg; time with clearance < 0.35 m: 2.6 s wall
+   Phase 1 same leg: min clearance 0.75 m at world (-3.98,+3.35)

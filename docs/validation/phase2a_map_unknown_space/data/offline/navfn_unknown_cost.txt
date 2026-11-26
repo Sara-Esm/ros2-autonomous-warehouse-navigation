@@ -1,0 +1,15 @@
+NavFn allow_unknown=true; static + inflation layers; map 14x14 m; start (-3,0) goal (+3,0); unknown block depth 1.0 m
+  block width  2.0 m: plan  6.45 m, poses inside block   0, max |y| 1.04 m -> AROUND block; geometric detour  6.32 m (extra  0.32 m over the 6.0 m straight line)
+  block width  4.0 m: plan  7.45 m, poses inside block   0, max |y| 2.04 m -> AROUND block; geometric detour  7.21 m (extra  1.21 m over the 6.0 m straight line)
+  block width  6.0 m: plan  8.87 m, poses inside block   0, max |y| 3.04 m -> AROUND block; geometric detour  8.49 m (extra  2.49 m over the 6.0 m straight line)
+  block width  7.0 m: plan 10.03 m, poses inside block   1, max |y| 3.54 m -> AROUND block; geometric detour  9.22 m (extra  3.22 m over the 6.0 m straight line)
+  block width  8.0 m: plan  6.00 m, poses inside block  40, max |y| 0.00 m -> THROUGH unknown; geometric detour 10.00 m (extra  4.00 m over the 6.0 m straight line)
+  block width  9.0 m: plan  6.00 m, poses inside block  40, max |y| 0.00 m -> THROUGH unknown; geometric detour 10.82 m (extra  4.82 m over the 6.0 m straight line)
+  block width 10.0 m: plan  6.00 m, poses inside block  40, max |y| 0.00 m -> THROUGH unknown; geometric detour 11.66 m (extra  5.66 m over the 6.0 m straight line)
+  block width 12.0 m: plan  6.00 m, poses inside block  40, max |y| 0.00 m -> THROUGH unknown; geometric detour 13.42 m (extra  7.42 m over the 6.0 m straight line)
+switch between widths 7.0 and 8.0 m: crossing 1.0 m of unknown costs as much as 4.22-5.00 m of free travel -> effective unknown/free cost ratio ~4.2-5.0 (header prediction 253/50 = 5.06)
+note: the bound above uses geometric detour lengths. Using the planner's own (grid) detour plan length at
+width 7.0 m (10.03 m) the lower bound is ~5.0; the result is consistent with the header-derived
+COST_OBS-1 (253) vs COST_NEUTRAL (50) ~ 5.06. Unknown cells are heavily penalized, not forbidden.
+Earlier runs of this experiment were discarded: leftover planner_server processes from previous
+cases answered goals ("more than one action server"); this run verified no leftovers per case.

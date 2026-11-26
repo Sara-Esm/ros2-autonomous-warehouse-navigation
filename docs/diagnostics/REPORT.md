@@ -119,7 +119,7 @@ uses the identity transform, so the 2° rotation appears as a growing offset tow
 
 ### 1.3 Map file
 
-- 61% of PGM pixels have value 205 ("never observed"). With `free_thresh: 0.25` they load as **free**
+- 60.1% of PGM pixels have value 205 ("never observed"). With `free_thresh: 0.25` they load as **free**
   (occupancy 1 − 205/255 = 0.196 < 0.25). The loaded map has no unknown cells (CONFIG).
 - The map's free space connects to the image border even after inflating obstacles by the 0.14 m robot
   radius. The perimeter, mainly the east wall behind the shelves, is not closed. This test does not depend on

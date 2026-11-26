@@ -1,0 +1,61 @@
+Unable to find image 'ros:humble-ros-base-jammy' locally
+humble-ros-base-jammy: Pulling from library/ros
+ba082564e660: Pulling fs layer
+fd66fcdd35c1: Pulling fs layer
+5509c707d84c: Pulling fs layer
+06ee1fac6c7b: Pulling fs layer
+656e27b69d43: Pulling fs layer
+06ee1fac6c7b: Waiting
+16776ebecf23: Pulling fs layer
+d3257cabf06c: Pulling fs layer
+1fac52be0be6: Pulling fs layer
+09d99732c388: Pulling fs layer
+952b68e3c377: Pulling fs layer
+09d99732c388: Waiting
+16776ebecf23: Waiting
+d3257cabf06c: Waiting
+1fac52be0be6: Waiting
+952b68e3c377: Waiting
+fd66fcdd35c1: Verifying Checksum
+fd66fcdd35c1: Download complete
+5509c707d84c: Verifying Checksum
+5509c707d84c: Download complete
+06ee1fac6c7b: Download complete
+16776ebecf23: Download complete
+ba082564e660: Verifying Checksum
+ba082564e660: Download complete
+1fac52be0be6: Verifying Checksum
+1fac52be0be6: Download complete
+09d99732c388: Verifying Checksum
+09d99732c388: Download complete
+ba082564e660: Pull complete
+fd66fcdd35c1: Pull complete
+5509c707d84c: Pull complete
+06ee1fac6c7b: Pull complete
+952b68e3c377: Download complete
+656e27b69d43: Verifying Checksum
+656e27b69d43: Download complete
+d3257cabf06c: Verifying Checksum
+d3257cabf06c: Download complete
+656e27b69d43: Pull complete
+16776ebecf23: Pull complete
+d3257cabf06c: Pull complete
+1fac52be0be6: Pull complete
+09d99732c388: Pull complete
+952b68e3c377: Pull complete
+Digest: sha256:a18afd4a42ad603579d03b9012385dfeaf2e848423f0a6c41699766e7849c86c
+Status: Downloaded newer image for ros:humble-ros-base-jammy
+container: Ubuntu 22.04.5 LTS
+  libgraphicsmagick++-q16-12 1.4+really1.3.38-1ubuntu0.1
+  libgraphicsmagick-q16-3 1.4+really1.3.38-1ubuntu0.1
+  ros-humble-nav2-map-server 1.1.20-1jammy.20261110.104635
+map_ft0.25.yaml: 318x439 res 0.050 origin (-7.56,-10.80); loaded values 0: 135830, 100: 3772  (100 occupied, 0 free, -1 unknown)
+map_ft0.19.yaml: 318x439 res 0.050 origin (-7.56,-10.80); loaded values 0: 135830, 100: 3772  (100 occupied, 0 free, -1 unknown)
+map_ft0.05.yaml: 318x439 res 0.050 origin (-7.56,-10.80); loaded values -1: 83919, 0: 51911, 100: 3772  (100 occupied, 0 free, -1 unknown)
+map_ft0.03.yaml: 318x439 res 0.050 origin (-7.56,-10.80); loaded values -1: 83919, 0: 51911, 100: 3772  (100 occupied, 0 free, -1 unknown)
+map_ft0.025.yaml: 318x439 res 0.050 origin (-7.56,-10.80); loaded values -1: 83919, 0: 51911, 100: 3772  (100 occupied, 0 free, -1 unknown)
+map_ft0.02.yaml: 318x439 res 0.050 origin (-7.56,-10.80); loaded values -1: 83919, 0: 51911, 100: 3772  (100 occupied, 0 free, -1 unknown)
+map_ft0.01.yaml: 318x439 res 0.050 origin (-7.56,-10.80); loaded values -1: 83919, 0: 51911, 100: 3772  (100 occupied, 0 free, -1 unknown)
+map_ft0.002.yaml: 318x439 res 0.050 origin (-7.56,-10.80); loaded values -1: 83919, 0: 51911, 100: 3772  (100 occupied, 0 free, -1 unknown)
+map_ft0.001.yaml: 318x439 res 0.050 origin (-7.56,-10.80); loaded values -1: 83919, 0: 51911, 100: 3772  (100 occupied, 0 free, -1 unknown)
+map_ft0.0005.yaml: 318x439 res 0.050 origin (-7.56,-10.80); loaded values -1: 83919, 0: 51911, 100: 3772  (100 occupied, 0 free, -1 unknown)

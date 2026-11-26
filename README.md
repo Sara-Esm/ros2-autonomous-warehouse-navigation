@@ -383,14 +383,41 @@ Results:
 - The mean position error on the four comparable stations fell from 0.35 m to 0.07 m.
 - The mean heading bias fell from +6.4° to −0.6°. The heading magnitude stays at 7–10° because the goal
   checker accepts headings at the edge of its unchanged 8.6° tolerance.
-- A residual turning motion settled 1.26 s after the final navigation success report. The robot was then
-  stationary (0.0 mm displacement, no velocity commands) for the remainder of the observation window,
-  including 60 s after the mission report.
+- A residual turning motion settled 1.26 s after the final NavigateToPose success, which came before the
+  MISSION COMPLETE report. The robot was then stationary (0.0 mm displacement, no velocity commands) for the
+  remainder of the observation window, including 60 s after the mission report.
 - The run was not error-free. Spin, Wait and BackUp recoveries still occurred, and each coincided with an
   action-acknowledgement timeout (16 in total), which belongs to a later phase. The detector and RViz
   exited with errors at teardown.
 
 Details: [`docs/validation/phase1_station_frames/REPORT.md`](docs/validation/phase1_station_frames/REPORT.md).
+
+### Unknown space after the map-classification correction (Phase 2a validation)
+
+One validation mission on `feat/map-unknown-space`, compared with the Phase 1 mission. The only robot change
+is the map's `free_thresh`, from 0.25 to 0.01. The map's never-observed cells (60.1% of the image) now load as
+**unknown** instead of free: 3,772 occupied, 51,911 free and 83,919 unknown cells, verified with the real
+`nav2_map_server` in the local and CI environments and regression-tested. The threshold is empirical: the
+installed builds do not decode the PGM by the textbook formula, so 0.19 would have changed nothing.
+
+The planner still **may** cross unknown space (`allow_unknown: true`), but now pays heavily for it: crossing
+1 m of unknown costs as much as about 4–6 m of free travel. Prohibiting unknown space is deferred to a
+re-mapping phase, because the current map leaves the north and south stations connected through observed
+space only via a single unobserved cell.
+
+| Measure | Phase 1 | Phase 2a |
+|---|---|---|
+| Mission | 5/5, exit 0 | 5/5, exit 0 |
+| Station position error, stations 1–4 mean / all five mean / max | 0.069 / 0.076 / 0.102 m | 0.057 / 0.055 / 0.103 m |
+| First plans over never-observed cells | 25.9 m | 5.7 m |
+| Driven over never-observed cells | 25.8 m (41%) | 15.8 m (23%), of which 5.1 m on cells still unknown in the live costmap |
+| Return-home leg | 18.6 m | 24.7 m |
+| Minimum clearance to true geometry | 0.32 m | 0.28 m (central-block corner) |
+| Route changes > 0.5 m during a leg | 0 | 2 (one leg) |
+
+This is a reduction, not a prevention, of unknown-space traversal. The robot also now takes longer, closer
+routes through the one observed corridor. Details:
+[`docs/validation/phase2a_map_unknown_space/REPORT.md`](docs/validation/phase2a_map_unknown_space/REPORT.md).
 
 ---
 
@@ -402,8 +429,10 @@ Details: [`docs/validation/phase1_station_frames/REPORT.md`](docs/validation/pha
    start poses.
 2. **No independent safety layer.** Stop verification reads the same odometry the
    controller uses. A real robot would need a safety-rated stop path.
-3. **Map and frames.** Large parts of the saved occupancy grid were never observed. With the
-   map's `free_thresh: 0.25` they load as free rather than unknown, and the map's outer wall is not closed.
+3. **Map and frames.** Large parts of the saved occupancy grid were never observed. Since Phase 2a
+   they load as unknown (`free_thresh: 0.01`, empirical for the supported `nav2_map_server` builds), but
+   NavFn may still plan through unknown space at a penalty. The observed space does not connect the
+   mission routes, so preventing that requires re-mapping.
    The map frame is rotated about 2° relative to the Gazebo world frame in which the station poses were
    measured. Station goals are now converted with a calibration measured from simulator ground truth; the
    AMCL initial pose (map origin) is still 0.15 m / 2° from the true spawn pose. Some obstacles are only
@@ -441,6 +470,9 @@ Details: [`docs/validation/phase1_station_frames/REPORT.md`](docs/validation/pha
 ## Documentation
 
 - [`docs/trial_results.md`](docs/trial_results.md): every trial, its metrics and notes
+- [`docs/validation/phase1_station_frames/REPORT.md`](docs/validation/phase1_station_frames/REPORT.md),
+  [`docs/validation/phase2a_map_unknown_space/REPORT.md`](docs/validation/phase2a_map_unknown_space/REPORT.md):
+  validation of the station-frame correction and the occupancy-classification change
 - [`docs/diagnostics/REPORT.md`](docs/diagnostics/REPORT.md): diagnostic investigation of v1.0.1
   (map and frame alignment, localization, planning, control dynamics, ArUco, timing, completion)
 - [`docs/operation.md`](docs/operation.md): package layout, interfaces, parameters,
