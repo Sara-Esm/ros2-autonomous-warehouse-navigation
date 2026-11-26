@@ -1,0 +1,6 @@
+map /home/owl/projects/warehouse_ws/src/warehouse_bringup/maps/warehouse_map_v2.yaml; NavFn allow_unknown=False; track_unknown_space=True
+  spawn           -> home_dock      : plan  11.62 m, 463 poses, poses on loaded-unknown cells 0, min clearance to map obstacles 0.58 m, min clearance to true geometry 0.57 m; min map clearance at pose 127 (-2.91,+0.96)
+  home_dock       -> loading_zone   : plan   8.68 m, 334 poses, poses on loaded-unknown cells 2, min clearance to map obstacles 0.49 m, min clearance to true geometry 0.48 m; unknown poses at indices [156, 160] of 334: [(-1.053, 6.787), (-0.937, 6.741)]; min map clearance at pose 154 (-1.13,+6.85)
+  loading_zone    -> inventory_scan : plan  18.45 m, 710 poses, poses on loaded-unknown cells 0, min clearance to map obstacles 0.57 m, min clearance to true geometry 0.60 m; min map clearance at pose 16 (+1.87,+8.84)
+  inventory_scan  -> dispatch_zone  : plan   5.71 m, 216 poses, poses on loaded-unknown cells 0, min clearance to map obstacles 0.33 m, min clearance to true geometry 0.36 m; min map clearance at pose 98 (-0.73,-8.90)
+  dispatch_zone   -> home_dock      : plan  19.68 m, 675 poses, poses on loaded-unknown cells 0, min clearance to map obstacles 0.30 m, min clearance to true geometry 0.30 m; min map clearance at pose 267 (-4.43,-1.05)

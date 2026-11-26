@@ -1,0 +1,8 @@
+central box x[-3,1] y[-5.5,0]: 91% unknown in v2
+| Leg | True-geometry shortest | through central box | on v2 unknown cells | Strict NavFn plan (v2) | Plan / shortest |
+|---|---|---|---|---|---|
+| spawn -> home_dock | 11.04 m | 0.00 m | 0.00 m | 11.61 m | 1.05 |
+| home_dock -> loading_zone | 7.07 m | 0.00 m | 0.00 m | 8.65 m | 1.22 |
+| loading_zone -> inventory_scan | 18.30 m | 0.00 m | 0.80 m | 18.30 m | 1.00 |
+| inventory_scan -> dispatch_zone | 5.57 m | 0.00 m | 0.00 m | 5.63 m | 1.01 |
+| dispatch_zone -> home_dock | 18.62 m | 0.00 m | 9.95 m | 19.66 m | 1.06 |

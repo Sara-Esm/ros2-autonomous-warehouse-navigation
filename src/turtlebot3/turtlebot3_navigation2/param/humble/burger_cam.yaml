@@ -284,7 +284,8 @@ planner_server:
       plugin: "nav2_navfn_planner/NavfnPlanner"
       tolerance: 0.5
       use_astar: false
-      allow_unknown: true
+      # Phase 2b: never plan through unknown space (the re-mapped map connects all mission routes).
+      allow_unknown: false
 
 planner_server_rclcpp_node:
   ros__parameters:

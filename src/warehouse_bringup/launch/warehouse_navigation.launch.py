@@ -10,7 +10,7 @@ def generate_launch_description():
     nav2_pkg = get_package_share_directory('turtlebot3_navigation2')
     bringup_pkg = get_package_share_directory('warehouse_bringup')
 
-    map_file = os.path.join(bringup_pkg, 'maps', 'warehouse_map.yaml')
+    map_file = os.path.join(bringup_pkg, 'maps', 'warehouse_map_v2.yaml')
 
     nav2_launch = os.path.join(nav2_pkg, 'launch', 'navigation2.launch.py')
 

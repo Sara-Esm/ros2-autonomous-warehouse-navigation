@@ -1,0 +1,71 @@
+     0.0s start: 58 route points
+     0.1s sensor data stale -> paused
+     0.3s sensor data back -> resume
+    24.2s spin done at (-0.00,+0.00)
+    48.9s reached point 1 (-1.50,+0.40); min LiDAR so far 0.90 m
+    71.2s reached point 2 (-3.60,+0.60); min LiDAR so far 0.75 m
+   100.5s reached point 3 (-3.70,+3.00); min LiDAR so far 0.75 m
+   137.9s reached point 4 (-3.70,+6.50); min LiDAR so far 0.75 m
+   163.2s reached point 5 (-3.65,+8.80); min LiDAR so far 0.75 m
+   188.2s spin done at (-3.65,+8.69)
+   216.8s reached point 6 (-3.40,+6.90); min LiDAR so far 0.75 m
+   240.7s reached point 7 (-1.50,+6.85); min LiDAR so far 0.43 m
+   262.9s reached point 8 (+0.50,+7.10); min LiDAR so far 0.42 m
+   276.0s reached point 9 (+1.60,+7.60); min LiDAR so far 0.42 m
+   294.3s reached point 10 (+1.80,+8.90); min LiDAR so far 0.42 m
+   318.5s spin done at (+1.78,+8.79)
+   347.1s reached point 11 (+1.70,+7.00); min LiDAR so far 0.42 m
+   374.7s reached point 12 (+1.70,+4.50); min LiDAR so far 0.42 m
+   412.4s reached point 13 (+1.70,+1.00); min LiDAR so far 0.42 m
+   456.2s reached point 14 (+1.70,-3.00); min LiDAR so far 0.42 m
+   488.9s reached point 15 (+1.75,-6.00); min LiDAR so far 0.42 m
+   518.5s reached point 16 (+1.75,-8.70); min LiDAR so far 0.42 m
+   542.2s spin done at (+1.75,-8.59)
+   563.2s reached point 17 (+0.20,-8.75); min LiDAR so far 0.42 m
+   578.2s reached point 18 (-0.95,-8.85); min LiDAR so far 0.41 m
+   587.7s reached point 19 (-1.60,-9.15); min LiDAR so far 0.32 m
+   610.6s reached point 20 (-3.60,-9.10); min LiDAR so far 0.32 m
+   634.5s spin done at (-3.49,-9.10)
+   672.3s reached point 21 (-3.80,-6.00); min LiDAR so far 0.32 m
+   717.5s reached point 22 (-3.80,-2.00); min LiDAR so far 0.32 m
+   745.4s reached point 23 (-3.60,+0.60); min LiDAR so far 0.32 m
+   772.5s reached point 24 (-1.50,+0.40); min LiDAR so far 0.32 m
+   796.8s reached point 25 (+0.40,+0.60); min LiDAR so far 0.32 m
+   810.1s reached point 26 (+0.40,+1.50); min LiDAR so far 0.32 m
+   838.1s reached point 27 (+0.40,+4.00); min LiDAR so far 0.32 m
+   863.7s reached point 28 (+0.30,+6.30); min LiDAR so far 0.32 m
+   875.7s reached point 29 (-0.50,+6.85); min LiDAR so far 0.32 m
+   898.5s reached point 30 (+0.40,+6.30); min LiDAR so far 0.32 m
+   925.9s reached point 31 (+0.50,+4.00); min LiDAR so far 0.32 m
+   959.7s reached point 32 (+0.80,+1.00); min LiDAR so far 0.32 m
+  1002.8s reached point 33 (+0.80,-3.00); min LiDAR so far 0.32 m
+  1041.9s reached point 34 (+0.20,-6.50); min LiDAR so far 0.32 m
+  1064.9s reached point 35 (+0.80,-8.40); min LiDAR so far 0.32 m
+  1099.4s reached point 36 (+1.70,-6.00); min LiDAR so far 0.32 m
+  1154.3s reached point 37 (+1.70,-1.00); min LiDAR so far 0.32 m
+  1178.2s reached point 38 (+0.00,+0.00); min LiDAR so far 0.32 m
+  1201.7s spin done at (+0.09,-0.06)
+  1219.0s reached point 39 (-1.50,+0.40); min LiDAR so far 0.32 m
+  1242.3s reached point 40 (-3.60,+0.60); min LiDAR so far 0.32 m
+  1265.1s spin done at (-3.49,+0.59)
+  1302.6s reached point 41 (-3.70,-2.00); min LiDAR so far 0.32 m
+  1328.6s reached point 42 (-3.75,-4.00); min LiDAR so far 0.32 m
+  1352.7s spin done at (-3.75,-3.89)
+  1379.1s reached point 43 (-3.80,-6.00); min LiDAR so far 0.32 m
+  1415.8s reached point 44 (-3.60,-8.60); min LiDAR so far 0.32 m
+  1462.7s reached point 45 (-3.80,-6.00); min LiDAR so far 0.32 m
+  1494.9s reached point 46 (-3.75,-4.00); min LiDAR so far 0.32 m
+  1521.2s reached point 47 (-3.70,-2.00); min LiDAR so far 0.32 m
+  1554.9s reached point 48 (-3.60,+0.60); min LiDAR so far 0.32 m
+  1588.3s reached point 49 (-3.70,+3.00); min LiDAR so far 0.32 m
+  1601.8s reached point 50 (-3.70,+4.00); min LiDAR so far 0.32 m
+  1625.9s spin done at (-3.70,+3.89)
+  1658.7s reached point 51 (-3.70,+6.50); min LiDAR so far 0.32 m
+  1687.0s reached point 52 (-3.60,+8.60); min LiDAR so far 0.32 m
+  1723.4s reached point 53 (-3.70,+6.50); min LiDAR so far 0.32 m
+  1769.2s reached point 54 (-3.70,+3.00); min LiDAR so far 0.32 m
+  1800.8s reached point 55 (-3.60,+0.60); min LiDAR so far 0.32 m
+  1828.1s reached point 56 (-1.50,+0.40); min LiDAR so far 0.32 m
+  1844.8s reached point 57 (+0.00,+0.00); min LiDAR so far 0.32 m
+  1869.9s spin done at (-0.11,+0.03)
+  1869.9s FINISH code 0: route completed; minimum LiDAR range seen 0.323 m

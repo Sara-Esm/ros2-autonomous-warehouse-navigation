@@ -1,0 +1,13 @@
+image: warehouse_map_v2.pgm
+mode: trinary
+resolution: 0.05
+# Origin as written by map_saver_cli (rounded to ~3 significant figures: about +-0.005 m in x and
+# +-0.05 m in y relative to the Cartographer frame). Navigation is self-consistent in this frame.
+origin: [-7.28, -10.7, 0]
+negate: 0
+occupied_thresh: 0.65
+# 0.01 makes the PGM value 205 load as unknown (-1). Empirical for this map and Humble
+# nav2_map_server builds 1.1.18 and 1.1.20 (the PGM is not decoded by the textbook formula);
+# regression-tested against the loaded grid (test/test_map_classification.py).
+# Map generated in Phase 2b: Cartographer + scripted coverage drive; see docs/validation/phase2b_slam_remap.
+free_thresh: 0.01

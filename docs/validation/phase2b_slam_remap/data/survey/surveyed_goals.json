@@ -1,0 +1,77 @@
+{
+ "spawn": {
+  "x": 0.026,
+  "y": 0.007,
+  "yaw": -0.43,
+  "spread_m": 0.0215,
+  "yaw_spread_deg": 0.12,
+  "amcl_sigma": [
+   0.178,
+   0.038,
+   7.224
+  ],
+  "placement_error_m": 0.0001,
+  "eval_goal_error_m": 0.05,
+  "eval_goal_yaw_error_deg": 0.28
+ },
+ "home_dock": {
+  "x": -3.543,
+  "y": 9.296,
+  "yaw": 90.59,
+  "spread_m": 0.0105,
+  "yaw_spread_deg": 1.49,
+  "amcl_sigma": [
+   0.116,
+   0.189,
+   11.472
+  ],
+  "placement_error_m": 0.0127,
+  "eval_goal_error_m": 0.014,
+  "eval_goal_yaw_error_deg": 1.3
+ },
+ "loading_zone": {
+  "x": 1.933,
+  "y": 9.22,
+  "yaw": 88.93,
+  "spread_m": 0.019,
+  "yaw_spread_deg": 0.85,
+  "amcl_sigma": [
+   0.101,
+   0.22,
+   14.656
+  ],
+  "placement_error_m": 0.0128,
+  "eval_goal_error_m": 0.0175,
+  "eval_goal_yaw_error_deg": -0.36
+ },
+ "inventory_scan": {
+  "x": 1.693,
+  "y": -8.985,
+  "yaw": -90.3,
+  "spread_m": 0.0238,
+  "yaw_spread_deg": 0.47,
+  "amcl_sigma": [
+   0.126,
+   0.173,
+   10.655
+  ],
+  "placement_error_m": 0.0129,
+  "eval_goal_error_m": 0.077,
+  "eval_goal_yaw_error_deg": 0.41
+ },
+ "dispatch_zone": {
+  "x": -3.704,
+  "y": -9.282,
+  "yaw": -91.24,
+  "spread_m": 0.0219,
+  "yaw_spread_deg": 0.33,
+  "amcl_sigma": [
+   0.15,
+   0.167,
+   9.845
+  ],
+  "placement_error_m": 0.0126,
+  "eval_goal_error_m": 0.0347,
+  "eval_goal_yaw_error_deg": -0.53
+ }
+}

@@ -1,0 +1,2 @@
+warehouse_map_v2.yaml free_thresh=0.01: 272x435, origin (-7.796142,-10.984653); loaded -1: 61997, 0: 53233, 100: 3090; cells differing from PGM class: 0
+warehouse_map.yaml free_thresh=0.01: 318x439, origin (-7.560000,-10.800000); loaded -1: 83919, 0: 51911, 100: 3772; cells differing from PGM class: 0

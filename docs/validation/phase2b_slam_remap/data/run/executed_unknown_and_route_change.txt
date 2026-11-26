@@ -1,0 +1,6 @@
+executed samples on v2 static-unknown cells: 1186 of 10778
+  distance from those cells to the nearest known-free cell: median 0.100 m, p95 0.250 m, max 0.420 m
+  distance from the robot to the active global plan there: median 0.046 m, p95 0.223 m
+  (evaluation-fit / origin uncertainty: up to ~0.05 m in y; v2 unknown includes thin low-confidence streaks)
+return-leg route change 0.77 m at 487.7 s (BackUp recovery started at 508.6 s)
+route change at 487.7 s: robot truth (-3.96,-1.62); largest divergence 0.77 m at map (-3.38,-0.60); plan lengths 11.83 -> 11.49 m

@@ -1,0 +1,18 @@
+libgraphicsmagick++-q16-12 1.4+really1.3.38-1ubuntu0.1
+ros-humble-nav2-map-server 1.1.20-1jammy.20261110.104635
+
+Summary: 5 packages finished [4.56s]
+Summary: 3 packages finished [3min 24s]
+  3 packages had stderr output: warehouse_bringup warehouse_gazebo warehouse_perception
+Summary: 74 tests, 0 errors, 0 failures, 3 skipped
+test_pgm_contains_only_trinary_values[path0]: passed (0.005 s)
+test_pgm_contains_only_trinary_values[path1]: passed (0.004 s)
+test_operational_map_geometry: passed (0.002 s)
+test_original_map_preserved: passed (0.002 s)
+test_free_threshold_inside_verified_window[path0]: passed (0.002 s)
+test_free_threshold_inside_verified_window[path1]: passed (0.002 s)
+test_navigation_launch_uses_operational_map: passed (0.000 s)
+test_station_goals_are_on_known_free_cells_of_operational_map: passed (0.004 s)
+test_unknown_space_policy_configuration: passed (0.031 s)
+test_loaded_occupancy_grid_matches_pgm_classes_cell_by_cell[path0]: passed (0.649 s)
+test_loaded_occupancy_grid_matches_pgm_classes_cell_by_cell[path1]: passed (0.534 s)

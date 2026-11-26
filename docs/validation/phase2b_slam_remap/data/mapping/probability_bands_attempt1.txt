@@ -1,0 +1,7 @@
+Cartographer cell probability band vs distance to TRUE geometry (evaluation fit):
+  0-24 (saved FREE)        n= 52559  on true geometry (<0.05 m)   0.6%  within 0.10 m   3.5%
+  25-34                    n=  6116  on true geometry (<0.05 m)   0.9%  within 0.10 m   3.7%
+  35-44                    n=  8203  on true geometry (<0.05 m)   1.3%  within 0.10 m   3.9%
+  45-49                    n=  3967  on true geometry (<0.05 m)   3.3%  within 0.10 m   8.5%
+  50-64                    n=  2972  on true geometry (<0.05 m)  24.5%  within 0.10 m  68.5%
+  65-100 (saved OCCUPIED)  n=  3090  on true geometry (<0.05 m)  51.8%  within 0.10 m  95.0%

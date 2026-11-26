@@ -1,0 +1,68 @@
+  (+0.00,+0.00) -> (-1.50,+0.40)  1.55 m  min clearance 0.85 m
+  (-1.50,+0.40) -> (-3.60,+0.60)  2.11 m  min clearance 0.77 m
+  (-3.60,+0.60) -> (-3.70,+3.00)  2.40 m  min clearance 1.12 m
+  (-3.70,+3.00) -> (-3.70,+6.50)  3.50 m  min clearance 1.05 m
+  (-3.70,+6.50) -> (-3.65,+8.80)  2.30 m  min clearance 1.05 m  [spin at end]
+  (-3.65,+8.80) -> (-3.40,+6.90)  1.92 m  min clearance 1.16 m
+  (-3.40,+6.90) -> (-1.50,+6.85)  1.90 m  min clearance 0.50 m
+  (-1.50,+6.85) -> (+0.50,+7.10)  2.02 m  min clearance 0.45 m
+  (+0.50,+7.10) -> (+1.60,+7.60)  1.21 m  min clearance 0.71 m
+  (+1.60,+7.60) -> (+1.80,+8.90)  1.32 m  min clearance 0.55 m  [spin at end]
+  (+1.80,+8.90) -> (+1.70,+7.00)  1.90 m  min clearance 0.55 m
+  (+1.70,+7.00) -> (+1.70,+4.50)  2.50 m  min clearance 0.60 m
+  (+1.70,+4.50) -> (+1.70,+1.00)  3.50 m  min clearance 0.60 m
+  (+1.70,+1.00) -> (+1.70,-3.00)  4.00 m  min clearance 1.10 m
+  (+1.70,-3.00) -> (+1.75,-6.00)  3.00 m  min clearance 1.09 m
+  (+1.75,-6.00) -> (+1.75,-8.70)  2.70 m  min clearance 1.05 m  [spin at end]
+  (+1.75,-8.70) -> (+0.20,-8.75)  1.55 m  min clearance 0.50 m
+  (+0.20,-8.75) -> (-0.95,-8.85)  1.15 m  min clearance 0.33 m
+  (-0.95,-8.85) -> (-1.60,-9.15)  0.72 m  min clearance 0.33 m
+  (-1.60,-9.15) -> (-3.60,-9.10)  2.00 m  min clearance 0.60 m  [spin at end]
+  (-3.60,-9.10) -> (-3.80,-6.00)  3.11 m  min clearance 1.06 m
+  (-3.80,-6.00) -> (-3.80,-2.00)  4.00 m  min clearance 0.95 m
+  (-3.80,-2.00) -> (-3.60,+0.60)  2.61 m  min clearance 1.00 m
+  (-3.60,+0.60) -> (-1.50,+0.40)  2.11 m  min clearance 0.77 m
+  (-1.50,+0.40) -> (+0.40,+0.60)  1.91 m  min clearance 0.82 m
+  (+0.40,+0.60) -> (+0.40,+1.50)  0.90 m  min clearance 1.05 m
+  (+0.40,+1.50) -> (+0.40,+4.00)  2.50 m  min clearance 0.95 m
+  (+0.40,+4.00) -> (+0.30,+6.30)  2.30 m  min clearance 0.85 m
+  (+0.30,+6.30) -> (-0.50,+6.85)  0.97 m  min clearance 0.61 m
+  (-0.50,+6.85) -> (+0.40,+6.30)  1.05 m  min clearance 0.62 m
+  (+0.40,+6.30) -> (+0.50,+4.00)  2.30 m  min clearance 0.95 m
+  (+0.50,+4.00) -> (+0.80,+1.00)  3.01 m  min clearance 1.05 m
+  (+0.80,+1.00) -> (+0.80,-3.00)  4.00 m  min clearance 1.51 m
+  (+0.80,-3.00) -> (+0.20,-6.50)  3.55 m  min clearance 1.40 m
+  (+0.20,-6.50) -> (+0.80,-8.40)  1.99 m  min clearance 0.92 m
+  (+0.80,-8.40) -> (+1.70,-6.00)  2.56 m  min clearance 0.93 m
+  (+1.70,-6.00) -> (+1.70,-1.00)  5.00 m  min clearance 1.10 m
+  (+1.70,-1.00) -> (+0.00,+0.00)  1.97 m  min clearance 1.10 m  [spin at end]
+  (+0.00,+0.00) -> (-1.50,+0.40)  1.55 m  min clearance 0.85 m
+  (-1.50,+0.40) -> (-3.60,+0.60)  2.11 m  min clearance 0.77 m  [spin at end]
+  (-3.60,+0.60) -> (-3.70,-2.00)  2.60 m  min clearance 1.05 m
+  (-3.70,-2.00) -> (-3.75,-4.00)  2.00 m  min clearance 1.35 m  [spin at end]
+  (-3.75,-4.00) -> (-3.80,-6.00)  2.00 m  min clearance 0.95 m
+  (-3.80,-6.00) -> (-3.60,-8.60)  2.61 m  min clearance 1.06 m
+  (-3.60,-8.60) -> (-3.80,-6.00)  2.61 m  min clearance 1.06 m
+  (-3.80,-6.00) -> (-3.75,-4.00)  2.00 m  min clearance 0.95 m
+  (-3.75,-4.00) -> (-3.70,-2.00)  2.00 m  min clearance 1.35 m
+  (-3.70,-2.00) -> (-3.60,+0.60)  2.60 m  min clearance 1.05 m
+  (-3.60,+0.60) -> (-3.70,+3.00)  2.40 m  min clearance 1.12 m
+  (-3.70,+3.00) -> (-3.70,+4.00)  1.00 m  min clearance 1.05 m  [spin at end]
+  (-3.70,+4.00) -> (-3.70,+6.50)  2.50 m  min clearance 1.15 m
+  (-3.70,+6.50) -> (-3.60,+8.60)  2.10 m  min clearance 1.10 m
+  (-3.60,+8.60) -> (-3.70,+6.50)  2.10 m  min clearance 1.10 m
+  (-3.70,+6.50) -> (-3.70,+3.00)  3.50 m  min clearance 1.05 m
+  (-3.70,+3.00) -> (-3.60,+0.60)  2.40 m  min clearance 1.12 m
+  (-3.60,+0.60) -> (-1.50,+0.40)  2.11 m  min clearance 0.77 m
+  (-1.50,+0.40) -> (+0.00,+0.00)  1.55 m  min clearance 0.85 m  [spin at end]
+route length 130.9 m, 10 spins; worst segment clearance 0.33 m near (-0.95, -8.85)
+  spin at (+0.00,+0.00): clearance 1.43 m
+  spin at (-3.65,+8.80): clearance 1.33 m
+  spin at (+1.80,+8.90): clearance 0.57 m
+  spin at (+1.75,-8.70): clearance 1.05 m
+  spin at (-3.60,-9.10): clearance 1.20 m
+  spin at (+0.00,+0.00): clearance 1.43 m
+  spin at (-3.60,+0.60): clearance 1.31 m
+  spin at (-3.75,-4.00): clearance 1.68 m
+  spin at (-3.70,+4.00): clearance 1.15 m
+  spin at (+0.00,+0.00): clearance 1.43 m

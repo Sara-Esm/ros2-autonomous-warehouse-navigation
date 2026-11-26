@@ -1,0 +1,11 @@
+global costmap messages: 324; unknown cells typical (median) 40902, max 41844
+global-costmap clear requests during mission: [23.48, 50.35, 77.66, 79.5, 273.01, 274.52, 316.17, 443.05, 508.58]
+  clear at   23.48 s: costmap snapshots (t, unknown, free) (23.45, 41826, 36831), (25.44, 41828, 36831)
+  clear at   50.35 s: costmap snapshots (t, unknown, free) (51.52, 41844, 36820)
+  clear at   77.66 s: costmap snapshots (t, unknown, free) (77.44, 41448, 37043), (79.48, 41736, 36820)
+  clear at   79.50 s: costmap snapshots (t, unknown, free) (79.48, 41736, 36820), (81.47, 41718, 36816)
+  clear at  273.01 s: costmap snapshots (t, unknown, free) (273.47, 41638, 36854), (275.46, 41675, 36860)
+  clear at  274.52 s: costmap snapshots (t, unknown, free) (273.47, 41638, 36854), (275.46, 41675, 36860), (277.45, 41478, 36998)
+  clear at  316.17 s: costmap snapshots (t, unknown, free) (316.50, 41346, 37164), (318.44, 41161, 37351)
+  clear at  443.05 s: costmap snapshots (t, unknown, free) (443.47, 41736, 36906), (445.44, 41625, 37000)
+  clear at  508.58 s: costmap snapshots (t, unknown, free) (507.44, 40288, 37978), (509.46, 41791, 36839), (511.44, 41789, 36823)

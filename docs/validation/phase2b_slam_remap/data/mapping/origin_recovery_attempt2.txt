@@ -1,0 +1,3 @@
+best whole-cell alignment: live occupied cells matched by reload occupied (+-1 cell) 31.8% at offset (row +1, col +0)
+implied exact live origin: (-7.280456, -10.661063) vs map_saver yaml (-7.28, -10.7)
+reload vs live classification agreement inside the live extent: free 79.3%, occupied 11.6%

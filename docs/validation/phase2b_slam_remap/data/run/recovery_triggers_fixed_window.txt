@@ -1,0 +1,24 @@
+== phase1
+3) Recovery starts and preceding ack timeouts
+   106.4 s Spin START; ack timeouts in preceding 20 s: ['106.4s follow_path']
+   146.3 s Wait START; ack timeouts in preceding 20 s: ['146.2s compute_path_to_pose']
+   238.6 s BackUp START; ack timeouts in preceding 20 s: ['238.5s follow_path']
+  distinct ComputePathToPose/FollowPath failures: 17; without a coinciding ack timeout: []
+== phase2a
+3) Recovery starts and preceding ack timeouts
+    23.9 s Spin START; ack timeouts in preceding 20 s: ['21.4s follow_path', '23.8s follow_path']
+   334.8 s Wait START; ack timeouts in preceding 20 s: ['334.8s follow_path']
+   456.0 s BackUp START; ack timeouts in preceding 20 s: ['456.0s follow_path']
+  distinct ComputePathToPose/FollowPath failures: 15; without a coinciding ack timeout: []
+== phase2b
+3) Recovery starts and preceding ack timeouts
+    24.7 s Spin START; ack timeouts in preceding 20 s: ['23.5s compute_path_to_pose', '24.6s follow_path']
+    50.4 s Wait START; ack timeouts in preceding 20 s: ['45.1s follow_path', '50.3s compute_path_to_pose', '50.4s compute_path_to_pose']
+    93.0 s BackUp START; ack timeouts in preceding 20 s: ['77.7s compute_path_to_pose', '79.5s compute_path_to_pose', '93.0s follow_path', '93.0s backup']
+    93.1 s Spin START; ack timeouts in preceding 20 s: ['77.7s compute_path_to_pose', '79.5s compute_path_to_pose', '93.0s follow_path', '93.0s backup']
+   108.6 s Wait START; ack timeouts in preceding 20 s: ['93.0s follow_path', '93.0s backup']
+   316.3 s BackUp START; ack timeouts in preceding 20 s: ['315.2s follow_path', '316.2s compute_path_to_pose', '316.2s backup', '316.3s spin']
+   316.3 s Spin START; ack timeouts in preceding 20 s: ['315.2s follow_path', '316.2s compute_path_to_pose', '316.2s backup', '316.3s spin']
+   316.3 s Wait START; ack timeouts in preceding 20 s: ['315.2s follow_path', '316.2s compute_path_to_pose', '316.2s backup', '316.3s spin']
+   508.6 s BackUp START; ack timeouts in preceding 20 s: ['508.6s compute_path_to_pose']
+  distinct ComputePathToPose/FollowPath failures: 16; without a coinciding ack timeout: []

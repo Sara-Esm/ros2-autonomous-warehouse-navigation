@@ -1,0 +1,25 @@
+branch: feat/slam-remap head: 8b048f60a11c8636e39a5e49962637ae75a21ad8
+cartographer_config_sha256: 5e9619c353726157b30dd0e3fdbc6dc1fd134494f19ab2560979af309030de4b
+start_wall: 1795664773.651970984
+ 20:46:13 up  4:15,  1 user,  load average: 0.38, 0.33, 1.43
+sensors_up_wall: 1795664788.421989487
+cartographer_map_up_wall: 1795664797.076245151
+drive_start_wall: 1795664802.099256949
+drive_exit_code: 0
+drive_end_wall: 1795665817.986465245
+saved_wall: 1795665837.808502470
+total 5364
+drwxr-xr-x 3 owl owl    4096 Nov 25 21:03 .
+drwxr-xr-x 5 owl owl    4096 Nov 25 20:46 ..
+drwxr-xr-x 2 owl owl    4096 Nov 25 20:46 bag
+-rw-r--r-- 1 owl owl    1022 Nov 25 20:46 bag.log
+-rw-r--r-- 1 owl owl  616056 Nov 25 21:03 cartographer.log
+-rw-r--r-- 1 owl owl    2904 Nov 25 21:03 drive.log
+-rw-r--r-- 1 owl owl    4728 Nov 25 21:03 drive.stdout
+-rw-r--r-- 1 owl owl     293 Nov 25 21:03 finish_trajectory.txt
+-rw-r--r-- 1 owl owl     874 Nov 25 21:03 map_saver.txt
+-rw-r--r-- 1 owl owl     471 Nov 25 21:03 meta.txt
+-rw-r--r-- 1 owl owl    7249 Nov 25 20:46 sim.log
+-rw-r--r-- 1 owl owl 4814119 Nov 25 21:03 warehouse_map_v2.pbstream
+-rw-r--r-- 1 owl owl     435 Nov 25 21:03 write_state.txt
+teardown_wall: 1795665850.917745296

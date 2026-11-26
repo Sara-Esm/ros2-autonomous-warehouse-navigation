@@ -4,7 +4,7 @@ resolution: 0.05
 origin: [-7.56, -10.8, 0]
 negate: 0
 occupied_thresh: 0.65
-# 0.01 makes the PGM's never-observed value 205 load as unknown (-1) instead of free.
+# 0.01 makes the PGM's unknown value 205 (unobserved or low-confidence) load as unknown (-1), not free.
 # Empirical for this map and Humble nav2_map_server builds 1.1.18 and 1.1.20 (GraphicsMagick
 # Q16): 205 decodes to occupancy ~0.025-0.03 (1.1.18) or ~0.15-0.19 (1.1.20), not 1-205/255,
 # so the textbook threshold 0.196 has no effect here. Not a universal value; the loaded grid is

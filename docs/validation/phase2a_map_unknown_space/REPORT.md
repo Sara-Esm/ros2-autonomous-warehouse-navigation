@@ -1,6 +1,14 @@
 # Phase 2a validation: occupancy classification and penalized unknown space
 
-*Branch `feat/map-unknown-space`, based on the validated Phase 1 commit `69befa2`. One validation mission,
+*Branch `feat/map-unknown-space`, based on the validated Phase 1 commit `69befa2`.
+> **Interpretation note (added in Phase 2b).** This report calls the PGM value 205 "never observed". Phase 2b
+> showed that maps saved by Cartographer + `map_saver_cli` with default thresholds also write **observed but
+> low-confidence** cells as 205. For the first Phase 2b map, Cartographer's raw grid had 41,413 never-observed cells
+> and 21,258 observed with probability 25–64; 61,997 cells were saved as 205, the rest sit at threshold boundaries. The original map was presumably saved the same way; no Cartographer state exists to
+> measure the split for it. All measurements here are unchanged. Read "never observed" / "unobserved" as
+> **"unknown in the saved map: unobserved or not confidently classified"**. See
+> `docs/validation/phase2b_slam_remap/REPORT.md` §1.
+ One validation mission,
 compared with the Phase 1 mission using the same analysis scripts. Phase 2a is an intermediate step;
 **preventing** traversal of unknown space is left to Phase 2b (re-mapping).*
 
@@ -21,7 +29,7 @@ and perception.
 
 ### Theory vs the installed map_server
 
-`nav2_map_server` computes `occ = 1 − shade`. By the textbook formula, the PGM value 205 ("never observed")
+`nav2_map_server` computes `occ = 1 − shade`. By the textbook formula, the PGM value 205 (unknown: unobserved or low-confidence)
 has `occ = 1 − 205/255 = 0.196`, which is below `free_thresh: 0.25`, so it loads as **free**, as found in the
 diagnostics. The textbook fix would be any threshold ≤ 0.196. **The installed builds do not decode the map
 that way.** The threshold sweep runs the real `map_server` and reads the published grid
@@ -65,7 +73,7 @@ LiDAR at spawn returns 83 hits out of 360 beams; the synthetic scan returned 88.
 
 **Static unknown vs live-observed.** In the analysis below:
 
-- *static-unknown* = PGM value 205, never observed while mapping;
+- *static-unknown* = PGM value 205: not observed, or not confidently classified, while mapping;
 - *live-unknown* = still −1 in the recorded global costmap at that moment. This is **not proof that the LiDAR never
   observed the cell**: the obstacle layer clears only along beams that return a hit, and the snapshot is up to 1 s old.
 
@@ -88,8 +96,8 @@ answered goals.
 - With `allow_unknown: false`, the real planner returns no plan for spawn→dock, loading→inventory and dispatch→dock.
 - The known traversable space splits into a north region (Dock, Loading; 38.2 m²) and a south region (spawn,
   Inventory, Dispatch; 69.3 m²).
-- The two regions are separated by **one unobserved cell** at map (−2.335, +1.325). The west aisle was largely
-  never observed.
+- The two regions are separated by **one unknown cell** at map (−2.335, +1.325). The west aisle was largely
+  unknown in the saved map (unobserved or low-confidence).
 - Neither region touches the map border, so the corrected classification removes the exterior connectivity.
 
 Offline corrections made during this phase: cell indexing now follows Nav2 `worldToMap` (`floor`), and a
@@ -153,7 +161,7 @@ Reading the table:
   Two route changes resulted: 2.52 m at 30.3 s and 1.49 m at 51.9 s into the leg. Of the 6.18 m, 1.31 m was
   still live-unknown.
 - **The return leg** became 33% longer (18.60 → 24.74 m, +20 s). The offline prediction was 24.91 m: the
-  planner now prefers the observed central corridor over the never-observed west aisle.
+  planner now prefers the confidently mapped central corridor over the largely unknown west aisle.
 - **Clearance:** the Dock and Return routes now pass the central block's corner at world (−2.6, +1.0), the
   known-space pinch, with 0.28–0.29 m centre clearance, under 0.35 m for 1.9 s and 2.6 s. In Phase 1 the
   minimum on any leg was 0.32 m (Dispatch). No collision or contact was detected. Clearance is the robot
@@ -192,7 +200,7 @@ MISSION COMPLETE (598.6 s) and 60 s after process exit.
 | Criterion | Result |
 |---|---|
 | Unknown cells correctly represented | **Met.** 83,919 unknown cells in both supported environments; regression-tested against the loaded grid. |
-| Reduced overall unobserved-space traversal, without unexplained increases on individual legs | **Met.** Planned −78%, executed −39%, 5.1 m on cells still unknown in the live costmap. The one per-leg increase (+0.57 m) is explained by live clearing. |
+| Reduced overall unknown-space traversal, without unexplained increases on individual legs | **Met.** Planned −78%, executed −39%, 5.1 m on cells still unknown in the live costmap. The one per-leg increase (+0.57 m) is explained by live clearing. |
 | Routes that previously avoided unknown still do so | **Met.** Dock → Loading unchanged at 0; Inventory → Dispatch improved to 0. |
 | Station positioning comparable to Phase 1 (≤ 0.15 m) | **Met.** Same station sets: stations 1–4 mean 0.057 m (Phase 1: 0.069 m); all five mean 0.055 m (Phase 1: 0.076 m); max 0.103 m (Phase 1: 0.102 m). |
 | 5/5 steps, exit 0, all markers verified | **Met.** |

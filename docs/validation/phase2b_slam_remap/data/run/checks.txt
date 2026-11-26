@@ -1,0 +1,23 @@
+1) Estimated pose at ARRIVED from TF (map->odom o odom->base_footprint): what the goal checker saw
+  Home Charging Dock           estimate-to-goal 0.106 m (tol 0.12), +8.0 deg (tol 8.59); true heading error +8.7 = estimated +8.0 + localization/frame +0.7
+  Loading Zone                 estimate-to-goal 0.112 m (tol 0.12), -8.2 deg (tol 8.59); true heading error -8.9 = estimated -8.2 + localization/frame -0.8
+  Inventory Scan Station       estimate-to-goal 0.112 m (tol 0.12), -8.3 deg (tol 8.59); true heading error -8.7 = estimated -8.3 + localization/frame -0.4
+  Dispatch Zone                estimate-to-goal 0.047 m (tol 0.12), -4.6 deg (tol 8.59); true heading error -4.7 = estimated -4.6 + localization/frame -0.1
+  Return to Home Charging Dock estimate-to-goal 0.103 m (tol 0.12), +8.2 deg (tol 8.59); true heading error +8.0 = estimated +8.2 + localization/frame -0.2
+
+2) Process deaths relative to mission exit (post-recording window: 0..+60 s)
+  last ROS timestamp before it: +65.7 s rel. mission exit | [ERROR] [aruco_station_detector-6]: process has died [pid 60531, exit code 1, cmd '/home/owl/project
+  last ROS timestamp before it: +68.3 s rel. mission exit | [ERROR] [rviz2-5]: process has died [pid 60369, exit code -11, cmd '/opt/ros/humble/lib/rviz2/rviz2 
+  last ROS timestamp before it: +68.3 s rel. mission exit | [ERROR] [gazebo-1]: process has died [pid 59872, exit code 255, cmd 'gazebo --verbose /home/owl/proj
+
+3) Recovery starts and preceding ack timeouts
+    24.7 s Spin START; ack timeouts in preceding 20 s: ['23.5s compute_path_to_pose', '24.6s follow_path']
+    50.4 s Wait START; ack timeouts in preceding 20 s: ['50.3s compute_path_to_pose', '50.4s compute_path_to_pose']
+    93.0 s BackUp START; ack timeouts in preceding 20 s: ['93.0s follow_path', '93.0s backup']
+    93.1 s Spin START; ack timeouts in preceding 20 s: ['93.0s follow_path', '93.0s backup']
+   108.6 s Wait START; ack timeouts in preceding 20 s: []
+   316.3 s BackUp START; ack timeouts in preceding 20 s: ['315.2s follow_path', '316.2s compute_path_to_pose', '316.2s backup', '316.3s spin']
+   316.3 s Spin START; ack timeouts in preceding 20 s: ['315.2s follow_path', '316.2s compute_path_to_pose', '316.2s backup', '316.3s spin']
+   316.3 s Wait START; ack timeouts in preceding 20 s: ['315.2s follow_path', '316.2s compute_path_to_pose', '316.2s backup', '316.3s spin']
+   508.6 s BackUp START; ack timeouts in preceding 20 s: ['508.6s compute_path_to_pose', '524.3s follow_path']
+  distinct ComputePathToPose/FollowPath failures: 16; without a coinciding ack timeout: []

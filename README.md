@@ -129,12 +129,12 @@ ros2 run nav2_map_server map_saver_cli -f src/warehouse_bringup/maps/warehouse_m
 
 ## How it works
 
-| Step | Station | Intended approach pose (world frame) | Nav2 goal (map frame) | Verified by |
+| Step | Station | Intended approach pose (world frame, evaluation reference) | Nav2 goal (surveyed, `warehouse_map_v2` frame) | Verified by |
 |---|---|---|---|---|
-| 1 | Home Charging Dock | (-3.678, 9.300), 90° | (-3.199, 9.470), 87.95° | ArUco ID 0 |
-| 2 | Loading Zone | (1.803, 9.300), 90° | (2.278, 9.273), 87.95° | ArUco ID 1 |
-| 3 | Inventory Scan Station | (1.801, -9.000), -90° | (1.622, -9.015), -92.05° | ArUco ID 2 |
-| 4 | Dispatch Zone | (-3.630, -9.300), -90° | (-3.817, -9.120), -92.05° | ArUco ID 3 |
+| 1 | Home Charging Dock | (-3.678, 9.300), 90° | (-3.543, 9.296), 90.59° | ArUco ID 0 |
+| 2 | Loading Zone | (1.803, 9.300), 90° | (1.933, 9.220), 88.93° | ArUco ID 1 |
+| 3 | Inventory Scan Station | (1.801, -9.000), -90° | (1.693, -8.985), -90.30° | ArUco ID 2 |
+| 4 | Dispatch Zone | (-3.630, -9.300), -90° | (-3.704, -9.282), -91.24° | ArUco ID 3 |
 | 5 | Return to Home Charging Dock | same as step 1 | same as step 1 | ArUco ID 0 |
 
 The robot spawns at the origin. For each step the mission manager sends a `NavigateToPose`
@@ -150,12 +150,12 @@ orientation is arbitrary; that is not a defect. Up to v1.0.1 the world-frame pos
 map goals. The diagnostic experiment found a relative rotation of about 2.05° and a translation between the
 frames, which explains most of the measured station positioning discrepancies (see below).
 
-Since the Phase 1 frame correction, [`stations.py`](src/warehouse_bringup/warehouse_bringup/stations.py)
-keeps the world-frame poses as reference data. It converts them to map-frame goals with the measured
-calibration `world = R(+2.05°)·map + (−0.142, −0.049) m`, so `map = R(−2.05°)·(world − t)` and
-`yaw_map = yaw_world − 2.05°`. That calibration uses simulator ground truth. A real deployment has no such
-ground truth, and would normally record station goals directly in the map frame, for example by driving the
-robot to each approach pose and saving its validated localization estimate.
+Phase 1 corrected this with a calibration measured from simulator ground truth (git `69befa2`). Since
+Phase 2b, the robot uses a new Cartographer map (`warehouse_map_v2`, made by a scripted coverage drive), and
+[`stations.py`](src/warehouse_bringup/warehouse_bringup/stations.py) holds goals **surveyed directly in that
+map frame**. The robot was positioned at each intended approach pose and its validated localization estimate
+was recorded, which is how a real deployment would set station goals. Ground truth is used only to evaluate
+accuracy, not to generate goals.
 
 ### System architecture
 
@@ -395,7 +395,7 @@ Details: [`docs/validation/phase1_station_frames/REPORT.md`](docs/validation/pha
 ### Unknown space after the map-classification correction (Phase 2a validation)
 
 One validation mission on `feat/map-unknown-space`, compared with the Phase 1 mission. The only robot change
-is the map's `free_thresh`, from 0.25 to 0.01. The map's never-observed cells (60.1% of the image) now load as
+is the map's `free_thresh`, from 0.25 to 0.01. The map's unknown cells (60.1% of the image: unobserved or low-confidence) now load as
 **unknown** instead of free: 3,772 occupied, 51,911 free and 83,919 unknown cells, verified with the real
 `nav2_map_server` in the local and CI environments and regression-tested. The threshold is empirical: the
 installed builds do not decode the PGM by the textbook formula, so 0.19 would have changed nothing.
@@ -403,14 +403,14 @@ installed builds do not decode the PGM by the textbook formula, so 0.19 would ha
 The planner still **may** cross unknown space (`allow_unknown: true`), but now pays heavily for it: crossing
 1 m of unknown costs as much as about 4–6 m of free travel. Prohibiting unknown space is deferred to a
 re-mapping phase, because the current map leaves the north and south stations connected through observed
-space only via a single unobserved cell.
+space only via a single unknown cell.
 
 | Measure | Phase 1 | Phase 2a |
 |---|---|---|
 | Mission | 5/5, exit 0 | 5/5, exit 0 |
 | Station position error, stations 1–4 mean / all five mean / max | 0.069 / 0.076 / 0.102 m | 0.057 / 0.055 / 0.103 m |
-| First plans over never-observed cells | 25.9 m | 5.7 m |
-| Driven over never-observed cells | 25.8 m (41%) | 15.8 m (23%), of which 5.1 m on cells still unknown in the live costmap |
+| First plans over unknown cells (unobserved or low-confidence) | 25.9 m | 5.7 m |
+| Driven over unknown cells (unobserved or low-confidence) | 25.8 m (41%) | 15.8 m (23%), of which 5.1 m on cells still unknown in the live costmap |
 | Return-home leg | 18.6 m | 24.7 m |
 | Minimum clearance to true geometry | 0.32 m | 0.28 m (central-block corner) |
 | Route changes > 0.5 m during a leg | 0 | 2 (one leg) |
@@ -418,6 +418,38 @@ space only via a single unobserved cell.
 This is a reduction, not a prevention, of unknown-space traversal. The robot also now takes longer, closer
 routes through the one observed corridor. Details:
 [`docs/validation/phase2a_map_unknown_space/REPORT.md`](docs/validation/phase2a_map_unknown_space/REPORT.md).
+
+### Re-mapped warehouse and surveyed goals (Phase 2b validation)
+
+One validation mission on `feat/slam-remap`. Changes:
+
+- A new Cartographer map from a scripted, collision-aware coverage drive (two attempts; the second added
+  targeted passes of the west aisle).
+- Station goals surveyed in that map's frame.
+- `allow_unknown: false`.
+
+Camera, controller, timeouts and goal tolerances are unchanged.
+
+| Measure | Phase 1 | Phase 2a | Phase 2b |
+|---|---|---|---|
+| Mission / markers | 5/5, exit 0 / 5 | 5/5, exit 0 / 5 | 5/5, exit 0 / 5 |
+| Station position error, stations 1–4 mean / max | 0.069 / 0.102 m | 0.057 / 0.103 m | 0.078 / 0.116 m |
+| First plans over unknown cells of the map in use | 25.9 m | 5.7 m | 0.08 m |
+| Return-home leg | 18.6 m | 24.7 m | 19.6 m |
+| Minimum clearance to true geometry | 0.32 m | 0.28 m | 0.36 m |
+| Route changes > 0.5 m during a leg | 0 | 2 | 1 (0.77 m) |
+| Recoveries (Spin / Wait / BackUp) | 1 / 1 / 1 | 1 / 1 / 1 | 3 / 3 / 3 |
+
+Results:
+
+- Every leg now plans through known space. Two poses clip a thin low-confidence streak, an interpolation artifact.
+- The return detour and the narrow central-corner passage are gone.
+- Recoveries tripled. All of them followed action-acknowledgement timeouts.
+- One new failure mode appeared: a planning failure right after a full costmap clear, which a timeout had
+  triggered. *Hypothesis, not established:* the stricter unknown-space policy exposes such transient costmap
+  states. It is the next phase's topic.
+
+Details: [`docs/validation/phase2b_slam_remap/REPORT.md`](docs/validation/phase2b_slam_remap/REPORT.md).
 
 ---
 
@@ -429,14 +461,12 @@ routes through the one observed corridor. Details:
    start poses.
 2. **No independent safety layer.** Stop verification reads the same odometry the
    controller uses. A real robot would need a safety-rated stop path.
-3. **Map and frames.** Large parts of the saved occupancy grid were never observed. Since Phase 2a
-   they load as unknown (`free_thresh: 0.01`, empirical for the supported `nav2_map_server` builds), but
-   NavFn may still plan through unknown space at a penalty. The observed space does not connect the
-   mission routes, so preventing that requires re-mapping.
-   The map frame is rotated about 2° relative to the Gazebo world frame in which the station poses were
-   measured. Station goals are now converted with a calibration measured from simulator ground truth; the
-   AMCL initial pose (map origin) is still 0.15 m / 2° from the true spawn pose. Some obstacles are only
-   partly visible to a 2D LiDAR.
+3. **Map and frames.** Since Phase 2b the robot uses `warehouse_map_v2` (42.4% unknown, against 60.1%
+   for the preserved original). NavFn never plans through unknown space (`allow_unknown: false`). The large
+   open centre of the floor and the far east bays remain unmapped; they are outside the operating area. In
+   maps saved by `map_saver`, the "unknown" value 205 also covers observed but low-confidence cells. The map
+   frame differs from Gazebo's world frame by about 0.7°, which is harmless because goals are surveyed in the
+   map frame. Some obstacles are only partly visible to a 2D LiDAR.
 4. **Simulation performance.** The simulation runs at 0.31–0.74× real time on the
    development machine, and the controller logs warnings that it missed its desired control
    rate. The two GUI-free runs (Trials 05-06) were faster but much less reliable. They
@@ -471,8 +501,9 @@ routes through the one observed corridor. Details:
 
 - [`docs/trial_results.md`](docs/trial_results.md): every trial, its metrics and notes
 - [`docs/validation/phase1_station_frames/REPORT.md`](docs/validation/phase1_station_frames/REPORT.md),
-  [`docs/validation/phase2a_map_unknown_space/REPORT.md`](docs/validation/phase2a_map_unknown_space/REPORT.md):
-  validation of the station-frame correction and the occupancy-classification change
+  [`docs/validation/phase2a_map_unknown_space/REPORT.md`](docs/validation/phase2a_map_unknown_space/REPORT.md),
+  [`docs/validation/phase2b_slam_remap/REPORT.md`](docs/validation/phase2b_slam_remap/REPORT.md):
+  validation of the station-frame correction, occupancy classification, and re-mapping with surveyed goals
 - [`docs/diagnostics/REPORT.md`](docs/diagnostics/REPORT.md): diagnostic investigation of v1.0.1
   (map and frame alignment, localization, planning, control dynamics, ArUco, timing, completion)
 - [`docs/operation.md`](docs/operation.md): package layout, interfaces, parameters,

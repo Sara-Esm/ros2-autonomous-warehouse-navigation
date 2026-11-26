@@ -1,0 +1,25 @@
+# new Cartographer map (v2, attempt 2): 258x428 px @ 0.05 m, origin (-7.280,-10.700), yaw 0
+pixel values: {0: 3499, 205: 46834, 254: 60091}
+classes (PGM): occupied 3499, free 60091, unknown 46834 (42.4% unknown)
+rigid fit world = R*map + t: theta +0.71 deg, t (-0.009,+0.040) m
+map obstacles within 10 cm of true geometry: identity 74%, rigid fit 96%; mean distance 0.053 -> 0.027 m
+  map y [-11, -6): within 10 cm after rigid fit  89%; residual local shift (-0.00,-0.05) m
+  map y [ -6, -2): within 10 cm after rigid fit 100%; residual local shift (-0.00,-0.00) m
+  map y [ -2, +2): within 10 cm after rigid fit 100%; residual local shift (-0.00,-0.00) m
+  map y [ +2, +6): within 10 cm after rigid fit  97%; residual local shift (-0.00,-0.00) m
+  map y [ +6,+11): within 10 cm after rigid fit  99%; residual local shift (-0.00,-0.00) m
+corridor coverage (fraction of sampled corridor cells that are known free / known free with >0.14 m clearance):
+  spawn area                85.7% /  85.7%
+  west aisle                43.7% /  43.7%
+  east aisle                89.1% /  89.1%
+  north crossing            97.1% /  97.1%
+  south crossing            96.3% /  96.3%
+  central crossing y~0.5    87.6% /  87.6%
+  middle corridor          100.0% / 100.0%
+  dock approach            100.0% / 100.0%
+  loading approach         100.0% / 100.0%
+  inventory approach       100.0% / 100.0%
+  dispatch approach        100.0% / 100.0%
+strict-policy reachability (known free, clearance > 0.14 m), intended poses mapped with the evaluation fit:
+  region 1: 139.5 m^2, contains ['spawn', 'home_dock', 'loading_zone', 'inventory_scan', 'dispatch_zone'], touches map border: False
+  all mission points in one region: True
