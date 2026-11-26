@@ -54,6 +54,8 @@ from nav_msgs.msg import Odometry
 from std_msgs.msg import Int32
 
 from warehouse_bringup.nav2_supervision import ActionActivityTracker, MotionTracker
+# Map-frame station goals, derived from world-frame approach poses (see stations.py).
+from warehouse_bringup.stations import WAYPOINTS
 
 EXIT_SUCCESS = 0
 EXIT_FAILURES = 1
@@ -81,34 +83,6 @@ NS = 1_000_000_000
 DEFAULT_MONITORED_ACTIONS = [
     'navigate_to_pose', 'follow_path', 'compute_path_to_pose',
     'spin', 'backup', 'wait', 'drive_on_heading', 'assisted_teleop',
-]
-
-WAYPOINTS = [
-    {
-        'name': 'Home Charging Dock',
-        'task': 'Verify robot home dock and charging station',
-        'x': -3.678, 'y': 9.3, 'yaw': 90.0, 'marker_id': 0,
-    },
-    {
-        'name': 'Loading Zone',
-        'task': 'Verify loading area',
-        'x': 1.803, 'y': 9.3, 'yaw': 90.0, 'marker_id': 1,
-    },
-    {
-        'name': 'Inventory Scan Station',
-        'task': 'Verify shelf inventory using wall marker',
-        'x': 1.801, 'y': -9.0, 'yaw': -90.0, 'marker_id': 2,
-    },
-    {
-        'name': 'Dispatch Zone',
-        'task': 'Verify dispatch area',
-        'x': -3.630, 'y': -9.3, 'yaw': -90.0, 'marker_id': 3,
-    },
-    {
-        'name': 'Return to Home Charging Dock',
-        'task': 'Return robot to charging dock and close mission',
-        'x': -3.678, 'y': 9.3, 'yaw': 90.0, 'marker_id': 0,
-    },
 ]
 
 

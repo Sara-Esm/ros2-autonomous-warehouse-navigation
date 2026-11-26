@@ -25,3 +25,4 @@ __pycache__/
 
 # Raw diagnostic recordings (kept locally; compact results live in docs/diagnostics/)
 /diagnostics_20261125/
+/diagnostics_phase1/

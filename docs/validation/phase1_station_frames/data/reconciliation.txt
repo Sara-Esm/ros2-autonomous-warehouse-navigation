@@ -1,0 +1,20 @@
+ack timeouts in whole launch log: 16; inside mission window: 16
+distinct (0.1 s-rounded) ComputePathToPose/FollowPath FAILURE events: 17
+  timeout   24.78 s -> ComputePathToPose FAILURE at 24.8 s
+  timeout  106.38 s -> FollowPath FAILURE at 106.4 s
+  timeout  146.20 s -> ComputePathToPose FAILURE at 146.2 s, ComputePathToPose FAILURE at 146.3 s  <-- one timeout, two FAILURE records
+  timeout  172.59 s -> ComputePathToPose FAILURE at 172.6 s
+  timeout  172.81 s -> FollowPath FAILURE at 172.8 s
+  timeout  238.55 s -> FollowPath FAILURE at 238.6 s
+  timeout  308.44 s -> FollowPath FAILURE at 308.5 s
+  timeout  380.50 s -> ComputePathToPose FAILURE at 380.5 s
+  timeout  411.59 s -> ComputePathToPose FAILURE at 411.6 s
+  timeout  426.82 s -> FollowPath FAILURE at 426.8 s
+  timeout  497.04 s -> ComputePathToPose FAILURE at 497.1 s
+  timeout  520.88 s -> ComputePathToPose FAILURE at 520.9 s
+  timeout  534.25 s -> FollowPath FAILURE at 534.3 s
+  timeout  542.00 s -> ComputePathToPose FAILURE at 542.0 s
+  timeout  542.83 s -> FollowPath FAILURE at 542.8 s
+  timeout  552.13 s -> ComputePathToPose FAILURE at 552.1 s
+NavigateWithReplanning FAILURE (outer-pipeline failure -> recovery round): [24.8, 106.4, 146.3, 238.6, 534.3]
+"[follow_path] [ActionServer] Aborting handle" warnings (genuine server-side aborts): 4 at [172.8, 308.4, 426.8, 542.8]

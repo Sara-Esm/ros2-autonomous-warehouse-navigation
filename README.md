@@ -129,13 +129,13 @@ ros2 run nav2_map_server map_saver_cli -f src/warehouse_bringup/maps/warehouse_m
 
 ## How it works
 
-| Step | Station | Goal (map frame) | Verified by |
-|---|---|---|---|
-| 1 | Home Charging Dock | (-3.68, 9.30), facing +y | ArUco ID 0 |
-| 2 | Loading Zone | (1.80, 9.30), facing +y | ArUco ID 1 |
-| 3 | Inventory Scan Station | (1.80, -9.00), facing -y | ArUco ID 2 |
-| 4 | Dispatch Zone | (-3.63, -9.30), facing -y | ArUco ID 3 |
-| 5 | Return to Home Charging Dock | (-3.68, 9.30), facing +y | ArUco ID 0 |
+| Step | Station | Intended approach pose (world frame) | Nav2 goal (map frame) | Verified by |
+|---|---|---|---|---|
+| 1 | Home Charging Dock | (-3.678, 9.300), 90° | (-3.199, 9.470), 87.95° | ArUco ID 0 |
+| 2 | Loading Zone | (1.803, 9.300), 90° | (2.278, 9.273), 87.95° | ArUco ID 1 |
+| 3 | Inventory Scan Station | (1.801, -9.000), -90° | (1.622, -9.015), -92.05° | ArUco ID 2 |
+| 4 | Dispatch Zone | (-3.630, -9.300), -90° | (-3.817, -9.120), -92.05° | ArUco ID 3 |
+| 5 | Return to Home Charging Dock | same as step 1 | same as step 1 | ArUco ID 0 |
 
 The robot spawns at the origin. For each step the mission manager sends a `NavigateToPose`
 goal. On arrival it waits up to 15 s (simulation time) for the expected marker ID, and only
@@ -145,9 +145,17 @@ controller finish. A cancellation, or a failed retry, halts the mission. The mar
 0.28 m DICT_5X5_50 tags standing about 0.3 m in front of the warehouse walls, 0.67–0.97 m in front of the goal poses.
 
 The station goals are approach poses about 0.67–0.97 m in front of the markers, not the marker positions.
-They were measured in Gazebo's *world* frame, but Nav2 executes them in the SLAM *map* frame. The diagnostic
-experiment found a relative rotation of about 2.05° and a translation between these frames. That explains
-most of the measured station positioning discrepancies (see below).
+They were measured in Gazebo's *world* frame, but Nav2 executes them in the SLAM *map* frame. The SLAM map's
+orientation is arbitrary; that is not a defect. Up to v1.0.1 the world-frame poses were supplied directly as
+map goals. The diagnostic experiment found a relative rotation of about 2.05° and a translation between the
+frames, which explains most of the measured station positioning discrepancies (see below).
+
+Since the Phase 1 frame correction, [`stations.py`](src/warehouse_bringup/warehouse_bringup/stations.py)
+keeps the world-frame poses as reference data. It converts them to map-frame goals with the measured
+calibration `world = R(+2.05°)·map + (−0.142, −0.049) m`, so `map = R(−2.05°)·(world − t)` and
+`yaw_map = yaw_world − 2.05°`. That calibration uses simulator ground truth. A real deployment has no such
+ground truth, and would normally record station goals directly in the map frame, for example by driving the
+robot to each approach pose and saving its validated localization estimate.
 
 ### System architecture
 
@@ -355,6 +363,35 @@ These results are separate from the successful historical missions in the table 
 measurements, limitations and an untested improvement backlog are in
 [`docs/diagnostics/REPORT.md`](docs/diagnostics/REPORT.md).
 
+### Station positioning after the frame correction (Phase 1 validation)
+
+One validation mission on `feat/station-frame-correction`. Only the station goals changed; the Nav2
+parameters, map and markers are unchanged. The run used lighter instrumentation than the diagnostic
+experiment.
+
+| Station | v1.0.1 diagnostic | Phase 1 position | Phase 1 heading | Marker verified |
+|---|---|---|---|---|
+| Home Charging Dock | 0.50 m, +9.6° | **0.04 m** | +6.9° | yes |
+| Loading Zone | 0.40 m, +9.5° | **0.08 m** | −10.4° | yes |
+| Inventory Scan Station | 0.18 m, +8.9° | **0.05 m** | +8.0° | yes |
+| Dispatch Zone | 0.32 m, −2.4° | **0.10 m** | −7.0° | yes |
+| Return to Home Charging Dock | not reached | **0.10 m** | −7.7° | yes |
+
+Results:
+
+- 5/5 tasks succeeded, exit code 0, no simulator crash.
+- The mean position error on the four comparable stations fell from 0.35 m to 0.07 m.
+- The mean heading bias fell from +6.4° to −0.6°. The heading magnitude stays at 7–10° because the goal
+  checker accepts headings at the edge of its unchanged 8.6° tolerance.
+- A residual turning motion settled 1.26 s after the final navigation success report. The robot was then
+  stationary (0.0 mm displacement, no velocity commands) for the remainder of the observation window,
+  including 60 s after the mission report.
+- The run was not error-free. Spin, Wait and BackUp recoveries still occurred, and each coincided with an
+  action-acknowledgement timeout (16 in total), which belongs to a later phase. The detector and RViz
+  exited with errors at teardown.
+
+Details: [`docs/validation/phase1_station_frames/REPORT.md`](docs/validation/phase1_station_frames/REPORT.md).
+
 ---
 
 ## Limitations
@@ -367,8 +404,10 @@ measurements, limitations and an untested improvement backlog are in
    controller uses. A real robot would need a safety-rated stop path.
 3. **Map and frames.** Large parts of the saved occupancy grid were never observed. With the
    map's `free_thresh: 0.25` they load as free rather than unknown, and the map's outer wall is not closed.
-   The map frame is rotated about 2° relative to the Gazebo world frame in which the station goals were
-   written. Some obstacles are only partly visible to a 2D LiDAR.
+   The map frame is rotated about 2° relative to the Gazebo world frame in which the station poses were
+   measured. Station goals are now converted with a calibration measured from simulator ground truth; the
+   AMCL initial pose (map origin) is still 0.15 m / 2° from the true spawn pose. Some obstacles are only
+   partly visible to a 2D LiDAR.
 4. **Simulation performance.** The simulation runs at 0.31–0.74× real time on the
    development machine, and the controller logs warnings that it missed its desired control
    rate. The two GUI-free runs (Trials 05-06) were faster but much less reliable. They

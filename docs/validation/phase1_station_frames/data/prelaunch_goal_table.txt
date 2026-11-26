@@ -1,0 +1,17 @@
+installed module: /home/owl/projects/warehouse_ws/install/warehouse_bringup/lib/python3.10/site-packages/warehouse_bringup/stations.py
+convention: world = R(+2.05 deg) * map + t, t = (-0.142, -0.049)
+| Station | Intended world pose (x, y, yaw) | v1.0.1 map goal (uncorrected) | Corrected map goal | Forward(corrected) -> world | Forward(v1.0.1) -> world (predicted old stop) |
+|---|---|---|---|---|---|
+| Home Charging Dock | (-3.678, +9.300, +90.00°) | (-3.678, +9.300, +90.00°) | (-3.199, +9.470, +87.95°) | (-3.678, +9.301, +90.00°) err 0.6 mm | (-4.150, +9.113, +92.05°) off 0.508 m |
+| Loading Zone | (+1.803, +9.300, +90.00°) | (+1.803, +9.300, +90.00°) | (+2.278, +9.273, +87.95°) | (+1.803, +9.300, +90.00°) err 0.5 mm | (+1.327, +9.310, +92.05°) off 0.476 m |
+| Inventory Scan Station | (+1.801, -9.000, -90.00°) | (+1.801, -9.000, -90.00°) | (+1.622, -9.015, -92.05°) | (+1.801, -9.000, -90.00°) err 0.5 mm | (+1.980, -8.979, -87.95°) off 0.180 m |
+| Dispatch Zone | (-3.630, -9.300, -90.00°) | (-3.630, -9.300, -90.00°) | (-3.817, -9.120, -92.05°) | (-3.630, -9.300, -90.00°) err 0.4 mm | (-3.437, -9.473, -87.95°) off 0.259 m |
+| Return to Home Charging Dock | (-3.678, +9.300, +90.00°) | (-3.678, +9.300, +90.00°) | (-3.199, +9.470, +87.95°) | (-3.678, +9.301, +90.00°) err 0.6 mm | (-4.150, +9.113, +92.05°) off 0.508 m |
+
+AMCL check: robot spawns at world (0,0,0) = map (+0.144, +0.044, -2.05°); AMCL set_initial_pose is map (0,0,0): offset 0.150 m, 2.05° (unchanged in Phase 1)
+
+Clearance to nearest MAP obstacle (static map; robot_radius 0.14, global inflation 0.5):
+  Home Charging Dock       uncorrected goal 1.15 m -> corrected goal 1.00 m
+  Loading Zone             uncorrected goal 0.46 m -> corrected goal 0.60 m
+  Inventory Scan Station   uncorrected goal 0.75 m -> corrected goal 0.90 m
+  Dispatch Zone            uncorrected goal 0.85 m -> corrected goal 1.05 m

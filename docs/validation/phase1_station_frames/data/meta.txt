@@ -1,0 +1,27 @@
+branch: feat/station-frame-correction  head: 6dad6f5d42b2703e6e7bb22b5a4c35f08c5f314d
+uncommitted_source_diff_sha256: de7d567be65f59cc0bd2e19f7155636de75c0c5f3851cc02a0206ab2a2fab9ac
+untracked_stations_sha256: 5ae1efe62f9b6aa4a47af42ed6bb26d536bd1798b4b6a9d6908e4a99c0bbf3b4
+installed_stations_sha256: 5ae1efe62f9b6aa4a47af42ed6bb26d536bd1798b4b6a9d6908e4a99c0bbf3b4
+nav2_params_sha256: 869d998fba08f71366f5744c06fb148e40b0b95746471f064b06f8e44cee1c5c
+map_sha256: 1c8e13d69a64a76a5f16904bc268e2213109b69fe61e80e9ea7cc36ad4533932
+launch_start_wall: 1795652751.852594503
+ 17:25:51 up  1:44,  1 user,  load average: 0.73, 0.77, 0.64
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       739Mi       2.3Gi       5.0Mi       839Mi       3.0Gi
+Swap:          1.0Gi       1.0Mi       1.0Gi
+bt_navigator_active_wall: 1795652808.769705353
+--- pre_mission
+ 17:27:00 up  1:45,  1 user,  load average: 17.52, 5.35, 2.21
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       2.1Gi       160Mi        86Mi       1.5Gi       1.5Gi
+Swap:          1.0Gi       1.0Mi       1.0Gi
+mission_start_wall: 1795652820.530594251
+mission_exit_code: 0
+mission_end_wall: 1795653393.866420670
+post_observation_end_wall: 1795653453.906328531
+--- post
+ 17:37:33 up  1:56,  1 user,  load average: 26.70, 26.46, 15.60
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       2.2Gi       193Mi        86Mi       1.4Gi       1.4Gi
+Swap:          1.0Gi        22Mi       1.0Gi
+teardown_wall: 1795653492.164061577
