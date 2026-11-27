@@ -1,0 +1,7 @@
+# Wheel-rim acceleration demanded by consecutive DWB commands (/cmd_vel_nav), per sim control period:
+#   a_wheel = (|dv| + |dw| * b/2) / dt_sim, b = 0.16 m; actuator limit 1.0 m/s^2 per wheel (gazebo diff drive)
+#   v1.0.1 diagnostic (docs/diagnostics/REPORT.md s5): 0.3% of commands > 1.0, 1.7% > 0.5
+B1 (fpd 0.1, yaw 0.15)   n  3648: wheel demand > 1.0 m/s^2: 0.2%, > 0.5: 1.3%; body linear demand > 1.0: 0.11%; wheel demand p95 0.36, p99 0.54 m/s^2
+B2                       n  3698: wheel demand > 1.0 m/s^2: 0.3%, > 0.5: 1.4%; body linear demand > 1.0: 0.22%; wheel demand p95 0.37, p99 0.53 m/s^2
+B3                       n  3647: wheel demand > 1.0 m/s^2: 0.3%, > 0.5: 1.7%; body linear demand > 1.0: 0.19%; wheel demand p95 0.36, p99 0.62 m/s^2
+V (fpd 0.325, yaw 0.07)  n  3584: wheel demand > 1.0 m/s^2: 0.3%, > 0.5: 0.7%; body linear demand > 1.0: 0.20%; wheel demand p95 0.25, p99 0.44 m/s^2

@@ -1,0 +1,9 @@
+variant: S_fpd010 route south sha256 e9dae7253801e35daf108285da8c3b84dbd098fa6d594a62f02add1cd53d16ca
+mission_start_wall: 1795773495.234430917
+mission_exit_code: 0
+mission_end_wall: 1795773722.805508231
+launch_pgid: 148432 members_before_teardown: 148432 148470 148472 148854 148996 
+SIGKILL survivors: 148854 
+process_group_empty_after_teardown: yes
+params restored
+teardown_wall: 1795773762.165718494

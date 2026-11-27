@@ -1,0 +1,6 @@
+diagnostics_phase5/validation: 7 cruise reversals (DWB output)
+  peak-to-peak omega within +-1 s: median 0.31, p90 1.02, max 1.08 rad/s
+  time between opposite-sign samples: median 553 ms sim (controller period ~93 ms)
+  linear speed at reversal: median 0.220 m/s (max_vel_x 0.22)
+  |mean omega| over +-2 s around reversal: median 0.030 rad/s  (small = weave on a straight, large = within a turn)
+  truth heading deviation from its 1 s mean on straights: RMS 0.25 deg, p99 0.79 deg (44% of samples)

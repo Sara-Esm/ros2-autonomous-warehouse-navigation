@@ -1,0 +1,105 @@
+f010: 5 legs
+  Inventory Scan Station           47.8 s sim  dist  9.51 m  rotation    270 deg (net   93, ratio   2.9)  reversals cruise/slow 9/1 (DWB 8/1)  turns 4  final approach  3.6 s,    22 deg
+  Dispatch Zone                    32.5 s sim  dist  5.67 m  rotation    313 deg (net    0, ratio 109.2)  reversals cruise/slow 5/0 (DWB 4/0)  turns 4  final approach  6.2 s,    89 deg
+  Inventory Scan Station           32.6 s sim  dist  5.66 m  rotation    332 deg (net    5, ratio  61.9)  reversals cruise/slow 6/2 (DWB 6/2)  turns 4  final approach  6.1 s,    95 deg
+  Dispatch Zone                    33.1 s sim  dist  5.69 m  rotation    381 deg (net    5, ratio  73.9)  reversals cruise/slow 13/1 (DWB 13/1)  turns 4  final approach  6.5 s,    98 deg
+  Inventory Scan Station           31.8 s sim  dist  5.56 m  rotation    286 deg (net    7, ratio  39.4)  reversals cruise/slow 3/0 (DWB 3/0)  turns 3  final approach  5.8 s,    73 deg
+  TOTAL nav 178 s sim, distance 32.09 m, rotation 1582 deg
+  angular reversals per nav-minute: cruise 12.15, slow/in-place 1.35 (counts 36/4; DWB output 34/4); sustained turns 19
+  cruise omega high-pass RMS 0.051 rad/s; |d omega| per /cmd_vel step p95 0.148, max 0.160 rad/s; truth angular accel p95 3.03, max 12.97 rad/s^2
+  command-to-motion lag (angular, per leg) 80, 70, 80, 70, 80 ms sim; linear tracking RMS error 0.0063 m/s
+f020: 5 legs
+  Inventory Scan Station           47.2 s sim  dist  9.53 m  rotation    216 deg (net   94, ratio   2.3)  reversals cruise/slow 3/0 (DWB 3/0)  turns 4  final approach  3.0 s,    13 deg
+  Dispatch Zone                    32.1 s sim  dist  5.64 m  rotation    304 deg (net    0, ratio 106.1)  reversals cruise/slow 6/1 (DWB 6/1)  turns 4  final approach  6.1 s,    88 deg
+  Inventory Scan Station           31.8 s sim  dist  5.57 m  rotation    307 deg (net    8, ratio  36.7)  reversals cruise/slow 2/0 (DWB 2/0)  turns 3  final approach  5.9 s,    78 deg
+  Dispatch Zone                    31.7 s sim  dist  5.54 m  rotation    307 deg (net    8, ratio  38.2)  reversals cruise/slow 3/0 (DWB 3/0)  turns 4  final approach  6.1 s,    88 deg
+  Inventory Scan Station           32.3 s sim  dist  5.59 m  rotation    309 deg (net    8, ratio  36.3)  reversals cruise/slow 2/2 (DWB 2/2)  turns 4  final approach  6.3 s,    88 deg
+  TOTAL nav 175 s sim, distance 31.87 m, rotation 1443 deg
+  angular reversals per nav-minute: cruise 5.48, slow/in-place 1.03 (counts 16/3; DWB output 16/3); sustained turns 19
+  cruise omega high-pass RMS 0.046 rad/s; |d omega| per /cmd_vel step p95 0.103, max 0.160 rad/s; truth angular accel p95 2.70, max 13.46 rad/s^2
+  command-to-motion lag (angular, per leg) 80, 60, 60, 60, 70 ms sim; linear tracking RMS error 0.0060 m/s
+f0325: 5 legs
+  Inventory Scan Station           46.6 s sim  dist  9.51 m  rotation    199 deg (net   94, ratio   2.1)  reversals cruise/slow 1/1 (DWB 1/1)  turns 3  final approach  3.3 s,    14 deg
+  Dispatch Zone                    32.5 s sim  dist  5.63 m  rotation    302 deg (net    2, ratio 105.3)  reversals cruise/slow 0/2 (DWB 0/2)  turns 3  final approach  6.9 s,   118 deg
+  Inventory Scan Station           31.9 s sim  dist  5.62 m  rotation    282 deg (net    7, ratio  38.1)  reversals cruise/slow 1/0 (DWB 1/0)  turns 3  final approach  6.3 s,    77 deg
+  Dispatch Zone                    32.6 s sim  dist  5.72 m  rotation    296 deg (net   10, ratio  30.4)  reversals cruise/slow 1/1 (DWB 0/2)  turns 3  final approach  6.4 s,    88 deg
+  Inventory Scan Station           31.5 s sim  dist  5.63 m  rotation    278 deg (net   10, ratio  28.1)  reversals cruise/slow 2/0 (DWB 2/0)  turns 3  final approach  5.8 s,    75 deg
+  TOTAL nav 175 s sim, distance 32.11 m, rotation 1356 deg
+  angular reversals per nav-minute: cruise 1.71, slow/in-place 1.37 (counts 5/4; DWB output 4/5); sustained turns 15
+  cruise omega high-pass RMS 0.036 rad/s; |d omega| per /cmd_vel step p95 0.100, max 0.160 rad/s; truth angular accel p95 2.13, max 13.42 rad/s^2
+  command-to-motion lag (angular, per leg) 80, 60, 70, 60, 60 ms sim; linear tracking RMS error 0.0050 m/s
+f010: mission 228 s wall; RTF 0.857
+  ack timeouts 0 (0.00/wall min) by action {}; service-call timeouts 0; halt cancel/result errors 0; "failed to create plan" 0
+  late-accepted (orphaned) goals after an ack timeout: 0; time with >= 2 behaviours executing at once: 0.0 s
+  /cmd_vel_nav  11.07 Hz sim,  9.48 Hz wall (mission window)
+  /cmd_vel      22.55 Hz sim, 19.30 Hz wall (mission window)
+  /plan          1.08 Hz sim,  0.93 Hz wall (mission window)
+f020: mission 224 s wall; RTF 0.871
+  ack timeouts 0 (0.00/wall min) by action {}; service-call timeouts 0; halt cancel/result errors 0; "failed to create plan" 0
+  late-accepted (orphaned) goals after an ack timeout: 0; time with >= 2 behaviours executing at once: 0.0 s
+  /cmd_vel_nav  10.87 Hz sim,  9.46 Hz wall (mission window)
+  /cmd_vel      22.17 Hz sim, 19.29 Hz wall (mission window)
+  /plan          1.06 Hz sim,  0.92 Hz wall (mission window)
+f0325: mission 224 s wall; RTF 0.864
+  ack timeouts 0 (0.00/wall min) by action {}; service-call timeouts 0; halt cancel/result errors 0; "failed to create plan" 0
+  late-accepted (orphaned) goals after an ack timeout: 0; time with >= 2 behaviours executing at once: 0.0 s
+  /cmd_vel_nav  10.95 Hz sim,  9.47 Hz wall (mission window)
+  /cmd_vel      22.29 Hz sim, 19.28 Hz wall (mission window)
+  /plan          1.07 Hz sim,  0.93 Hz wall (mission window)
+f010: 5 arrivals (acceptance from navigate_to_pose SUCCEEDED status)
+  Inventory Scan Station         accept 0.125 m /  -3.0 deg (|w| 0.022)  settled after 0.51 s  settled 0.125 m /  -3.1 deg  dx -0.124 dy +0.012
+  Dispatch Zone                  accept 0.040 m /  -2.9 deg (|w| 0.008)  settled after 0.17 s  settled 0.040 m /  -2.9 deg  dx -0.005 dy -0.040
+  Inventory Scan Station         accept 0.016 m /  +2.5 deg (|w| 0.009)  settled after 0.17 s  settled 0.016 m /  +2.5 deg  dx +0.014 dy -0.008
+  Dispatch Zone                  accept 0.014 m /  -2.6 deg (|w| 0.028)  settled after 0.48 s  settled 0.014 m /  -2.6 deg  dx -0.005 dy +0.013
+  Inventory Scan Station         accept 0.063 m /  +4.7 deg (|w| 0.021)  settled after 0.41 s  settled 0.063 m /  +4.7 deg  dx -0.039 dy -0.049
+  SUMMARY settled |heading| mean 3.2 deg, max 4.7 deg; settled position mean 0.052 m, max 0.125 m; dx range -0.124 .. +0.014 m; settle time mean 0.35 s
+f020: 5 arrivals (acceptance from navigate_to_pose SUCCEEDED status)
+  Inventory Scan Station         accept 0.116 m /  -4.2 deg (|w| 0.084)  settled after 0.71 s  settled 0.116 m /  -4.1 deg  dx -0.114 dy +0.021
+  Dispatch Zone                  accept 0.025 m /  -4.3 deg (|w| 0.014)  settled after 0.54 s  settled 0.025 m /  -4.4 deg  dx +0.025 dy +0.001
+  Inventory Scan Station         accept 0.102 m /  +3.9 deg (|w| 0.028)  settled after 0.51 s  settled 0.102 m /  +3.9 deg  dx -0.060 dy -0.082
+  Dispatch Zone                  accept 0.022 m /  -4.2 deg (|w| 0.014)  settled after 0.20 s  settled 0.022 m /  -4.2 deg  dx -0.022 dy -0.003
+  Inventory Scan Station         accept 0.042 m /  +4.3 deg (|w| 0.021)  settled after 0.51 s  settled 0.042 m /  +4.4 deg  dx -0.012 dy -0.040
+  SUMMARY settled |heading| mean 4.2 deg, max 4.4 deg; settled position mean 0.061 m, max 0.116 m; dx range -0.114 .. +0.025 m; settle time mean 0.50 s
+f0325: 5 arrivals (acceptance from navigate_to_pose SUCCEEDED status)
+  Inventory Scan Station         accept 0.122 m /  -4.3 deg (|w| 0.031)  settled after 0.48 s  settled 0.122 m /  -4.2 deg  dx -0.110 dy +0.052
+  Dispatch Zone                  accept 0.021 m /  -2.7 deg (|w| 0.006)  settled after 0.17 s  settled 0.021 m /  -2.7 deg  dx +0.021 dy +0.002
+  Inventory Scan Station         accept 0.038 m /  +4.6 deg (|w| 0.020)  settled after 0.37 s  settled 0.038 m /  +4.7 deg  dx -0.038 dy +0.001
+  Dispatch Zone                  accept 0.085 m /  -5.1 deg (|w| 0.010)  settled after 0.14 s  settled 0.085 m /  -5.1 deg  dx -0.013 dy -0.084
+  Inventory Scan Station         accept 0.088 m /  +4.7 deg (|w| 0.011)  settled after 0.54 s  settled 0.088 m /  +4.8 deg  dx -0.007 dy -0.088
+  SUMMARY settled |heading| mean 4.3 deg, max 5.1 deg; settled position mean 0.071 m, max 0.122 m; dx range -0.110 .. +0.021 m; settle time mean 0.34 s
+f010:
+  Inventory Scan Station       final-alignment: centre 0.95 / footprint 0.90 m
+  Dispatch Zone                final-alignment: centre 1.00 / footprint 0.90 m | PINCH: centre 0.32 / footprint 0.25 m (window min footprint 0.25); plan clearance 0.33 m, robot off plan 0.3 cm (toward obstacle), heading vs plan -8.2 deg, AMCL error 15.7 cm, at (+0.54,-8.91)
+  Inventory Scan Station       final-alignment: centre 1.00 / footprint 0.95 m | PINCH: centre 0.45 / footprint 0.40 m (window min footprint 0.35); plan clearance 0.55 m, robot off plan 9.3 cm (toward obstacle), heading vs plan -6.8 deg, AMCL error 9.8 cm, at (+0.28,-8.75)
+  Dispatch Zone                final-alignment: centre 1.00 / footprint 0.90 m | PINCH: centre 0.38 / footprint 0.32 m (window min footprint 0.30); plan clearance 0.38 m, robot off plan 0.3 cm (away from obstacle), heading vs plan -18.3 deg, AMCL error 8.5 cm, at (+0.58,-8.85)
+  Inventory Scan Station       final-alignment: centre 1.05 / footprint 0.95 m | PINCH: centre 0.45 / footprint 0.35 m (window min footprint 0.35); plan clearance 0.55 m, robot off plan 11.8 cm (toward obstacle), heading vs plan -0.6 deg, AMCL error 9.7 cm, at (-0.04,-8.78)
+f020:
+  Inventory Scan Station       final-alignment: centre 0.95 / footprint 0.85 m
+  Dispatch Zone                final-alignment: centre 0.95 / footprint 0.85 m | PINCH: centre 0.36 / footprint 0.26 m (window min footprint 0.26); plan clearance 0.42 m, robot off plan 2.4 cm (toward obstacle), heading vs plan +4.5 deg, AMCL error 13.0 cm, at (+0.48,-8.86)
+  Inventory Scan Station       final-alignment: centre 1.07 / footprint 0.96 m | PINCH: centre 0.45 / footprint 0.40 m (window min footprint 0.37); plan clearance 0.55 m, robot off plan 9.3 cm (toward obstacle), heading vs plan -5.9 deg, AMCL error 5.0 cm, at (+0.41,-8.75)
+  Dispatch Zone                final-alignment: centre 1.00 / footprint 0.90 m | PINCH: centre 0.32 / footprint 0.26 m (window min footprint 0.25); plan clearance 0.37 m, robot off plan 4.7 cm (toward obstacle), heading vs plan -16.4 deg, AMCL error 7.2 cm, at (+0.54,-8.90)
+  Inventory Scan Station       final-alignment: centre 1.05 / footprint 0.95 m | PINCH: centre 0.45 / footprint 0.40 m (window min footprint 0.35); plan clearance 0.55 m, robot off plan 10.1 cm (toward obstacle), heading vs plan -0.8 deg, AMCL error 19.7 cm, at (-0.03,-8.76)
+f0325:
+  Inventory Scan Station       final-alignment: centre 0.95 / footprint 0.85 m
+  Dispatch Zone                final-alignment: centre 0.95 / footprint 0.85 m | PINCH: centre 0.32 / footprint 0.25 m (window min footprint 0.25); plan clearance 0.37 m, robot off plan 5.4 cm (toward obstacle), heading vs plan -12.4 deg, AMCL error 9.3 cm, at (+0.54,-8.91)
+  Inventory Scan Station       final-alignment: centre 1.00 / footprint 0.90 m | PINCH: centre 0.45 / footprint 0.35 m (window min footprint 0.35); plan clearance 0.55 m, robot off plan 11.0 cm (toward obstacle), heading vs plan +2.6 deg, AMCL error 8.6 cm, at (-0.04,-8.77)
+  Dispatch Zone                final-alignment: centre 1.00 / footprint 0.90 m | PINCH: centre 0.31 / footprint 0.21 m (window min footprint 0.21); plan clearance 0.36 m, robot off plan 5.3 cm (toward obstacle), heading vs plan -15.3 deg, AMCL error 7.6 cm, at (+0.49,-8.91)
+  Inventory Scan Station       final-alignment: centre 1.06 / footprint 0.95 m | PINCH: centre 0.45 / footprint 0.40 m (window min footprint 0.37); plan clearance 0.55 m, robot off plan 9.4 cm (toward obstacle), heading vs plan -4.4 deg, AMCL error 19.2 cm, at (+0.37,-8.75)
+diagnostics_phase5/variants/S_fpd010: 34 cruise reversals (DWB output)
+  peak-to-peak omega within +-1 s: median 0.38, p90 0.65, max 1.18 rad/s
+  time between opposite-sign samples: median 489 ms sim (controller period ~93 ms)
+  linear speed at reversal: median 0.220 m/s (max_vel_x 0.22)
+  |mean omega| over +-2 s around reversal: median 0.046 rad/s  (small = weave on a straight, large = within a turn)
+  truth heading deviation from its 1 s mean on straights: RMS 0.41 deg, p99 1.27 deg (31% of samples)
+diagnostics_phase5/variants/S_fpd020: 16 cruise reversals (DWB output)
+  peak-to-peak omega within +-1 s: median 0.36, p90 0.51, max 0.62 rad/s
+  time between opposite-sign samples: median 337 ms sim (controller period ~93 ms)
+  linear speed at reversal: median 0.220 m/s (max_vel_x 0.22)
+  |mean omega| over +-2 s around reversal: median 0.052 rad/s  (small = weave on a straight, large = within a turn)
+  truth heading deviation from its 1 s mean on straights: RMS 0.38 deg, p99 1.31 deg (33% of samples)
+diagnostics_phase5/variants/S_fpd0325: 4 cruise reversals (DWB output)
+  peak-to-peak omega within +-1 s: median 0.36, p90 0.48, max 0.51 rad/s
+  time between opposite-sign samples: median 526 ms sim (controller period ~93 ms)
+  linear speed at reversal: median 0.214 m/s (max_vel_x 0.22)
+  |mean omega| over +-2 s around reversal: median 0.033 rad/s  (small = weave on a straight, large = within a turn)
+  truth heading deviation from its 1 s mean on straights: RMS 0.29 deg, p99 0.93 deg (35% of samples)

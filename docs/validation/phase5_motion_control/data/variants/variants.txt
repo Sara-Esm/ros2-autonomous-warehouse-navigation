@@ -1,0 +1,75 @@
+A: 5 legs
+  Home Charging Dock               59.4 s sim  dist 11.70 m  rotation    473 deg (net   98, ratio   4.8)  reversals cruise/slow 12/0 (DWB 12/0)  turns 3  final approach  3.0 s,    17 deg
+  Loading Zone                     43.5 s sim  dist  8.60 m  rotation    483 deg (net   18, ratio  26.8)  reversals cruise/slow 9/0 (DWB 8/0)  turns 5  final approach  2.5 s,    16 deg
+  Home Charging Dock               45.5 s sim  dist  8.63 m  rotation    515 deg (net   18, ratio  29.1)  reversals cruise/slow 3/0 (DWB 2/0)  turns 4  final approach  4.3 s,    42 deg
+  Loading Zone                     44.0 s sim  dist  8.58 m  rotation    465 deg (net   17, ratio  27.7)  reversals cruise/slow 1/0 (DWB 1/0)  turns 5  final approach  3.0 s,    21 deg
+  Home Charging Dock               45.8 s sim  dist  8.68 m  rotation    527 deg (net   18, ratio  29.5)  reversals cruise/slow 5/1 (DWB 5/1)  turns 6  final approach  4.3 s,    45 deg
+  TOTAL nav 238 s sim, distance 46.20 m, rotation 2463 deg
+  angular reversals per nav-minute: cruise 7.56, slow/in-place 0.25 (counts 30/1; DWB output 28/1); sustained turns 23
+  cruise omega high-pass RMS 0.053 rad/s; |d omega| per /cmd_vel step p95 0.103, max 0.160 rad/s; truth angular accel p95 2.79, max 7.66 rad/s^2
+  command-to-motion lag (angular, per leg) 70, 70, 70, 70, 70 ms sim; linear tracking RMS error 0.0052 m/s
+B: 5 legs
+  Home Charging Dock               57.9 s sim  dist 11.65 m  rotation    356 deg (net   99, ratio   3.6)  reversals cruise/slow 0/1 (DWB 0/1)  turns 3  final approach  3.0 s,    21 deg
+  Loading Zone                     42.4 s sim  dist  8.48 m  rotation    401 deg (net   19, ratio  21.1)  reversals cruise/slow 3/0 (DWB 3/0)  turns 4  final approach  2.7 s,    14 deg
+  Home Charging Dock               43.4 s sim  dist  8.39 m  rotation    464 deg (net   19, ratio  24.9)  reversals cruise/slow 1/0 (DWB 1/0)  turns 5  final approach  3.9 s,    30 deg
+  Loading Zone                     43.2 s sim  dist  8.57 m  rotation    422 deg (net   17, ratio  24.1)  reversals cruise/slow 1/1 (DWB 1/1)  turns 3  final approach  2.9 s,    19 deg
+  Home Charging Dock               43.0 s sim  dist  8.37 m  rotation    440 deg (net   19, ratio  23.5)  reversals cruise/slow 1/0 (DWB 1/0)  turns 4  final approach  3.5 s,    27 deg
+  TOTAL nav 230 s sim, distance 45.47 m, rotation 2083 deg
+  angular reversals per nav-minute: cruise 1.57, slow/in-place 0.52 (counts 6/2; DWB output 6/2); sustained turns 19
+  cruise omega high-pass RMS 0.039 rad/s; |d omega| per /cmd_vel step p95 0.103, max 0.160 rad/s; truth angular accel p95 2.14, max 7.64 rad/s^2
+  command-to-motion lag (angular, per leg) 70, 60, 70, 70, 70 ms sim; linear tracking RMS error 0.0036 m/s
+C: 5 legs
+  Home Charging Dock               60.7 s sim  dist 11.85 m  rotation    396 deg (net   99, ratio   4.0)  reversals cruise/slow 0/0 (DWB 0/0)  turns 3  final approach  3.4 s,    24 deg
+  Loading Zone                     44.3 s sim  dist  8.66 m  rotation    492 deg (net   20, ratio  24.5)  reversals cruise/slow 8/1 (DWB 8/1)  turns 6  final approach  3.0 s,    23 deg
+  Home Charging Dock               44.5 s sim  dist  8.53 m  rotation    496 deg (net   21, ratio  23.4)  reversals cruise/slow 3/1 (DWB 3/1)  turns 7  final approach  3.4 s,    30 deg
+  Loading Zone                     43.7 s sim  dist  8.53 m  rotation    449 deg (net   19, ratio  23.4)  reversals cruise/slow 4/1 (DWB 7/0)  turns 4  final approach  2.8 s,    21 deg
+  Home Charging Dock               44.9 s sim  dist  8.72 m  rotation    505 deg (net   18, ratio  28.0)  reversals cruise/slow 3/0 (DWB 4/0)  turns 5  final approach  3.2 s,    21 deg
+  TOTAL nav 238 s sim, distance 46.30 m, rotation 2339 deg
+  angular reversals per nav-minute: cruise 4.54, slow/in-place 0.76 (counts 18/3; DWB output 22/2); sustained turns 25
+  cruise omega high-pass RMS 0.046 rad/s; |d omega| per /cmd_vel step p95 0.080, max 0.080 rad/s; truth angular accel p95 2.45, max 11.98 rad/s^2
+  command-to-motion lag (angular, per leg) 70, 60, 70, 70, 70 ms sim; linear tracking RMS error 0.0044 m/s
+D: 5 legs
+  Home Charging Dock               63.3 s sim  dist 11.91 m  rotation    700 deg (net   92, ratio   7.7)  reversals cruise/slow 7/2 (DWB 6/1)  turns 7  final approach  4.9 s,    33 deg
+  Loading Zone                     45.9 s sim  dist  8.65 m  rotation    476 deg (net    8, ratio  63.1)  reversals cruise/slow 10/1 (DWB 10/1)  turns 4  final approach  4.6 s,    33 deg
+  Home Charging Dock               46.2 s sim  dist  8.59 m  rotation    515 deg (net   13, ratio  40.1)  reversals cruise/slow 6/0 (DWB 5/0)  turns 6  final approach  4.6 s,    34 deg
+  Loading Zone                     45.1 s sim  dist  8.60 m  rotation    485 deg (net   11, ratio  42.4)  reversals cruise/slow 4/1 (DWB 4/1)  turns 5  final approach  4.2 s,    33 deg
+  Home Charging Dock               45.6 s sim  dist  8.59 m  rotation    503 deg (net    9, ratio  53.5)  reversals cruise/slow 3/0 (DWB 3/0)  turns 5  final approach  4.6 s,    36 deg
+  TOTAL nav 246 s sim, distance 46.34 m, rotation 2679 deg
+  angular reversals per nav-minute: cruise 7.32, slow/in-place 0.98 (counts 30/4; DWB output 28/3); sustained turns 27
+  cruise omega high-pass RMS 0.065 rad/s; |d omega| per /cmd_vel step p95 0.154, max 0.160 rad/s; truth angular accel p95 3.09, max 12.26 rad/s^2
+  command-to-motion lag (angular, per leg) 90, 70, 70, 70, 70 ms sim; linear tracking RMS error 0.0062 m/s
+A: mission 289 s wall; RTF 0.877
+  ack timeouts 0 (0.00/wall min) by action {}; service-call timeouts 0; halt cancel/result errors 0; "failed to create plan" 0
+  late-accepted (orphaned) goals after an ack timeout: 0; time with >= 2 behaviours executing at once: 0.0 s
+  /cmd_vel_nav  10.94 Hz sim,  9.59 Hz wall (mission window)
+  /cmd_vel      22.20 Hz sim, 19.46 Hz wall (mission window)
+  /plan          1.07 Hz sim,  0.94 Hz wall (mission window)
+B: mission 282 s wall; RTF 0.868
+  ack timeouts 0 (0.00/wall min) by action {}; service-call timeouts 0; halt cancel/result errors 0; "failed to create plan" 0
+  late-accepted (orphaned) goals after an ack timeout: 0; time with >= 2 behaviours executing at once: 0.0 s
+  /cmd_vel_nav  11.04 Hz sim,  9.58 Hz wall (mission window)
+  /cmd_vel      22.38 Hz sim, 19.44 Hz wall (mission window)
+  /plan          1.08 Hz sim,  0.94 Hz wall (mission window)
+C: mission 292 s wall; RTF 0.878
+  ack timeouts 0 (0.00/wall min) by action {}; service-call timeouts 0; halt cancel/result errors 0; "failed to create plan" 0
+  late-accepted (orphaned) goals after an ack timeout: 0; time with >= 2 behaviours executing at once: 0.0 s
+  /cmd_vel_nav  10.93 Hz sim,  9.59 Hz wall (mission window)
+  /cmd_vel      22.16 Hz sim, 19.46 Hz wall (mission window)
+  /plan          1.07 Hz sim,  0.94 Hz wall (mission window)
+D: mission 305 s wall; RTF 0.868
+  ack timeouts 0 (0.00/wall min) by action {}; service-call timeouts 0; halt cancel/result errors 0; "failed to create plan" 0
+  late-accepted (orphaned) goals after an ack timeout: 0; time with >= 2 behaviours executing at once: 0.0 s
+  /cmd_vel_nav  11.07 Hz sim,  9.61 Hz wall (mission window)
+  /cmd_vel      22.44 Hz sim, 19.47 Hz wall (mission window)
+  /plan          1.09 Hz sim,  0.94 Hz wall (mission window)
+/home/owl/projects/warehouse_ws/diagnostics_phase5/session_eval.py:65: RuntimeWarning: Mean of empty slice.
+  print(f'  SUMMARY settled |heading| mean {hs.mean():.1f} deg, max {hs.max():.1f} deg; settled position mean {ps.mean():.3f} m, max {ps.max():.3f} m; '
+/home/owl/.local/lib/python3.10/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide
+  ret = ret.dtype.type(ret / rcount)
+A: 0 arrivals
+Traceback (most recent call last):
+  File "/home/owl/projects/warehouse_ws/diagnostics_phase5/session_eval.py", line 65, in <module>
+    print(f'  SUMMARY settled |heading| mean {hs.mean():.1f} deg, max {hs.max():.1f} deg; settled position mean {ps.mean():.3f} m, max {ps.max():.3f} m; '
+  File "/home/owl/.local/lib/python3.10/site-packages/numpy/core/_methods.py", line 41, in _amax
+    return umr_maximum(a, axis, None, out, keepdims, initial, where)
+ValueError: zero-size array to reduction operation maximum which has no identity

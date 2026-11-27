@@ -1,0 +1,3 @@
+lc_current domain 191: active [3] track_unknown_space=Boolean value is: False inf_is_valid=Boolean value is: False
+lc_track domain 192: active [3] track_unknown_space=Boolean value is: True inf_is_valid=Boolean value is: False
+lc_track_inf domain 193: active [3] track_unknown_space=Boolean value is: True inf_is_valid=Boolean value is: True

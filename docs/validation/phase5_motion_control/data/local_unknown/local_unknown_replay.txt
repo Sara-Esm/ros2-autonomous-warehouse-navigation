@@ -1,0 +1,15 @@
+lc_current: 1150 snapshots, 876 while moving
+   initialization (first 10 s): unknown share median 0%
+   moving: unknown share of 3x3 m window median 0%, p95 0%; cell under robot unknown 0.0%
+   executed next-1.5 s path crosses an unknown cell (DWB would reject it): 0.0% of moving snapshots
+   fan arcs valid (of 21): median 21, p5 21; snapshots with NO valid arc (blocking): 0 (0.0%)
+lc_track: 1140 snapshots, 873 while moving
+   initialization (first 10 s): unknown share median 74%
+   moving: unknown share of 3x3 m window median 35%, p95 60%; cell under robot unknown 0.0%
+   executed next-1.5 s path crosses an unknown cell (DWB would reject it): 63.9% of moving snapshots
+   fan arcs valid (of 21): median 5, p5 0; snapshots with NO valid arc (blocking): 234 (26.8%)
+lc_track_inf: 1132 snapshots, 876 while moving
+   initialization (first 10 s): unknown share median 1%
+   moving: unknown share of 3x3 m window median 5%, p95 24%; cell under robot unknown 0.0%
+   executed next-1.5 s path crosses an unknown cell (DWB would reject it): 0.0% of moving snapshots
+   fan arcs valid (of 21): median 21, p5 21; snapshots with NO valid arc (blocking): 0 (0.0%)

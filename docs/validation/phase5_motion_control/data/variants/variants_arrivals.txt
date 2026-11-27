@@ -1,0 +1,28 @@
+A: 5 arrivals (acceptance from 'ARRIVED' log time (status topics not recorded))
+  Home Charging Dock             accept 0.077 m /  +7.6 deg (|w| 0.120)  settled after 0.85 s  settled 0.077 m /  +7.4 deg  dx -0.077 dy -0.002
+  Loading Zone                   accept 0.120 m / -10.4 deg (|w| 0.083)  settled after 0.88 s  settled 0.120 m / -10.6 deg  dx -0.119 dy -0.021
+  Home Charging Dock             accept 0.059 m /  +6.9 deg (|w| 0.131)  settled after 1.12 s  settled 0.059 m /  +6.0 deg  dx -0.051 dy +0.029
+  Loading Zone                   accept 0.079 m / -10.5 deg (|w| 0.119)  settled after 0.82 s  settled 0.079 m / -10.5 deg  dx -0.078 dy -0.012
+  Home Charging Dock             accept 0.047 m /  +7.1 deg (|w| 0.212)  settled after 1.05 s  settled 0.047 m /  +6.7 deg  dx -0.043 dy -0.018
+  SUMMARY settled |heading| mean 8.2 deg, max 10.6 deg; settled position mean 0.076 m, max 0.120 m; dx range -0.119 .. -0.043 m; settle time mean 0.95 s
+B: 5 arrivals (acceptance from 'ARRIVED' log time (status topics not recorded))
+  Home Charging Dock             accept 0.076 m /  +9.3 deg (|w| 0.045)  settled after 0.58 s  settled 0.076 m /  +9.3 deg  dx -0.076 dy +0.007
+  Loading Zone                   accept 0.101 m /  -9.5 deg (|w| 0.025)  settled after 0.75 s  settled 0.101 m /  -9.7 deg  dx -0.101 dy +0.007
+  Home Charging Dock             accept 0.058 m /  +8.7 deg (|w| 0.128)  settled after 1.12 s  settled 0.058 m /  +7.8 deg  dx -0.038 dy +0.044
+  Loading Zone                   accept 0.117 m /  -9.7 deg (|w| 0.140)  settled after 0.85 s  settled 0.117 m /  -9.5 deg  dx -0.117 dy -0.005
+  Home Charging Dock             accept 0.055 m /  +9.0 deg (|w| 0.171)  settled after 0.95 s  settled 0.055 m /  +8.8 deg  dx -0.055 dy -0.004
+  SUMMARY settled |heading| mean 9.0 deg, max 9.7 deg; settled position mean 0.082 m, max 0.117 m; dx range -0.117 .. -0.038 m; settle time mean 0.85 s
+C: 5 arrivals (acceptance from 'ARRIVED' log time (status topics not recorded))
+  Home Charging Dock             accept 0.028 m /  +9.1 deg (|w| 0.132)  settled after 0.85 s  settled 0.028 m /  +8.7 deg  dx -0.026 dy -0.012
+  Loading Zone                   accept 0.106 m / -11.1 deg (|w| 0.122)  settled after 0.71 s  settled 0.106 m / -10.9 deg  dx -0.106 dy -0.008
+  Home Charging Dock             accept 0.085 m / +10.1 deg (|w| 0.135)  settled after 0.82 s  settled 0.085 m /  +9.9 deg  dx -0.085 dy +0.005
+  Loading Zone                   accept 0.089 m /  -9.0 deg (|w| 0.130)  settled after 0.71 s  settled 0.089 m /  -8.8 deg  dx -0.089 dy -0.000
+  Home Charging Dock             accept 0.032 m /  +9.0 deg (|w| 0.124)  settled after 0.71 s  settled 0.032 m /  +8.8 deg  dx -0.030 dy -0.011
+  SUMMARY settled |heading| mean 9.4 deg, max 10.9 deg; settled position mean 0.068 m, max 0.106 m; dx range -0.106 .. -0.026 m; settle time mean 0.76 s
+D: 5 arrivals (acceptance from 'ARRIVED' log time (status topics not recorded))
+  Home Charging Dock             accept 0.051 m /  +1.4 deg (|w| 0.040)  settled after 0.68 s  settled 0.051 m /  +1.5 deg  dx -0.051 dy -0.005
+  Loading Zone                   accept 0.074 m /  -6.0 deg (|w| 0.026)  settled after 0.37 s  settled 0.074 m /  -6.0 deg  dx -0.073 dy +0.007
+  Home Charging Dock             accept 0.067 m /  +6.8 deg (|w| 0.013)  settled after 0.20 s  settled 0.067 m /  +6.8 deg  dx -0.058 dy +0.034
+  Loading Zone                   accept 0.139 m /  -4.6 deg (|w| 0.009)  settled after 0.17 s  settled 0.139 m /  -4.6 deg  dx -0.130 dy +0.050
+  Home Charging Dock             accept 0.033 m /  +4.8 deg (|w| 0.010)  settled after 0.14 s  settled 0.033 m /  +4.8 deg  dx -0.032 dy +0.005
+  SUMMARY settled |heading| mean 4.7 deg, max 6.8 deg; settled position mean 0.073 m, max 0.139 m; dx range -0.130 .. -0.032 m; settle time mean 0.31 s

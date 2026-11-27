@@ -1,0 +1,13 @@
+# C_ang_accel: unknown-space traversal, clearance, leg timing (diagnostics_phase5/variants/C_ang_accel)
+live global costmap recorded: yes, 159 messages
+| Leg | Wall s | Sim s | First plan m | First plan on static-unknown | Mean over plans (static) | Mean over plans (live) | Executed m | Executed on static-unknown (m / sim s) | Executed on live-unknown (m) | Min clearance true geometry | p5 | Min clearance map | Ack timeouts |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Home Charging Dock | 68.2 | 60.7 | 11.61 | 0.00 m (0%) | 0% | 0% | 11.85 | 0.00 / 0.0 | 0.00 | 0.65 | 0.65 | 0.65 | 0 |
+| Loading Zone | 50.9 | 44.3 | 8.76 | 0.00 m (0%) | 0% | 0% | 8.66 | 0.13 / 0.6 | 0.10 | 0.36 | 0.45 | 0.40 | 0 |
+| Home Charging Dock | 50.6 | 44.5 | 8.60 | 0.27 m (3%) | 2% | 0% | 8.53 | 0.30 / 1.5 | 0.00 | 0.45 | 0.50 | 0.45 | 0 |
+| Loading Zone | 50.1 | 43.7 | 8.62 | 0.37 m (4%) | 3% | 0% | 8.53 | 0.30 / 1.4 | 0.00 | 0.50 | 0.50 | 0.51 | 0 |
+| Home Charging Dock | 51.7 | 44.9 | 8.73 | 0.33 m (4%) | 3% | 0% | 8.72 | 0.26 / 1.2 | 0.00 | 0.45 | 0.46 | 0.40 | 0 |
+| **Total** | 271.5 | 238.1 | 46.31 | 0.97 m | | | 46.30 | 0.99 / 4.7 | 0.10 | | | | 0 |
+
+ack timeouts: 0 in launch log, 0 during the mission (0.00 per wall minute, 0.00 per sim minute of navigation)
+executed share on static-unknown cells: 2.1% of 46.3 m

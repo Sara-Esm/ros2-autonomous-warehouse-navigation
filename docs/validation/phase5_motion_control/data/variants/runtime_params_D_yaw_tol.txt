@@ -1,0 +1,7 @@
+/controller_server FollowPath.acc_lim_theta: Double value is: 3.2
+/controller_server FollowPath.PathAlign.forward_point_distance: Double value is: 0.1
+/controller_server general_goal_checker.yaw_goal_tolerance: Double value is: 0.07
+/controller_server FollowPath.acc_lim_x: Double value is: 2.5
+/velocity_smoother max_accel: Double values are: array('d', [2.5, 0.0, 3.2])
+/velocity_smoother max_decel: Double values are: array('d', [-2.5, 0.0, -3.2])
+/velocity_smoother max_velocity: Double values are: array('d', [0.5, 0.0, 2.5])

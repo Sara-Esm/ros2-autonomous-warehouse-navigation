@@ -1,0 +1,13 @@
+# E_align_fpd_yaw_tol: unknown-space traversal, clearance, leg timing (diagnostics_phase5/variants/E_align_fpd_yaw_tol)
+live global costmap recorded: yes, 157 messages
+| Leg | Wall s | Sim s | First plan m | First plan on static-unknown | Mean over plans (static) | Mean over plans (live) | Executed m | Executed on static-unknown (m / sim s) | Executed on live-unknown (m) | Min clearance true geometry | p5 | Min clearance map | Ack timeouts |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Home Charging Dock | 65.7 | 59.0 | 11.61 | 0.00 m (0%) | 0% | 0% | 11.73 | 0.00 / 0.0 | 0.00 | 0.60 | 0.64 | 0.60 | 0 |
+| Loading Zone | 49.0 | 42.8 | 8.77 | 0.10 m (1%) | 1% | 0% | 8.51 | 0.15 / 0.7 | 0.00 | 0.40 | 0.45 | 0.45 | 0 |
+| Home Charging Dock | 49.8 | 43.4 | 8.66 | 0.30 m (3%) | 3% | 0% | 8.40 | 0.25 / 1.2 | 0.00 | 0.40 | 0.45 | 0.40 | 0 |
+| Loading Zone | 48.8 | 42.7 | 8.73 | 0.38 m (4%) | 2% | 0% | 8.43 | 0.20 / 0.9 | 0.00 | 0.45 | 0.50 | 0.50 | 0 |
+| Home Charging Dock | 50.3 | 44.4 | 8.49 | 0.30 m (4%) | 2% | 0% | 8.44 | 0.31 / 1.4 | 0.00 | 0.40 | 0.40 | 0.40 | 0 |
+| **Total** | 263.6 | 232.3 | 46.26 | 1.08 m | | | 45.51 | 0.91 / 4.2 | 0.00 | | | | 0 |
+
+ack timeouts: 0 in launch log, 0 during the mission (0.00 per wall minute, 0.00 per sim minute of navigation)
+executed share on static-unknown cells: 2.0% of 45.5 m

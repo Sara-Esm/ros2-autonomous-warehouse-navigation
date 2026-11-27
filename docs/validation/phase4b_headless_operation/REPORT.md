@@ -180,6 +180,17 @@ in Phase 4b. It matters for Phase 5 motion tuning.
 - The fixed-route results therefore do **not** establish detection reliability for arbitrary routes or
   approach directions.
 
+*Note added 2026-11-27 (Phase 5):* a Phase 5 controlled south-route session (forward-point distance 0.20–0.325 m,
+yaw tolerance 0.07 rad) produced settled stops up to about **+0.025 m beyond** the intended goal. The
+all-stops-short observation above **no longer holds universally**.
+
+- That stop is outside the tested near-side failure region (about +0.125 m or more with lateral and heading
+  error). The boundary depends on position, orientation and marker geometry.
+- A possible coupling: a tighter yaw tolerance keeps the robot adjusting at the goal, which makes the final
+  position more dependent on localization error. It has **not** been shown that the yaw tolerance alone caused
+  the sign change.
+- Phase 6 station verification must not assume the robot stops short of the goal (Phase 5 report §3.2).
+
 **Residual unknown-space traversal** (`data/live_unknown_residual.txt`). This is the executed path on cells
 that were unknown in the latest global-costmap snapshot **and still unknown in the next one**:
 

@@ -1,0 +1,23 @@
+E: 5 legs
+  Home Charging Dock               59.0 s sim  dist 11.73 m  rotation    364 deg (net   94, ratio   3.9)  reversals cruise/slow 0/1 (DWB 0/1)  turns 5  final approach  4.4 s,    22 deg
+  Loading Zone                     42.8 s sim  dist  8.51 m  rotation    388 deg (net   10, ratio  40.5)  reversals cruise/slow 2/0 (DWB 2/0)  turns 5  final approach  2.9 s,     8 deg
+  Home Charging Dock               43.4 s sim  dist  8.40 m  rotation    444 deg (net   10, ratio  44.3)  reversals cruise/slow 2/0 (DWB 2/0)  turns 5  final approach  3.6 s,    22 deg
+  Loading Zone                     42.7 s sim  dist  8.43 m  rotation    406 deg (net   10, ratio  42.0)  reversals cruise/slow 3/0 (DWB 3/0)  turns 6  final approach  3.0 s,    14 deg
+  Home Charging Dock               44.4 s sim  dist  8.44 m  rotation    458 deg (net    9, ratio  50.5)  reversals cruise/slow 1/1 (DWB 1/1)  turns 4  final approach  4.7 s,    36 deg
+  TOTAL nav 232 s sim, distance 45.51 m, rotation 2060 deg
+  angular reversals per nav-minute: cruise 2.07, slow/in-place 0.52 (counts 8/2; DWB output 8/2); sustained turns 25
+  cruise omega high-pass RMS 0.038 rad/s; |d omega| per /cmd_vel step p95 0.103, max 0.160 rad/s; truth angular accel p95 2.22, max 7.69 rad/s^2
+  command-to-motion lag (angular, per leg) 70, 70, 80, 70, 70 ms sim; linear tracking RMS error 0.0047 m/s
+E: mission 285 s wall; RTF 0.882
+  ack timeouts 0 (0.00/wall min) by action {}; service-call timeouts 0; halt cancel/result errors 0; "failed to create plan" 0
+  late-accepted (orphaned) goals after an ack timeout: 0; time with >= 2 behaviours executing at once: 0.0 s
+  /cmd_vel_nav  10.86 Hz sim,  9.58 Hz wall (mission window)
+  /cmd_vel      22.03 Hz sim, 19.43 Hz wall (mission window)
+  /plan          1.06 Hz sim,  0.94 Hz wall (mission window)
+E: 5 arrivals (acceptance from navigate_to_pose SUCCEEDED status)
+  Home Charging Dock             accept 0.033 m /  +4.0 deg (|w| 0.016)  settled after 0.37 s  settled 0.033 m /  +4.0 deg  dx -0.029 dy +0.015
+  Loading Zone                   accept 0.121 m /  -5.5 deg (|w| 0.001)  settled after 0.65 s  settled 0.121 m /  -5.6 deg  dx -0.121 dy +0.002
+  Home Charging Dock             accept 0.049 m /  +4.4 deg (|w| 0.001)  settled after 0.31 s  settled 0.049 m /  +4.4 deg  dx -0.049 dy -0.009
+  Loading Zone                   accept 0.115 m /  -5.3 deg (|w| 0.010)  settled after 0.27 s  settled 0.115 m /  -5.3 deg  dx -0.114 dy -0.012
+  Home Charging Dock             accept 0.072 m /  +3.6 deg (|w| 0.031)  settled after 0.48 s  settled 0.072 m /  +3.7 deg  dx -0.069 dy +0.020
+  SUMMARY settled |heading| mean 4.6 deg, max 5.6 deg; settled position mean 0.078 m, max 0.121 m; dx range -0.121 .. -0.029 m; settle time mean 0.41 s

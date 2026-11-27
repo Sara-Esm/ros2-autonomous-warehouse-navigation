@@ -134,7 +134,9 @@ controller_server:
       # 0.05 m / 0.05 rad made DWB oscillate at goals in a sim running below
       # real time. The wide-angle camera does not need a precise stop.
       xy_goal_tolerance: 0.12
-      yaw_goal_tolerance: 0.15
+      # Phase 5: 0.15 -> 0.07 rad. With 0.15 the robot stopped as soon as the estimate was inside 8.6 deg
+      # (settled error 6-11 deg in 12 of 15 baseline arrivals); 0.07 halved it in controlled tests.
+      yaw_goal_tolerance: 0.07
 
     # DWB parameters
     FollowPath:
@@ -170,9 +172,12 @@ controller_server:
       critics: ["RotateToGoal", "Oscillation", "BaseObstacle", "GoalAlign", "PathAlign", "PathDist", "GoalDist"]
       BaseObstacle.scale: 0.02
       PathAlign.scale: 32.0
-      PathAlign.forward_point_distance: 0.1
+      # Phase 5: 0.1 -> 0.325 m (Nav2 default) for PathAlign and GoalAlign. A point only 0.1 m ahead made the
+      # alignment cost sensitive to the 5 cm steps of the grid path and produced corrective angular
+      # reversals on straights (7.2-8.3 per navigation minute); 0.325 m cut them by about 80% in tests.
+      PathAlign.forward_point_distance: 0.325
       GoalAlign.scale: 24.0
-      GoalAlign.forward_point_distance: 0.1
+      GoalAlign.forward_point_distance: 0.325
       PathDist.scale: 32.0
       GoalDist.scale: 24.0
       RotateToGoal.scale: 32.0

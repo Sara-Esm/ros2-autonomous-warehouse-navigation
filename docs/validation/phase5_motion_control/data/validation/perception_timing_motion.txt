@@ -1,0 +1,36 @@
+P5: mission 408 s wall, 356 s sim, RTF 0.873
+  camera_info: 6.89 Hz sim, 6.02 Hz wall; frame interval (stamp) p50 145 ms, p95 178 ms, max 249 ms; age p50 144 ms sim, p95 179, max 244
+  detector processed frames: 6.89 Hz sim, 6.02 Hz wall (2453 frames, 577 with a marker); marker_id messages 577; ids seen [0, 1, 2, 3]
+  verification: ID 0 OK 0.02 s, ID 1 OK 0.17 s, ID 2 OK 0.10 s, ID 3 OK 0.09 s, ID 0 OK 0.18 s | 5/5 verified, mean 0.11 s wall
+P5: mission 408 s wall; RTF 0.873
+  ack timeouts 0 (0.00/wall min) by action {}; service-call timeouts 0; halt cancel/result errors 0; "failed to create plan" 0
+  late-accepted (orphaned) goals after an ack timeout: 0; time with >= 2 behaviours executing at once: 0.0 s
+  /cmd_vel_nav  10.73 Hz sim,  9.37 Hz wall (mission window)
+  /cmd_vel      21.70 Hz sim, 18.95 Hz wall (mission window)
+  /plan          1.05 Hz sim,  0.92 Hz wall (mission window)
+P5: 5 legs
+  Home Charging Dock               57.7 s sim  dist 11.62 m  rotation    358 deg (net   93, ratio   3.8)  reversals cruise/slow 0/0 (DWB 0/0)  turns 3  final approach  3.6 s,    19 deg
+  Loading Zone                     42.9 s sim  dist  8.48 m  rotation    409 deg (net    9, ratio  46.3)  reversals cruise/slow 1/0 (DWB 1/0)  turns 4  final approach  3.1 s,    14 deg
+  Inventory Scan Station           89.4 s sim  dist 18.18 m  rotation    404 deg (net  179, ratio   2.3)  reversals cruise/slow 1/1 (DWB 1/1)  turns 1  final approach  4.3 s,    29 deg
+  Dispatch Zone                    31.4 s sim  dist  5.56 m  rotation    257 deg (net    1, ratio  89.9)  reversals cruise/slow 0/0 (DWB 0/0)  turns 3  final approach  6.1 s,    82 deg
+  Return to Home Charging Dock     92.1 s sim  dist 18.88 m  rotation    520 deg (net  180, ratio   2.9)  reversals cruise/slow 5/0 (DWB 5/0)  turns 5  final approach  3.8 s,    20 deg
+  TOTAL nav 314 s sim, distance 62.72 m, rotation 1948 deg
+  angular reversals per nav-minute: cruise 1.34, slow/in-place 0.19 (counts 7/1; DWB output 7/1); sustained turns 16
+  cruise omega high-pass RMS 0.033 rad/s; |d omega| per /cmd_vel step p95 0.051, max 0.160 rad/s; truth angular accel p95 1.81, max 11.95 rad/s^2
+  command-to-motion lag (angular, per leg) 70, 70, 70, 70, 70 ms sim; linear tracking RMS error 0.0035 m/s
+P5: 5 arrivals (acceptance from navigate_to_pose SUCCEEDED status)
+  Home Charging Dock             accept 0.062 m /  +3.1 deg (|w| 0.002)  settled after 0.31 s  settled 0.062 m /  +3.1 deg  dx -0.062 dy +0.003
+  Loading Zone                   accept 0.114 m /  -5.7 deg (|w| 0.013)  settled after 0.54 s  settled 0.114 m /  -5.8 deg  dx -0.114 dy +0.001
+  Inventory Scan Station         accept 0.106 m /  -4.9 deg (|w| 0.008)  settled after 0.14 s  settled 0.106 m /  -4.9 deg  dx -0.106 dy +0.006
+  Dispatch Zone                  accept 0.007 m /  -3.8 deg (|w| 0.002)  settled after 0.31 s  settled 0.007 m /  -3.7 deg  dx -0.005 dy +0.005
+  Return to Home Charging Dock   accept 0.099 m /  -3.5 deg (|w| 0.078)  settled after 0.71 s  settled 0.099 m /  -3.5 deg  dx -0.037 dy +0.092
+  SUMMARY settled |heading| mean 4.2 deg, max 5.8 deg; settled position mean 0.078 m, max 0.114 m; dx range -0.114 .. -0.005 m; settle time mean 0.40 s
+P5:
+| Station | At acceptance: position / heading error | Speed at acceptance | Settled after | Settled: position / heading error | Travel / net displacement after acceptance |
+|---|---|---|---|---|---|
+| Home Dock | 0.062 m / +3.1° | 0 mm/s, 0.002 rad/s | 0.31 s sim | 0.062 m / +3.1° | 0.0 / 0.0 mm |
+| Loading | 0.114 m / -5.7° | 1 mm/s, 0.013 rad/s | 0.54 s sim | 0.114 m / -5.8° | 0.0 / 0.0 mm |
+| Inventory | 0.106 m / -4.9° | 0 mm/s, 0.008 rad/s | 0.14 s sim | 0.106 m / -4.9° | 0.0 / 0.0 mm |
+| Dispatch | 0.007 m / -3.8° | 0 mm/s, 0.002 rad/s | 0.31 s sim | 0.007 m / -3.7° | 0.0 / 0.0 mm |
+| Return Home | 0.099 m / -3.5° | 1 mm/s, 0.078 rad/s | 0.71 s sim | 0.099 m / -3.5° | 0.0 / 0.0 mm |
+  stations 1-4 mean at acceptance 0.072 m, settled 0.072 m; all five max acceptance 0.114, settled 0.114 m

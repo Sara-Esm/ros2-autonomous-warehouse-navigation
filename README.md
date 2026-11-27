@@ -520,6 +520,30 @@ and mission logic are unchanged.
 
 Details: [`docs/validation/phase4b_headless_operation/REPORT.md`](docs/validation/phase4b_headless_operation/REPORT.md).
 
+### Motion control (Phase 5 validation)
+
+Two controller changes, each selected through controlled experiments:
+
+- `yaw_goal_tolerance` 0.15 → 0.07 rad;
+- DWB `PathAlign`/`GoalAlign` `forward_point_distance` 0.1 → 0.325 m.
+
+Compared with three baseline headless missions:
+
+| Measure | Baseline (3 missions) | Phase 5 |
+|---|---|---|
+| Mission / markers | 5/5, exit 0 / 5 | 5/5, exit 0 / 5 |
+| Total absolute rotation | 2,254–2,366° | 1,948° |
+| Angular command change per step, p95 | 0.103 rad/s | 0.051 rad/s |
+| Settled heading error, mean / max | 5.9–8.8° / 9.5–10.8° | 4.2° / 5.8° |
+| Station position error, max | 0.091–0.107 m | 0.114 m |
+| **Footprint clearance at the south pinch** | **0.25–0.27 m** | **0.21 m** |
+
+The clearance criterion was **not fully met**. The 4–6 cm loss of footprint margin was accepted as a trade-off
+for the current simulated environment; part of it comes from the controller cutting corners, part from
+variation in plan placement and localization. Nothing here certifies the controller as safe.
+
+Details: [`docs/validation/phase5_motion_control/REPORT.md`](docs/validation/phase5_motion_control/REPORT.md).
+
 ---
 
 ## Limitations
@@ -587,6 +611,8 @@ Details: [`docs/validation/phase4b_headless_operation/REPORT.md`](docs/validatio
   camera bottleneck diagnosis, pinhole camera model, detection under arrival uncertainty
 - [`docs/validation/phase4b_headless_operation/REPORT.md`](docs/validation/phase4b_headless_operation/REPORT.md):
   headless launch options and validation mission
+- [`docs/validation/phase5_motion_control/REPORT.md`](docs/validation/phase5_motion_control/REPORT.md):
+  motion-control experiments, clearance trade-off, local unknown-space replay, actuator and timing consistency
 - [`docs/diagnostics/REPORT.md`](docs/diagnostics/REPORT.md): diagnostic investigation of v1.0.1
   (map and frame alignment, localization, planning, control dynamics, ArUco, timing, completion)
 - [`docs/operation.md`](docs/operation.md): package layout, interfaces, parameters,

@@ -1,0 +1,30 @@
+B1: mission 414 s wall, 361 s sim, RTF 0.873
+  camera_info: 6.83 Hz sim, 5.96 Hz wall; frame interval (stamp) p50 145 ms, p95 179 ms, max 234 ms; age p50 145 ms sim, p95 178, max 241
+  detector processed frames: 6.83 Hz sim, 5.96 Hz wall (2465 frames, 564 with a marker); marker_id messages 564; ids seen [0, 1, 2, 3]
+  verification: ID 0 OK 0.05 s, ID 1 OK 0.10 s, ID 2 OK 0.09 s, ID 3 OK 0.11 s, ID 0 OK 0.07 s | 5/5 verified, mean 0.09 s wall
+B2: mission 418 s wall, 360 s sim, RTF 0.863
+  camera_info: 6.78 Hz sim, 5.85 Hz wall; frame interval (stamp) p50 147 ms, p95 184 ms, max 293 ms; age p50 147 ms sim, p95 183, max 296
+  detector processed frames: 6.78 Hz sim, 5.85 Hz wall (2443 frames, 560 with a marker); marker_id messages 560; ids seen [0, 1, 2, 3]
+  verification: ID 0 OK 0.17 s, ID 1 OK 0.20 s, ID 2 OK 0.19 s, ID 3 OK 0.20 s, ID 0 OK 0.07 s | 5/5 verified, mean 0.17 s wall
+B3: mission 412 s wall, 360 s sim, RTF 0.875
+  camera_info: 6.83 Hz sim, 5.98 Hz wall; frame interval (stamp) p50 146 ms, p95 178 ms, max 246 ms; age p50 146 ms sim, p95 178, max 241
+  detector processed frames: 6.84 Hz sim, 5.98 Hz wall (2464 frames, 558 with a marker); marker_id messages 558; ids seen [0, 1, 2, 3]
+  verification: ID 0 OK 0.15 s, ID 1 OK 0.20 s, ID 2 OK 0.17 s, ID 3 OK 0.08 s, ID 0 OK 0.18 s | 5/5 verified, mean 0.15 s wall
+B1: mission 414 s wall; RTF 0.873
+  ack timeouts 0 (0.00/wall min) by action {}; service-call timeouts 0; halt cancel/result errors 0; "failed to create plan" 0
+  late-accepted (orphaned) goals after an ack timeout: 0; time with >= 2 behaviours executing at once: 0.0 s
+  /cmd_vel_nav  10.74 Hz sim,  9.38 Hz wall (mission window)
+  /cmd_vel      21.71 Hz sim, 18.97 Hz wall (mission window)
+  /plan          1.05 Hz sim,  0.91 Hz wall (mission window)
+B2: mission 418 s wall; RTF 0.863
+  ack timeouts 0 (0.00/wall min) by action {}; service-call timeouts 0; halt cancel/result errors 0; "failed to create plan" 0
+  late-accepted (orphaned) goals after an ack timeout: 0; time with >= 2 behaviours executing at once: 0.0 s
+  /cmd_vel_nav  10.85 Hz sim,  9.38 Hz wall (mission window)
+  /cmd_vel      21.93 Hz sim, 18.95 Hz wall (mission window)
+  /plan          1.06 Hz sim,  0.92 Hz wall (mission window)
+B3: mission 412 s wall; RTF 0.875
+  ack timeouts 0 (0.00/wall min) by action {}; service-call timeouts 0; halt cancel/result errors 0; "failed to create plan" 0
+  late-accepted (orphaned) goals after an ack timeout: 0; time with >= 2 behaviours executing at once: 0.0 s
+  /cmd_vel_nav  10.71 Hz sim,  9.37 Hz wall (mission window)
+  /cmd_vel      21.64 Hz sim, 18.92 Hz wall (mission window)
+  /plan          1.04 Hz sim,  0.91 Hz wall (mission window)
