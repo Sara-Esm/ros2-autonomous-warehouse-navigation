@@ -1,0 +1,51 @@
+{
+ "events": [
+  {
+   "t_wall": 1795745703.676834,
+   "what": "A: goal sent",
+   "accepted": true
+  },
+  {
+   "t_wall": 1795745724.342744,
+   "what": "A: cancel response",
+   "response_s": 0.003,
+   "goals_canceling": 1
+  },
+  {
+   "t_wall": 1795745724.3749647,
+   "what": "A: result",
+   "status": 5,
+   "after_cancel_s": 0.035
+  },
+  {
+   "t_wall": 1795745724.8902156,
+   "what": "A: robot stopped",
+   "stopped": true,
+   "after_cancel_s": 0.551
+  },
+  {
+   "t_wall": 1795745729.9144263,
+   "what": "B: goal sent",
+   "accepted": true
+  },
+  {
+   "t_wall": 1795745734.9152222,
+   "what": "B: injection start"
+  },
+  {
+   "t_wall": 1795745760.6977477,
+   "what": "B: injection stop"
+  },
+  {
+   "t_wall": 1795745814.2448587,
+   "what": "B: result",
+   "status": 4,
+   "since_goal_s": 84.3
+  },
+  {
+   "t_wall": 1795745814.6622264,
+   "what": "B: robot stopped",
+   "stopped": true
+  }
+ ]
+}

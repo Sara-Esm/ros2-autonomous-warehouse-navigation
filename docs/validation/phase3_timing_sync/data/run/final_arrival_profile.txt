@@ -1,0 +1,24 @@
+Phase 2b: around final NavigateToPose success (t=0), true speed v [m/s] / w [rad/s]:
+   t-1.0s  v +0.069  w -0.356
+   t-0.5s  v -0.001  w -0.009
+   t-0.2s  v -0.001  w -0.073
+   t+0.0s  v +0.002  w -0.068
+   t+0.2s  v -0.001  w +0.005
+   t+0.5s  v +0.001  w +0.029
+   t+1.0s  v -0.000  w -0.003
+   t+1.5s  v -0.001  w +0.002
+   t+2.0s  v +0.000  w -0.000
+   t+2.5s  v +0.001  w +0.000
+   last nonzero DWB cmd at -0.04 s (v +0.000, w -0.077); last nonzero smoother cmd at -0.08 s (v +0.000, w -0.077)
+Phase 3: around final NavigateToPose success (t=0), true speed v [m/s] / w [rad/s]:
+   t-1.0s  v +0.127  w -0.160
+   t-0.5s  v +0.092  w -0.132
+   t-0.2s  v +0.081  w +0.061
+   t+0.0s  v +0.080  w -0.208
+   t+0.2s  v +0.014  w +0.096
+   t+0.5s  v -0.001  w -0.124
+   t+1.0s  v +0.000  w -0.029
+   t+1.5s  v +0.003  w +0.012
+   t+2.0s  v +0.002  w +0.005
+   t+2.5s  v +0.002  w -0.002
+   last nonzero DWB cmd at -0.07 s (v +0.069, w +0.077); last nonzero smoother cmd at -0.07 s (v +0.081, w -0.128)

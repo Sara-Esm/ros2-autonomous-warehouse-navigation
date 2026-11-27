@@ -1,0 +1,68 @@
+{
+ "events": [
+  {
+   "t_wall": 1795746398.4081922,
+   "what": "attempt 0: unreachable goal sent",
+   "accepted": true
+  },
+  {
+   "t_wall": 1795746401.495015,
+   "what": "attempt 0: spin executing; cancel navigation in 1.5 s"
+  },
+  {
+   "t_wall": 1795746403.0993118,
+   "what": "attempt 0: navigation result",
+   "status": 5,
+   "after_cancel_s": 0.103
+  },
+  {
+   "t_wall": 1795746403.0996065,
+   "what": "attempt 0: spin goal final",
+   "status": 5,
+   "after_cancel_s": 0.102
+  },
+  {
+   "t_wall": 1795746404.0818756,
+   "what": "attempt 0: robot stopped",
+   "stopped": true,
+   "after_cancel_s": 1.086
+  },
+  {
+   "t_wall": 1795746409.1054773,
+   "what": "attempt 0: behaviour goals still active 5 s later",
+   "count": 0
+  },
+  {
+   "t_wall": 1795746409.1095026,
+   "what": "attempt 1: unreachable goal sent",
+   "accepted": true
+  },
+  {
+   "t_wall": 1795746414.4970462,
+   "what": "attempt 1: wait executing; cancel navigation in 1.5 s"
+  },
+  {
+   "t_wall": 1795746416.0964127,
+   "what": "attempt 1: navigation result",
+   "status": 5,
+   "after_cancel_s": 0.095
+  },
+  {
+   "t_wall": 1795746416.0977278,
+   "what": "attempt 1: wait goal final",
+   "status": 5,
+   "after_cancel_s": 0.097
+  },
+  {
+   "t_wall": 1795746416.1270149,
+   "what": "attempt 1: robot stopped",
+   "stopped": true,
+   "after_cancel_s": 0.126
+  },
+  {
+   "t_wall": 1795746421.1591494,
+   "what": "attempt 1: behaviour goals still active 5 s later",
+   "count": 0
+  }
+ ]
+}

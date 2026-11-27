@@ -1,0 +1,7 @@
+allow_unknown=True, global costmap update_frequency=1.0 Hz, publish_frequency=1.0 Hz
+baseline plan: OK (45 ms)
+  RACE: plan request, then entire clear    0 ms later: 0/100 plans FAILED
+  RACE: plan request, then except clear    0 ms later: 0/100 plans FAILED
+  costmap published -0.00 s after entire clear: unknown 41851 of 110424, free 36831
+  costmap published +0.44 s after entire clear: unknown 41851 of 110424, free 36831
+  costmap published +2.44 s after entire clear: unknown 41851 of 110424, free 36831

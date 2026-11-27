@@ -451,6 +451,28 @@ Results:
 
 Details: [`docs/validation/phase2b_slam_remap/REPORT.md`](docs/validation/phase2b_slam_remap/REPORT.md).
 
+### Timing and synchronization (Phase 3 validation)
+
+One validation mission on `feat/timing-sync`. Changes:
+
+- The behaviour tree's acknowledgement and service budget (`default_server_timeout`) goes from 20 to 200 ms.
+  Measured acknowledgement latency was usually about 4 ms, but up to 86 ms.
+- The velocity smoother now runs on simulation time; this had no measurable effect on its output.
+- A copy of Nav2's behaviour tree whose global costmap clears keep the static map. This avoids a clear/plan
+  race reproduced offline; it was not exercised in the mission.
+
+| Measure | Phase 2b | Phase 3 |
+|---|---|---|
+| Mission / markers | 5/5, exit 0 / 5 | 5/5, exit 0 / 5 |
+| Action-acknowledgement timeouts | 19 | 0 |
+| Recoveries (Spin / Wait / BackUp) | 3 / 3 / 3 | 0 / 0 / 0 |
+| Orphaned late-accepted goals | 15 | 0 |
+| Mission time | 591 s | 509 s |
+| Station position error, max | 0.116 m | 0.119 m |
+| Minimum clearance to true geometry | 0.36 m | 0.31 m (same south pinch) |
+
+Details: [`docs/validation/phase3_timing_sync/REPORT.md`](docs/validation/phase3_timing_sync/REPORT.md).
+
 ---
 
 ## Limitations
@@ -504,6 +526,8 @@ Details: [`docs/validation/phase2b_slam_remap/REPORT.md`](docs/validation/phase2
   [`docs/validation/phase2a_map_unknown_space/REPORT.md`](docs/validation/phase2a_map_unknown_space/REPORT.md),
   [`docs/validation/phase2b_slam_remap/REPORT.md`](docs/validation/phase2b_slam_remap/REPORT.md):
   validation of the station-frame correction, occupancy classification, and re-mapping with surveyed goals
+- [`docs/validation/phase3_timing_sync/REPORT.md`](docs/validation/phase3_timing_sync/REPORT.md): timing and
+  synchronization (acknowledgement timeout, node clocks, costmap clear/plan race)
 - [`docs/diagnostics/REPORT.md`](docs/diagnostics/REPORT.md): diagnostic investigation of v1.0.1
   (map and frame alignment, localization, planning, control dynamics, ArUco, timing, completion)
 - [`docs/operation.md`](docs/operation.md): package layout, interfaces, parameters,

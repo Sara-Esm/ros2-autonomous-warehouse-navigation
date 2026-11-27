@@ -1,0 +1,12 @@
+/bt_navigator use_sim_time: Boolean value is: True
+/velocity_smoother use_sim_time: Boolean value is: True
+/smoother_server use_sim_time: Boolean value is: True
+/controller_server use_sim_time: Boolean value is: True
+/planner_server use_sim_time: Boolean value is: True
+/behavior_server use_sim_time: Boolean value is: True
+/amcl use_sim_time: Boolean value is: True
+/global_costmap/global_costmap use_sim_time: 
+/local_costmap/local_costmap use_sim_time: Boolean value is: True
+/bt_navigator default_server_timeout: Integer value is: 200
+/bt_navigator default_nav_to_pose_bt_xml: String value is: /home/owl/projects/warehouse_ws/install/warehouse_bringup/share/warehouse_bringup/behavior_trees/navigate_to_pose_w_replanning_and_recovery_keep_static.xml
+/velocity_smoother smoothing_frequency: Double value is: 20.0

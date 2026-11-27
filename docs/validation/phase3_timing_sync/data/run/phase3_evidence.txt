@@ -1,0 +1,28 @@
+## Estimated compute_path_to_pose acknowledgement latency, pooled over 1861 goals (Phases 1, 2a, 2b, 3)
+p50 4.0 ms, p90 13.0, p95 16.3, p99 28.7, p99.9 69.0, max 86.3 ms; > 20 ms: 50 (2.7%), > 50 ms: 5, > 100 ms: 0, > 200 ms: 0
+(estimate = status-topic receipt time minus BT send-event time; includes status transport; not a direct response measurement)
+
+## Acknowledgement timeouts per goal and per wall minute (matching action categories)
+| Run | Action | Goals | Timeouts | Per goal | Per wall min | Estimated ack > 20 ms (planner) |
+|---|---|---|---|---|---|---|
+| Phase 1 | compute_path_to_pose | 475 | 9 | 0.019 | 0.94 | 13 of 475 |
+| Phase 1 | follow_path | 469 | 7 | 0.015 | 0.73 |  |
+| Phase 1 | spin | 1 | 0 | 0.000 | 0.00 |  |
+| Phase 1 | backup | 1 | 0 | 0.000 | 0.00 |  |
+| Phase 1 | wait | 1 | 0 | 0.000 | 0.00 |  |
+| Phase 2a | compute_path_to_pose | 497 | 9 | 0.018 | 0.90 | 11 of 497 |
+| Phase 2a | follow_path | 491 | 6 | 0.012 | 0.60 |  |
+| Phase 2a | spin | 1 | 0 | 0.000 | 0.00 |  |
+| Phase 2a | backup | 1 | 0 | 0.000 | 0.00 |  |
+| Phase 2a | wait | 1 | 0 | 0.000 | 0.00 |  |
+| Phase 2b | compute_path_to_pose | 460 | 10 | 0.022 | 1.01 | 18 of 460 |
+| Phase 2b | follow_path | 454 | 6 | 0.013 | 0.61 |  |
+| Phase 2b | spin | 3 | 1 | 0.333 | 0.10 |  |
+| Phase 2b | backup | 3 | 2 | 0.667 | 0.20 |  |
+| Phase 2b | wait | 3 | 0 | 0.000 | 0.00 |  |
+| Phase 3 | compute_path_to_pose | 429 | 0 | 0.000 | 0.00 | 8 of 429 |
+| Phase 3 | follow_path | 428 | 0 | 0.000 | 0.00 |  |
+
+## Host conditions during the mission window (top samples every ~2 s)
+Phase 2b: 261 samples; CPU busy median 95%; load avg 1-min median 30.3; memory used median 2445 MiB, available min 1128 MiB; top processes (mean % of one core): gzserver 306, gzclient 191, component_conta 91, rviz2 68, warehouse_auton 37
+Phase 3: 221 samples; CPU busy median 94%; load avg 1-min median 28.8; memory used median 2427 MiB, available min 1212 MiB; top processes (mean % of one core): gzserver 324, gzclient 191, rviz2 103, component_conta 72, warehouse_auton 34

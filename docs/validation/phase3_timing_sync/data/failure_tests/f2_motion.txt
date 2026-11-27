@@ -1,0 +1,4 @@
+5 s before injection   mean speed 0.202 m/s, stopped fraction 0.03
+during injection       mean speed 0.085 m/s, stopped fraction 0.21
+after injection        mean speed 0.182 m/s, stopped fraction 0.06
+BT failure records in F2: 0

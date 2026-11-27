@@ -1,0 +1,12 @@
+Phase 2b: mission 591 s wall; RTF 0.657
+  ack timeouts 19 (1.93/wall min) by action {'compute_path_to_pose': 10, 'follow_path': 6, 'backup': 2, 'spin': 1}; service-call timeouts 7; halt cancel/result errors 3; "failed to create plan" 1
+  late-accepted (orphaned) goals after an ack timeout: 15; time with >= 2 behaviours executing at once: 17.3 s
+  /cmd_vel_nav  13.45 Hz sim,  8.84 Hz wall (mission window)
+  /cmd_vel      29.09 Hz sim, 19.12 Hz wall (mission window)
+  /plan          1.25 Hz sim,  0.82 Hz wall (mission window)
+Phase 3: mission 509 s wall; RTF 0.711
+  ack timeouts 0 (0.00/wall min) by action {}; service-call timeouts 0; halt cancel/result errors 0; "failed to create plan" 0
+  late-accepted (orphaned) goals after an ack timeout: 0; time with >= 2 behaviours executing at once: 0.0 s
+  /cmd_vel_nav  12.71 Hz sim,  9.04 Hz wall (mission window)
+  /cmd_vel      26.54 Hz sim, 18.85 Hz wall (mission window)
+  /plan          1.26 Hz sim,  0.89 Hz wall (mission window)

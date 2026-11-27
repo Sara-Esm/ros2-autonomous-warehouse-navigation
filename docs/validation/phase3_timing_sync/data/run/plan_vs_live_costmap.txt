@@ -1,0 +1,5 @@
+costmap origin (-7.280,-10.700) size 258x428 vs map origin (-7.28,-10.7) size 258x428
+return-leg plans: 123; snapshot age (plan time - preceding costmap): median 1.02 s, max 2.72 s (wall)
+  static free: 37660 plan poses -> live unknown(-1) 0, free(0) 37086, inflation 1-98 574, inscribed(99) 0, lethal(100) 0
+  static unknown: 6587 plan poses -> live unknown(-1) 32, free(0) 6555, inflation 1-98 0, inscribed(99) 0, lethal(100) 0
+  static occupied: 0 poses

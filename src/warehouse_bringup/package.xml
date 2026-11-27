@@ -13,6 +13,7 @@
   <exec_depend>lifecycle_msgs</exec_depend>
   <exec_depend>nav_msgs</exec_depend>
   <exec_depend>nav2_msgs</exec_depend>
+  <exec_depend>nav2_common</exec_depend>
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>ament_index_python</exec_depend>
   <exec_depend>launch</exec_depend>

@@ -1,0 +1,36 @@
+Phase 1:
+| Station | At acceptance: position / heading error | Speed at acceptance | Settled after | Settled: position / heading error | Travel / net displacement after acceptance |
+|---|---|---|---|---|---|
+| Home Dock | 0.042 m / +6.9° | 0 mm/s, 0.122 rad/s | 1.46 s sim | 0.042 m / +4.1° | 0.4 / 0.1 mm |
+| Loading | 0.084 m / -10.5° | 1 mm/s, 0.092 rad/s | 0.71 s sim | 0.084 m / -10.5° | 0.0 / 0.0 mm |
+| Inventory | 0.051 m / +8.2° | 1 mm/s, 0.079 rad/s | 0.82 s sim | 0.051 m / +8.1° | 0.1 / 0.0 mm |
+| Dispatch | 0.098 m / -8.1° | 0 mm/s, 0.123 rad/s | 1.19 s sim | 0.098 m / -7.1° | 0.2 / 0.0 mm |
+| Return Home | 0.102 m / -7.6° | 0 mm/s, 0.130 rad/s | 0.88 s sim | 0.102 m / -7.7° | 0.1 / 0.0 mm |
+  stations 1-4 mean at acceptance 0.069 m, settled 0.069 m; all five max acceptance 0.102, settled 0.102 m
+Phase 2a:
+| Station | At acceptance: position / heading error | Speed at acceptance | Settled after | Settled: position / heading error | Travel / net displacement after acceptance |
+|---|---|---|---|---|---|
+| Home Dock | 0.057 m / +6.3° | 1 mm/s, 0.048 rad/s | 0.78 s sim | 0.057 m / +6.5° | 0.1 / 0.0 mm |
+| Loading | 0.103 m / -11.5° | 1 mm/s, 0.118 rad/s | 0.82 s sim | 0.103 m / -11.4° | 0.1 / 0.0 mm |
+| Inventory | 0.042 m / +7.9° | 0 mm/s, 0.000 rad/s | 0.00 s sim | 0.042 m / +7.9° | 0.0 / 0.0 mm |
+| Dispatch | 0.024 m / -8.8° | 0 mm/s, 0.114 rad/s | 0.82 s sim | 0.024 m / -8.9° | 0.0 / 0.0 mm |
+| Return Home | 0.049 m / +7.5° | 0 mm/s, 0.123 rad/s | 0.82 s sim | 0.049 m / +7.7° | 0.1 / 0.0 mm |
+  stations 1-4 mean at acceptance 0.057 m, settled 0.057 m; all five max acceptance 0.103, settled 0.103 m
+Phase 2b:
+| Station | At acceptance: position / heading error | Speed at acceptance | Settled after | Settled: position / heading error | Travel / net displacement after acceptance |
+|---|---|---|---|---|---|
+| Home Dock | 0.080 m / +8.7° | 1 mm/s, 0.245 rad/s | 1.02 s sim | 0.079 m / +8.9° | 0.1 / 0.0 mm |
+| Loading | 0.116 m / -8.9° | 0 mm/s, 0.097 rad/s | 0.71 s sim | 0.116 m / -8.9° | 0.0 / 0.0 mm |
+| Inventory | 0.086 m / -8.5° | 1 mm/s, 0.053 rad/s | 0.68 s sim | 0.086 m / -8.6° | 0.0 / 0.0 mm |
+| Dispatch | 0.031 m / -8.0° | 0 mm/s, 0.128 rad/s | 1.33 s sim | 0.031 m / -5.8° | 0.3 / 0.1 mm |
+| Return Home | 0.066 m / +8.0° | 2 mm/s, 0.068 rad/s | 0.78 s sim | 0.066 m / +8.1° | 0.1 / 0.0 mm |
+  stations 1-4 mean at acceptance 0.078 m, settled 0.078 m; all five max acceptance 0.116, settled 0.116 m
+Phase 3:
+| Station | At acceptance: position / heading error | Speed at acceptance | Settled after | Settled: position / heading error | Travel / net displacement after acceptance |
+|---|---|---|---|---|---|
+| Home Dock | 0.083 m / +7.5° | 1 mm/s, 0.134 rad/s | 0.85 s sim | 0.083 m / +7.2° | 0.1 / 0.0 mm |
+| Loading | 0.088 m / -10.1° | 2 mm/s, 0.022 rad/s | 0.51 s sim | 0.088 m / -10.2° | 0.0 / 0.0 mm |
+| Inventory | 0.119 m / -8.5° | 1 mm/s, 0.043 rad/s | 0.48 s sim | 0.119 m / -8.5° | 0.0 / 0.0 mm |
+| Dispatch | 0.049 m / -8.1° | 0 mm/s, 0.001 rad/s | 0.65 s sim | 0.049 m / -8.2° | 0.0 / 0.0 mm |
+| Return Home | 0.096 m / +6.0° | 83 mm/s, 0.248 rad/s | 1.22 s sim | 0.094 m / +6.1° | 2.2 / 2.1 mm |
+  stations 1-4 mean at acceptance 0.085 m, settled 0.085 m; all five max acceptance 0.119, settled 0.119 m

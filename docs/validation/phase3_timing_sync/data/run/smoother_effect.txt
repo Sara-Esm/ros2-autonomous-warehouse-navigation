@@ -1,0 +1,10 @@
+Phase 2b: (recovery periods +-1 s excluded: 13.7% of leg time)
+  v: DWB->smoother lag 50 ms (corr 0.996), RMS smoother-vs-DWB after lag 0.0044; smoother->truth lag 80 ms (corr 0.994)
+  w: DWB->smoother lag 80 ms (corr 0.986), RMS smoother-vs-DWB after lag 0.0389; smoother->truth lag 100 ms (corr 0.970)
+  /cmd_vel_nav: 13.45 Hz sim, 8.84 Hz wall during legs
+  /cmd_vel: 28.90 Hz sim, 18.99 Hz wall during legs
+Phase 3: (recovery periods +-1 s excluded: 0.0% of leg time)
+  v: DWB->smoother lag 50 ms (corr 0.996), RMS smoother-vs-DWB after lag 0.0041; smoother->truth lag 80 ms (corr 0.995)
+  w: DWB->smoother lag 80 ms (corr 0.983), RMS smoother-vs-DWB after lag 0.0431; smoother->truth lag 90 ms (corr 0.974)
+  /cmd_vel_nav: 12.71 Hz sim, 9.04 Hz wall during legs
+  /cmd_vel: 26.19 Hz sim, 18.61 Hz wall during legs

@@ -1,0 +1,42 @@
+{
+ "events": [
+  {
+   "t_wall": 1795746058.729643,
+   "what": "F3a: unreachable goal sent",
+   "accepted": true
+  },
+  {
+   "t_wall": 1795746105.0519054,
+   "what": "F3a: cancel response",
+   "response_s": 0.003
+  },
+  {
+   "t_wall": 1795746105.0657392,
+   "what": "F3a: result",
+   "status": 6,
+   "after_cancel_s": 0.017
+  },
+  {
+   "t_wall": 1795746105.0660427,
+   "what": "F3a: robot stopped",
+   "stopped": true,
+   "after_cancel_s": 0.017
+  },
+  {
+   "t_wall": 1795746110.077437,
+   "what": "F3b: unreachable goal sent",
+   "accepted": true
+  },
+  {
+   "t_wall": 1795746148.792188,
+   "what": "F3b: result",
+   "status": 6,
+   "since_goal_s": 38.7
+  },
+  {
+   "t_wall": 1795746148.7925339,
+   "what": "F3b: robot stopped",
+   "stopped": true
+  }
+ ]
+}

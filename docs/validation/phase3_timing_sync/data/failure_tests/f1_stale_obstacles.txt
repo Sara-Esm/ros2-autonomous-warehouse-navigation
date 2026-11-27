@@ -1,0 +1,6 @@
+injected obstacles: A = 0.35 m ahead of the robot (inside the preserved 1.0 m region); B = wall at map x ~ -1.2, y -0.9..+1.3 (outside)
+baseline: A max cost 0; B lethal cells 3 of 69 sampled; unknown total 41851, lethal total 3499; plan 11.61 m, min x reached -3.54
+[ClearCostmapExceptRegion reset_distance 1.0 (implemented)] after injection (stale): A max cost 100; B lethal cells 25 of 69 sampled; unknown total 41464, lethal total 3545; plan 11.83 m, min x reached -3.54
+[ClearCostmapExceptRegion reset_distance 1.0 (implemented)] after clear: A max cost 100; B lethal cells 3 of 69 sampled; unknown total 41836, lethal total 3500; plan 11.68 m, min x reached -3.54
+[ClearEntireCostmap (stock)] after injection (stale): A max cost 100; B lethal cells 25 of 69 sampled; unknown total 41464, lethal total 3545; plan 11.83 m, min x reached -3.54
+[ClearEntireCostmap (stock)] after clear: A max cost 0; B lethal cells 3 of 69 sampled; unknown total 41851, lethal total 3499; plan 11.61 m, min x reached -3.54

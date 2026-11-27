@@ -1,0 +1,6 @@
+Phase 3:
+  Home Charging Dock           plans  85, route changes > 0.5 m: 0, largest consecutive-plan change 0.21 m
+  Loading Zone                 plans  59, route changes > 0.5 m: 0, largest consecutive-plan change 0.15 m
+  Inventory Scan Station       plans 120, route changes > 0.5 m: 0, largest consecutive-plan change 0.30 m
+  Dispatch Zone                plans  42, route changes > 0.5 m: 0, largest consecutive-plan change 0.11 m
+  Return to Home Charging Dock plans 123, route changes > 0.5 m: 1, largest consecutive-plan change 0.76 m
