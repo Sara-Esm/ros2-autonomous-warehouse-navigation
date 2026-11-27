@@ -1,0 +1,14 @@
+1) Estimated pose at ARRIVED from TF (map->odom o odom->base_footprint): what the goal checker saw
+  Home Charging Dock           estimate-to-goal 0.109 m (tol 0.12), +8.1 deg (tol 8.59); true heading error +8.5 = estimated +8.1 + localization/frame +0.4
+  Loading Zone                 estimate-to-goal 0.107 m (tol 0.12), -8.2 deg (tol 8.59); true heading error -9.1 = estimated -8.2 + localization/frame -1.0
+  Inventory Scan Station       estimate-to-goal 0.110 m (tol 0.12), -5.8 deg (tol 8.59); true heading error -6.1 = estimated -5.8 + localization/frame -0.3
+  Dispatch Zone                estimate-to-goal 0.114 m (tol 0.12), -8.3 deg (tol 8.59); true heading error -9.0 = estimated -8.3 + localization/frame -0.7
+  Return to Home Charging Dock estimate-to-goal 0.102 m (tol 0.12), -7.8 deg (tol 8.59); true heading error -9.6 = estimated -7.8 + localization/frame -1.8
+
+2) Process deaths relative to mission exit (post-recording window: 0..+60 s)
+  last ROS timestamp before it: +65.6 s rel. mission exit | [ERROR] [aruco_station_detector-6]: process has died [pid 106442, exit code 1, cmd '/home/owl/projec
+  last ROS timestamp before it: +66.6 s rel. mission exit | [ERROR] [gazebo-1]: process has died [pid 105754, exit code 255, cmd 'gazebo --verbose /home/owl/pro
+  last ROS timestamp before it: +67.0 s rel. mission exit | [ERROR] [rviz2-5]: process has died [pid 106228, exit code -6, cmd '/opt/ros/humble/lib/rviz2/rviz2 
+
+3) Recovery starts and preceding ack timeouts
+  distinct ComputePathToPose/FollowPath failures: 0; without a coinciding ack timeout: []

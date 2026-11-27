@@ -1,0 +1,30 @@
+# True station stops (mission truth at ARRIVED) in the station approach frame: dx = toward marker, dy = left, dyaw
+# The camera envelope failed only for dx >= +0.125 m (closer to the marker), never for dx <= 0.
+Phase 1   Home Charging Dock             dx -0.041 dy +0.009 dyaw  +6.9
+Phase 1   Loading Zone                   dx -0.084 dy +0.006 dyaw -10.4
+Phase 1   Inventory Scan Station         dx -0.038 dy +0.034 dyaw  +8.0
+Phase 1   Dispatch Zone                  dx -0.056 dy -0.080 dyaw  -7.0
+Phase 1   Return to Home Charging Dock   dx -0.047 dy +0.091 dyaw  -7.7
+Phase 2a  Home Charging Dock             dx -0.036 dy +0.044 dyaw  +6.3
+Phase 2a  Loading Zone                   dx -0.099 dy -0.030 dyaw -11.5
+Phase 2a  Inventory Scan Station         dx -0.042 dy -0.005 dyaw  +7.9
+Phase 2a  Dispatch Zone                  dx -0.000 dy -0.024 dyaw  -8.7
+Phase 2a  Return to Home Charging Dock   dx -0.015 dy +0.046 dyaw  +7.4
+Phase 2b  Home Charging Dock             dx -0.071 dy -0.036 dyaw  +8.5
+Phase 2b  Loading Zone                   dx -0.116 dy +0.005 dyaw  -8.8
+Phase 2b  Inventory Scan Station         dx -0.072 dy +0.048 dyaw  -8.5
+Phase 2b  Dispatch Zone                  dx -0.027 dy +0.016 dyaw  -5.2
+Phase 2b  Return to Home Charging Dock   dx -0.065 dy -0.009 dyaw  +8.0
+Phase 3   Home Charging Dock             dx -0.080 dy -0.023 dyaw  +7.3
+Phase 3   Loading Zone                   dx -0.088 dy +0.006 dyaw -10.2
+Phase 3   Inventory Scan Station         dx -0.119 dy +0.003 dyaw  -8.5
+Phase 3   Dispatch Zone                  dx -0.029 dy +0.040 dyaw  -8.3
+Phase 3   Return to Home Charging Dock   dx -0.092 dy -0.022 dyaw  +5.7
+Phase 4   Home Charging Dock             dx -0.051 dy -0.002 dyaw  +8.3
+Phase 4   Loading Zone                   dx -0.111 dy -0.001 dyaw  -8.9
+Phase 4   Inventory Scan Station         dx -0.082 dy -0.019 dyaw  -6.2
+Phase 4   Dispatch Zone                  dx -0.005 dy -0.007 dyaw  -8.5
+Phase 4   Return to Home Charging Dock   dx -0.086 dy +0.043 dyaw  -9.3
+
+25 stops; dx range -0.119 .. -0.000 m; |dy| max 0.091 m; |dyaw| max 11.5 deg
+stops with dx >= +0.125 (inside the observed failure region): 0

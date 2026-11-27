@@ -94,6 +94,9 @@ ros2 run warehouse_bringup warehouse_autonomy --ros-args -p use_sim_time:=true
 echo "exit code: $?"
 ```
 
+Adding `gui:=false` to the launch runs Gazebo without its client window. That frees CPU (the camera reached
+about 8 Hz instead of 5.7 Hz on the bench), but it has not been validated with a full mission (see Limitations).
+
 Ctrl+C in Terminal 2 cancels the active goal and exits with code 130. To stop it from a
 script, see [Stopping the mission](docs/operation.md#stopping-the-mission).
 
@@ -473,6 +476,29 @@ One validation mission on `feat/timing-sync`. Changes:
 
 Details: [`docs/validation/phase3_timing_sync/REPORT.md`](docs/validation/phase3_timing_sync/REPORT.md).
 
+### Camera performance (Phase 4 validation)
+
+The TurtleBot3 camera model used a 182° `wideanglecamera`. That sensor renders six views per frame and remaps
+them, and this machine renders in software, so it delivered about 1 Hz instead of its configured 30 Hz. The
+robot now uses a project copy of the model with a 100° pinhole camera. The resolution, rate, topics and
+everything else are unchanged. On the bench, the marker was detected in every frame at all four stations, at
+44 poses within ±0.12 m and ±11.5° of the goal. A wider sweep of 300 poses within ±0.25 m found no wrong IDs.
+Detection failed only when the robot was at least 0.125 m closer to the marker than intended, combined with
+lateral and heading offsets. All 25 real stops so far have been short of the goal, never closer to the marker.
+
+| Measure | Phase 3 | Phase 4 |
+|---|---|---|
+| Mission / markers | 5/5, exit 0 / 5 | 5/5, exit 0 / 5 |
+| Camera frames delivered and processed by the detector | 0.69 Hz sim | 4.16 Hz sim (6.0×) |
+| Frame age, median | 1.43 s sim | 0.24 s sim |
+| Arrival to marker verification, mean | 1.35 s | 0.23 s |
+| Real-time factor | 0.71 | 0.76 |
+| Memory used, median | 2,427 MiB | 2,175 MiB |
+| Timeouts / recoveries | 0 / 0 | 0 / 0 |
+| Station position error, max | 0.119 m | 0.111 m |
+
+Details: [`docs/validation/phase4_perception_performance/REPORT.md`](docs/validation/phase4_perception_performance/REPORT.md).
+
 ---
 
 ## Limitations
@@ -484,14 +510,19 @@ Details: [`docs/validation/phase3_timing_sync/REPORT.md`](docs/validation/phase3
 2. **No independent safety layer.** Stop verification reads the same odometry the
    controller uses. A real robot would need a safety-rated stop path.
 3. **Map and frames.** Since Phase 2b the robot uses `warehouse_map_v2` (42.4% unknown, against 60.1%
-   for the preserved original). NavFn never plans through unknown space (`allow_unknown: false`). The large
+   for the preserved original). NavFn does not plan through cells that are unknown in the global costmap at
+   planning time (`allow_unknown: false`). That is a planning rule, not a guarantee about motion: the
+   controller's local costmap does not represent unknown space. Measured against 1.5 s global-costmap
+   snapshots, the robot centre still crossed about 3.3 m of then-unknown cells per mission. About 90% of that
+   was free in the next snapshot ([Phase 4 report, §8](docs/validation/phase4_perception_performance/REPORT.md)). The large
    open centre of the floor and the far east bays remain unmapped; they are outside the operating area. In
    maps saved by `map_saver`, the "unknown" value 205 also covers observed but low-confidence cells. The map
    frame differs from Gazebo's world frame by about 0.7°, which is harmless because goals are surveyed in the
    map frame. Some obstacles are only partly visible to a 2D LiDAR.
-4. **Simulation performance.** The simulation runs at 0.31–0.74× real time on the
+4. **Simulation performance.** The simulation runs at 0.31–0.76× real time on the
    development machine, and the controller logs warnings that it missed its desired control
-   rate. The two GUI-free runs (Trials 05-06) were faster but much less reliable. They
+   rate. All rendering (camera, Gazebo client, RViz) is done in software on the CPU. The GPU path
+   is unavailable on this WSL2 setup, which caps the camera at about 4 Hz during a mission. The two GUI-free runs (Trials 05-06) were faster but much less reliable. They
    predate the Nav2 tuning, so that comparison is confounded and the cause is still unknown;
    every run since has kept the Gazebo client enabled.
 5. **Fixed launch delays.** Nav2 starts at t = 40 s and the detector at t = 55 s by timer.
@@ -499,8 +530,9 @@ Details: [`docs/validation/phase3_timing_sync/REPORT.md`](docs/validation/phase3
 6. **Fixed mission.** Waypoints are hard-coded and there is one robot. "Docking" is a
    navigation goal within 0.12 m / 0.15 rad plus a marker check, not precision docking.
 7. **Marker presence, not pose.** A station counts as verified when the expected marker ID
-   is detected after arrival. There is no marker pose estimation or camera calibration. With a
-   182° camera, verification passes even when the robot stops 0.5 m from the intended spot.
+   is detected after arrival. There is no marker pose estimation or camera calibration. With the
+   182° camera used until Phase 4, verification passed even when the robot stopped 0.5 m from the
+   intended spot. The 100° camera is less permissive, but it is still a presence check.
 8. **Completion is not tied to a stop check.** The success path reports mission completion
    without checking that the robot is stationary. That check runs only after a halt.
 
@@ -528,6 +560,8 @@ Details: [`docs/validation/phase3_timing_sync/REPORT.md`](docs/validation/phase3
   validation of the station-frame correction, occupancy classification, and re-mapping with surveyed goals
 - [`docs/validation/phase3_timing_sync/REPORT.md`](docs/validation/phase3_timing_sync/REPORT.md): timing and
   synchronization (acknowledgement timeout, node clocks, costmap clear/plan race)
+- [`docs/validation/phase4_perception_performance/REPORT.md`](docs/validation/phase4_perception_performance/REPORT.md):
+  camera bottleneck diagnosis, pinhole camera model, detection under arrival uncertainty
 - [`docs/diagnostics/REPORT.md`](docs/diagnostics/REPORT.md): diagnostic investigation of v1.0.1
   (map and frame alignment, localization, planning, control dynamics, ArUco, timing, completion)
 - [`docs/operation.md`](docs/operation.md): package layout, interfaces, parameters,

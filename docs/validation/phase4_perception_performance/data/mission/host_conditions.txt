@@ -1,0 +1,7 @@
+
+## Host conditions during the mission window (top samples every ~2 s)
+Phase 2b: 261 samples; CPU busy median 95%; load avg 1-min median 30.3; memory used median 2445 MiB, available min 1128 MiB; top processes (mean % of one core): gzserver 306, gzclient 191, component_conta 91, rviz2 68, warehouse_auton 37
+Phase 3: 221 samples; CPU busy median 94%; load avg 1-min median 28.8; memory used median 2427 MiB, available min 1212 MiB; top processes (mean % of one core): gzserver 324, gzclient 191, rviz2 103, component_conta 72, warehouse_auton 34
+Phase 4: 214 samples; CPU busy median 93%; load avg 1-min median 27.4; memory used median 2175 MiB, available min 1471 MiB; top processes (mean % of one core): gzserver 292, gzclient 194, rviz2 101, component_conta 68, warehouse_auton 32
+Phase 3: aruco_station_detector mean 3.5% of one core; robot_state_pub 1.1%; ros2 (bag) 7.6%
+Phase 4: aruco_station_detector mean 15.5% of one core; robot_state_pub 1.2%; ros2 (bag) 7.5%

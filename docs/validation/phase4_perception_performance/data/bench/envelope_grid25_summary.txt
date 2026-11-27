@@ -1,0 +1,75 @@
+poses 300; poses whose read-back differs from the command (>2 cm or >2 deg, e.g. contact with geometry): 0
+frames 5811; detected 4695; missed 1116; wrong-ID messages 0
+per station: home_dock 978/1332; loading_zone 1280/1714; inventory_scan 1686/1686; dispatch_zone 751/1079
+poses with any missed frame: 57; with < 90% detection: 57; with 0 detections: 57
+   dispatch_zone   dx+0.125 dy-0.250 da-11.5  0/24  wrong 0  range 0.54 m bearing +40.9 deg
+   dispatch_zone   dx+0.125 dy-0.125 da-11.5  0/26  wrong 0  range 0.49 m bearing +28.1 deg
+   dispatch_zone   dx+0.125 dy+0.125 da+11.5  0/12  wrong 0  range 0.49 m bearing -28.1 deg
+   dispatch_zone   dx+0.125 dy+0.250 da+11.5  0/15  wrong 0  range 0.54 m bearing -40.9 deg
+   dispatch_zone   dx+0.250 dy-0.250 da-11.5  0/23  wrong 0  range 0.44 m bearing +49.0 deg
+   dispatch_zone   dx+0.250 dy-0.250 da +0.0  0/14  wrong 0  range 0.42 m bearing +36.0 deg
+   dispatch_zone   dx+0.250 dy-0.250 da+11.5  0/15  wrong 0  range 0.42 m bearing +22.7 deg
+   dispatch_zone   dx+0.250 dy-0.125 da-11.5  0/22  wrong 0  range 0.37 m bearing +33.6 deg
+   dispatch_zone   dx+0.250 dy-0.125 da +0.0  0/14  wrong 0  range 0.37 m bearing +20.0 deg
+   dispatch_zone   dx+0.250 dy-0.125 da+11.5  0/13  wrong 0  range 0.36 m bearing +6.2 deg
+   dispatch_zone   dx+0.250 dy+0.000 da-11.5  0/23  wrong 0  range 0.35 m bearing +14.0 deg
+   dispatch_zone   dx+0.250 dy+0.000 da +0.0  0/14  wrong 0  range 0.34 m bearing +0.0 deg
+   dispatch_zone   dx+0.250 dy+0.000 da+11.5  0/14  wrong 0  range 0.35 m bearing -14.0 deg
+   dispatch_zone   dx+0.250 dy+0.125 da-11.5  0/22  wrong 0  range 0.36 m bearing -6.1 deg
+   dispatch_zone   dx+0.250 dy+0.125 da +0.0  0/14  wrong 0  range 0.37 m bearing -19.9 deg
+   dispatch_zone   dx+0.250 dy+0.125 da+11.5  0/13  wrong 0  range 0.37 m bearing -33.6 deg
+   dispatch_zone   dx+0.250 dy+0.250 da-11.5  0/22  wrong 0  range 0.42 m bearing -22.7 deg
+   dispatch_zone   dx+0.250 dy+0.250 da +0.0  0/14  wrong 0  range 0.42 m bearing -36.0 deg
+   dispatch_zone   dx+0.250 dy+0.250 da+11.5  0/14  wrong 0  range 0.43 m bearing -49.0 deg
+   home_dock       dx+0.125 dy-0.250 da-11.5  0/24  wrong 0  range 0.54 m bearing +40.9 deg
+   home_dock       dx+0.125 dy-0.125 da-11.5  0/23  wrong 0  range 0.49 m bearing +28.1 deg
+   home_dock       dx+0.125 dy+0.125 da+11.5  0/21  wrong 0  range 0.49 m bearing -28.1 deg
+   home_dock       dx+0.125 dy+0.250 da+11.5  0/23  wrong 0  range 0.54 m bearing -40.9 deg
+   home_dock       dx+0.250 dy-0.250 da-11.5  0/23  wrong 0  range 0.44 m bearing +49.0 deg
+   home_dock       dx+0.250 dy-0.250 da +0.0  0/9  wrong 0  range 0.42 m bearing +36.0 deg
+   home_dock       dx+0.250 dy-0.250 da+11.5  0/21  wrong 0  range 0.42 m bearing +22.7 deg
+   home_dock       dx+0.250 dy-0.125 da-11.5  0/23  wrong 0  range 0.37 m bearing +33.6 deg
+   home_dock       dx+0.250 dy-0.125 da +0.0  0/12  wrong 0  range 0.37 m bearing +20.0 deg
+   home_dock       dx+0.250 dy-0.125 da+11.5  0/19  wrong 0  range 0.36 m bearing +6.2 deg
+   home_dock       dx+0.250 dy+0.000 da-11.5  0/23  wrong 0  range 0.35 m bearing +14.1 deg
+   home_dock       dx+0.250 dy+0.000 da +0.0  0/13  wrong 0  range 0.34 m bearing +0.0 deg
+   home_dock       dx+0.250 dy+0.000 da+11.5  0/21  wrong 0  range 0.35 m bearing -14.0 deg
+   home_dock       dx+0.250 dy+0.125 da-11.5  0/21  wrong 0  range 0.36 m bearing -6.1 deg
+   home_dock       dx+0.250 dy+0.125 da +0.0  0/7  wrong 0  range 0.37 m bearing -19.9 deg
+   home_dock       dx+0.250 dy+0.125 da+11.5  0/20  wrong 0  range 0.37 m bearing -33.5 deg
+   home_dock       dx+0.250 dy+0.250 da-11.5  0/23  wrong 0  range 0.42 m bearing -22.7 deg
+   home_dock       dx+0.250 dy+0.250 da +0.0  0/9  wrong 0  range 0.42 m bearing -36.0 deg
+   home_dock       dx+0.250 dy+0.250 da+11.5  0/19  wrong 0  range 0.43 m bearing -49.0 deg
+   loading_zone    dx+0.125 dy-0.250 da-11.5  0/23  wrong 0  range 0.54 m bearing +40.9 deg
+   loading_zone    dx+0.125 dy-0.125 da-11.5  0/24  wrong 0  range 0.49 m bearing +28.1 deg
+   loading_zone    dx+0.125 dy+0.125 da+11.5  0/23  wrong 0  range 0.49 m bearing -28.1 deg
+   loading_zone    dx+0.125 dy+0.250 da+11.5  0/23  wrong 0  range 0.54 m bearing -40.9 deg
+   loading_zone    dx+0.250 dy-0.250 da-11.5  0/22  wrong 0  range 0.44 m bearing +49.0 deg
+   loading_zone    dx+0.250 dy-0.250 da +0.0  0/22  wrong 0  range 0.42 m bearing +36.0 deg
+   loading_zone    dx+0.250 dy-0.250 da+11.5  0/20  wrong 0  range 0.42 m bearing +22.7 deg
+   loading_zone    dx+0.250 dy-0.125 da-11.5  0/23  wrong 0  range 0.37 m bearing +33.6 deg
+   loading_zone    dx+0.250 dy-0.125 da +0.0  0/23  wrong 0  range 0.37 m bearing +20.0 deg
+   loading_zone    dx+0.250 dy-0.125 da+11.5  0/23  wrong 0  range 0.36 m bearing +6.2 deg
+   loading_zone    dx+0.250 dy+0.000 da-11.5  0/23  wrong 0  range 0.35 m bearing +14.1 deg
+   loading_zone    dx+0.250 dy+0.000 da +0.0  0/22  wrong 0  range 0.34 m bearing +0.0 deg
+   loading_zone    dx+0.250 dy+0.000 da+11.5  0/23  wrong 0  range 0.35 m bearing -14.0 deg
+   loading_zone    dx+0.250 dy+0.125 da-11.5  0/24  wrong 0  range 0.36 m bearing -6.1 deg
+   loading_zone    dx+0.250 dy+0.125 da +0.0  0/21  wrong 0  range 0.37 m bearing -19.9 deg
+   loading_zone    dx+0.250 dy+0.125 da+11.5  0/23  wrong 0  range 0.37 m bearing -33.5 deg
+   loading_zone    dx+0.250 dy+0.250 da-11.5  0/25  wrong 0  range 0.42 m bearing -22.7 deg
+   loading_zone    dx+0.250 dy+0.250 da +0.0  0/24  wrong 0  range 0.42 m bearing -36.0 deg
+   loading_zone    dx+0.250 dy+0.250 da+11.5  0/23  wrong 0  range 0.43 m bearing -49.0 deg
+
+detection by dx (along heading, + = toward marker), all stations and headings:
+   dx -0.250: 1035/1035  poses failing any frame 0/60  range 0.84-1.18 m
+   dx -0.125: 1156/1156  poses failing any frame 0/60  range 0.72-1.05 m
+   dx +0.000: 1204/1204  poses failing any frame 0/60  range 0.59-0.93 m
+   dx +0.125: 977/1238  poses failing any frame 12/60  range 0.47-0.81 m
+   dx +0.250: 323/1178  poses failing any frame 45/60  range 0.34-0.70 m
+detection by |bearing| band:
+    0-10 deg: 102 poses, 1778/1949
+   10-20 deg: 93 poses, 1639/1808
+   20-30 deg: 65 poses, 944/1248
+   30-40 deg: 28 poses, 334/550
+   40-60 deg: 12 poses, 0/256
+tested extremes: max |bearing| 49.0 deg, range 0.34-1.18 m, true offset from goal up to 0.354 m

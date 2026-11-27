@@ -1,0 +1,13 @@
+# GPU path check (this host)
+default env (LIBGL_ALWAYS_SOFTWARE=1 from ~/.bashrc):
+    Accelerated: no
+OpenGL renderer string: llvmpipe (LLVM 15.0.7, 256 bits)
+LIBGL_ALWAYS_SOFTWARE unset:
+    Accelerated: no
+OpenGL renderer string: llvmpipe (LLVM 15.0.7, 256 bits)
+LIBGL_ALWAYS_SOFTWARE unset, GALLIUM_DRIVER=d3d12:
+libGL error: glx: failed to create drisw screen
+libGL error: failed to load driver: swrast
+X Error of failed request:  BadValue (integer parameter out of range for operation)
+Mesa: 23.2.1-1ubuntu3.1~22.04.4
+/dev/dxg present: yes

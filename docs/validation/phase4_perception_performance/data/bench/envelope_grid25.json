@@ -1,0 +1,7088 @@
+[
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.88,
+  "marker_bearing_deg": 16.5,
+  "true_offset_from_goal_m": 0.354,
+  "dx": -0.25,
+  "dy": -0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.428,
+   9.05,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 12,
+  "detected": 12,
+  "ids": {
+   "0": 12
+  },
+  "correct": 12,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.853,
+  "marker_bearing_deg": 8.4,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": -0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.553,
+   9.05,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 8,
+  "detected": 8,
+  "ids": {
+   "0": 8
+  },
+  "correct": 8,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.844,
+  "marker_bearing_deg": 0.0,
+  "true_offset_from_goal_m": 0.25,
+  "dx": -0.25,
+  "dy": 0.0,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.678,
+   9.05,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 11,
+  "detected": 11,
+  "ids": {
+   "0": 11
+  },
+  "correct": 11,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.853,
+  "marker_bearing_deg": -8.4,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": 0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.803,
+   9.05,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 13,
+  "detected": 13,
+  "ids": {
+   "0": 13
+  },
+  "correct": 13,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.88,
+  "marker_bearing_deg": -16.5,
+  "true_offset_from_goal_m": 0.354,
+  "dx": -0.25,
+  "dy": 0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.928,
+   9.05,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 12,
+  "detected": 12,
+  "ids": {
+   "0": 11
+  },
+  "correct": 11,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.761,
+  "marker_bearing_deg": 19.2,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.125,
+  "dy": -0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.428,
+   9.175,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 14,
+  "ids": {
+   "0": 14
+  },
+  "correct": 14,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.73,
+  "marker_bearing_deg": 9.9,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": -0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.553,
+   9.175,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 12,
+  "detected": 12,
+  "ids": {
+   "0": 12
+  },
+  "correct": 12,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.719,
+  "marker_bearing_deg": 0.0,
+  "true_offset_from_goal_m": 0.125,
+  "dx": -0.125,
+  "dy": 0.0,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.678,
+   9.175,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 12,
+  "detected": 12,
+  "ids": {
+   "0": 12
+  },
+  "correct": 12,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.73,
+  "marker_bearing_deg": -9.8,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": 0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.803,
+   9.175,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 14,
+  "ids": {
+   "0": 14
+  },
+  "correct": 14,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.761,
+  "marker_bearing_deg": -19.2,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.125,
+  "dy": 0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.928,
+   9.175,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 14,
+  "ids": {
+   "0": 13
+  },
+  "correct": 13,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.645,
+  "marker_bearing_deg": 22.8,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": -0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.428,
+   9.3,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 14,
+  "ids": {
+   "0": 14
+  },
+  "correct": 14,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.607,
+  "marker_bearing_deg": 11.9,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": -0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.553,
+   9.3,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 14,
+  "ids": {
+   "0": 14
+  },
+  "correct": 14,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.594,
+  "marker_bearing_deg": 0.0,
+  "true_offset_from_goal_m": 0.0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.678,
+   9.3,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 14,
+  "ids": {
+   "0": 14
+  },
+  "correct": 14,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.607,
+  "marker_bearing_deg": -11.9,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": 0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.803,
+   9.3,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 14,
+  "ids": {
+   "0": 14
+  },
+  "correct": 14,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.644,
+  "marker_bearing_deg": -22.8,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": 0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.928,
+   9.3,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 12,
+  "detected": 12,
+  "ids": {
+   "0": 11
+  },
+  "correct": 11,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.532,
+  "marker_bearing_deg": 28.1,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": -0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.428,
+   9.425,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 12,
+  "detected": 12,
+  "ids": {
+   "0": 12
+  },
+  "correct": 12,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.485,
+  "marker_bearing_deg": 15.0,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": -0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.553,
+   9.425,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 12,
+  "detected": 12,
+  "ids": {
+   "0": 12
+  },
+  "correct": 12,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.469,
+  "marker_bearing_deg": 0.0,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.125,
+  "dy": 0.0,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.678,
+   9.425,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 9,
+  "detected": 9,
+  "ids": {
+   "0": 9
+  },
+  "correct": 9,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.485,
+  "marker_bearing_deg": -14.9,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": 0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.803,
+   9.425,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 12,
+  "detected": 12,
+  "ids": {
+   "0": 12
+  },
+  "correct": 12,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.531,
+  "marker_bearing_deg": -28.0,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": 0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.928,
+   9.425,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 12,
+  "detected": 12,
+  "ids": {
+   "0": 12
+  },
+  "correct": 12,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.425,
+  "marker_bearing_deg": 36.0,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": -0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.428,
+   9.55,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 9,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.366,
+  "marker_bearing_deg": 20.0,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": -0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.553,
+   9.55,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 12,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.344,
+  "marker_bearing_deg": 0.0,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.25,
+  "dy": 0.0,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.678,
+   9.55,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 13,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.366,
+  "marker_bearing_deg": -19.9,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": 0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.803,
+   9.55,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 7,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.425,
+  "marker_bearing_deg": -36.0,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": 0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.928,
+   9.55,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 9,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.878,
+  "marker_bearing_deg": 4.0,
+  "true_offset_from_goal_m": 0.354,
+  "dx": -0.25,
+  "dy": -0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.428,
+   9.05,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 7,
+  "detected": 7,
+  "ids": {
+   "0": 7
+  },
+  "correct": 7,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.853,
+  "marker_bearing_deg": -4.1,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": -0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.553,
+   9.05,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 10,
+  "detected": 10,
+  "ids": {
+   "0": 10
+  },
+  "correct": 10,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.846,
+  "marker_bearing_deg": -12.5,
+  "true_offset_from_goal_m": 0.25,
+  "dx": -0.25,
+  "dy": 0.0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.678,
+   9.05,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 14,
+  "ids": {
+   "0": 13
+  },
+  "correct": 13,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.857,
+  "marker_bearing_deg": -20.9,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": 0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.803,
+   9.05,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 13,
+  "detected": 13,
+  "ids": {
+   "0": 13
+  },
+  "correct": 13,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.886,
+  "marker_bearing_deg": -28.9,
+  "true_offset_from_goal_m": 0.354,
+  "dx": -0.25,
+  "dy": 0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.928,
+   9.05,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 10,
+  "detected": 10,
+  "ids": {
+   "0": 10
+  },
+  "correct": 10,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.758,
+  "marker_bearing_deg": 6.6,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.125,
+  "dy": -0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.428,
+   9.175,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 13,
+  "detected": 13,
+  "ids": {
+   "0": 13
+  },
+  "correct": 13,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.729,
+  "marker_bearing_deg": -2.8,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": -0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.553,
+   9.175,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 13,
+  "detected": 13,
+  "ids": {
+   "0": 13
+  },
+  "correct": 13,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.721,
+  "marker_bearing_deg": -12.7,
+  "true_offset_from_goal_m": 0.125,
+  "dx": -0.125,
+  "dy": 0.0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.678,
+   9.175,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 20,
+  "detected": 20,
+  "ids": {
+   "0": 20
+  },
+  "correct": 20,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.734,
+  "marker_bearing_deg": -22.5,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": 0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.803,
+   9.175,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "0": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.768,
+  "marker_bearing_deg": -31.7,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.125,
+  "dy": 0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.928,
+   9.175,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 26,
+  "detected": 26,
+  "ids": {
+   "0": 26
+  },
+  "correct": 26,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.64,
+  "marker_bearing_deg": 10.0,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": -0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.428,
+   9.3,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "0": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.606,
+  "marker_bearing_deg": -1.0,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": -0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.553,
+   9.3,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 25,
+  "detected": 25,
+  "ids": {
+   "0": 25
+  },
+  "correct": 25,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.596,
+  "marker_bearing_deg": -12.9,
+  "true_offset_from_goal_m": 0.0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.678,
+   9.3,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "0": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.612,
+  "marker_bearing_deg": -24.7,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": 0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.803,
+   9.3,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "0": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.652,
+  "marker_bearing_deg": -35.5,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": 0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.928,
+   9.3,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "0": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.526,
+  "marker_bearing_deg": 15.1,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": -0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.428,
+   9.425,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "0": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.483,
+  "marker_bearing_deg": 1.7,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": -0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.553,
+   9.425,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 28,
+  "detected": 28,
+  "ids": {
+   "0": 28
+  },
+  "correct": 28,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.471,
+  "marker_bearing_deg": -13.3,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.125,
+  "dy": 0.0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.678,
+   9.425,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 20,
+  "detected": 20,
+  "ids": {
+   "0": 20
+  },
+  "correct": 20,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.491,
+  "marker_bearing_deg": -28.1,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": 0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.803,
+   9.425,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 21,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.54,
+  "marker_bearing_deg": -40.9,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": 0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.928,
+   9.425,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.418,
+  "marker_bearing_deg": 22.7,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": -0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.428,
+   9.55,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 21,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.363,
+  "marker_bearing_deg": 6.2,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": -0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.553,
+   9.55,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 19,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.346,
+  "marker_bearing_deg": -14.0,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.25,
+  "dy": 0.0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.678,
+   9.55,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 21,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.373,
+  "marker_bearing_deg": -33.5,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": 0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.803,
+   9.55,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 20,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.435,
+  "marker_bearing_deg": -49.0,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": 0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.928,
+   9.55,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 19,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.886,
+  "marker_bearing_deg": 28.9,
+  "true_offset_from_goal_m": 0.354,
+  "dx": -0.25,
+  "dy": -0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.428,
+   9.05,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 21,
+  "detected": 21,
+  "ids": {
+   "0": 21
+  },
+  "correct": 21,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.857,
+  "marker_bearing_deg": 20.9,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": -0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.553,
+   9.05,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 13,
+  "detected": 13,
+  "ids": {
+   "0": 13
+  },
+  "correct": 13,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.846,
+  "marker_bearing_deg": 12.5,
+  "true_offset_from_goal_m": 0.25,
+  "dx": -0.25,
+  "dy": 0.0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.678,
+   9.05,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 16,
+  "detected": 16,
+  "ids": {
+   "0": 16
+  },
+  "correct": 16,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.853,
+  "marker_bearing_deg": 4.1,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": 0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.803,
+   9.05,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "0": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.877,
+  "marker_bearing_deg": -4.0,
+  "true_offset_from_goal_m": 0.353,
+  "dx": -0.25,
+  "dy": 0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.928,
+   9.05,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "0": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.768,
+  "marker_bearing_deg": 31.7,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.125,
+  "dy": -0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.428,
+   9.175,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "0": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.734,
+  "marker_bearing_deg": 22.5,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": -0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.553,
+   9.175,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "0": 22
+  },
+  "correct": 22,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.721,
+  "marker_bearing_deg": 12.7,
+  "true_offset_from_goal_m": 0.125,
+  "dx": -0.125,
+  "dy": 0.0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.678,
+   9.175,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 21,
+  "detected": 21,
+  "ids": {
+   "0": 21
+  },
+  "correct": 21,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.729,
+  "marker_bearing_deg": 2.9,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": 0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.803,
+   9.175,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 22,
+  "ids": {
+   "0": 21
+  },
+  "correct": 21,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.758,
+  "marker_bearing_deg": -6.5,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.125,
+  "dy": 0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.928,
+   9.175,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "0": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.652,
+  "marker_bearing_deg": 35.5,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": -0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.428,
+   9.3,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "0": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.612,
+  "marker_bearing_deg": 24.8,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": -0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.553,
+   9.3,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 20,
+  "detected": 20,
+  "ids": {
+   "0": 19
+  },
+  "correct": 19,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.596,
+  "marker_bearing_deg": 13.0,
+  "true_offset_from_goal_m": 0.0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.678,
+   9.3,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "0": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.605,
+  "marker_bearing_deg": 1.1,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": 0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.803,
+   9.3,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "0": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.64,
+  "marker_bearing_deg": -10.0,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": 0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.928,
+   9.3,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 22,
+  "ids": {
+   "0": 22
+  },
+  "correct": 22,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.54,
+  "marker_bearing_deg": 40.9,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": -0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.428,
+   9.425,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.491,
+  "marker_bearing_deg": 28.1,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": -0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.553,
+   9.425,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.471,
+  "marker_bearing_deg": 13.4,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.125,
+  "dy": 0.0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.678,
+   9.425,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "0": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.483,
+  "marker_bearing_deg": -1.6,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": 0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.803,
+   9.425,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 22,
+  "ids": {
+   "0": 22
+  },
+  "correct": 22,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.526,
+  "marker_bearing_deg": -15.0,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": 0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.928,
+   9.425,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 26,
+  "detected": 26,
+  "ids": {
+   "0": 26
+  },
+  "correct": 26,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.436,
+  "marker_bearing_deg": 49.0,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": -0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.428,
+   9.55,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.373,
+  "marker_bearing_deg": 33.6,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": -0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.553,
+   9.55,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.346,
+  "marker_bearing_deg": 14.1,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.25,
+  "dy": 0.0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.678,
+   9.55,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.362,
+  "marker_bearing_deg": -6.1,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": 0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.803,
+   9.55,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 21,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "marker_range_m": 0.418,
+  "marker_bearing_deg": -22.7,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": 0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.928,
+   9.55,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.88,
+  "marker_bearing_deg": 16.5,
+  "true_offset_from_goal_m": 0.354,
+  "dx": -0.25,
+  "dy": -0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   2.053,
+   9.05,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 22,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.853,
+  "marker_bearing_deg": 8.4,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": -0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.928,
+   9.05,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "1": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.844,
+  "marker_bearing_deg": 0.0,
+  "true_offset_from_goal_m": 0.25,
+  "dx": -0.25,
+  "dy": 0.0,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.803,
+   9.05,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 20,
+  "detected": 20,
+  "ids": {
+   "1": 20
+  },
+  "correct": 20,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.853,
+  "marker_bearing_deg": -8.4,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": 0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.678,
+   9.05,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.88,
+  "marker_bearing_deg": -16.5,
+  "true_offset_from_goal_m": 0.353,
+  "dx": -0.25,
+  "dy": 0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.553,
+   9.05,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.761,
+  "marker_bearing_deg": 19.2,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.125,
+  "dy": -0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   2.053,
+   9.175,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 26,
+  "detected": 26,
+  "ids": {
+   "1": 26
+  },
+  "correct": 26,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.73,
+  "marker_bearing_deg": 9.9,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": -0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.928,
+   9.175,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 25,
+  "detected": 25,
+  "ids": {
+   "1": 25
+  },
+  "correct": 25,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.719,
+  "marker_bearing_deg": 0.0,
+  "true_offset_from_goal_m": 0.125,
+  "dx": -0.125,
+  "dy": 0.0,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.803,
+   9.175,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.73,
+  "marker_bearing_deg": -9.8,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": 0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.678,
+   9.175,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.761,
+  "marker_bearing_deg": -19.2,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.125,
+  "dy": 0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.553,
+   9.175,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "1": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.645,
+  "marker_bearing_deg": 22.8,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": -0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   2.053,
+   9.3,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 20,
+  "detected": 20,
+  "ids": {
+   "1": 21
+  },
+  "correct": 21,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.607,
+  "marker_bearing_deg": 11.9,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": -0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.928,
+   9.3,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.594,
+  "marker_bearing_deg": 0.0,
+  "true_offset_from_goal_m": 0.0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.803,
+   9.3,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.607,
+  "marker_bearing_deg": -11.9,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": 0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.678,
+   9.3,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.644,
+  "marker_bearing_deg": -22.8,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": 0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.553,
+   9.3,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 22,
+  "ids": {
+   "1": 22
+  },
+  "correct": 22,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.532,
+  "marker_bearing_deg": 28.1,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": -0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   2.053,
+   9.425,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.485,
+  "marker_bearing_deg": 15.0,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": -0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.928,
+   9.425,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.469,
+  "marker_bearing_deg": 0.0,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.125,
+  "dy": 0.0,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.803,
+   9.425,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.485,
+  "marker_bearing_deg": -14.9,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": 0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.678,
+   9.425,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.531,
+  "marker_bearing_deg": -28.0,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": 0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.553,
+   9.425,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "1": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.425,
+  "marker_bearing_deg": 36.0,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": -0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   2.053,
+   9.55,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.366,
+  "marker_bearing_deg": 20.0,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": -0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.928,
+   9.55,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.344,
+  "marker_bearing_deg": 0.0,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.25,
+  "dy": 0.0,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.803,
+   9.55,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.366,
+  "marker_bearing_deg": -19.9,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": 0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.678,
+   9.55,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 21,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.425,
+  "marker_bearing_deg": -36.0,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": 0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.553,
+   9.55,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.878,
+  "marker_bearing_deg": 4.0,
+  "true_offset_from_goal_m": 0.353,
+  "dx": -0.25,
+  "dy": -0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   2.053,
+   9.05,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.853,
+  "marker_bearing_deg": -4.1,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": -0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.928,
+   9.05,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.846,
+  "marker_bearing_deg": -12.5,
+  "true_offset_from_goal_m": 0.25,
+  "dx": -0.25,
+  "dy": 0.0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.803,
+   9.05,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.857,
+  "marker_bearing_deg": -20.9,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": 0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.678,
+   9.05,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.886,
+  "marker_bearing_deg": -28.9,
+  "true_offset_from_goal_m": 0.354,
+  "dx": -0.25,
+  "dy": 0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.553,
+   9.05,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 22,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.758,
+  "marker_bearing_deg": 6.6,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.125,
+  "dy": -0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   2.053,
+   9.175,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.729,
+  "marker_bearing_deg": -2.8,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": -0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.928,
+   9.175,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.721,
+  "marker_bearing_deg": -12.7,
+  "true_offset_from_goal_m": 0.125,
+  "dx": -0.125,
+  "dy": 0.0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.803,
+   9.175,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.734,
+  "marker_bearing_deg": -22.5,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": 0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.678,
+   9.175,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 22,
+  "ids": {
+   "1": 22
+  },
+  "correct": 22,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.768,
+  "marker_bearing_deg": -31.7,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.125,
+  "dy": 0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.553,
+   9.175,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.64,
+  "marker_bearing_deg": 10.0,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": -0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   2.053,
+   9.3,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 22,
+  "ids": {
+   "1": 22
+  },
+  "correct": 22,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.606,
+  "marker_bearing_deg": -1.0,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": -0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.928,
+   9.3,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 22,
+  "ids": {
+   "1": 22
+  },
+  "correct": 22,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.596,
+  "marker_bearing_deg": -12.9,
+  "true_offset_from_goal_m": 0.0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.803,
+   9.3,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.612,
+  "marker_bearing_deg": -24.7,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": 0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.678,
+   9.3,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.652,
+  "marker_bearing_deg": -35.5,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": 0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.553,
+   9.3,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 22,
+  "ids": {
+   "1": 22
+  },
+  "correct": 22,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.526,
+  "marker_bearing_deg": 15.1,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": -0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   2.053,
+   9.425,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.483,
+  "marker_bearing_deg": 1.7,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": -0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.928,
+   9.425,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.471,
+  "marker_bearing_deg": -13.3,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.125,
+  "dy": 0.0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.803,
+   9.425,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.491,
+  "marker_bearing_deg": -28.1,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": 0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.678,
+   9.425,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.54,
+  "marker_bearing_deg": -40.9,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": 0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.553,
+   9.425,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.418,
+  "marker_bearing_deg": 22.7,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": -0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   2.053,
+   9.55,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 20,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.363,
+  "marker_bearing_deg": 6.2,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": -0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.928,
+   9.55,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.346,
+  "marker_bearing_deg": -14.0,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.25,
+  "dy": 0.0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.803,
+   9.55,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.373,
+  "marker_bearing_deg": -33.5,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": 0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.678,
+   9.55,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.435,
+  "marker_bearing_deg": -49.0,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": 0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.553,
+   9.55,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.886,
+  "marker_bearing_deg": 28.9,
+  "true_offset_from_goal_m": 0.354,
+  "dx": -0.25,
+  "dy": -0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   2.053,
+   9.05,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.857,
+  "marker_bearing_deg": 20.9,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": -0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.928,
+   9.05,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.846,
+  "marker_bearing_deg": 12.5,
+  "true_offset_from_goal_m": 0.25,
+  "dx": -0.25,
+  "dy": 0.0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.803,
+   9.05,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.853,
+  "marker_bearing_deg": 4.1,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": 0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.678,
+   9.05,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.877,
+  "marker_bearing_deg": -4.0,
+  "true_offset_from_goal_m": 0.353,
+  "dx": -0.25,
+  "dy": 0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.553,
+   9.05,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.768,
+  "marker_bearing_deg": 31.7,
+  "true_offset_from_goal_m": 0.28,
+  "dx": -0.125,
+  "dy": -0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   2.053,
+   9.175,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "1": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.734,
+  "marker_bearing_deg": 22.5,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": -0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.928,
+   9.175,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "1": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.721,
+  "marker_bearing_deg": 12.7,
+  "true_offset_from_goal_m": 0.125,
+  "dx": -0.125,
+  "dy": 0.0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.803,
+   9.175,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 22,
+  "ids": {
+   "1": 21
+  },
+  "correct": 21,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.729,
+  "marker_bearing_deg": 2.9,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": 0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.678,
+   9.175,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.758,
+  "marker_bearing_deg": -6.5,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.125,
+  "dy": 0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.553,
+   9.175,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "1": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.652,
+  "marker_bearing_deg": 35.5,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": -0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   2.053,
+   9.3,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.612,
+  "marker_bearing_deg": 24.8,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": -0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.928,
+   9.3,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 22,
+  "ids": {
+   "1": 21
+  },
+  "correct": 21,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.596,
+  "marker_bearing_deg": 13.0,
+  "true_offset_from_goal_m": 0.0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.803,
+   9.3,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 21,
+  "detected": 21,
+  "ids": {
+   "1": 21
+  },
+  "correct": 21,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.605,
+  "marker_bearing_deg": 1.1,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": 0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.678,
+   9.3,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 19,
+  "detected": 19,
+  "ids": {
+   "1": 19
+  },
+  "correct": 19,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.64,
+  "marker_bearing_deg": -10.0,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": 0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.553,
+   9.3,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 21,
+  "detected": 21,
+  "ids": {
+   "1": 21
+  },
+  "correct": 21,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.54,
+  "marker_bearing_deg": 40.9,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": -0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   2.053,
+   9.425,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.491,
+  "marker_bearing_deg": 28.1,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": -0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.928,
+   9.425,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.471,
+  "marker_bearing_deg": 13.4,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.125,
+  "dy": 0.0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.803,
+   9.425,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "1": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.483,
+  "marker_bearing_deg": -1.6,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": 0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.678,
+   9.425,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "1": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.526,
+  "marker_bearing_deg": -15.0,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": 0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.553,
+   9.425,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 22,
+  "ids": {
+   "1": 22
+  },
+  "correct": 22,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.436,
+  "marker_bearing_deg": 49.0,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": -0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   2.053,
+   9.55,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.373,
+  "marker_bearing_deg": 33.6,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": -0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.928,
+   9.55,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.346,
+  "marker_bearing_deg": 14.1,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.25,
+  "dy": 0.0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.803,
+   9.55,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.362,
+  "marker_bearing_deg": -6.1,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": 0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.678,
+   9.55,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "marker_range_m": 0.418,
+  "marker_bearing_deg": -22.7,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": 0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.553,
+   9.55,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 25,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.171,
+  "marker_bearing_deg": 12.3,
+  "true_offset_from_goal_m": 0.354,
+  "dx": -0.25,
+  "dy": -0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.551,
+   -8.75,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.151,
+  "marker_bearing_deg": 6.2,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": -0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.676,
+   -8.75,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 21,
+  "detected": 21,
+  "ids": {
+   "2": 21
+  },
+  "correct": 21,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.144,
+  "marker_bearing_deg": -0.0,
+  "true_offset_from_goal_m": 0.25,
+  "dx": -0.25,
+  "dy": 0.0,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.801,
+   -8.75,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.151,
+  "marker_bearing_deg": -6.3,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": 0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.926,
+   -8.75,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.171,
+  "marker_bearing_deg": -12.3,
+  "true_offset_from_goal_m": 0.353,
+  "dx": -0.25,
+  "dy": 0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   2.051,
+   -8.75,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.049,
+  "marker_bearing_deg": 13.8,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.125,
+  "dy": -0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.551,
+   -8.875,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "2": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.027,
+  "marker_bearing_deg": 7.0,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": -0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.676,
+   -8.875,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 20,
+  "detected": 20,
+  "ids": {
+   "2": 20
+  },
+  "correct": 20,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.019,
+  "marker_bearing_deg": -0.0,
+  "true_offset_from_goal_m": 0.125,
+  "dx": -0.125,
+  "dy": 0.0,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.801,
+   -8.875,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.027,
+  "marker_bearing_deg": -7.0,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": 0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.926,
+   -8.875,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.049,
+  "marker_bearing_deg": -13.8,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.125,
+  "dy": 0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   2.051,
+   -8.875,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "2": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.928,
+  "marker_bearing_deg": 15.6,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": -0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.551,
+   -9.0,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 22
+  },
+  "correct": 22,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.903,
+  "marker_bearing_deg": 7.9,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": -0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.676,
+   -9.0,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 22
+  },
+  "correct": 22,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.894,
+  "marker_bearing_deg": -0.0,
+  "true_offset_from_goal_m": 0.0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.801,
+   -9.0,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.903,
+  "marker_bearing_deg": -8.0,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": 0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.926,
+   -9.0,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.928,
+  "marker_bearing_deg": -15.6,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": 0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   2.051,
+   -9.0,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 20,
+  "detected": 20,
+  "ids": {
+   "2": 20
+  },
+  "correct": 20,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.808,
+  "marker_bearing_deg": 18.0,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": -0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.551,
+   -9.125,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.779,
+  "marker_bearing_deg": 9.2,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": -0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.676,
+   -9.125,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.769,
+  "marker_bearing_deg": -0.0,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.125,
+  "dy": 0.0,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.801,
+   -9.125,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.779,
+  "marker_bearing_deg": -9.3,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": 0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.926,
+   -9.125,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 21,
+  "detected": 21,
+  "ids": {
+   "2": 21
+  },
+  "correct": 21,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.809,
+  "marker_bearing_deg": -18.0,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": 0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   2.051,
+   -9.125,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.691,
+  "marker_bearing_deg": 21.2,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": -0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.551,
+   -9.25,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 16,
+  "detected": 16,
+  "ids": {
+   "2": 16
+  },
+  "correct": 16,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.656,
+  "marker_bearing_deg": 10.9,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": -0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.676,
+   -9.25,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 16,
+  "detected": 16,
+  "ids": {
+   "2": 16
+  },
+  "correct": 16,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.644,
+  "marker_bearing_deg": -0.0,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.25,
+  "dy": 0.0,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.801,
+   -9.25,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "2": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.656,
+  "marker_bearing_deg": -11.0,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": 0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   1.926,
+   -9.25,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "2": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.691,
+  "marker_bearing_deg": -21.3,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": 0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   2.051,
+   -9.25,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "2": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.169,
+  "marker_bearing_deg": 0.1,
+  "true_offset_from_goal_m": 0.353,
+  "dx": -0.25,
+  "dy": -0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.551,
+   -8.75,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 22
+  },
+  "correct": 22,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.151,
+  "marker_bearing_deg": -6.0,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": -0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.676,
+   -8.75,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 21,
+  "detected": 21,
+  "ids": {
+   "2": 21
+  },
+  "correct": 21,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.146,
+  "marker_bearing_deg": -12.3,
+  "true_offset_from_goal_m": 0.25,
+  "dx": -0.25,
+  "dy": 0.0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.801,
+   -8.75,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 20,
+  "detected": 20,
+  "ids": {
+   "2": 21
+  },
+  "correct": 21,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.154,
+  "marker_bearing_deg": -18.5,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": 0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.926,
+   -8.75,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "2": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.176,
+  "marker_bearing_deg": -24.6,
+  "true_offset_from_goal_m": 0.354,
+  "dx": -0.25,
+  "dy": 0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   2.051,
+   -8.75,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.047,
+  "marker_bearing_deg": 1.4,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.125,
+  "dy": -0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.551,
+   -8.875,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.026,
+  "marker_bearing_deg": -5.4,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": -0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.676,
+   -8.875,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.021,
+  "marker_bearing_deg": -12.4,
+  "true_offset_from_goal_m": 0.125,
+  "dx": -0.125,
+  "dy": 0.0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.801,
+   -8.875,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.03,
+  "marker_bearing_deg": -19.3,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": 0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.926,
+   -8.875,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.054,
+  "marker_bearing_deg": -26.1,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.125,
+  "dy": 0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   2.051,
+   -8.875,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.926,
+  "marker_bearing_deg": 3.2,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": -0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.551,
+   -9.0,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "2": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.902,
+  "marker_bearing_deg": -4.5,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": -0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.676,
+   -9.0,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.896,
+  "marker_bearing_deg": -12.5,
+  "true_offset_from_goal_m": 0.0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.801,
+   -9.0,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.906,
+  "marker_bearing_deg": -20.4,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": 0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.926,
+   -9.0,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.934,
+  "marker_bearing_deg": -28.0,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": 0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   2.051,
+   -9.0,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 22,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.805,
+  "marker_bearing_deg": 5.4,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": -0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.551,
+   -9.125,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.778,
+  "marker_bearing_deg": -3.4,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": -0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.676,
+   -9.125,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.771,
+  "marker_bearing_deg": -12.7,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.125,
+  "dy": 0.0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.801,
+   -9.125,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.783,
+  "marker_bearing_deg": -21.8,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": 0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.926,
+   -9.125,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.815,
+  "marker_bearing_deg": -30.5,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": 0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   2.051,
+   -9.125,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "2": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.687,
+  "marker_bearing_deg": 8.5,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": -0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.551,
+   -9.25,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 22,
+  "ids": {
+   "2": 22
+  },
+  "correct": 22,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.655,
+  "marker_bearing_deg": -1.9,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": -0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.676,
+   -9.25,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 21,
+  "detected": 21,
+  "ids": {
+   "2": 21
+  },
+  "correct": 21,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.646,
+  "marker_bearing_deg": -12.9,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.25,
+  "dy": 0.0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.801,
+   -9.25,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "2": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.661,
+  "marker_bearing_deg": -23.8,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": 0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.926,
+   -9.25,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.698,
+  "marker_bearing_deg": -33.9,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": 0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   2.051,
+   -9.25,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 21,
+  "detected": 21,
+  "ids": {
+   "2": 21
+  },
+  "correct": 21,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.176,
+  "marker_bearing_deg": 24.5,
+  "true_offset_from_goal_m": 0.354,
+  "dx": -0.25,
+  "dy": -0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.551,
+   -8.75,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.154,
+  "marker_bearing_deg": 18.5,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": -0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.676,
+   -8.75,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 21,
+  "detected": 21,
+  "ids": {
+   "2": 21
+  },
+  "correct": 21,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.146,
+  "marker_bearing_deg": 12.2,
+  "true_offset_from_goal_m": 0.25,
+  "dx": -0.25,
+  "dy": 0.0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.801,
+   -8.75,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 21,
+  "detected": 21,
+  "ids": {
+   "2": 21
+  },
+  "correct": 21,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.151,
+  "marker_bearing_deg": 6.0,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": 0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.926,
+   -8.75,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 19,
+  "detected": 19,
+  "ids": {
+   "2": 20
+  },
+  "correct": 20,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.169,
+  "marker_bearing_deg": -0.1,
+  "true_offset_from_goal_m": 0.354,
+  "dx": -0.25,
+  "dy": 0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   2.051,
+   -8.75,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.054,
+  "marker_bearing_deg": 26.0,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.125,
+  "dy": -0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.551,
+   -8.875,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.03,
+  "marker_bearing_deg": 19.3,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": -0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.676,
+   -8.875,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "2": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.021,
+  "marker_bearing_deg": 12.3,
+  "true_offset_from_goal_m": 0.125,
+  "dx": -0.125,
+  "dy": 0.0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.801,
+   -8.875,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.026,
+  "marker_bearing_deg": 5.3,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": 0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.926,
+   -8.875,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 1.047,
+  "marker_bearing_deg": -1.5,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.125,
+  "dy": 0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   2.051,
+   -8.875,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "2": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.934,
+  "marker_bearing_deg": 28.0,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": -0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.551,
+   -9.0,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "2": 24
+  },
+  "correct": 24,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.906,
+  "marker_bearing_deg": 20.4,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": -0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.676,
+   -9.0,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.896,
+  "marker_bearing_deg": 12.4,
+  "true_offset_from_goal_m": 0.0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.801,
+   -9.0,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 21,
+  "detected": 21,
+  "ids": {
+   "2": 21
+  },
+  "correct": 21,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.902,
+  "marker_bearing_deg": 4.5,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": 0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.926,
+   -9.0,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.926,
+  "marker_bearing_deg": -3.2,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": 0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   2.051,
+   -9.0,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 22,
+  "ids": {
+   "2": 22
+  },
+  "correct": 22,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.815,
+  "marker_bearing_deg": 30.5,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": -0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.551,
+   -9.125,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 22,
+  "ids": {
+   "2": 22
+  },
+  "correct": 22,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.783,
+  "marker_bearing_deg": 21.8,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": -0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.676,
+   -9.125,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 22,
+  "ids": {
+   "2": 22
+  },
+  "correct": 22,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.771,
+  "marker_bearing_deg": 12.6,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.125,
+  "dy": 0.0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.801,
+   -9.125,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.778,
+  "marker_bearing_deg": 3.4,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": 0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.926,
+   -9.125,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.806,
+  "marker_bearing_deg": -5.5,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": 0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   2.051,
+   -9.125,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 24,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.698,
+  "marker_bearing_deg": 33.8,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": -0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.551,
+   -9.25,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 22,
+  "ids": {
+   "2": 22
+  },
+  "correct": 22,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.66,
+  "marker_bearing_deg": 23.7,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": -0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.676,
+   -9.25,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.646,
+  "marker_bearing_deg": 12.8,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.25,
+  "dy": 0.0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.801,
+   -9.25,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 22,
+  "ids": {
+   "2": 22
+  },
+  "correct": 22,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.655,
+  "marker_bearing_deg": 1.8,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": 0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.926,
+   -9.25,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 23,
+  "ids": {
+   "2": 23
+  },
+  "correct": 23,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "marker_range_m": 0.687,
+  "marker_bearing_deg": -8.5,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": 0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   2.051,
+   -9.25,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 17,
+  "detected": 17,
+  "ids": {
+   "2": 17
+  },
+  "correct": 17,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.88,
+  "marker_bearing_deg": 16.5,
+  "true_offset_from_goal_m": 0.354,
+  "dx": -0.25,
+  "dy": -0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.88,
+   -9.05,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 17,
+  "detected": 17,
+  "ids": {
+   "3": 17
+  },
+  "correct": 17,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.853,
+  "marker_bearing_deg": 8.4,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": -0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.755,
+   -9.05,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 6,
+  "detected": 6,
+  "ids": {
+   "3": 6
+  },
+  "correct": 6,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.844,
+  "marker_bearing_deg": 0.0,
+  "true_offset_from_goal_m": 0.25,
+  "dx": -0.25,
+  "dy": 0.0,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.63,
+   -9.05,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 8,
+  "detected": 8,
+  "ids": {
+   "3": 8
+  },
+  "correct": 8,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.853,
+  "marker_bearing_deg": -8.4,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": 0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.505,
+   -9.05,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 11,
+  "detected": 11,
+  "ids": {
+   "3": 11
+  },
+  "correct": 11,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.88,
+  "marker_bearing_deg": -16.5,
+  "true_offset_from_goal_m": 0.354,
+  "dx": -0.25,
+  "dy": 0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.38,
+   -9.05,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 6,
+  "detected": 6,
+  "ids": {
+   "3": 6
+  },
+  "correct": 6,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.761,
+  "marker_bearing_deg": 19.2,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.125,
+  "dy": -0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.88,
+   -9.175,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 5,
+  "detected": 5,
+  "ids": {
+   "3": 5
+  },
+  "correct": 5,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.73,
+  "marker_bearing_deg": 9.9,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": -0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.755,
+   -9.175,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 13,
+  "detected": 13,
+  "ids": {
+   "3": 13
+  },
+  "correct": 13,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.719,
+  "marker_bearing_deg": 0.0,
+  "true_offset_from_goal_m": 0.125,
+  "dx": -0.125,
+  "dy": 0.0,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.63,
+   -9.175,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 14,
+  "ids": {
+   "3": 14
+  },
+  "correct": 14,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.73,
+  "marker_bearing_deg": -9.8,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": 0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.505,
+   -9.175,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 13,
+  "detected": 13,
+  "ids": {
+   "3": 13
+  },
+  "correct": 13,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.761,
+  "marker_bearing_deg": -19.2,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.125,
+  "dy": 0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.38,
+   -9.175,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 14,
+  "ids": {
+   "3": 14
+  },
+  "correct": 14,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.644,
+  "marker_bearing_deg": 22.8,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": -0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.88,
+   -9.3,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 12,
+  "detected": 12,
+  "ids": {
+   "3": 12
+  },
+  "correct": 12,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.607,
+  "marker_bearing_deg": 11.9,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": -0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.755,
+   -9.3,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 10,
+  "detected": 10,
+  "ids": {
+   "3": 10
+  },
+  "correct": 10,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.594,
+  "marker_bearing_deg": 0.0,
+  "true_offset_from_goal_m": 0.0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.63,
+   -9.3,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 6,
+  "detected": 6,
+  "ids": {
+   "3": 6
+  },
+  "correct": 6,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.607,
+  "marker_bearing_deg": -11.9,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": 0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.505,
+   -9.3,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 11,
+  "detected": 11,
+  "ids": {
+   "3": 10
+  },
+  "correct": 10,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.644,
+  "marker_bearing_deg": -22.8,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": 0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.38,
+   -9.3,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 10,
+  "detected": 10,
+  "ids": {
+   "3": 10
+  },
+  "correct": 10,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.532,
+  "marker_bearing_deg": 28.1,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": -0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.88,
+   -9.425,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 14,
+  "ids": {
+   "3": 14
+  },
+  "correct": 14,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.485,
+  "marker_bearing_deg": 14.9,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": -0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.755,
+   -9.425,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 14,
+  "ids": {
+   "3": 14
+  },
+  "correct": 14,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.469,
+  "marker_bearing_deg": 0.0,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.125,
+  "dy": 0.0,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.63,
+   -9.425,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 12,
+  "detected": 12,
+  "ids": {
+   "3": 12
+  },
+  "correct": 12,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.485,
+  "marker_bearing_deg": -14.9,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": 0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.505,
+   -9.425,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 14,
+  "ids": {
+   "3": 14
+  },
+  "correct": 14,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.531,
+  "marker_bearing_deg": -28.0,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": 0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.38,
+   -9.425,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 14,
+  "ids": {
+   "3": 13
+  },
+  "correct": 13,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.425,
+  "marker_bearing_deg": 36.0,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": -0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.88,
+   -9.55,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.366,
+  "marker_bearing_deg": 20.0,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": -0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.755,
+   -9.55,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.344,
+  "marker_bearing_deg": 0.0,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.25,
+  "dy": 0.0,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.63,
+   -9.55,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.366,
+  "marker_bearing_deg": -19.9,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": 0.125,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.505,
+   -9.55,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.425,
+  "marker_bearing_deg": -36.0,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": 0.25,
+  "dyaw": 0.0,
+  "set_ok": true,
+  "true_pose": [
+   -3.38,
+   -9.55,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.878,
+  "marker_bearing_deg": 4.0,
+  "true_offset_from_goal_m": 0.354,
+  "dx": -0.25,
+  "dy": -0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.88,
+   -9.05,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 14,
+  "ids": {
+   "3": 14
+  },
+  "correct": 14,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.853,
+  "marker_bearing_deg": -4.1,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": -0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.755,
+   -9.05,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 9,
+  "detected": 9,
+  "ids": {
+   "3": 10
+  },
+  "correct": 10,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.846,
+  "marker_bearing_deg": -12.5,
+  "true_offset_from_goal_m": 0.25,
+  "dx": -0.25,
+  "dy": 0.0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.63,
+   -9.05,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 10,
+  "detected": 10,
+  "ids": {
+   "3": 11
+  },
+  "correct": 11,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.857,
+  "marker_bearing_deg": -20.9,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": 0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.505,
+   -9.05,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 13,
+  "detected": 13,
+  "ids": {
+   "3": 13
+  },
+  "correct": 13,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.886,
+  "marker_bearing_deg": -28.9,
+  "true_offset_from_goal_m": 0.354,
+  "dx": -0.25,
+  "dy": 0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.38,
+   -9.05,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 14,
+  "ids": {
+   "3": 14
+  },
+  "correct": 14,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.758,
+  "marker_bearing_deg": 6.6,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.125,
+  "dy": -0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.88,
+   -9.175,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 11,
+  "detected": 11,
+  "ids": {
+   "3": 11
+  },
+  "correct": 11,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.729,
+  "marker_bearing_deg": -2.8,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": -0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.755,
+   -9.175,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 12,
+  "detected": 12,
+  "ids": {
+   "3": 12
+  },
+  "correct": 12,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.721,
+  "marker_bearing_deg": -12.7,
+  "true_offset_from_goal_m": 0.125,
+  "dx": -0.125,
+  "dy": 0.0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.63,
+   -9.175,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 12,
+  "detected": 12,
+  "ids": {
+   "3": 12
+  },
+  "correct": 12,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.734,
+  "marker_bearing_deg": -22.5,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": 0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.505,
+   -9.175,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 8,
+  "detected": 8,
+  "ids": {
+   "3": 8
+  },
+  "correct": 8,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.768,
+  "marker_bearing_deg": -31.7,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.125,
+  "dy": 0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.38,
+   -9.175,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 7,
+  "detected": 7,
+  "ids": {
+   "3": 7
+  },
+  "correct": 7,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.64,
+  "marker_bearing_deg": 10.0,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": -0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.88,
+   -9.3,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 5,
+  "detected": 5,
+  "ids": {
+   "3": 5
+  },
+  "correct": 5,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.606,
+  "marker_bearing_deg": -1.0,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": -0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.755,
+   -9.3,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 8,
+  "detected": 8,
+  "ids": {
+   "3": 8
+  },
+  "correct": 8,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.596,
+  "marker_bearing_deg": -12.9,
+  "true_offset_from_goal_m": 0.0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.63,
+   -9.3,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 14,
+  "ids": {
+   "3": 14
+  },
+  "correct": 14,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.612,
+  "marker_bearing_deg": -24.7,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": 0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.505,
+   -9.3,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 10,
+  "detected": 10,
+  "ids": {
+   "3": 10
+  },
+  "correct": 10,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.652,
+  "marker_bearing_deg": -35.5,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": 0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.38,
+   -9.3,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 13,
+  "detected": 13,
+  "ids": {
+   "3": 13
+  },
+  "correct": 13,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.526,
+  "marker_bearing_deg": 15.0,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": -0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.88,
+   -9.425,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 14,
+  "ids": {
+   "3": 14
+  },
+  "correct": 14,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.483,
+  "marker_bearing_deg": 1.7,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": -0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.755,
+   -9.425,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 13,
+  "detected": 13,
+  "ids": {
+   "3": 13
+  },
+  "correct": 13,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.471,
+  "marker_bearing_deg": -13.3,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.125,
+  "dy": 0.0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.63,
+   -9.425,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 14,
+  "ids": {
+   "3": 14
+  },
+  "correct": 14,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.491,
+  "marker_bearing_deg": -28.1,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": 0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.505,
+   -9.425,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 12,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.54,
+  "marker_bearing_deg": -40.9,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": 0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.38,
+   -9.425,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 15,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.418,
+  "marker_bearing_deg": 22.7,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": -0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.88,
+   -9.55,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 15,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.363,
+  "marker_bearing_deg": 6.2,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": -0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.755,
+   -9.55,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 13,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.346,
+  "marker_bearing_deg": -14.0,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.25,
+  "dy": 0.0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.63,
+   -9.55,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.373,
+  "marker_bearing_deg": -33.6,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": 0.125,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.505,
+   -9.55,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 13,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.435,
+  "marker_bearing_deg": -49.0,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": 0.25,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.38,
+   -9.55,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.886,
+  "marker_bearing_deg": 28.9,
+  "true_offset_from_goal_m": 0.354,
+  "dx": -0.25,
+  "dy": -0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.88,
+   -9.05,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 12,
+  "detected": 12,
+  "ids": {
+   "3": 11
+  },
+  "correct": 11,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.857,
+  "marker_bearing_deg": 20.9,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": -0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.755,
+   -9.05,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 14,
+  "detected": 14,
+  "ids": {
+   "3": 14
+  },
+  "correct": 14,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.846,
+  "marker_bearing_deg": 12.5,
+  "true_offset_from_goal_m": 0.25,
+  "dx": -0.25,
+  "dy": 0.0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.63,
+   -9.05,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 7,
+  "detected": 7,
+  "ids": {
+   "3": 7
+  },
+  "correct": 7,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.853,
+  "marker_bearing_deg": 4.1,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.25,
+  "dy": 0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.505,
+   -9.05,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 5,
+  "detected": 5,
+  "ids": {
+   "3": 5
+  },
+  "correct": 5,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.877,
+  "marker_bearing_deg": -4.0,
+  "true_offset_from_goal_m": 0.353,
+  "dx": -0.25,
+  "dy": 0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.38,
+   -9.05,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 9,
+  "detected": 9,
+  "ids": {
+   "3": 9
+  },
+  "correct": 9,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.768,
+  "marker_bearing_deg": 31.7,
+  "true_offset_from_goal_m": 0.28,
+  "dx": -0.125,
+  "dy": -0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.88,
+   -9.175,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 10,
+  "detected": 10,
+  "ids": {
+   "3": 10
+  },
+  "correct": 10,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.734,
+  "marker_bearing_deg": 22.5,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": -0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.755,
+   -9.175,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 11,
+  "detected": 11,
+  "ids": {
+   "3": 11
+  },
+  "correct": 11,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.721,
+  "marker_bearing_deg": 12.7,
+  "true_offset_from_goal_m": 0.125,
+  "dx": -0.125,
+  "dy": 0.0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.63,
+   -9.175,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 13,
+  "detected": 13,
+  "ids": {
+   "3": 13
+  },
+  "correct": 13,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.729,
+  "marker_bearing_deg": 2.8,
+  "true_offset_from_goal_m": 0.177,
+  "dx": -0.125,
+  "dy": 0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.505,
+   -9.175,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 13,
+  "detected": 13,
+  "ids": {
+   "3": 12
+  },
+  "correct": 12,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.758,
+  "marker_bearing_deg": -6.5,
+  "true_offset_from_goal_m": 0.279,
+  "dx": -0.125,
+  "dy": 0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.38,
+   -9.175,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 26,
+  "detected": 26,
+  "ids": {
+   "3": 26
+  },
+  "correct": 26,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.652,
+  "marker_bearing_deg": 35.5,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": -0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.88,
+   -9.3,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 28,
+  "detected": 28,
+  "ids": {
+   "3": 28
+  },
+  "correct": 28,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.612,
+  "marker_bearing_deg": 24.8,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": -0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.755,
+   -9.3,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 28,
+  "detected": 28,
+  "ids": {
+   "3": 28
+  },
+  "correct": 28,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.596,
+  "marker_bearing_deg": 13.0,
+  "true_offset_from_goal_m": 0.0,
+  "dx": 0.0,
+  "dy": 0.0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.63,
+   -9.3,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 28,
+  "detected": 28,
+  "ids": {
+   "3": 28
+  },
+  "correct": 28,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.605,
+  "marker_bearing_deg": 1.1,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.0,
+  "dy": 0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.505,
+   -9.3,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 28,
+  "detected": 28,
+  "ids": {
+   "3": 28
+  },
+  "correct": 28,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.64,
+  "marker_bearing_deg": -10.0,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.0,
+  "dy": 0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.38,
+   -9.3,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 25,
+  "detected": 25,
+  "ids": {
+   "3": 25
+  },
+  "correct": 25,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.54,
+  "marker_bearing_deg": 40.9,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": -0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.88,
+   -9.425,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 24,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.491,
+  "marker_bearing_deg": 28.1,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": -0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.755,
+   -9.425,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 26,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.471,
+  "marker_bearing_deg": 13.4,
+  "true_offset_from_goal_m": 0.125,
+  "dx": 0.125,
+  "dy": 0.0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.63,
+   -9.425,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 26,
+  "detected": 26,
+  "ids": {
+   "3": 26
+  },
+  "correct": 26,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.483,
+  "marker_bearing_deg": -1.6,
+  "true_offset_from_goal_m": 0.177,
+  "dx": 0.125,
+  "dy": 0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.505,
+   -9.425,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 21,
+  "detected": 21,
+  "ids": {
+   "3": 21
+  },
+  "correct": 21,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.526,
+  "marker_bearing_deg": -15.0,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.125,
+  "dy": 0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.38,
+   -9.425,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 22,
+  "ids": {
+   "3": 22
+  },
+  "correct": 22,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.436,
+  "marker_bearing_deg": 49.0,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": -0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.88,
+   -9.55,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.373,
+  "marker_bearing_deg": 33.6,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": -0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.755,
+   -9.55,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.346,
+  "marker_bearing_deg": 14.0,
+  "true_offset_from_goal_m": 0.25,
+  "dx": 0.25,
+  "dy": 0.0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.63,
+   -9.55,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 23,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.362,
+  "marker_bearing_deg": -6.1,
+  "true_offset_from_goal_m": 0.28,
+  "dx": 0.25,
+  "dy": 0.125,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.505,
+   -9.55,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "marker_range_m": 0.418,
+  "marker_bearing_deg": -22.7,
+  "true_offset_from_goal_m": 0.354,
+  "dx": 0.25,
+  "dy": 0.25,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.38,
+   -9.55,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 22,
+  "detected": 0,
+  "ids": {},
+  "correct": 0,
+  "wrong": 0
+ }
+]

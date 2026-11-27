@@ -9,7 +9,7 @@ tolerances, sensor-clearing policy and mission supervision.*
 | Measure | Phase 1 | Phase 2a | **Phase 2b** |
 |---|---|---|---|
 | Map | original (manual drive) | original | **new Cartographer map (scripted drive)** |
-| Planner policy | unknown loaded as free | unknown represented, penalized | **unknown prohibited** (`allow_unknown: false`) |
+| Planner policy | unknown loaded as free | unknown represented, penalized | **unknown prohibited in plans** (`allow_unknown: false`)¹ |
 | Station goals | world coords → map via GT calibration | same | **surveyed directly in the map frame** |
 | Mission | 5/5, exit 0 | 5/5, exit 0 | **5/5, exit 0** |
 | Markers verified | 5/5 | 5/5 | **5/5** |
@@ -284,6 +284,12 @@ settled 1.22 s after that success. MISSION COMPLETE was reported 9.4 s after the
 on a measurably better map, with goals surveyed in that map's frame. Recoveries rose (1/1/1 → 3/3/3) and one
 post-clear planner failure appeared. All of these followed action-acknowledgement timeouts, which also rose
 (15 → 19).
+
+¹ *Note added in Phase 4:* `allow_unknown: false` constrains NavFn when it computes a plan against the global
+costmap. It does not stop the controller from moving the robot onto cells that are still unknown at that
+moment: DWB's local costmap does not track unknown space. The executed live-unknown lengths above are measured
+against global-costmap snapshots up to about 1.7 s old. See
+[`../phase4_perception_performance/REPORT.md` §8](../phase4_perception_performance/REPORT.md).
 
 **Hypothesis, not established:** the stricter unknown-space policy makes the system more sensitive to transient
 costmap states, such as the moment after a full clear. One run cannot separate that from the higher timeout

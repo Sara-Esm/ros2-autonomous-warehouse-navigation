@@ -1,0 +1,926 @@
+[
+ {
+  "station": "home_dock",
+  "want": 0,
+  "dx": 0,
+  "dy": 0,
+  "dyaw": 0,
+  "set_ok": true,
+  "true_pose": [
+   -3.678,
+   9.3,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 45,
+  "detected": 45,
+  "ids": {
+   "0": 45
+  },
+  "correct": 45,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "dx": 0,
+  "dy": 0.12,
+  "dyaw": 0,
+  "set_ok": true,
+  "true_pose": [
+   -3.798,
+   9.3,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 45,
+  "detected": 45,
+  "ids": {
+   "0": 45
+  },
+  "correct": 45,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "dx": 0,
+  "dy": -0.12,
+  "dyaw": 0,
+  "set_ok": true,
+  "true_pose": [
+   -3.558,
+   9.3,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 46,
+  "detected": 46,
+  "ids": {
+   "0": 46
+  },
+  "correct": 46,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "dx": 0.12,
+  "dy": 0,
+  "dyaw": 0,
+  "set_ok": true,
+  "true_pose": [
+   -3.678,
+   9.42,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 47,
+  "detected": 47,
+  "ids": {
+   "0": 47
+  },
+  "correct": 47,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "dx": -0.12,
+  "dy": 0,
+  "dyaw": 0,
+  "set_ok": true,
+  "true_pose": [
+   -3.678,
+   9.18,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 44,
+  "detected": 44,
+  "ids": {
+   "0": 44
+  },
+  "correct": 44,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "dx": 0,
+  "dy": 0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.678,
+   9.3,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 40,
+  "detected": 40,
+  "ids": {
+   "0": 41
+  },
+  "correct": 41,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "dx": 0,
+  "dy": 0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.678,
+   9.3,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 38,
+  "detected": 38,
+  "ids": {
+   "0": 38
+  },
+  "correct": 38,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "dx": 0,
+  "dy": 0.12,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.798,
+   9.3,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 37,
+  "detected": 37,
+  "ids": {
+   "0": 37
+  },
+  "correct": 37,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "dx": 0,
+  "dy": -0.12,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.558,
+   9.3,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 39,
+  "detected": 39,
+  "ids": {
+   "0": 39
+  },
+  "correct": 39,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "dx": -0.12,
+  "dy": 0.12,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.798,
+   9.18,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 43,
+  "detected": 43,
+  "ids": {
+   "0": 42
+  },
+  "correct": 42,
+  "wrong": 0
+ },
+ {
+  "station": "home_dock",
+  "want": 0,
+  "dx": -0.12,
+  "dy": -0.12,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.558,
+   9.18,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 38,
+  "detected": 38,
+  "ids": {
+   "0": 38
+  },
+  "correct": 38,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "dx": 0,
+  "dy": 0,
+  "dyaw": 0,
+  "set_ok": true,
+  "true_pose": [
+   1.803,
+   9.3,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 38,
+  "detected": 38,
+  "ids": {
+   "1": 38
+  },
+  "correct": 38,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "dx": 0,
+  "dy": 0.12,
+  "dyaw": 0,
+  "set_ok": true,
+  "true_pose": [
+   1.683,
+   9.3,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 38,
+  "detected": 38,
+  "ids": {
+   "1": 38
+  },
+  "correct": 38,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "dx": 0,
+  "dy": -0.12,
+  "dyaw": 0,
+  "set_ok": true,
+  "true_pose": [
+   1.923,
+   9.3,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 38,
+  "detected": 38,
+  "ids": {
+   "1": 37
+  },
+  "correct": 37,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "dx": 0.12,
+  "dy": 0,
+  "dyaw": 0,
+  "set_ok": true,
+  "true_pose": [
+   1.803,
+   9.42,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 38,
+  "detected": 38,
+  "ids": {
+   "1": 38
+  },
+  "correct": 38,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "dx": -0.12,
+  "dy": 0,
+  "dyaw": 0,
+  "set_ok": true,
+  "true_pose": [
+   1.803,
+   9.18,
+   90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 38,
+  "detected": 38,
+  "ids": {
+   "1": 39
+  },
+  "correct": 39,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "dx": 0,
+  "dy": 0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.803,
+   9.3,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 36,
+  "detected": 36,
+  "ids": {
+   "1": 35
+  },
+  "correct": 35,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "dx": 0,
+  "dy": 0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.803,
+   9.3,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 36,
+  "detected": 36,
+  "ids": {
+   "1": 36
+  },
+  "correct": 36,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "dx": 0,
+  "dy": 0.12,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.683,
+   9.3,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 39,
+  "detected": 39,
+  "ids": {
+   "1": 39
+  },
+  "correct": 39,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "dx": 0,
+  "dy": -0.12,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.923,
+   9.3,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 38,
+  "detected": 38,
+  "ids": {
+   "1": 38
+  },
+  "correct": 38,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "dx": -0.12,
+  "dy": 0.12,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.683,
+   9.18,
+   101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 38,
+  "detected": 38,
+  "ids": {
+   "1": 38
+  },
+  "correct": 38,
+  "wrong": 0
+ },
+ {
+  "station": "loading_zone",
+  "want": 1,
+  "dx": -0.12,
+  "dy": -0.12,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.923,
+   9.18,
+   78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 38,
+  "detected": 38,
+  "ids": {
+   "1": 38
+  },
+  "correct": 38,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "dx": 0,
+  "dy": 0,
+  "dyaw": 0,
+  "set_ok": true,
+  "true_pose": [
+   1.801,
+   -9.0,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 40,
+  "detected": 40,
+  "ids": {
+   "2": 40
+  },
+  "correct": 40,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "dx": 0,
+  "dy": 0.12,
+  "dyaw": 0,
+  "set_ok": true,
+  "true_pose": [
+   1.921,
+   -9.0,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 36,
+  "detected": 36,
+  "ids": {
+   "2": 36
+  },
+  "correct": 36,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "dx": 0,
+  "dy": -0.12,
+  "dyaw": 0,
+  "set_ok": true,
+  "true_pose": [
+   1.681,
+   -9.0,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 37,
+  "detected": 37,
+  "ids": {
+   "2": 37
+  },
+  "correct": 37,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "dx": 0.12,
+  "dy": 0,
+  "dyaw": 0,
+  "set_ok": true,
+  "true_pose": [
+   1.801,
+   -9.12,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 38,
+  "detected": 38,
+  "ids": {
+   "2": 38
+  },
+  "correct": 38,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "dx": -0.12,
+  "dy": 0,
+  "dyaw": 0,
+  "set_ok": true,
+  "true_pose": [
+   1.801,
+   -8.88,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 37,
+  "detected": 37,
+  "ids": {
+   "2": 37
+  },
+  "correct": 37,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "dx": 0,
+  "dy": 0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.801,
+   -9.0,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 39,
+  "detected": 39,
+  "ids": {
+   "2": 39
+  },
+  "correct": 39,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "dx": 0,
+  "dy": 0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.801,
+   -9.0,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 38,
+  "detected": 38,
+  "ids": {
+   "2": 39
+  },
+  "correct": 39,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "dx": 0,
+  "dy": 0.12,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.921,
+   -9.0,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 39,
+  "detected": 39,
+  "ids": {
+   "2": 38
+  },
+  "correct": 38,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "dx": 0,
+  "dy": -0.12,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.681,
+   -9.0,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 38,
+  "detected": 38,
+  "ids": {
+   "2": 38
+  },
+  "correct": 38,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "dx": -0.12,
+  "dy": 0.12,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.921,
+   -8.88,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 39,
+  "detected": 39,
+  "ids": {
+   "2": 39
+  },
+  "correct": 39,
+  "wrong": 0
+ },
+ {
+  "station": "inventory_scan",
+  "want": 2,
+  "dx": -0.12,
+  "dy": -0.12,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   1.681,
+   -8.88,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 38,
+  "detected": 38,
+  "ids": {
+   "2": 38
+  },
+  "correct": 38,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "dx": 0,
+  "dy": 0,
+  "dyaw": 0,
+  "set_ok": true,
+  "true_pose": [
+   -3.63,
+   -9.3,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 37,
+  "detected": 37,
+  "ids": {
+   "3": 37
+  },
+  "correct": 37,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "dx": 0,
+  "dy": 0.12,
+  "dyaw": 0,
+  "set_ok": true,
+  "true_pose": [
+   -3.51,
+   -9.3,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 38,
+  "detected": 38,
+  "ids": {
+   "3": 38
+  },
+  "correct": 38,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "dx": 0,
+  "dy": -0.12,
+  "dyaw": 0,
+  "set_ok": true,
+  "true_pose": [
+   -3.75,
+   -9.3,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 39,
+  "detected": 39,
+  "ids": {
+   "3": 39
+  },
+  "correct": 39,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "dx": 0.12,
+  "dy": 0,
+  "dyaw": 0,
+  "set_ok": true,
+  "true_pose": [
+   -3.63,
+   -9.42,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 35,
+  "detected": 35,
+  "ids": {
+   "3": 35
+  },
+  "correct": 35,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "dx": -0.12,
+  "dy": 0,
+  "dyaw": 0,
+  "set_ok": true,
+  "true_pose": [
+   -3.63,
+   -9.18,
+   -90.0
+  ],
+  "pose_err_m": 0.0,
+  "frames": 36,
+  "detected": 36,
+  "ids": {
+   "3": 36
+  },
+  "correct": 36,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "dx": 0,
+  "dy": 0,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.63,
+   -9.3,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 34,
+  "detected": 34,
+  "ids": {
+   "3": 34
+  },
+  "correct": 34,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "dx": 0,
+  "dy": 0,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.63,
+   -9.3,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 37,
+  "detected": 37,
+  "ids": {
+   "3": 37
+  },
+  "correct": 37,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "dx": 0,
+  "dy": 0.12,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.51,
+   -9.3,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 37,
+  "detected": 37,
+  "ids": {
+   "3": 37
+  },
+  "correct": 37,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "dx": 0,
+  "dy": -0.12,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.75,
+   -9.3,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 37,
+  "detected": 37,
+  "ids": {
+   "3": 36
+  },
+  "correct": 36,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "dx": -0.12,
+  "dy": 0.12,
+  "dyaw": 11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.51,
+   -9.18,
+   -78.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 39,
+  "detected": 39,
+  "ids": {
+   "3": 39
+  },
+  "correct": 39,
+  "wrong": 0
+ },
+ {
+  "station": "dispatch_zone",
+  "want": 3,
+  "dx": -0.12,
+  "dy": -0.12,
+  "dyaw": -11.5,
+  "set_ok": true,
+  "true_pose": [
+   -3.75,
+   -9.18,
+   -101.5
+  ],
+  "pose_err_m": 0.0,
+  "frames": 38,
+  "detected": 38,
+  "ids": {
+   "3": 39
+  },
+  "correct": 39,
+  "wrong": 0
+ }
+]

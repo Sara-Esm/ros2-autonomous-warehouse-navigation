@@ -1,0 +1,2 @@
+diagnostics_phase4/bench/s_cam_wide182_30hz_loading/images: 12 frames (240, 320, 3); conversion p50 0.251 ms, gray 0.055 ms, detectMarkers p50 6.86 ms p99 10.54 ms; detected in 100% of frames
+diagnostics_phase4/bench/s_cam_pin100_320_30hz_loading/images: 20 frames (240, 320, 3); conversion p50 0.257 ms, gray 0.098 ms, detectMarkers p50 3.18 ms p99 5.13 ms; detected in 100% of frames

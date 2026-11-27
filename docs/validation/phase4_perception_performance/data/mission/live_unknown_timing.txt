@@ -1,0 +1,12 @@
+== diagnostics_phase3/run
+global costmap snapshots: 310; interval (sim header) median 1.50 s, p95 1.60, max 1.70
+executed on live-unknown (sim-stamp ordering): 3.34 m
+  snapshot age of those segments (sim): length-weighted median 1.05 s, max 1.69 s
+  same cell in the NEXT snapshot: free 2.96 m, unknown 0.38 m, other 0.00 m, none 0.00 m
+  one-cell (5 cm) alignment sensitivity: 2.14 .. 3.90 m
+== diagnostics_phase4/run
+global costmap snapshots: 292; interval (sim header) median 1.50 s, p95 1.60, max 1.70
+executed on live-unknown (sim-stamp ordering): 3.29 m
+  snapshot age of those segments (sim): length-weighted median 1.00 s, max 1.60 s
+  same cell in the NEXT snapshot: free 3.00 m, unknown 0.29 m, other 0.00 m, none 0.00 m
+  one-cell (5 cm) alignment sensitivity: 2.68 .. 4.19 m

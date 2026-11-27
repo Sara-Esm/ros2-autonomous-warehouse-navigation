@@ -1,0 +1,4 @@
+== s_wide182_loading_contaminated
+  stage1_camera_only       RTF 0.790 | image  1.10 Hz sim  0.87 Hz wall (34) | camera_info  1.10 Hz sim | marker msgs  0.00 Hz sim ids [] | age p50 864 ms sim max 1131 | CPU busy 89% mem 2073 MiB | gzserver 409%, gzclient 288%, claude 8%, gz 5%, static_transfor 4%
+  stage2_detector          RTF 0.804 | image  0.92 Hz sim  0.73 Hz wall (29) | camera_info  0.89 Hz sim | marker msgs  0.89 Hz sim ids [1] | age p50 1036 ms sim max 1234 | CPU busy 94% mem 2170 MiB | gzserver 467%, gzclient 247%, claude 6%, cartographer_no 6%, python3 5%
+  stage3_detector_window   RTF 0.812 | image  0.86 Hz sim  0.70 Hz wall (28) | camera_info  0.83 Hz sim | marker msgs  0.83 Hz sim ids [1] | age p50 1117 ms sim max 1300 | CPU busy 90% mem 2143 MiB | gzserver 389%, gzclient 289%, claude 7%, aruco_station_d 6%, cartographer_no 5%

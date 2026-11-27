@@ -1,7 +1,8 @@
 from launch_ros.actions import Node
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, TimerAction
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, TimerAction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration
 from ament_index_python.packages import get_package_share_directory
 import os
 
@@ -19,7 +20,8 @@ def generate_launch_description():
     )
 
     gazebo_and_robot = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(gazebo_robot_launch)
+        PythonLaunchDescriptionSource(gazebo_robot_launch),
+        launch_arguments={'gui': LaunchConfiguration('gui')}.items()
     )
 
     nav2_delayed = TimerAction(
@@ -45,6 +47,9 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
+        DeclareLaunchArgument(
+            'gui', default_value='true',
+            description='Start the Gazebo client (false runs gzserver only)'),
         gazebo_and_robot,
         nav2_delayed,
         aruco_detector

@@ -56,7 +56,7 @@ early bring-up files that the system launch does not use.
 | Nav2 (`burger_cam.yaml`) | Value | Why |
 |---|---|---|
 | AMCL `set_initial_pose` | true, (0, 0, yaw 0) | Matches the Gazebo spawn; removes a startup race |
-| Goal tolerance xy / yaw | 0.12 m / 0.15 rad | 0.05 m caused goal oscillation under sim load; the wide-angle camera does not need a precise stop |
+| Goal tolerance xy / yaw | 0.12 m / 0.15 rad | 0.05 m caused goal oscillation under sim load; marker verification does not need a precise stop (the 100° camera detected the marker at every pose within ±0.12 m / ±11.5°, Phase 4) |
 | `robot_radius` | 0.14 m | Burger collision box + wheels ≈ 0.135 m circumscribed (was 0.10) |
 | Inflation radius (global / local) | 0.5 / 0.35 m | 0.2 m let NavFn route into gaps about 0.1 m wider than the robot |
 | Costmap layers | static, obstacle, inflation | The duplicate voxel layer re-processed the same 2D scan |
