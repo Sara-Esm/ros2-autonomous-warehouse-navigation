@@ -1,0 +1,9 @@
+Phase 4b:
+| Station | At acceptance: position / heading error | Speed at acceptance | Settled after | Settled: position / heading error | Travel / net displacement after acceptance |
+|---|---|---|---|---|---|
+| Home Dock | 0.078 m / +8.1° | 1 mm/s, 0.026 rad/s | 0.65 s sim | 0.078 m / +8.2° | 0.1 / 0.0 mm |
+| Loading | 0.107 m / -10.9° | 1 mm/s, 0.090 rad/s | 0.71 s sim | 0.107 m / -10.8° | 0.1 / 0.0 mm |
+| Inventory | 0.100 m / -7.4° | 1 mm/s, 0.128 rad/s | 0.95 s sim | 0.100 m / -7.0° | 0.1 / 0.0 mm |
+| Dispatch | 0.073 m / -8.1° | 0 mm/s, 0.000 rad/s | 0.65 s sim | 0.073 m / -8.3° | 0.0 / 0.0 mm |
+| Return Home | 0.066 m / +9.9° | 1 mm/s, 0.135 rad/s | 0.82 s sim | 0.066 m / +9.9° | 0.1 / 0.1 mm |
+  stations 1-4 mean at acceptance 0.090 m, settled 0.090 m; all five max acceptance 0.107, settled 0.107 m

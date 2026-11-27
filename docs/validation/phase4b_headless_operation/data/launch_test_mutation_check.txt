@@ -1,0 +1,6 @@
+# vendored-launch mutation check: does each test fail when the vendored launch diverges?
+unmodified           string test: pass  structural test: pass
+extra include arg    string test: pass  structural test: FAIL
+rviz name changed    string test: pass  structural test: FAIL
+rviz kwarg added     string test: pass  structural test: FAIL
+new declared arg     string test: pass  structural test: FAIL

@@ -3,6 +3,7 @@ from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, TimerAction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
+from launch_ros.parameter_descriptions import ParameterValue
 from ament_index_python.packages import get_package_share_directory
 import os
 
@@ -28,7 +29,8 @@ def generate_launch_description():
         period=40.0,
         actions=[
             IncludeLaunchDescription(
-                PythonLaunchDescriptionSource(nav2_launch)
+                PythonLaunchDescriptionSource(nav2_launch),
+                launch_arguments={'use_rviz': LaunchConfiguration('use_rviz')}.items()
             )
         ]
     )
@@ -40,16 +42,26 @@ def generate_launch_description():
                 package='warehouse_perception',
                 executable='aruco_station_detector',
                 name='aruco_station_detector',
-                parameters=[{'use_sim_time': True, 'debug_window': True}],
+                parameters=[{'use_sim_time': True,
+                             'debug_window': ParameterValue(
+                                 LaunchConfiguration('debug_window'), value_type=bool)}],
                 output='screen'
             )
         ]
     )
 
     return LaunchDescription([
+        # Graphical defaults for development and demonstrations. Headless (Phase 4b):
+        # gui:=false use_rviz:=false debug_window:=false
         DeclareLaunchArgument(
             'gui', default_value='true',
             description='Start the Gazebo client (false runs gzserver only)'),
+        DeclareLaunchArgument(
+            'use_rviz', default_value='true',
+            description='Start RViz'),
+        DeclareLaunchArgument(
+            'debug_window', default_value='true',
+            description='Show the ArUco detector OpenCV window'),
         gazebo_and_robot,
         nav2_delayed,
         aruco_detector

@@ -209,7 +209,11 @@ In practice, all **25 true stops across Phases 1–4** (`data/bench/historical_t
 of the goal: dx from −0.119 to 0.000 m, |dy| ≤ 0.091 m, |heading| ≤ 11.5°. The robot approaches facing the
 marker and is accepted on entering the tolerance circle. No mission stop has come near the near-side failure
 region, which needs an overshoot of at least 0.125 m toward the wall plus offset and heading error. **No
-significant detection weakness is established, so the camera configuration is unchanged.** If a later phase
+significant detection weakness is established, so the camera configuration is unchanged.
+
+*Note added in Phase 4b:* this conclusion covers the fixed routes measured, all of which approached from the
+corridor side and stopped short of the goal. It does not establish detection reliability for other approach
+directions, larger localization errors or overshoot; see the Phase 4b report, §6.** If a later phase
 changes the approach direction or the goal checker, this boundary should be rechecked.
 
 ## 6. Mission validation (`data/mission/`)

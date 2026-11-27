@@ -1,0 +1,20 @@
+P4: mission 476 s wall, 361 s sim, RTF 0.759
+  camera_info: 4.16 Hz sim, 3.16 Hz wall; frame interval (stamp) p50 239 ms, p95 308 ms, max 394 ms; age p50 238 ms sim, p95 305, max 390
+  detector processed frames: 4.16 Hz sim, 3.16 Hz wall (1501 frames, 339 with a marker); marker_id messages 339; ids seen [0, 1, 2, 3]
+  verification: ID 0 OK 0.27 s, ID 1 OK 0.12 s, ID 2 OK 0.16 s, ID 3 OK 0.37 s, ID 0 OK 0.24 s | 5/5 verified, mean 0.23 s wall
+P4b: mission 414 s wall, 361 s sim, RTF 0.873
+  camera_info: 6.83 Hz sim, 5.96 Hz wall; frame interval (stamp) p50 145 ms, p95 179 ms, max 234 ms; age p50 145 ms sim, p95 178, max 241
+  detector processed frames: 6.83 Hz sim, 5.96 Hz wall (2465 frames, 564 with a marker); marker_id messages 564; ids seen [0, 1, 2, 3]
+  verification: ID 0 OK 0.05 s, ID 1 OK 0.10 s, ID 2 OK 0.09 s, ID 3 OK 0.11 s, ID 0 OK 0.07 s | 5/5 verified, mean 0.09 s wall
+P4: mission 476 s wall; RTF 0.759
+  ack timeouts 0 (0.00/wall min) by action {}; service-call timeouts 0; halt cancel/result errors 0; "failed to create plan" 0
+  late-accepted (orphaned) goals after an ack timeout: 0; time with >= 2 behaviours executing at once: 0.0 s
+  /cmd_vel_nav  12.30 Hz sim,  9.34 Hz wall (mission window)
+  /cmd_vel      24.90 Hz sim, 18.91 Hz wall (mission window)
+  /plan          1.20 Hz sim,  0.91 Hz wall (mission window)
+P4b: mission 414 s wall; RTF 0.873
+  ack timeouts 0 (0.00/wall min) by action {}; service-call timeouts 0; halt cancel/result errors 0; "failed to create plan" 0
+  late-accepted (orphaned) goals after an ack timeout: 0; time with >= 2 behaviours executing at once: 0.0 s
+  /cmd_vel_nav  10.74 Hz sim,  9.38 Hz wall (mission window)
+  /cmd_vel      21.71 Hz sim, 18.97 Hz wall (mission window)
+  /plan          1.05 Hz sim,  0.91 Hz wall (mission window)

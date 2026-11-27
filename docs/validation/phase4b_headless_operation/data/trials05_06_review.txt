@@ -1,0 +1,23 @@
+# Trials 05-06 (GUI-free, commit 00b70b6) vs Trial 04 (GUI, 3674bf1): failure signatures from launch logs
+trial 04: ack-timeouts 10 | failed-to-create-plan 0 | no-valid-trajectories 0 | failed-to-make-progress 1 | GoalDistCritic-plan-outside-local-costmap 0 | tf-to-map-timeouts 15
+trial 05: ack-timeouts 3 | failed-to-create-plan 53 | no-valid-trajectories 22 | failed-to-make-progress 14 | GoalDistCritic-plan-outside-local-costmap 22 | tf-to-map-timeouts 21
+trial 06: ack-timeouts 3 | failed-to-create-plan 24 | no-valid-trajectories 4 | failed-to-make-progress 3 | GoalDistCritic-plan-outside-local-costmap 4 | tf-to-map-timeouts 15
+
+# Trial 05 planning-failure goals (world-frame station coordinates sent as map goals before the Phase 1 frame correction)
+     14 to (-3.63, -9.30)
+     17 to (-3.68, 9.30)
+     14 to (1.80, -9.00)
+      8 to (1.80, 9.30)
+
+# Trial 05 mission progression
+[INFO] [1795542863.212434723] [warehouse_autonomy]: Navigating to Home Charging Dock: x=-3.678, y=9.3, yaw=90.0 deg
+[ERROR] [1795543043.736975326] [warehouse_autonomy]: Navigation FAILED for Home Charging Dock (status: 6)
+[INFO] [1795543045.744330172] [warehouse_autonomy]: Navigating to Loading Zone: x=1.803, y=9.3, yaw=90.0 deg
+[ERROR] [1795543203.790355050] [warehouse_autonomy]: Navigation FAILED for Loading Zone (status: 6)
+[INFO] [1795543205.806438277] [warehouse_autonomy]: Navigating to Inventory Scan Station: x=1.801, y=-9.0, yaw=-90.0 deg
+[ERROR] [1795543231.801831322] [warehouse_autonomy]: Navigation FAILED for Inventory Scan Station (status: 6)
+[INFO] [1795543233.809496050] [warehouse_autonomy]: Navigating to Dispatch Zone: x=-3.63, y=-9.3, yaw=-90.0 deg
+[ERROR] [1795543259.783839119] [warehouse_autonomy]: Navigation FAILED for Dispatch Zone (status: 6)
+[INFO] [1795543261.796100765] [warehouse_autonomy]: Navigating to Return to Home Charging Dock: x=-3.678, y=9.3, yaw=90.0 deg
+[ERROR] [1795543287.794107970] [warehouse_autonomy]: Navigation FAILED for Return to Home Charging Dock (status: 6)
+[INFO] [1795543289.817083345] [warehouse_autonomy]: Failed tasks: 5

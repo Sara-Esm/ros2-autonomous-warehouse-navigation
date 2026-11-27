@@ -94,8 +94,10 @@ ros2 run warehouse_bringup warehouse_autonomy --ros-args -p use_sim_time:=true
 echo "exit code: $?"
 ```
 
-Adding `gui:=false` to the launch runs Gazebo without its client window. That frees CPU (the camera reached
-about 8 Hz instead of 5.7 Hz on the bench), but it has not been validated with a full mission (see Limitations).
+For autonomous runs without windows, add `gui:=false use_rviz:=false debug_window:=false`. Each option can be
+used on its own. This headless mode completed one validation mission at a higher real-time factor (0.87
+against 0.76) and with a faster camera (6.8 against 4.2 Hz sim). The graphical mode remains the default
+(see Limitations).
 
 Ctrl+C in Terminal 2 cancels the active goal and exits with code 130. To stop it from a
 script, see [Stopping the mission](docs/operation.md#stopping-the-mission).
@@ -306,8 +308,8 @@ metrics under `audit_logs/`.
 
 **CI** ([`.github/workflows/warehouse-humble.yml`](.github/workflows/warehouse-humble.yml))
 runs the test suite and then the same trial script on every pull request to `main`, on an
-Xvfb virtual display with software rendering and the Gazebo client and RViz enabled. That is
-not the same as a GUI-free run: no client-free configuration has been validated on this code.
+Xvfb virtual display with software rendering and the Gazebo client and RViz enabled. CI does not
+exercise the headless mode; that mode has one local validation mission (Phase 4b).
 
 ---
 
@@ -499,6 +501,25 @@ lateral and heading offsets. All 25 real stops so far have been short of the goa
 
 Details: [`docs/validation/phase4_perception_performance/REPORT.md`](docs/validation/phase4_perception_performance/REPORT.md).
 
+### Headless operation (Phase 4b validation)
+
+One mission with `gui:=false use_rviz:=false debug_window:=false`. The camera, Nav2 configuration, map, goals
+and mission logic are unchanged.
+
+| Measure | Phase 4 (GUI) | Phase 4b (headless) |
+|---|---|---|
+| Mission / markers | 5/5, exit 0 / 5 | 5/5, exit 0 / 5 |
+| Camera frames delivered | 4.16 Hz sim | 6.83 Hz sim |
+| Arrival to marker verification, mean | 0.23 s | 0.09 s |
+| Real-time factor | 0.76 | 0.87 |
+| Mission time | 476 s | 414 s |
+| Memory used, median | 2,175 MiB | 1,581 MiB |
+| Timeouts / recoveries | 0 / 0 | 0 / 0 |
+| Station position error, max | 0.111 m | 0.107 m |
+| Minimum clearance to true geometry | 0.32 m | 0.35 m |
+
+Details: [`docs/validation/phase4b_headless_operation/REPORT.md`](docs/validation/phase4b_headless_operation/REPORT.md).
+
 ---
 
 ## Limitations
@@ -521,10 +542,12 @@ Details: [`docs/validation/phase4_perception_performance/REPORT.md`](docs/valida
    map frame. Some obstacles are only partly visible to a 2D LiDAR.
 4. **Simulation performance.** The simulation runs at 0.31–0.76× real time on the
    development machine, and the controller logs warnings that it missed its desired control
-   rate. All rendering (camera, Gazebo client, RViz) is done in software on the CPU. The GPU path
-   is unavailable on this WSL2 setup, which caps the camera at about 4 Hz during a mission. The two GUI-free runs (Trials 05-06) were faster but much less reliable. They
-   predate the Nav2 tuning, so that comparison is confounded and the cause is still unknown;
-   every run since has kept the Gazebo client enabled.
+   rate. All rendering (camera, Gazebo client, RViz) is done in software on the CPU. The GPU
+   path is unavailable on this WSL2 setup, so the camera reaches about 4 Hz in a graphical
+   mission and about 7 Hz headless. The early GUI-free runs (Trials 05–06) were faster but much
+   less reliable. They predate the frame, map, tuning and timing corrections, so the cause cannot
+   be separated. The one headless mission on the current code (Phase 4b) completed 5/5 with no
+   recoveries, but one run does not establish a reliability rate.
 5. **Fixed launch delays.** Nav2 starts at t = 40 s and the detector at t = 55 s by timer.
    The mission and trial runner wait on real readiness, but the launch is not event-driven.
 6. **Fixed mission.** Waypoints are hard-coded and there is one robot. "Docking" is a
@@ -562,6 +585,8 @@ Details: [`docs/validation/phase4_perception_performance/REPORT.md`](docs/valida
   synchronization (acknowledgement timeout, node clocks, costmap clear/plan race)
 - [`docs/validation/phase4_perception_performance/REPORT.md`](docs/validation/phase4_perception_performance/REPORT.md):
   camera bottleneck diagnosis, pinhole camera model, detection under arrival uncertainty
+- [`docs/validation/phase4b_headless_operation/REPORT.md`](docs/validation/phase4b_headless_operation/REPORT.md):
+  headless launch options and validation mission
 - [`docs/diagnostics/REPORT.md`](docs/diagnostics/REPORT.md): diagnostic investigation of v1.0.1
   (map and frame alignment, localization, planning, control dynamics, ArUco, timing, completion)
 - [`docs/operation.md`](docs/operation.md): package layout, interfaces, parameters,

@@ -1,0 +1,4 @@
+Phase 4 (GUI): 214 samples; CPU busy median 93%; load avg median 27.4; memory used median 2175 MiB, available min 1471 MiB
+   mean % of one core: gzserver 292, gzclient 194, rviz2 101, component_conta 68, warehouse_auton 32, aruco_station_d 16, claude 9, ros2 7
+Phase 4b (headless): 189 samples; CPU busy median 82%; load avg median 12.0; memory used median 1581 MiB, available min 2126 MiB
+   mean % of one core: gzserver 498, component_conta 72, warehouse_auton 34, aruco_station_d 29, claude 9, ros2 8, top 2, robot_state_pub 1

@@ -1,0 +1,18 @@
+P3: RTF 0.711
+   /cmd_vel_nav               9.04 Hz wall  12.71 Hz sim   wall/sim ratio 0.711 (RTF 0.711)
+   /cmd_vel                  18.85 Hz wall  26.54 Hz sim   wall/sim ratio 0.710 (RTF 0.711)
+   /plan                      0.89 Hz wall   1.26 Hz sim   wall/sim ratio 0.711 (RTF 0.711)
+   /global_costmap/costmap    0.48 Hz wall   0.68 Hz sim   wall/sim ratio 0.711 (RTF 0.711)
+   global costmap: wall interval median 2.00 s (p5 1.98, p95 2.93); sim header interval median 1.50 s; predicted sim interval n*T*RTF = 2*1.00*0.711 = 1.42 s
+P4: RTF 0.759
+   /cmd_vel_nav               9.34 Hz wall  12.30 Hz sim   wall/sim ratio 0.759 (RTF 0.759)
+   /cmd_vel                  18.91 Hz wall  24.90 Hz sim   wall/sim ratio 0.759 (RTF 0.759)
+   /plan                      0.91 Hz wall   1.19 Hz sim   wall/sim ratio 0.759 (RTF 0.759)
+   /global_costmap/costmap    0.50 Hz wall   0.66 Hz sim   wall/sim ratio 0.759 (RTF 0.759)
+   global costmap: wall interval median 2.00 s (p5 1.98, p95 2.02); sim header interval median 1.50 s; predicted sim interval n*T*RTF = 2*1.00*0.759 = 1.52 s
+P4b: RTF 0.873
+   /cmd_vel_nav               9.38 Hz wall  10.74 Hz sim   wall/sim ratio 0.873 (RTF 0.873)
+   /cmd_vel                  18.96 Hz wall  21.71 Hz sim   wall/sim ratio 0.874 (RTF 0.873)
+   /plan                      0.91 Hz wall   1.04 Hz sim   wall/sim ratio 0.873 (RTF 0.873)
+   /global_costmap/costmap    0.50 Hz wall   0.57 Hz sim   wall/sim ratio 0.873 (RTF 0.873)
+   global costmap: wall interval median 2.00 s (p5 1.99, p95 2.01); sim header interval median 1.80 s; predicted sim interval n*T*RTF = 2*1.00*0.873 = 1.75 s
