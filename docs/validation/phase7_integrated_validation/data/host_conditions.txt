@@ -1,0 +1,7 @@
+# Host conditions during each mission window (top samples every ~2 s; mean % of one core)
+H1: CPU busy median 82%, load median 11.9, memory used median 1630 MiB; gzserver 490, component_conta 71, warehouse_auton 34, aruco_station_d 30, claude 10, ros2 9, robot_state_pub 2
+H2: CPU busy median 81%, load median 11.9, memory used median 1653 MiB; gzserver 487, component_conta 67, warehouse_auton 34, aruco_station_d 28, claude 8, ros2 8, python3 6
+H3: CPU busy median 86%, load median 15.1, memory used median 1651 MiB; gzserver 471, component_conta 100, warehouse_auton 47, aruco_station_d 28, claude 11, ros2 11, python3 6
+G1: CPU busy median 92%, load median 26.8, memory used median 2249 MiB; gzserver 289, gzclient 187, rviz2 103, component_conta 69, warehouse_auton 32, aruco_station_d 16, claude 10
+G2: CPU busy median 96%, load median 32.3, memory used median 2243 MiB; gzserver 264, gzclient 177, rviz2 107, component_conta 103, warehouse_auton 39, aruco_station_d 16, claude 14
+G3: CPU busy median 95%, load median 29.9, memory used median 2253 MiB; gzserver 274, gzclient 179, rviz2 109, component_conta 95, warehouse_auton 40, aruco_station_d 16, claude 13

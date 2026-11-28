@@ -1,0 +1,10 @@
+G3: 5 legs
+  Home Charging Dock               58.2 s sim  dist 11.63 m  rotation    376 deg (net   97, ratio   3.9)  reversals cruise/slow 0/1 (DWB 0/1)  turns 4  final approach  4.0 s,    28 deg
+  Loading Zone                     43.6 s sim  dist  8.52 m  rotation    408 deg (net   10, ratio  39.1)  reversals cruise/slow 2/0 (DWB 2/0)  turns 4  final approach  3.7 s,    13 deg
+  Inventory Scan Station           90.0 s sim  dist 18.19 m  rotation    363 deg (net  179, ratio   2.0)  reversals cruise/slow 1/0 (DWB 1/0)  turns 1  final approach  3.0 s,     8 deg
+  Dispatch Zone                    32.7 s sim  dist  5.67 m  rotation    310 deg (net    3, ratio  99.6)  reversals cruise/slow 1/2 (DWB 1/2)  turns 4  final approach  6.9 s,   120 deg
+  Return to Home Charging Dock     92.7 s sim  dist 18.88 m  rotation    450 deg (net  178, ratio   2.5)  reversals cruise/slow 9/1 (DWB 8/1)  turns 5  final approach  4.5 s,    27 deg
+  TOTAL nav 317 s sim, distance 62.88 m, rotation 1906 deg
+  angular reversals per nav-minute: cruise 2.46, slow/in-place 0.76 (counts 13/4; DWB output 12/4); sustained turns 18
+  cruise omega high-pass RMS 0.036 rad/s; |d omega| per /cmd_vel step p95 0.051, max 0.160 rad/s; truth angular accel p95 1.72, max 13.70 rad/s^2
+  command-to-motion lag (angular, per leg) 70, 60, 60, 60, 70 ms sim; linear tracking RMS error 0.0039 m/s

@@ -1,0 +1,7 @@
+G3: 5 arrivals (acceptance from navigate_to_pose SUCCEEDED status)
+  Home Charging Dock             accept 0.076 m /  +6.8 deg (|w| 0.012)  settled after 0.17 s  settled 0.076 m /  +6.8 deg  dx -0.076 dy -0.006
+  Loading Zone                   accept 0.084 m /  -3.7 deg (|w| 0.024)  settled after 0.37 s  settled 0.084 m /  -3.7 deg  dx -0.084 dy -0.002
+  Inventory Scan Station         accept 0.117 m /  -2.9 deg (|w| 0.021)  settled after 0.37 s  settled 0.117 m /  -2.9 deg  dx -0.111 dy +0.037
+  Dispatch Zone                  accept 0.029 m /  -6.0 deg (|w| 0.011)  settled after 0.54 s  settled 0.029 m /  -6.1 deg  dx +0.022 dy -0.019
+  Return to Home Charging Dock   accept 0.060 m /  -4.0 deg (|w| 0.012)  settled after 0.41 s  settled 0.060 m /  -3.9 deg  dx -0.056 dy +0.021
+  SUMMARY settled |heading| mean 4.7 deg, max 6.8 deg; settled position mean 0.073 m, max 0.117 m; dx range -0.111 .. +0.022 m; settle time mean 0.37 s

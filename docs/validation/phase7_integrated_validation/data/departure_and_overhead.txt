@@ -1,0 +1,12 @@
+# Loading -> Inventory departure from truth odometry; recorder window = first 25 s wall of that leg
+# delay = goal sent -> heading changed 30 deg; window RTF and controller wall rate vs the same window in each run
+  B1 fpd0.1  recorder no   turn 30 deg after   0.9 s sim   | window RTF 0.873, controller 10.00 Hz wall (11.45 Hz sim; rest of mission 10.77 Hz sim)
+  B2 fpd0.1  recorder no   turn 30 deg after   0.8 s sim   | window RTF 0.866, controller 10.00 Hz wall (11.55 Hz sim; rest of mission 10.85 Hz sim)
+  B3 fpd0.1  recorder no   turn 30 deg after   0.8 s sim   | window RTF 0.859, controller 10.00 Hz wall (11.64 Hz sim; rest of mission 10.74 Hz sim)
+  P5 val     recorder no   turn 30 deg after   0.8 s sim   | window RTF 0.858, controller 10.00 Hz wall (11.65 Hz sim; rest of mission 10.91 Hz sim)
+  H1         recorder no   turn 30 deg after   9.3 s sim STALL  | window RTF 0.879, controller 10.04 Hz wall (11.42 Hz sim; rest of mission 10.64 Hz sim)
+  H2         recorder yes  turn 30 deg after   4.7 s sim   | window RTF 0.830, controller 10.00 Hz wall (12.05 Hz sim; rest of mission 10.72 Hz sim)
+  H3         recorder yes  turn 30 deg after   1.1 s sim   | window RTF 0.710, controller 9.92 Hz wall (13.98 Hz sim; rest of mission 12.09 Hz sim)
+  G1         recorder yes  turn 30 deg after   2.0 s sim   | window RTF 0.771, controller 9.96 Hz wall (12.91 Hz sim; rest of mission 12.69 Hz sim)
+  G2         recorder yes  turn 30 deg after   0.9 s sim   | window RTF 0.664, controller 9.88 Hz wall (14.89 Hz sim; rest of mission 14.11 Hz sim)
+  G3         recorder yes  turn 30 deg after   2.2 s sim   | window RTF 0.626, controller 9.52 Hz wall (15.21 Hz sim; rest of mission 13.73 Hz sim)

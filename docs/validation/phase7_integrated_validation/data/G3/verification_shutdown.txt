@@ -1,0 +1,22 @@
+G3:
+  speed at goal acceptance (|v| mm/s, |w| rad/s): 1/0.012, 1/0.024, 1/0.021, 0/0.011, 0/0.012
+  settling after goal success (sim s): 0.60, 0.80, 0.80, 0.90, 0.70
+  marker evidence image age at verification (ms sim): 222, 294, 269, 395, 265
+  evidence captured after settling (sim s): 0.08, 0.41, 0.33, 0.20, 0.23
+  arrival -> correct marker (wall s): 1.27, 2.10, 2.33, 2.29, 1.92 | mean 1.98
+  arrival -> VISION VERIFIED (wall s): 1.28, 2.11, 2.35, 2.29, 1.93 | mean 1.99
+  log: FINAL CHECK: robot stationary and Nav2 idle.
+  log: WAREHOUSE MISSION COMPLETE: ALL TASKS SUCCEEDED
+  log: Successful tasks: 5
+  log: Failed tasks: 0
+  meta mission_exit_code: 0
+  meta shutdown_seconds: 11.280638166
+  meta process_group_empty_after_teardown: yes
+  exit: spawn_entity.py-3                  finished cleanly
+  exit: robot_state_publisher-2            finished cleanly
+  exit: aruco_station_detector-6           finished cleanly
+  exit: gazebo-1                           finished cleanly
+  exit: rviz2-5                            died code -11
+  exit: component_container_isolated-4     died code -9
+  escalation: component_container_isolated-4 did not exit 5 s after SIGINT
+  escalation: component_container_isolated-4 did not exit 10.0 s after SIGTERM

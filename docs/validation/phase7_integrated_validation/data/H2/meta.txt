@@ -1,0 +1,37 @@
+branch: feat/integrated-validation  head: 4cba097253b50a291d8483c6401c6488e9516839
+uncommitted_source_diff_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+untracked_stations_sha256: 341d4c169742b647001c7ba2b8ce3cc46ccae264061ea1e781acf88c2c68a36c
+installed_stations_sha256: 341d4c169742b647001c7ba2b8ce3cc46ccae264061ea1e781acf88c2c68a36c
+nav2_params_sha256: cb66b92c27a7bb577194f9604908a694ca9b87ed25bf6bb25cdadd6571777856
+map_yaml_sha256: c6d21d2c19545632bbc63268bc62cc3b4c9d8edf0b8ea64f31f11270b4ada5fe
+map_sha256: 7feaf9986446cf099cc15f76e4d5c99f4c0cf6e4c5abbe64ef192b7136d37ca1
+camera_model_sha256: 71b049f440467d416479c4b6ff1f022c16208fd3291786fbb91594718be579df
+sim_launch_sha256: d747c5ca6465f4d8c51dfc8f31ea98f9de8c3d0f20f3514e5f719e77b9291f6c
+mode: headless
+mission_node_sha256: 77d5ecad135a258a0701e04b9049108b182857ebc59343da647cc7cd1e565968
+detector_sha256: f9514a3882a7a6410b55110c982a9991f13317c0251aa7e9253b0c0192170bc1
+launch_start_wall: 1795882111.595374099
+ 09:08:31 up 1 day, 14:54,  1 user,  load average: 0.41, 1.24, 0.88
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       789Mi       1.4Gi        40Mi       1.6Gi       2.9Gi
+Swap:          1.0Gi       116Mi       907Mi
+bt_navigator_active_wall: 1795882161.417978800
+--- pre_mission
+ 09:10:13 up 1 day, 14:56,  1 user,  load average: 10.17, 4.19, 1.96
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       1.5Gi       693Mi        45Mi       1.6Gi       2.1Gi
+Swap:          1.0Gi       116Mi       907Mi
+mission_start_wall: 1795882213.141109778
+mission_exit_code: 0
+mission_end_wall: 1795882631.042614980
+post_observation_end_wall: 1795882691.052507821
+--- post
+ 09:18:11 up 1 day, 15:04,  1 user,  load average: 10.69, 9.87, 5.87
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       1.6Gi       550Mi        44Mi       1.7Gi       2.1Gi
+Swap:          1.0Gi       116Mi       907Mi
+launch_pgid: 217035 members_before_teardown: 217035 217055 217057 217476 217618 
+shutdown_signal_wall: 1795882696.092227716
+shutdown_seconds: 10.453408161
+process_group_empty_after_teardown: yes
+teardown_wall: 1795882706.561433428

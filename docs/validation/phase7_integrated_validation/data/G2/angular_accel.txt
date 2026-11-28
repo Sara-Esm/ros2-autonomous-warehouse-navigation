@@ -1,0 +1,1 @@
+G2: per_sample p95 2.53 max 19.3 | orig_0.1s p95 1.78 max 14.6 | ls_0.1s p95 2.24 max 17.8 | ls_0.2s p95 1.60 max 12.7  (rad/s^2)

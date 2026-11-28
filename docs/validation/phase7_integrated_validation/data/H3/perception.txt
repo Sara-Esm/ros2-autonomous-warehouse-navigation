@@ -1,0 +1,4 @@
+H3: mission 469 s wall, 363 s sim, RTF 0.774
+  camera_info: 4.70 Hz sim, 3.64 Hz wall; frame interval (stamp) p50 212 ms, p95 261 ms, max 331 ms; age p50 212 ms sim, p95 259, max 330
+  detector processed frames: 4.70 Hz sim, 3.64 Hz wall (1706 frames, 442 with a marker); marker_id messages 442; ids seen [0, 1, 2, 3]
+  verification: ID 0 OK 0.29 s, ID 1 OK 0.29 s, ID 2 OK 0.40 s, ID 3 OK 0.59 s, ID 0 OK 0.20 s | 5/5 verified, mean 0.35 s wall

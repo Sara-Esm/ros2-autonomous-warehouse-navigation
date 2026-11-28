@@ -1,0 +1,72 @@
+# Phase 1 validation: station frame correction
+topics: /amcl_pose 285, /behavior_tree_log 1395, /camera/camera_info 1234, /clock 4617, /cmd_vel 9795, /cmd_vel_nav 4752, /compute_path_to_pose/_action/status 927, /follow_path/_action/status 928, /global_costmap/costmap 340, /local_plan 4744, /map 1, /navigate_to_pose/_action/status 10, /odom 13577, /plan 464, /scan 2286, /tf 24843, /tf_static 1, /warehouse/marker_detected 1235, /warehouse/marker_detections 1235, /warehouse/marker_id 370
+
+mission exit code 0; mission wall duration 560 s
+    559.4 s  WAREHOUSE MISSION COMPLETE: ALL TASKS SUCCEEDED
+    559.5 s  Successful tasks: 5
+    559.5 s  Failed tasks: 0
+    559.5 s  Unattempted tasks: 0
+
+## Station positioning (truth pose at the ARRIVED log line; world frame)
+| Step | Station | Intended world (x, y, yaw) | True stop (x, y, yaw) | Position error | Heading error | v1.0.1 position / heading | AMCL estimate (map) | Arrival->confirm | Marker |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | Home Charging Dock | (-3.678, +9.300, +90°) | (-3.693, +9.220, +96.6°) | **0.082 m** | **+6.6°** | 0.504 m / +9.6° | (-3.470, +8.953, +98.0°) | 1.68 s | verified |
+| 2 | Loading Zone | (+1.803, +9.300, +90°) | (+1.813, +9.201, +84.0°) | **0.099 m** | **-6.0°** | 0.404 m / +9.5° | (+1.896, +9.117, +73.6°) | 2.25 s | verified |
+| 3 | Inventory Scan Station | (+1.801, -9.000, -90°) | (+1.788, -8.917, -93.5°) | **0.084 m** | **-3.5°** | 0.176 m / +8.9° | (+1.768, -8.639, -97.9°) | 1.79 s | verified |
+| 4 | Dispatch Zone | (-3.630, -9.300, -90°) | (-3.696, -9.318, -93.0°) | **0.069 m** | **-3.0°** | 0.316 m / -2.4° | (-3.696, -9.308, -94.6°) | 1.71 s | verified |
+| 5 | Return to Home Charging Dock | (-3.678, +9.300, +90°) | (-3.737, +9.264, +87.1°) | **0.069 m** | **-2.9°** | not reached (crash) | (-3.603, +9.221, +82.6°) | 1.44 s | verified |
+
+position error: max 0.099 m, mean 0.081 m; all <= 0.15 m: True
+heading error: mean -1.78°, mean |err| 4.41°, range -6.0..+6.6°
+v1.0.1 baseline (4 stations): position mean 0.350 m, max 0.504 m; heading mean +6.40°
+same 4 stations now: position mean 0.083 m, max 0.099 m; heading mean -1.49°
+
+## AMCL residual vs truth (AMCL map pose mapped to world with the fixed calibration; no refit)
+this run (n=285): median 8.4 cm, p95 16.5 cm, max 23.2 cm; heading median |1.18|°, p95 2.95°
+  (raw, map frame taken as world: median 10.2 cm; expected to stay large, the frames still differ)
+v1.0.1 baseline, same fixed calibration (n=252): median 17.9 cm, p95 39.9 cm, max 43.4 cm
+  true y in [-11, -6): median 8.6 cm (n=63)
+  true y in [ -6, -2): median 11.9 cm (n=30)
+  true y in [ -2, +2): median 6.2 cm (n=58)
+  true y in [ +2, +6): median 12.1 cm (n=46)
+  true y in [ +6,+11): median 5.3 cm (n=88)
+
+## Recoveries, timeouts and runtime errors (mission window; crash lines over whole log)
+  ack_timeout 0, ctrl_miss 639, bt_tick 4370, spin 0, backup 0, wait 0, no_valid 0, no_progress 0, plan_fail 0, fp_abort 0, crash 3, assert 0
+  ack timeouts by action (whole log): {}
+  [ERROR] [gazebo-1]: process has died [pid 226510, exit code 255, cmd 'gazebo --verbose /home/owl/projects/warehouse_ws/install/warehouse_gaz
+  [ERROR] [rviz2-5]: process has died [pid 226963, exit code -11, cmd '/opt/ros/humble/lib/rviz2/rviz2 -d /home/owl/projects/warehouse_ws/inst
+  [ERROR] [component_container_isolated-4]: process has died [pid 226961, exit code -9, cmd '/opt/ros/humble/lib/rclcpp_components/component_c
+  navigate_to_pose       goals    5; final status counts {4: 5} (4=succeeded, 5=canceled, 6=aborted)
+  follow_path            goals  464; final status counts {6: 457, 4: 7} (4=succeeded, 5=canceled, 6=aborted)
+  compute_path_to_pose   goals  464; final status counts {4: 464} (4=succeeded, 5=canceled, 6=aborted)
+  spin                   goals    0; final status counts {} (4=succeeded, 5=canceled, 6=aborted)
+  backup                 goals    0; final status counts {} (4=succeeded, 5=canceled, 6=aborted)
+  wait                   goals    0; final status counts {} (4=succeeded, 5=canceled, 6=aborted)
+  drive_on_heading       goals    0; final status counts {} (4=succeeded, 5=canceled, 6=aborted)
+
+## Timing
+  RTF during mission (10 s windows): mean 0.653, min 0.472, max 0.727
+  camera frames: 2.68 Hz sim, median wall gap 0.55 s
+  CPU busy median 96%, load average median 31.5
+
+## Planned vs executed (per leg)
+  leg 1:   85.7 s wall, first plan 11.61 m, executed 11.63 m
+  leg 2:   65.1 s wall, first plan 8.77 m, executed 8.43 m
+  leg 3:  132.3 s wall, first plan 18.25 m, executed 18.29 m
+  leg 4:   51.3 s wall, first plan 5.65 m, executed 5.69 m
+  leg 5:  149.5 s wall, first plan 19.42 m, executed 18.94 m
+
+## Completion and motion after the final report
+  final NavigateToPose terminal status 4 at 548.23 s
+  final success 548.23 s -> ARRIVED log 548.47 s -> marker confirm 549.91 s -> MISSION COMPLETE 559.43 s -> process exit 560.20 s (wall, rel. mission start)
+  final success -> COMPLETE: 11.2 s observed, truth displacement 0.0 mm, yaw change +0.016°, max |v| 0.30 mm/s, max |w| 0.0065 rad/s; nonzero /cmd_vel 0 of 33, nonzero /cmd_vel_nav 0 of 0
+  COMPLETE -> exit: 0.7 s observed, truth displacement 0.0 mm, yaw change +0.000°, max |v| 0.01 mm/s, max |w| 0.0000 rad/s; nonzero /cmd_vel 0 of 0, nonzero /cmd_vel_nav 0 of 0
+  exit -> +60 s (recording): 59.9 s observed, truth displacement 0.0 mm, yaw change +0.000°, max |v| 0.01 mm/s, max |w| 0.0000 rad/s; nonzero /cmd_vel 0 of 0, nonzero /cmd_vel_nav 0 of 0
+  last true motion (>2 mm/s or >0.005 rad/s) at +0.09 s relative to final nav success
+  navigate_to_pose: active-status messages after COMPLETE: 0
+  follow_path: active-status messages after COMPLETE: 0
+  spin: active-status messages after COMPLETE: 0
+  backup: active-status messages after COMPLETE: 0
+  wait: active-status messages after COMPLETE: 0
+done

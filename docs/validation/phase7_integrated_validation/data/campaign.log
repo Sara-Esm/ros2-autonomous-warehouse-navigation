@@ -1,0 +1,11 @@
+H2 (headless) start 2026-11-28T09:08:30-07:00 load 0.41
+H2 exit 0 2026-11-28T09:18:26-07:00; shutdown_seconds: 10.453408161 process_group_empty_after_teardown: yes 
+G1 (graphical) start 2026-11-28T09:20:01-07:00 load 1.89
+G1 exit 0 2026-11-28T09:31:22-07:00; shutdown_seconds: 11.101557542 process_group_empty_after_teardown: yes 
+H3 (headless) start 2026-11-28T09:33:53-07:00 load 1.91
+H3 exit 0 2026-11-28T09:45:06-07:00; shutdown_seconds: 10.898940579 process_group_empty_after_teardown: yes 
+G2 (graphical) start 2026-11-28T09:47:01-07:00 load 1.96
+G2 exit 0 2026-11-28T10:00:09-07:00; shutdown_seconds: 10.848128385 process_group_empty_after_teardown: yes 
+G3 (graphical) start 2026-11-28T10:02:49-07:00 load 1.92
+G3 exit 0 2026-11-28T10:15:40-07:00; shutdown_seconds: 11.280638166 process_group_empty_after_teardown: yes 
+campaign complete

@@ -1,0 +1,10 @@
+H2: 36 evaluations in 25.2 s wall (1.4 Hz); candidates per cycle 819, valid median 819 (min 419); departure command at 6.27 s wall after the goal; mean |vtheta| first 5 s 0.03 rad/s; STALL
+   best-trajectory critic terms, first 5 s (mean raw x scale): GoalAlign 22.2, GoalDist 18.6, PathAlign 4.8, PathDist 0.8, RotateToGoal 0.0, Oscillation 0.0, BaseObstacle 0.0
+H3: 20 evaluations in 25.6 s wall (0.8 Hz); candidates per cycle 819, valid median 819 (min 819); departure command at 3.44 s wall after the goal; mean |vtheta| first 5 s 0.71 rad/s; no stall
+   best-trajectory critic terms, first 5 s (mean raw x scale): GoalAlign 19.4, GoalDist 18.6, PathAlign 4.3, RotateToGoal 0.0, PathDist 0.0, Oscillation 0.0, BaseObstacle 0.0
+G1: 24 evaluations in 25.3 s wall (0.9 Hz); candidates per cycle 819, valid median 819 (min 819); departure command at 4.80 s wall after the goal; mean |vtheta| first 5 s 0.33 rad/s; no stall
+   best-trajectory critic terms, first 5 s (mean raw x scale): GoalAlign 21.2, GoalDist 19.4, PathAlign 4.5, RotateToGoal 0.0, PathDist 0.0, Oscillation 0.0, BaseObstacle 0.0
+G2: 13 evaluations in 25.7 s wall (0.5 Hz); candidates per cycle 819, valid median 819 (min 819); departure command at 2.34 s wall after the goal; mean |vtheta| first 5 s 0.92 rad/s; no stall
+   best-trajectory critic terms, first 5 s (mean raw x scale): GoalDist 19.8, GoalAlign 18.9, PathAlign 4.8, RotateToGoal 0.0, PathDist 0.0, Oscillation 0.0, BaseObstacle 0.0
+G3: 14 evaluations in 26.8 s wall (0.5 Hz); candidates per cycle 819, valid median 819 (min 819); departure command at 5.60 s wall after the goal; mean |vtheta| first 5 s 0.03 rad/s; STALL
+   best-trajectory critic terms, first 5 s (mean raw x scale): GoalAlign 22.2, GoalDist 19.2, PathAlign 4.8, RotateToGoal 0.0, PathDist 0.0, Oscillation 0.0, BaseObstacle 0.0

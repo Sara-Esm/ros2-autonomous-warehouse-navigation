@@ -1,0 +1,1 @@
+H2: per_sample p95 2.71 max 19.2 | orig_0.1s p95 1.89 max 14.4 | ls_0.1s p95 2.42 max 18.5 | ls_0.2s p95 1.68 max 12.8  (rad/s^2)

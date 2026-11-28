@@ -1,0 +1,6 @@
+global costmap snapshots: 264; interval (sim header) median 1.80 s, p95 1.90, max 1.90
+executed on live-unknown (sim-stamp ordering): 4.27 m
+  snapshot age of those segments (sim): length-weighted median 1.06 s, max 1.90 s
+  same cell in the NEXT snapshot: free 3.91 m, unknown 0.31 m, other 0.05 m, none 0.00 m
+  one-cell (5 cm) alignment sensitivity: 3.56 .. 4.51 m
+  residual (unknown in this AND the next snapshot): 0.31 m; with one-cell shifts (9 positions incl. none): 0.04 .. 0.62 m

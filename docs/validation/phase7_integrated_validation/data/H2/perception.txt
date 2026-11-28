@@ -1,0 +1,4 @@
+H2: mission 418 s wall, 368 s sim, RTF 0.880
+  camera_info: 7.19 Hz sim, 6.32 Hz wall; frame interval (stamp) p50 138 ms, p95 172 ms, max 257 ms; age p50 138 ms sim, p95 172, max 256
+  detector processed frames: 7.19 Hz sim, 6.32 Hz wall (2643 frames, 693 with a marker); marker_id messages 693; ids seen [0, 1, 2, 3]
+  verification: ID 0 OK 0.20 s, ID 1 OK 0.29 s, ID 2 OK 0.30 s, ID 3 OK 0.20 s, ID 0 OK 0.30 s | 5/5 verified, mean 0.26 s wall

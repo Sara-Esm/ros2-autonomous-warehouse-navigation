@@ -1,0 +1,6 @@
+H3:
+  Home Charging Dock           final-alignment: centre 1.05 / footprint 1.00 m
+  Loading Zone                 final-alignment: centre 0.59 / footprint 0.50 m
+  Inventory Scan Station       final-alignment: centre 0.95 / footprint 0.90 m
+  Dispatch Zone                final-alignment: centre 1.00 / footprint 0.90 m | PINCH: centre 0.32 / footprint 0.26 m (window min footprint 0.25); plan clearance 0.32 m, robot off plan 1.3 cm (away from obstacle), heading vs plan -9.3 deg, AMCL error 4.0 cm, at (+0.54,-8.90)
+  Return to Home Charging Dock final-alignment: centre 1.05 / footprint 1.00 m

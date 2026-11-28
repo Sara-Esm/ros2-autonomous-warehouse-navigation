@@ -1,0 +1,6 @@
+H3: mission 469 s wall; RTF 0.774
+  ack timeouts 0 (0.00/wall min) by action {}; service-call timeouts 0; halt cancel/result errors 0; "failed to create plan" 0
+  late-accepted (orphaned) goals after an ack timeout: 0; time with >= 2 behaviours executing at once: 0.0 s
+  /cmd_vel_nav  11.98 Hz sim,  9.26 Hz wall (mission window)
+  /cmd_vel      24.25 Hz sim, 18.74 Hz wall (mission window)
+  /plan          1.16 Hz sim,  0.90 Hz wall (mission window)
