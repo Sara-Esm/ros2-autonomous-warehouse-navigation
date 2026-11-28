@@ -1,0 +1,14 @@
+[INFO] [spawn_entity.py-3]: process has finished cleanly [pid 166525]
+[component_container_isolated-4] [INFO] [1795785099.209600502] [rclcpp]: signal_handler(signum=2)
+[INFO] [robot_state_publisher-2]: process has finished cleanly [pid 166423]
+[INFO] [aruco_station_detector-5]: process has finished cleanly [pid 166775]
+[INFO] [gzserver-1]: process has finished cleanly [pid 166421]
+[robot_state_publisher-2] [INFO] [1795785099.209624002] [rclcpp]: signal_handler(signum=2)
+[INFO] [component_container_isolated-4]: sending signal 'SIGINT' to process[component_container_isolated-4]
+[component_container_isolated-4] [INFO] [1795785099.685849809] [rclcpp]: signal_handler(signum=2)
+[ERROR] [component_container_isolated-4]: process[component_container_isolated-4] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+[INFO] [component_container_isolated-4]: sending signal 'SIGTERM' to process[component_container_isolated-4]
+[component_container_isolated-4] [INFO] [1795785104.696433675] [rclcpp]: signal_handler(signum=15)
+[ERROR] [component_container_isolated-4]: process[component_container_isolated-4] failed to terminate '10.0' seconds after receiving 'SIGTERM', escalating to 'SIGKILL'
+[INFO] [component_container_isolated-4]: sending signal 'SIGKILL' to process[component_container_isolated-4]
+[ERROR] [component_container_isolated-4]: process has died [pid 166683, exit code -9

@@ -23,6 +23,16 @@ Design
   controller goal may still be driving. If no such activity is seen and every
   monitored action reports idle, the gate stops waiting after
   retry_evidence_grace and halts instead of holding until gate_timeout.
+* After NavigateToPose succeeds, the station is verified only once the robot
+  is physically settled: fresh, finite odometry below settle tolerances held
+  continuously for settle_hold (simulation time). Goal acceptance is not
+  treated as settling. Marker evidence must then come from a camera image
+  captured after settling (its acquisition stamp, from
+  /warehouse/marker_detections), no older than marker_max_age, and contain the
+  expected ID while the robot is still stationary. Settling plus verification
+  are bounded by one per-station deadline.
+* Mission success is reported only after a final check: the robot settled and
+  no Nav2 goal active. Otherwise the mission finishes with failures.
 * After a halt the node observes odometry and Nav2 action status for a short
   window and reports whether a stop was verified. This is passive monitoring
   only: the node never publishes velocity commands, and it is not a safety
@@ -51,7 +61,7 @@ from lifecycle_msgs.msg import State as LifecycleState
 from lifecycle_msgs.srv import GetState
 from nav2_msgs.action import NavigateToPose
 from nav_msgs.msg import Odometry
-from std_msgs.msg import Int32
+from vision_msgs.msg import Detection2DArray
 
 from warehouse_bringup.nav2_supervision import ActionActivityTracker, MotionTracker
 # Map-frame station goals, derived from world-frame approach poses (see stations.py).
@@ -69,9 +79,11 @@ START_DELAY = 'START_DELAY'
 GATE = 'GATE'
 AWAIT_RESPONSE = 'AWAIT_RESPONSE'
 NAVIGATING = 'NAVIGATING'
+SETTLING = 'SETTLING'
 CANCELING = 'CANCELING'
 VERIFYING = 'VERIFYING'
 TASK_HOLD = 'TASK_HOLD'
+FINAL_CHECK = 'FINAL_CHECK'
 PAUSE = 'PAUSE'
 RETRY_PAUSE = 'RETRY_PAUSE'
 HALT_OBSERVE = 'HALT_OBSERVE'
@@ -122,6 +134,15 @@ class WarehouseAutonomy(Node):
         odom_topic = p('odom_topic', '/odom').value
         linear_tol = p('stop_linear_tolerance', 0.01).value
         angular_tol = p('stop_angular_tolerance', 0.02).value
+        # Station settling and marker evidence (Phase 6). Thresholds from Phase 5 recordings:
+        # at rest |v| <= 1.0 mm/s and |w| <= 0.35 mrad/s; with these thresholds all 35 recorded
+        # arrivals settled within 1.62 s sim of goal acceptance (median 0.84 s).
+        settle_linear_tol = p('settle_linear_tolerance', 0.005).value
+        settle_angular_tol = p('settle_angular_tolerance', 0.01).value
+        self.settle_hold = p('settle_hold', 0.5).value
+        self.settle_timeout = p('settle_timeout', 10.0).value
+        self.marker_max_age = p('marker_max_age', 1.0).value
+        self.final_check_timeout = p('final_check_timeout', 10.0).value
 
         self.use_sim_time = self.get_parameter('use_sim_time').value
         self.steady = Clock(clock_type=ClockType.STEADY_TIME)
@@ -132,8 +153,12 @@ class WarehouseAutonomy(Node):
 
         self.activity = ActionActivityTracker()
         self.motion = MotionTracker(linear_tol, angular_tol, self.odom_max_age)
+        # Same helper, stricter thresholds: physical settling at a station.
+        self.settle_motion = MotionTracker(
+            settle_linear_tol, settle_angular_tol, self.odom_max_age)
 
-        self.create_subscription(Int32, '/warehouse/marker_id', self.marker_id_cb, 10)
+        self.create_subscription(
+            Detection2DArray, '/warehouse/marker_detections', self.marker_detections_cb, 10)
         self.create_subscription(Odometry, odom_topic, self.odom_cb, 10)
         self.attempt_publishers = {}
         for action in self.monitored_actions:
@@ -151,6 +176,15 @@ class WarehouseAutonomy(Node):
         self.last_marker_id = None
         self.marker_confirmed = False
         self.confirmed_marker_id = None
+        self.verify_window_start_ns = None
+        self.station_deadline = None
+        self.arrival_sim_ns = None
+        self.marker_rejections = {}
+        self.confirmed_detail = ''
+        self.completion_confirmed = True
+        self.final_check_start_ns = None
+        # One record per station visit: timing of settling and of the accepted marker evidence.
+        self.station_records = []
 
         # Goal bookkeeping: one goal at a time, identified by goal_seq.
         self.goal_seq = 0
@@ -230,13 +264,46 @@ class WarehouseAutonomy(Node):
 
     # ---------------------------------------------------------- callbacks
 
-    def marker_id_cb(self, msg):
-        self.last_marker_id = msg.data
-        if self.state == VERIFYING and msg.data == self.wp['marker_id']:
-            # Latch the confirming ID: later detections must not change what
+    def marker_detections_cb(self, msg):
+        """Judge one camera image's marker observations against the verification window."""
+        ids = []
+        for det in msg.detections:
+            try:
+                ids.append(int(det.id))
+            except ValueError:
+                continue
+        if ids:
+            self.last_marker_id = ids[0]
+        if self.state != VERIFYING or self.marker_confirmed:
+            return
+        stamp_ns = msg.header.stamp.sec * NS + msg.header.stamp.nanosec
+        now_ns = self.sim_now().nanoseconds
+        expected = self.wp['marker_id']
+        if stamp_ns <= 0:
+            reason = 'unstamped'
+        elif stamp_ns < self.verify_window_start_ns:
+            reason = 'captured before verification window'
+        elif now_ns - stamp_ns > self.marker_max_age * NS:
+            reason = 'too old'
+        elif not ids:
+            reason = 'no marker'
+        elif expected not in ids:
+            reason = 'wrong id'
+        elif not self.settled_now():
+            reason = 'robot not stationary'
+        else:
+            # Latch the confirming observation: later detections must not change what
             # the success log reports.
-            self.confirmed_marker_id = msg.data
+            self.confirmed_marker_id = expected
             self.marker_confirmed = True
+            rec = self.station_records[-1]
+            rec['evidence_stamp_ns'], rec['confirmed_ns'] = stamp_ns, now_ns
+            self.confirmed_detail = (
+                f'image age {(now_ns - stamp_ns) / 1e6:.0f} ms, captured '
+                f'{(stamp_ns - self.verify_window_start_ns) / 1e9:.2f} s after settling, '
+                f'frame {msg.header.frame_id or "?"}')
+            return
+        self.marker_rejections[reason] = self.marker_rejections.get(reason, 0) + 1
 
     def odom_cb(self, msg):
         twist = msg.twist.twist
@@ -244,9 +311,11 @@ class WarehouseAutonomy(Node):
         stamp_ns = stamp.sec * NS + stamp.nanosec
         if stamp_ns <= 0 or abs(self.sim_now().nanoseconds - stamp_ns) > self.odom_max_age * NS:
             self.motion.reset_hold()
+            self.settle_motion.reset_hold()
             return
-        self.motion.update(twist.linear.x, twist.linear.y, twist.angular.z,
-                           stamp_ns, self.wall_ns())
+        wall = self.wall_ns()
+        self.motion.update(twist.linear.x, twist.linear.y, twist.angular.z, stamp_ns, wall)
+        self.settle_motion.update(twist.linear.x, twist.linear.y, twist.angular.z, stamp_ns, wall)
 
     def poll_lifecycle(self):
         if not self.check_lifecycle:
@@ -303,9 +372,11 @@ class WarehouseAutonomy(Node):
             GATE: self.tick_gate,
             AWAIT_RESPONSE: self.tick_await_response,
             NAVIGATING: self.tick_navigating,
+            SETTLING: self.tick_settling,
             CANCELING: self.tick_canceling,
             VERIFYING: self.tick_verifying,
             TASK_HOLD: self.tick_task_hold,
+            FINAL_CHECK: self.tick_final_check,
             PAUSE: self.tick_pause,
             RETRY_PAUSE: self.tick_retry_pause,
             HALT_OBSERVE: self.tick_halt_observe,
@@ -592,13 +663,62 @@ class WarehouseAutonomy(Node):
             return
 
         self.get_logger().info(f"ARRIVED: {wp['name']}")
-        self.start_verification()
+        self.start_settling()
 
     def tick_retry_pause(self):
         if self.sim_deadline_passed():
             self.enter_gate(retry=True)
 
     # ------------------------------------------------------- verification
+
+    def settled_now(self, hold_sec=0.0, since_ns=None):
+        """
+        Fresh odometry, stationary under the settle thresholds for hold_sec (sim).
+
+        With since_ns, only stationarity observed at or after since_ns counts, and it must be
+        backed by an odometry message stamped at least hold_sec after since_ns: stillness seen
+        before the goal succeeded (for example at the readiness gate) never counts as settling.
+        """
+        m = self.settle_motion
+        if not m.fresh(self.wall_ns(), self.odom_max_age) or m.stationary_since_sim_ns is None:
+            return False
+        if since_ns is None:
+            return m.stationary_for_sim(self.sim_now().nanoseconds, hold_sec)
+        start = max(m.stationary_since_sim_ns, since_ns)
+        end = min(self.sim_now().nanoseconds, m.last_msg_sim_ns)
+        return end - start >= hold_sec * NS
+
+    def station_deadline_passed(self):
+        return self.station_deadline is not None and self.sim_now() >= self.station_deadline
+
+    def start_settling(self):
+        self.arrival_sim_ns = self.sim_now().nanoseconds
+        self.station_records.append({'name': self.wp['name'], 'arrival_ns': self.arrival_sim_ns,
+                                     'settled_ns': None, 'window_start_ns': None,
+                                     'evidence_stamp_ns': None, 'confirmed_ns': None,
+                                     'outcome': None, 'rejections': {}})
+        self.station_deadline = self.sim_now() + Duration(
+            seconds=float(self.settle_timeout + self.verify_timeout))
+        self.enter(SETTLING)
+        self.set_sim_deadline(self.settle_timeout)
+
+    def tick_settling(self):
+        if self.settled_now(self.settle_hold, since_ns=self.arrival_sim_ns):
+            self.get_logger().info(
+                f"SETTLED: {self.wp['name']} "
+                f'{(self.sim_now().nanoseconds - self.arrival_sim_ns) / 1e9:.2f} s after goal '
+                f'success (stationary for {self.settle_hold:g} s after success)')
+            self.start_verification()
+        elif self.sim_deadline_passed() or self.station_deadline_passed():
+            last = self.settle_motion.last_msg_sim_ns
+            if not self.settle_motion.fresh(self.wall_ns(), self.odom_max_age):
+                why = 'no recent odometry'
+            elif last is None or self.sim_now().nanoseconds - last > 0.5 * NS:
+                why = 'odometry not updating'
+            else:
+                why = 'robot did not remain stationary'
+            self.task_failed(f'STATION SETTLE FAILED: {self.wp["name"]}: {why} within '
+                             f'{self.settle_timeout:g} s')
 
     def start_verification(self):
         wp = self.wp
@@ -607,8 +727,16 @@ class WarehouseAutonomy(Node):
             self.on_verified()
             return
         self.get_logger().info(f"Looking for ArUco marker ID {wp['marker_id']}...")
-        self.marker_confirmed = False  # only detections after arrival count
+        # Only images captured after the robot settled count.
+        self.marker_confirmed = False
         self.confirmed_marker_id = None
+        self.confirmed_detail = ''
+        self.marker_rejections = {}
+        self.verify_window_start_ns = self.sim_now().nanoseconds
+        if self.station_records:
+            self.station_records[-1]['settled_ns'] = self.verify_window_start_ns
+            self.station_records[-1]['window_start_ns'] = self.verify_window_start_ns
+            self.station_records[-1]['rejections'] = self.marker_rejections
         self.enter(VERIFYING)
         self.set_sim_deadline(self.verify_timeout)
 
@@ -617,18 +745,36 @@ class WarehouseAutonomy(Node):
         if self.marker_confirmed:
             self.get_logger().info(
                 f"Correct marker detected: expected={wp['marker_id']}, "
-                f'detected={self.confirmed_marker_id}')
+                f'detected={self.confirmed_marker_id} ({self.confirmed_detail})')
             self.on_verified()
-        elif self.sim_deadline_passed():
+        elif not self.settled_now():
+            # Moving again: evidence from this window no longer describes the stop.
+            self.get_logger().warn(f"Robot moved during verification at {wp['name']}; re-settling")
+            self.enter(SETTLING)
+            self.set_sim_deadline(self.settle_timeout)
+            if self.station_deadline_passed():
+                self.task_failed(f"STATION SETTLE FAILED: {wp['name']}: moved during verification")
+        elif self.sim_deadline_passed() or self.station_deadline_passed():
+            rejected = ', '.join(f'{k}: {v}' for k, v in sorted(self.marker_rejections.items()))
             self.get_logger().error(
                 f"Marker verification timeout: expected={wp['marker_id']}, "
-                f'last_detected={self.last_marker_id}')
-            self.get_logger().error(f"VISION VERIFICATION FAILED: {wp['name']}")
-            self.failed_tasks += 1
-            self.enter(PAUSE)
-            self.set_sim_deadline(self.inter_goal_pause)
+                f'last_detected={self.last_marker_id}; rejected observations: '
+                f'{rejected or "none received"}')
+            self.task_failed(f"VISION VERIFICATION FAILED: {wp['name']}")
+
+    def task_failed(self, message):
+        self.get_logger().error(message)
+        if self.station_records:
+            self.station_records[-1]['outcome'] = message
+        self.failed_tasks += 1
+        self.station_deadline = None
+        self.enter(PAUSE)
+        self.set_sim_deadline(self.inter_goal_pause)
 
     def on_verified(self):
+        self.station_deadline = None
+        if self.station_records:
+            self.station_records[-1]['outcome'] = 'verified'
         self.get_logger().info(f"VISION VERIFIED: {self.wp['name']}")
         self.get_logger().info(f"TASK: {self.wp['task']}")
         self.enter(TASK_HOLD)
@@ -661,12 +807,49 @@ class WarehouseAutonomy(Node):
         log_fn('========================================')
 
     def finish_mission(self):
+        if self.failed_tasks == 0 and self.successful_tasks == len(self.waypoints):
+            self.final_check_start_ns = self.sim_now().nanoseconds   # fresh evidence only
+            self.enter(FINAL_CHECK)
+            self.set_sim_deadline(self.final_check_timeout)
+            return
+        self.report_finished()
+
+    def final_check_unmet(self):
+        unmet = []
+        if not self.settle_motion.fresh(self.wall_ns(), self.odom_max_age):
+            unmet.append('no recent odometry')
+        elif not self.settled_now(self.settle_hold, since_ns=self.final_check_start_ns):
+            unmet.append(f'robot not stationary for {self.settle_hold:g} s')
+        active = self.activity.active_actions()
+        if active or self.goal_active or self.goal_pending:
+            unmet.append('Nav2 goals still active: ' + ', '.join(sorted(active)) if active
+                         else 'navigation goal outcome unresolved')
+        return unmet
+
+    def tick_final_check(self):
+        unmet = self.final_check_unmet()
+        if not unmet:
+            self.get_logger().info('FINAL CHECK: robot stationary and Nav2 idle.')
+            self.report_finished()
+        elif self.sim_deadline_passed():
+            self.get_logger().error(
+                f'FINAL CHECK FAILED after {self.final_check_timeout:g} s: ' + '; '.join(unmet))
+            self.completion_confirmed = False
+            self.report_finished()
+
+    def report_finished(self):
         log = self.get_logger()
         log.info('========================================')
-        if self.failed_tasks == 0 and self.successful_tasks == len(self.waypoints):
+        if (self.failed_tasks == 0 and self.successful_tasks == len(self.waypoints) and
+                self.completion_confirmed):
             log.info('WAREHOUSE MISSION COMPLETE: ALL TASKS SUCCEEDED')
             self.log_summary(log.info, 0)
             self.end(EXIT_SUCCESS)
+        elif not self.completion_confirmed:
+            log.error('WAREHOUSE MISSION NOT CONFIRMED COMPLETE: all tasks succeeded, but the '
+                      'final check (robot stationary, Nav2 idle) failed')
+            self.log_summary(log.info, 0)
+            self.end(EXIT_FAILURES)
         else:
             log.error(
                 f'WAREHOUSE MISSION FINISHED WITH FAILURES: '
@@ -752,32 +935,51 @@ class WarehouseAutonomy(Node):
             rclpy.spin_once(self, timeout_sec=TICK_PERIOD_SEC)
 
 
-def _raise_interrupt(signum, frame):
-    raise KeyboardInterrupt
+class _StopRequest:
+    """
+    SIGINT/SIGTERM only set a flag; the main loop acts on it between spin_once calls.
+
+    Raising from the handler (the previous approach) could land anywhere in the main thread,
+    including inside rclpy's C-level message take, where it surfaced as an uncaught
+    RuntimeError, so the process exited 1 without canceling or observing the stop (Phase 6).
+    """
+
+    def __init__(self):
+        self.signum = None
+
+    def __call__(self, signum, frame):
+        if self.signum is None:
+            self.signum = signum
+
+    @property
+    def requested(self):
+        return self.signum is not None
 
 
 def main(args=None):
     # Keep the ROS context alive on SIGINT/SIGTERM so an active goal can be
     # canceled before exiting.
     rclpy.init(args=args, signal_handler_options=SignalHandlerOptions.NO)
-    signal.signal(signal.SIGTERM, _raise_interrupt)
+    stop = _StopRequest()
+    signal.signal(signal.SIGINT, stop)
+    signal.signal(signal.SIGTERM, stop)
     node = WarehouseAutonomy()
     exit_code = EXIT_INTERRUPTED
 
     try:
-        while rclpy.ok() and not node.finished:
+        while rclpy.ok() and not node.finished and not stop.requested:
             rclpy.spin_once(node, timeout_sec=TICK_PERIOD_SEC)
-        if node.finished:
-            exit_code = node.exit_code
-    except KeyboardInterrupt:
-        try:
+        if stop.requested and not node.finished:
+            # Same bounded cleanup as after a halt; further signals are ignored meanwhile,
+            # and the cancel and halt-observation deadlines bound how long it takes.
+            node.get_logger().warn(
+                f'{signal.Signals(stop.signum).name} received: stopping the mission.')
             node.cancel_active_goal_blocking(node.cancel_timeout)
-        except KeyboardInterrupt:
-            pass
+        elif node.finished:
+            exit_code = node.exit_code
     finally:
         node.destroy_node()
-        if rclpy.ok():
-            rclpy.shutdown()
+        rclpy.try_shutdown()
 
     sys.exit(exit_code)
 

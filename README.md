@@ -193,7 +193,7 @@ flowchart LR
   end
 
   CTRL -- "/cmd_vel" --> TB3
-  DET["aruco_station_detector<br/>OpenCV ArUco"] -- "/warehouse/marker_id" --> MM
+  DET["aruco_station_detector<br/>OpenCV ArUco"] -- "/warehouse/marker_detections<br/>(stamped per image)" --> MM
 
   MM["warehouse_autonomy<br/>mission manager"] -- "NavigateToPose goal / cancel" --> BT
   BT -. "status of monitored actions" .-> MM
@@ -249,8 +249,17 @@ A clock-stall watchdog can halt the mission from any active state.
 - **Unresolved goals are tracked.** A late acceptance after a response timeout is
   cancelled, and the manager waits a bounded time for its result. The same cleanup runs on
   Ctrl+C or SIGTERM.
-- **Exit codes:** 0 all succeeded, 1 finished with failed tasks, 2 halted, 3 never started,
-  130 interrupted. After a halt the node prints `ROBOT STOP VERIFIED (odometry)` or
+- **After every arrival (Phase 6):** goal success is not taken as settling. The robot must show
+  fresh, finite odometry below 5 mm/s and 0.01 rad/s, held for 0.5 s sim *after* goal success
+  (bounded at 10 s). Only then does the marker check start, and it accepts only camera images
+  **captured after settling** (their own acquisition stamp), no older than 1.0 s sim, that
+  contain the expected ID while the robot is still stationary. Settling and verification share
+  one bounded per-station deadline.
+- **Before reporting success:** a final check that the robot is still settled (on fresh
+  odometry) and no Nav2 goal is active; otherwise the mission finishes with exit code 1.
+- **Signals:** Ctrl+C or SIGTERM only set a flag; the main loop then runs the bounded cleanup.
+- **Exit codes:** 0 all succeeded, 1 finished with failed tasks or unconfirmed completion,
+  2 halted, 3 never started, 130 interrupted. After a halt the node prints `ROBOT STOP VERIFIED (odometry)` or
   `ROBOT STOP NOT VERIFIED` with the reason.
 
 These are observations from the same software stack, not an independent safety channel.
@@ -538,11 +547,29 @@ Compared with three baseline headless missions:
 | Station position error, max | 0.091–0.107 m | 0.114 m |
 | **Footprint clearance at the south pinch** | **0.25–0.27 m** | **0.21 m** |
 
-The clearance criterion was **not fully met**. The 4–6 cm loss of footprint margin was accepted as a trade-off
-for the current simulated environment; part of it comes from the controller cutting corners, part from
-variation in plan placement and localization. Nothing here certifies the controller as safe.
+The clearance criterion was **not fully met**. The Phase 5 validation measured 0.21 m footprint clearance
+against 0.25, 0.26 and 0.27 m in the baselines, accepted as a trade-off for the current simulated environment.
+The obstacle-directed tracking deviation rises with the alignment distance. However, the Phase 6 mission, with
+the identical configuration, measured 0.25 m, so the size and repeatability of the regression are unresolved.
+Nothing here certifies the controller as safe.
 
 Details: [`docs/validation/phase5_motion_control/REPORT.md`](docs/validation/phase5_motion_control/REPORT.md).
+
+### Mission verification (Phase 6 validation)
+
+Stricter completion rules in the mission node and detector; no Nav2, camera, map or goal change.
+
+| Measure | Phase 5 | Phase 6 |
+|---|---|---|
+| Mission / markers | 5/5, exit 0 / 5 | 5/5, exit 0 / 5 |
+| Settling verified after goal success | no | yes, 0.60–1.00 s sim |
+| Marker evidence: image captured after settling / age at acceptance | not checked | yes / 44–124 ms |
+| Arrival to verification, mean | 0.12 s | 1.10 s |
+| Final stationary and Nav2-idle check | no | passed |
+| Detector exit at shutdown | 1 (traceback) | 0 (clean) |
+| System shutdown | runner SIGKILL after 30 s | project processes clean by 1.6 s; all down in 10.5–11.2 s (launch force-kills the upstream Nav2 container) |
+
+Details: [`docs/validation/phase6_mission_verification/REPORT.md`](docs/validation/phase6_mission_verification/REPORT.md).
 
 ---
 
@@ -580,21 +607,22 @@ Details: [`docs/validation/phase5_motion_control/REPORT.md`](docs/validation/pha
    is detected after arrival. There is no marker pose estimation or camera calibration. With the
    182° camera used until Phase 4, verification passed even when the robot stopped 0.5 m from the
    intended spot. The 100° camera is less permissive, but it is still a presence check.
-8. **Completion is not tied to a stop check.** The success path reports mission completion
-   without checking that the robot is stationary. That check runs only after a halt.
+8. **Stationarity is judged from odometry.** Since Phase 6, station verification and mission
+   success require a settled robot and an idle Nav2. The evidence is the same odometry the
+   controller uses, not an independent sensor. Nav2's composed container does not exit on
+   SIGINT or SIGTERM in Humble; `ros2 launch` sends it SIGTERM at +6 s and SIGKILL at +11 s, and
+   the whole system is down 10.5–11.2 s after the signal (upstream behaviour).
 
 ## Next steps
 
-- **Size Nav2's `default_server_timeout` from measurements.** `bt_navigator` gives each server
-  20 ms (the Nav2 default) to acknowledge a goal. Every logged run has such timeouts (1–41 per
-  run). In Trial 12 they caused the first abort, and in the diagnostic run each one turned into a planner
-  or controller failure, including a Spin and a BackUp recovery. The acknowledgement latency
-  has not been measured, so a larger value is untested and may not remove all of them
-  ([analysis](docs/diagnostics/REPORT.md#4-action-acknowledgement-timeouts-and-recoveries)).
-- **Handle signals as a flag.** The signal handler currently raises an exception wherever
-  the main thread is. If Ctrl+C or SIGTERM lands exactly as Nav2 accepts a goal, cleanup
-  still cancels and exits 130, but reported `ROBOT STOP NOT VERIFIED` in 2 of about 17
-  deliberately timed runs. Setting a flag for the main loop to check would close that window.
+Earlier items are done: the acknowledgement timeout was sized in Phase 3, and signals are
+handled as a flag since Phase 6. Carried into Phase 7 (integrated repeatability):
+
+- Footprint clearance at the south pinch (Phase 5: 0.21 m, against a 0.25–0.27 m baseline).
+- Leg-start controller stalls: one ~9 s stall at a departure ended by Nav2's progress checker in
+  the Phase 6 validation, cause not established ([Phase 6 report](docs/validation/phase6_mission_verification/REPORT.md)).
+- Planner-side clearance (global inflation, NavFn path placement), only if repeatability testing
+  shows a significant problem.
 
 ---
 
@@ -613,6 +641,8 @@ Details: [`docs/validation/phase5_motion_control/REPORT.md`](docs/validation/pha
   headless launch options and validation mission
 - [`docs/validation/phase5_motion_control/REPORT.md`](docs/validation/phase5_motion_control/REPORT.md):
   motion-control experiments, clearance trade-off, local unknown-space replay, actuator and timing consistency
+- [`docs/validation/phase6_mission_verification/REPORT.md`](docs/validation/phase6_mission_verification/REPORT.md):
+  settling before verification, stamped marker evidence, final check, signal handling, shutdown
 - [`docs/diagnostics/REPORT.md`](docs/diagnostics/REPORT.md): diagnostic investigation of v1.0.1
   (map and frame alignment, localization, planning, control dynamics, ArUco, timing, completion)
 - [`docs/operation.md`](docs/operation.md): package layout, interfaces, parameters,

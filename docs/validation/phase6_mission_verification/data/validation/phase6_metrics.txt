@@ -1,0 +1,36 @@
+P5:
+  speed at goal acceptance (|v| mm/s, |w| rad/s): 0/0.002, 1/0.013, 0/0.008, 0/0.002, 1/0.078
+  settling after goal success (sim s): n/a (no settling stage)
+  marker evidence image age at verification (ms sim): n/a
+  evidence captured after settling (sim s): n/a
+  arrival -> correct marker (wall s): 0.03, 0.18, 0.10, 0.09, 0.18 | mean 0.11
+  arrival -> VISION VERIFIED (wall s): 0.03, 0.18, 0.10, 0.09, 0.18 | mean 0.12
+  log: WAREHOUSE MISSION COMPLETE: ALL TASKS SUCCEEDED
+  log: Successful tasks: 5
+  log: Failed tasks: 0
+  meta mission_exit_code: 0
+  exit: spawn_entity.py-3                  finished cleanly
+  exit: robot_state_publisher-2            finished cleanly
+  exit: aruco_station_detector-5           died code 1
+  exit: gzserver-1                         finished cleanly
+P6:
+  speed at goal acceptance (|v| mm/s, |w| rad/s): 1/0.008, 2/0.012, 0/0.012, 0/0.020, 0/0.007
+  settling after goal success (sim s): 0.60, 0.60, 1.00, 0.90, 0.60
+  marker evidence image age at verification (ms sim): 87, 75, 124, 75, 44
+  evidence captured after settling (sim s): 0.11, 0.12, 0.08, 0.03, 0.06
+  arrival -> correct marker (wall s): 0.95, 1.04, 1.35, 1.24, 0.90 | mean 1.10
+  arrival -> VISION VERIFIED (wall s): 0.95, 1.04, 1.36, 1.25, 0.90 | mean 1.10
+  log: FINAL CHECK: robot stationary and Nav2 idle.
+  log: WAREHOUSE MISSION COMPLETE: ALL TASKS SUCCEEDED
+  log: Successful tasks: 5
+  log: Failed tasks: 0
+  meta mission_exit_code: 0
+  meta shutdown_seconds: 10.508840543
+  meta process_group_empty_after_teardown: yes
+  exit: spawn_entity.py-3                  finished cleanly
+  exit: robot_state_publisher-2            finished cleanly
+  exit: aruco_station_detector-5           finished cleanly
+  exit: gzserver-1                         finished cleanly
+  exit: component_container_isolated-4     died code -9
+  escalation: component_container_isolated-4 did not exit 5 s after SIGINT
+  escalation: component_container_isolated-4 did not exit 10.0 s after SIGTERM

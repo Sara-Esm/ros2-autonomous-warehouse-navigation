@@ -33,6 +33,7 @@ from nav2_msgs.action import NavigateToPose
 from nav_msgs.msg import Odometry
 from rosgraph_msgs.msg import Clock
 from std_msgs.msg import Int32
+from vision_msgs.msg import Detection2D, Detection2DArray
 
 from warehouse_bringup.warehouse_autonomy_node import WAYPOINTS, WarehouseAutonomy
 
@@ -64,6 +65,9 @@ FAST_PARAMS = {
     'clock_stall_timeout': 1.5,
     'halt_observe_timeout': 1.5,
     'retry_evidence_grace': 0.5,
+    'settle_hold': 0.2,
+    'settle_timeout': 1.5,
+    'final_check_timeout': 1.5,
 }
 
 
@@ -112,14 +116,26 @@ class MockNav2(Node):
       'late_accept' (goal accepted only after release()),
       'no_result'   (accepted, never finishes unless canceled),
       'slow_accept' (accepted after 0.5 s, then behaves like 'no_result').
-    markers: 'correct' | 'wrong' | 'none' | 'before_arrival', or a dict
-      {step_index: mode} with 'correct' as the default. The step index is the
-      number of navigations completed so far (retries do not advance it).
+    markers: 'correct' | 'wrong' | 'none' | 'before_arrival' | 'stale_queued' |
+      'delayed' | 'legacy_only', or a dict {step_index: mode} with 'correct' as
+      the default. The step index is the number of navigations completed so far
+      (retries do not advance it). Stamped observations are published on
+      /warehouse/marker_detections once per tick (empty when nothing is seen),
+      as the real detector does per image; the legacy Int32 topic is published
+      alongside:
+        'stale_queued': after arrival, the correct ID with the acquisition stamp
+          of an image taken before arrival (a queued observation);
+        'delayed': observations of the correct ID captured after arrival but
+          delivered 2.0 s sim late;
+        'legacy_only': the correct ID on the unstamped Int32 topic only.
+    post_arrival_motion: sim seconds the robot keeps moving after a goal
+      succeeds (0 = stops at once; None = never stops).
+    odom_stamp_offset: seconds added to odometry stamps (negative = stale).
     """
 
     def __init__(self, behaviors=None, markers='correct', with_server=True,
                  lifecycle_active=True, nav_duration=0.3, report_controller=True,
-                 accept_cancel=True):
+                 accept_cancel=True, post_arrival_motion=0.0, odom_stamp_offset=0.0):
         super().__init__('mock_nav2', parameter_overrides=[Parameter('use_sim_time', value=True)])
         self.behaviors = list(behaviors or [])
         self.markers = markers
@@ -142,6 +158,16 @@ class MockNav2(Node):
         self.extra_active = set()
         self.publish_odom = True
         self.successes = 0  # mission step = number of navigations completed so far
+        self.post_arrival_motion = post_arrival_motion
+        self.stop_odom_on_first_goal = False   # test hook: odometry ends when goal 0 arrives
+        self.get_state_calls = 0               # mission readiness polls (about 1 per second)
+        self.post_arrival_stops_ns = []        # sim time at which post-arrival motion ended
+        self.odom_stamp_offset = odom_stamp_offset
+        self.marker_mode_now = 'correct'
+        self.marker_frozen_stamp = None
+        self.stop_moving_at_sim = None
+        self.detections_pub = self.create_publisher(
+            Detection2DArray, '/warehouse/marker_detections', 10)
 
         self.marker_pub = self.create_publisher(Int32, '/warehouse/marker_id', 10)
         self.odom_pub = self.create_publisher(Odometry, '/odom', 10)
@@ -216,12 +242,45 @@ class MockNav2(Node):
             return self.markers.get(step, 'correct')
         return self.markers
 
+    def _detections(self, stamp_ns, marker_id):
+        msg = Detection2DArray()
+        msg.header.stamp.sec, msg.header.stamp.nanosec = divmod(int(stamp_ns), 1_000_000_000)
+        msg.header.frame_id = 'camera_link'
+        if marker_id is not None:
+            det = Detection2D()
+            det.id = str(marker_id)
+            msg.detections.append(det)
+        return msg
+
     def _publish_streams(self):
+        now_ns = self.get_clock().now().nanoseconds
+        if (self.stop_moving_at_sim is not None and self.moving and not self.executing_path and
+                now_ns >= self.stop_moving_at_sim):
+            self.moving = False
+            self.stop_moving_at_sim = None
+            self.post_arrival_stops_ns.append(now_ns)
+            self.events.append((time.monotonic(), 'moving=False (post-arrival)'))
         if self.current_marker is not None:
             self.marker_pub.publish(Int32(data=self.current_marker))
+        mode, marker = self.marker_mode_now, self.current_marker
+        if mode == 'legacy_only' or marker is None:
+            self.detections_pub.publish(self._detections(now_ns, None))
+        elif mode == 'stale_queued':
+            self.detections_pub.publish(self._detections(self.marker_frozen_stamp, marker))
+        elif mode == 'delayed':
+            # Images captured now are delivered 2.0 s sim late: publish the observation captured
+            # 2.0 s ago (only from images taken after arrival, so some fall inside the window).
+            captured = now_ns - 2_000_000_000
+            if captured >= self.marker_frozen_stamp + 200_000_000:
+                self.detections_pub.publish(self._detections(captured, marker))
+            else:
+                self.detections_pub.publish(self._detections(now_ns, None))
+        else:
+            self.detections_pub.publish(self._detections(now_ns, marker))
         if self.publish_odom:
             odom = Odometry()
-            odom.header.stamp = self.get_clock().now().to_msg()
+            stamp_ns = now_ns + int(self.odom_stamp_offset * 1e9)
+            odom.header.stamp.sec, odom.header.stamp.nanosec = divmod(stamp_ns, 1_000_000_000)
             odom.twist.twist.linear.x = 0.2 if self.moving else 0.0
             self.odom_pub.publish(odom)
         status = GoalStatusArray()
@@ -237,6 +296,7 @@ class MockNav2(Node):
             pub.publish(extra)
 
     def _get_state(self, request, response):
+        self.get_state_calls += 1
         response.current_state.id = self.lifecycle_id
         response.current_state.label = (
             'active' if self.lifecycle_id == LifecycleState.PRIMARY_STATE_ACTIVE else 'inactive')
@@ -246,6 +306,8 @@ class MockNav2(Node):
         p = goal_request.pose.pose.position
         with self.lock:
             index = len(self.goals)
+            if index == 0 and self.stop_odom_on_first_goal:
+                self.publish_odom = False
             self.goals.append((time.monotonic(), (round(p.x, 3), round(p.y, 3))))
         behavior = self._behavior(index)
         if behavior == 'reject':
@@ -271,6 +333,7 @@ class MockNav2(Node):
         correct = MARKER_BY_XY[xy]
 
         self.current_marker = correct if mode == 'before_arrival' else None
+        self.marker_mode_now = 'correct' if mode == 'before_arrival' else mode
         self.moving = True
         self.executing_path = True
         endless = behavior in ('no_result', 'late_accept', 'slow_accept')
@@ -285,14 +348,20 @@ class MockNav2(Node):
                 break
             time.sleep(0.02)
         self.executing_path = False
-        self.moving = False
+        if behavior == 'abort' or not self.post_arrival_motion:
+            self.moving = self.post_arrival_motion is None and behavior != 'abort'
+        else:
+            self.stop_moving_at_sim = (self.get_clock().now().nanoseconds +
+                                       int(self.post_arrival_motion * 1e9))
 
         if behavior == 'abort':
             goal_handle.abort()
             return NavigateToPose.Result()
         self.successes += 1
-        self.current_marker = {'correct': correct, 'wrong': (correct + 7) % 50,
-                               'none': None, 'before_arrival': None}[mode]
+        self.marker_frozen_stamp = self.get_clock().now().nanoseconds - 200_000_000
+        self.current_marker = {'correct': correct, 'wrong': (correct + 7) % 50, 'none': None,
+                               'before_arrival': None, 'stale_queued': correct,
+                               'delayed': correct, 'legacy_only': correct}[mode]
         goal_handle.succeed()
         return NavigateToPose.Result()
 

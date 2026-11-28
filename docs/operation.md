@@ -87,11 +87,21 @@ it matters:
 Tests cover SIGINT to the mission process (during an executing goal and during pending
 acceptance) and SIGTERM to the installed executable during an executing goal.
 
-**Known timing window.** The signal handler raises an exception wherever the main thread
-happens to be. A signal that lands at the exact moment Nav2 accepts a goal can interrupt
-that bookkeeping. In 2 of about 17 deliberately timed runs, cleanup still sent the cancel
-and exited with 130, but reported `ROBOT STOP NOT VERIFIED` instead of confirming the
-stop. The planned fix is listed under Next steps in the README.
+**Signals are handled as a flag (Phase 6).** Until Phase 6 the handler raised an exception
+wherever the main thread happened to be. That once landed inside rclpy's message take and
+ended the process with exit code 1 and no cleanup; earlier, a signal at the moment of goal
+acceptance sometimes left the stop unverified. The handler now only records the signal; the
+main loop notices it within 0.1 s and runs the same bounded cleanup. Tests interrupt at five
+different points of a running mission, and in the idle, settling and verifying phases.
+
+**Stopping the whole simulation from a script.** Start `ros2 launch` with default signal
+handling (`scripts/sigdfl_exec.py`; a non-interactive bash starts background jobs with SIGINT
+ignored) and send SIGINT to the `ros2 launch` process only. Launch then stops every process
+and escalates to SIGTERM and SIGKILL on its own timeouts. In Humble, Nav2's composed
+container does not exit on SIGINT or SIGTERM and is force-killed. Verified timeline (one wall clock):
+launch forwards SIGINT after about 1.0 s; every project-owned process exits cleanly by +1.6 s; launch
+sends the container SIGTERM at +6.0 s and SIGKILL at +11.0 s; the process group is empty at +11.2 s.
+Across four runs the system was down 10.5–11.2 s after the signal. The container behaviour is upstream. `scripts/run_mission_trial.sh` does this.
 
 ## Engineering challenges and solutions
 

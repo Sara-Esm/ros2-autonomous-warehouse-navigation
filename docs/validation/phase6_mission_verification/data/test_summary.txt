@@ -1,0 +1,2 @@
+Summary: 3 packages finished [6min 41s]
+colcon test-result: 108 tests, 0 errors, 0 failures, 3 skipped (test_copyright x3)

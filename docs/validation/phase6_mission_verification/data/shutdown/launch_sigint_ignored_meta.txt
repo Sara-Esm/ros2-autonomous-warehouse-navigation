@@ -1,0 +1,33 @@
+mode launch launch_pgid 163522
+signal_wall 1795784613.996850173
+t+2s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+4s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+6s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+8s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+10s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+12s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+14s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+16s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+18s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+20s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+22s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+24s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+26s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+28s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+30s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+32s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+34s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+36s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+38s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+40s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+42s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+44s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+46s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+48s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+50s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+52s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+54s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+56s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+58s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+t+60s remaining: ros2 gzserver robot_state_pub component_conta aruco_station_d 
+FORCED KILL of survivors: 163522 163537 163539 163779 163884 

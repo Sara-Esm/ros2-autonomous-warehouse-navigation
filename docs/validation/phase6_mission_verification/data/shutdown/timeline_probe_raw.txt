@@ -1,0 +1,14 @@
+launch_pgid 214944
+member 214944 ros2
+member 214958 gzserver
+member 214960 robot_state_pub
+member 215244 component_conta
+member 215344 aruco_station_d
+signal SIGINT to ros2 launch (pid 214944) at 1795881802.900092764
+group_empty 1795881814.129815278
+exit 214944 ros2 STILL_ALIVE
+exit 0 Sara STILL_ALIVE
+exit 214958 gzserver 1795881804.406725069
+exit 215344 aruco_station_d 1795881804.262075363
+exit 215244 component_conta 1795881813.991181919
+exit 214960 robot_state_pub 1795881804.109577267

@@ -61,17 +61,28 @@ now_utc() { date -u +%Y-%m-%dT%H:%M:%SZ; }
 } > "$META"
 
 LAUNCH_START=$(date +%s)
-setsid ros2 launch warehouse_bringup warehouse_robot_system_camera.launch.py > "$LAUNCH" 2>&1 &
-LAUNCH_PGID=$!
+# A non-interactive bash starts background jobs with SIGINT ignored, and `ros2 launch` would then
+# never run its own shutdown. sigdfl_exec.py restores the default dispositions before exec.
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+setsid python3 "$SCRIPT_DIR/sigdfl_exec.py" \
+  ros2 launch warehouse_bringup warehouse_robot_system_camera.launch.py > "$LAUNCH" 2>&1 &
+LAUNCH_PGID=$!   # setsid leader = ros2 launch after exec; also the process group ID
 
 cleanup() {
-  if kill -0 "$LAUNCH_PGID" 2>/dev/null; then
+  if pgrep -g "$LAUNCH_PGID" >/dev/null; then
     echo "[trial $TRIAL] Stopping simulation..."
-    kill -INT -- "-$LAUNCH_PGID" 2>/dev/null || true
-    for _ in $(seq 1 30); do kill -0 "$LAUNCH_PGID" 2>/dev/null || break; sleep 1; done
-    kill -TERM -- "-$LAUNCH_PGID" 2>/dev/null || true
-    sleep 3
-    kill -KILL -- "-$LAUNCH_PGID" 2>/dev/null || true
+    local t0; t0=$(date +%s)
+    # SIGINT to `ros2 launch` only: it forwards SIGINT to every process and escalates to
+    # SIGTERM / SIGKILL on its own timeouts (the Nav2 container needs that in Humble).
+    kill -INT "$LAUNCH_PGID" 2>/dev/null || true
+    for _ in $(seq 1 300); do pgrep -g "$LAUNCH_PGID" >/dev/null || break; sleep 0.1; done
+    if pgrep -g "$LAUNCH_PGID" >/dev/null; then   # last resort, recorded
+      meta "shutdown_forced_survivors: $(pgrep -g "$LAUNCH_PGID" | tr '\n' ' ')"
+      kill -TERM -- "-$LAUNCH_PGID" 2>/dev/null || true
+      sleep 3
+      kill -KILL -- "-$LAUNCH_PGID" 2>/dev/null || true
+    fi
+    meta "shutdown_seconds: $(( $(date +%s) - t0 ))"
   fi
 }
 trap cleanup EXIT
@@ -81,7 +92,7 @@ fail() { meta "readiness_error: $*"; echo "ERROR: $*" >&2; exit 1; }
 wait_active() {  # node, timeout_s
   local node="$1" deadline=$(( $(date +%s) + $2 ))
   while (( $(date +%s) < deadline )); do
-    if timeout 8s ros2 lifecycle get "$node" 2>/dev/null | grep -q '^active'; then return 0; fi
+    if timeout -k 3 8s ros2 lifecycle get "$node" 2>/dev/null | grep -q '^active'; then return 0; fi
     sleep 3
   done
   return 1

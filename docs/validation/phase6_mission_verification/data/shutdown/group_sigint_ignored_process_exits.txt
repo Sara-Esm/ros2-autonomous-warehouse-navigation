@@ -1,0 +1,6 @@
+[INFO] [spawn_entity.py-3]: process has finished cleanly [pid 161782]
+[robot_state_publisher-2] [INFO] [1795784442.721962946] [rclcpp]: signal_handler(signum=2)
+[component_container_isolated-4] [INFO] [1795784442.721942346] [rclcpp]: signal_handler(signum=2)
+[INFO] [robot_state_publisher-2]: process has finished cleanly [pid 161678]
+[INFO] [aruco_station_detector-5]: process has finished cleanly [pid 162015]
+[INFO] [gzserver-1]: process has finished cleanly [pid 161676]

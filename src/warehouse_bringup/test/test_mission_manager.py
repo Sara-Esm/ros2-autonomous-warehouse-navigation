@@ -116,9 +116,12 @@ def test_verification_window_uses_simulation_time(harness_factory, rate):
     h = harness_factory(mock_kwargs={'markers': {0: 'none'}}, clock_rate=rate)
     m = h.mission
     assert h.wait_until(lambda: m.state == wan.VERIFYING, 15.0)
-    start = time.monotonic()
+    # Measure on the node's own steady clock: from its recorded VERIFYING entry time, since
+    # observing the state from this thread can lag under load and shorten the window. (rclpy's
+    # steady clock does not share time.monotonic's base, so both ends use the node clock.)
+    start_ns = m.state_entered_wall
     assert h.wait_until(lambda: m.failed_tasks == 1, 10.0)
-    elapsed = time.monotonic() - start
+    elapsed = (m.wall_ns() - start_ns) / 1e9
     expected = 1.0 / rate
     assert expected * 0.8 <= elapsed <= expected * 1.4 + 0.2, elapsed
 

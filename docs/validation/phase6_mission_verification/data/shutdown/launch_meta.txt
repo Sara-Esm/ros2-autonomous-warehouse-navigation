@@ -1,0 +1,7 @@
+mode launch launch_pgid 165680 launcher sigdfl_exec SigIgn 0000000000000006
+signal_wall 1795784938.010616507
+t+2s remaining: ros2 component_conta 
+t+4s remaining: ros2 component_conta 
+t+6s remaining: ros2 component_conta 
+t+8s remaining: ros2 component_conta 
+group_empty_after_s 10.838268137

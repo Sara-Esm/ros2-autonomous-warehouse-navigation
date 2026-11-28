@@ -1,0 +1,1 @@
+[INFO] [spawn_entity.py-3]: process has finished cleanly [pid 163632]

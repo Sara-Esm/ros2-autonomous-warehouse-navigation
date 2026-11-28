@@ -30,7 +30,9 @@ What it changed, against the three-mission baseline range:
   route and distance.
 - **Smoother commands:** the per-command change in angular velocity (|Δω| p95) halved, 0.103 → **0.051 rad/s**.
   The high-pass RMS of ω while cruising fell 0.046–0.057 → **0.033 rad/s**. The p95 of physical angular
-  acceleration fell 2.39–2.65 → **1.81 rad/s²**.
+  acceleration fell 2.39–2.65 → **1.81 rad/s²** (original method). Re-measured in Phase 6 with a least-squares
+  slope over ±0.1 s of raw samples: 2.16–2.38 → **1.63 rad/s²**. The p95 reduction is 21–28% under every
+  differentiation method tested.
 - **Better final heading:** settled heading error mean 5.9–8.8° → **4.2°**, max 9.5–10.8° → **5.8°**. The robot
   is nearly stopped when accepted, and settling takes 0.40 s instead of 0.76–1.14 s.
 - **Fewer reversals, not smaller ones:**
@@ -41,15 +43,19 @@ What it changed, against the three-mission baseline range:
   - The remaining reversals are about as large as before (median peak-to-peak 0.31 against 0.36–0.41 rad/s).
   - The physical straight-line heading weave fell from **0.38–0.43° RMS** to **0.25° RMS**. It was small to
     begin with.
-- **Not improved:** peak angular acceleration (11.95 against 11.25–11.71 rad/s²; spikes near the actuator's
-  limit remain).
+- **Peak angular acceleration: not a reliable comparison (corrected in Phase 6).** The maxima reported here
+  (11.95 against 11.25–11.71 rad/s²) are kept as historical figures.
+  - The peak varies up to 2.5× with the differentiation method (Phase 6 report, `angular_accel_methods.txt`).
+  - It is dominated by single-sample transients in Gazebo's reported body velocity, up to 0.93 rad/s in one
+    34 ms sample. That exceeds what the wheel-rim limit permits (0.425 rad/s per sample).
+  - No peak-acceleration claim is made.
 
 | Measure | Baseline: 3 missions (fpd 0.1, yaw 0.15) | Phase 5 validation (fpd 0.325, yaw 0.07) |
 |---|---|---|
 | Mission / exit / markers verified | 5/5 / 0 / 5 in all three | 5/5 / 0 / 5 |
 | Total absolute rotation | 2,254 – 2,366° | **1,948°** |
 | Per-command \|Δω\| p95 / cruise ω high-pass RMS | 0.103 / 0.046 – 0.057 rad/s | **0.051 / 0.033** |
-| Truth angular acceleration p95 / max | 2.39 – 2.65 / 11.25 – 11.71 rad/s² | **1.81** / 11.95 |
+| Truth angular acceleration p95 (original method; LS ±0.1 s) | 2.39 – 2.65; 2.16 – 2.38 rad/s² | **1.81; 1.63** (the max is not comparable; see §1) |
 | Cruise reversals per nav-minute / median peak-to-peak | 7.15 – 8.28 / 0.36 – 0.41 rad/s | 1.34 / 0.31 |
 | Straight-line heading weave (truth, RMS) | 0.38 – 0.43° | 0.25° |
 | Settled \|heading\| mean / max | 5.9 – 8.8° / 9.5 – 10.8° | **4.2° / 5.8°** |
@@ -167,11 +173,17 @@ All three sessions: 0 timeouts, recoveries and planning failures; RTF 0.857–0.
 
 **Physical footprint clearance comes first.** The collision footprint's window minimum at the south pinch was:
 
-- **0.25–0.27 m** in the baseline full missions;
+- **0.25, 0.26 and 0.27 m** in the three baseline full missions (B3, B1, B2);
 - **0.21 m** in the Phase 5 validation mission;
-- **0.21 m** minimum in the matched 0.325 m session.
+- **0.21 m** minimum in the matched 0.325 m session;
+- **0.25 m** in the Phase 6 validation mission (identical controller, planner, map, costmap and goals; added
+  in Phase 6).
 
-That is a reduction of **4–6 cm, about 16–22% of the measured baseline footprint margin**. The figures come from
+Phase 5 against the baselines is a reduction of **4–6 cm, about 16–22% of the baseline footprint margin**. The
+Phase 6 mission, with the same configuration, measured 0.25 m. **The size and repeatability of the total
+footprint-clearance regression are therefore unresolved:** run-to-run variation is of the same order as the
+measured difference. Phase 6 did not fix anything here, and the original clearance criterion is still not shown
+to be satisfied. The measurement is carried into Phase 7. The figures come from
 a 5 cm raster of the true geometry (±2.5 cm quantization) and the collision outline without the LiDAR housing
 overhang. That quantization is a measurement uncertainty, **not a comprehensive safety bound**.
 
@@ -206,7 +218,8 @@ At the pinch, the clearance has two components:
   average plan.
 - The controller's contribution rises monotonically with forward-point distance (mean about 0, 3.55 and
   5.35 cm). Global-plan placement (0.33–0.42 m) and localization error vary as much, so the total minimum does
-  not isolate it cleanly.
+  not isolate it cleanly. The Phase 6 mission (0.25 m footprint, same configuration) confirms large
+  run-to-run variation.
 - The clearance criterion is **not fully met**. The reduction was explicitly **accepted as a trade-off for the
   current simulated operating environment**.
 
@@ -270,10 +283,10 @@ at RTF 0.87 (Phase 4b report §5). The measured |Δω| per command still clips a
 
 | Criterion | Result |
 |---|---|
-| Measurable reduction in unwanted oscillation or abrupt angular motion | **Met:** rotation −14%, \|Δω\| p95 halved, angular acceleration p95 −24% or more, reversal frequency −82%, heading weave 0.38–0.43° → 0.25°. The peak is unchanged. |
+| Measurable reduction in unwanted oscillation or abrupt angular motion | **Met:** rotation −14%, \|Δω\| p95 halved, angular acceleration p95 −21 to −28% (robust to the differentiation method), reversal frequency −82%, heading weave 0.38–0.43° → 0.25°. No peak-acceleration claim: the peak is method-dependent. |
 | Improved settled heading accuracy | **Met:** mean 4.2°, max 5.8° |
 | Maximum position error ≤ 0.15 m | **Met:** 0.114 m (slightly above the baseline's 0.091–0.107 m) |
-| No significant degradation in obstacle clearance | **Not fully met; trade-off accepted.** Footprint clearance at the pinch 0.25–0.27 → 0.21 m (−16–22%). Part of the loss comes from corner-cutting, part from plan placement and localization (§5). |
+| No significant degradation in obstacle clearance | **Not fully met; trade-off accepted.** Footprint clearance at the pinch 0.25–0.27 → 0.21 m (−16–22%); the Phase 6 mission with the same configuration measured 0.25 m. Tracking deviation rises with forward-point distance, but the size and repeatability of the total regression are unresolved (§5). |
 | No new navigation or perception regressions | **Met** |
 | All five stations verified; 5/5, exit 0 | **Met** |
 

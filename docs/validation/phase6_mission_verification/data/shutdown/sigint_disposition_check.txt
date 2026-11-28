@@ -1,0 +1,2 @@
+plain background setsid: SigIgn=0000000000000006 SIGINT_ignored=1
+background via sigdfl_exec.py: SigIgn=0000000001000004 SIGINT_ignored=0

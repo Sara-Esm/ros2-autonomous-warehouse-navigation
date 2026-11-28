@@ -1,0 +1,21 @@
+# Shutdown timeline (one wall clock: time.time() / date +%s.%N). SIGINT sent to ros2 launch only at t=0.
+# Launch log lines timestamped on receipt (line_stamper.py); group membership by exact PID; launch 1.0.10.
+ +0.013 s  [WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+ +1.031 s  [INFO] [aruco_station_detector-5]: sending signal 'SIGINT' to process[aruco_station_detector-5]
+ +1.032 s  [INFO] [component_container_isolated-4]: sending signal 'SIGINT' to process[component_container_isolated-4]
+ +1.035 s  [INFO] [robot_state_publisher-2]: sending signal 'SIGINT' to process[robot_state_publisher-2]
+ +1.035 s  [INFO] [gzserver-1]: sending signal 'SIGINT' to process[gzserver-1]
+ +1.198 s  [INFO] [robot_state_publisher-2]: process has finished cleanly [pid 214960]
+ +1.323 s  [INFO] [aruco_station_detector-5]: process has finished cleanly [pid 215344]
+ +1.552 s  [INFO] [gzserver-1]: process has finished cleanly [pid 214958]
+ +6.032 s  [ERROR] [component_container_isolated-4]: process[component_container_isolated-4] failed to terminate '5' seconds after receiving 'SIGINT', escalating to 'SIGTERM'
+ +6.032 s  [INFO] [component_container_isolated-4]: sending signal 'SIGTERM' to process[component_container_isolated-4]
++11.034 s  [ERROR] [component_container_isolated-4]: process[component_container_isolated-4] failed to terminate '10.0' seconds after receiving 'SIGTERM', escalating to 'SIGKILL'
++11.035 s  [INFO] [component_container_isolated-4]: sending signal 'SIGKILL' to process[component_container_isolated-4]
++11.046 s  [ERROR] [component_container_isolated-4]: process has died [pid 215244, exit code -9
++11.230 s group empty (pgrep -g on the launch process group)
+
+# Note: launch's second message says '10.0 seconds after receiving SIGTERM'. In launch 1.0.10 both timers start at the
+# forwarded SIGINT; the SIGKILL timer's period is sigterm_timeout + sigkill_timeout = 10 s from SIGINT (5 s after SIGTERM).
+# The probe's own per-PID summary in timeline.txt has two artifacts (ros2 launch exit not stamped: loop order;
+# a spurious key '0'); the stamped launch log above is authoritative.
